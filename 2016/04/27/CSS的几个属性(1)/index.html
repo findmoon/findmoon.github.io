@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS的几个属性(1) | findmoon-白色蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="line-height有什么作用?
+设置行高，例如：line-height:1/200%/16px;这是三种不同表达方式，表示行高或者当文字多时文本行与行之间的缝隙，文本所占用的高度是文字本身高度的一倍，二倍，或固定值16px。一般用于单行文字的垂直居中（多行则不行），行高等于元素的高度line-height=height。
+
+
+如何去查CSS熟悉的兼容性？比如inline-block哪些浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS的几个属性(1)">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/04/27/CSS的几个属性(1)/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="line-height有什么作用?
+设置行高，例如：line-height:1/200%/16px;这是三种不同表达方式，表示行高或者当文字多时文本行与行之间的缝隙，文本所占用的高度是文字本身高度的一倍，二倍，或固定值16px。一般用于单行文字的垂直居中（多行则不行），行高等于元素的高度line-height=height。
+
+
+如何去查CSS熟悉的兼容性？比如inline-block哪些浏览器">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/1904885-d80d6f231ff09d59.png">
+<meta property="og:updated_time" content="2016-04-27T14:10:04.917Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS的几个属性(1)">
+<meta name="twitter:description" content="line-height有什么作用?
+设置行高，例如：line-height:1/200%/16px;这是三种不同表达方式，表示行高或者当文字多时文本行与行之间的缝隙，文本所占用的高度是文字本身高度的一倍，二倍，或固定值16px。一般用于单行文字的垂直居中（多行则不行），行高等于元素的高度line-height=height。
+
+
+如何去查CSS熟悉的兼容性？比如inline-block哪些浏览器">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/1904885-d80d6f231ff09d59.png">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">findmoon-白色蜗牛</h1>
+  
+    <p class="lead blog-description">一个试图专注于自身的成长者</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-CSS的几个属性(1)" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      CSS的几个属性(1)
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2016/04/27/CSS的几个属性(1)/" class="article-date"><time datetime="2016-04-27T11:26:24.000Z" itemprop="datePublished">2016-04-27</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/随笔/">随笔</a> / <a class="article-category-link" href="/categories/随笔/css/">css</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><code>line-height</code>有什么作用?<ul>
+<li>设置行高，例如：line-height:1/200%/16px;这是三种不同表达方式，表示行高或者当文字多时文本行与行之间的缝隙，文本所占用的高度是文字本身高度的一倍，二倍，或固定值16px。一般用于单行文字的垂直居中（多行则不行），行高等于元素的高度line-height=height。</li>
+</ul>
+</li>
+<li>如何去查CSS熟悉的兼容性？比如<code>inline-block</code>哪些浏览器支持？<br>网站<a href="http://caniuse.com/" target="_blank" rel="external">caniuse</a>中查看<br><img src="/img/1904885-d80d6f231ff09d59.png" alt="Paste_Image.png"></li>
+<li>a 标签的href, title, target 是什么？ title 和 alt有什么区别？如何新窗口打开链接?<ul>
+<li>href表示的是超链接要跳转到哪里的一个路径地址，可以是相对路径也可以是绝对路径。</li>
+<li>title:标题，鼠标移入图片的提示文字</li>
+<li>target：在哪个窗口打开网页，常用的取值有两个，_slef,_blank.<br>_slef:在当前窗口打开（默认）<br>_blank:新开一个窗口打开</li>
+<li>title 和 alt有什么区别？<br>title是鼠标移入时候的文字提示，而alt一般用在图片上，表示图片加载不出来的时候在该位置上显示的提示文字</li>
+</ul>
+</li>
+<li><code>display: none</code> , <code>visibility: hidden</code>, <code>opacity:0</code> 有什么作用？有什么区别？<br>display: none，表示dom元素在页面中不显示，只在dom树中存在，文档流中不存在。<br>visibility:hidden:仅仅是html文档中隐藏，元素所占的的位置依然保留<br>opcity：设置透明度，取值（0-1），0表示完全透明，1表示完全不透明，一般用在实现动画，淡入淡出等过度的一些效果。</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/CSS的几个属性(1)/" data-id="cinixp8h10000lk3htaosv0ln" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css属性/">css属性</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2016/04/27/列表介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">列表介绍</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/2016/04/27/html小知识(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">html小知识(2)</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> 白色蜗牛</br> <em>永远善良，永远真诚不忘</em>  </br> 欢迎来到我的个人博客，用心感悟和学习前端的神奇， 分享感悟，这里不仅有科技，也有文艺和美好.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/">技术</a><span class="sidebar-module-list-count">12</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/css/">css</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/git/">git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/markdown/">markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/前端/">前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/语义化/">语义化</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/">随笔</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/css/">css</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/html小知识/">html小知识</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/选择器/">选择器</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/前端/">-前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css/">css</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css属性/">css属性</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css样式/">css样式</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/first-child/">first-child</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/first-of-type/">first-of-type</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/form表单/">form表单</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/get/">get</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gitbash/">gitbash</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git错误/">git错误</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/html/">html</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/post/">post</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/列表/">列表</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/标记语言/">标记语言</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/行内元素/">行内元素</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/选择器/">选择器</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/前端/" style="font-size: 10px;">-前端</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css属性/" style="font-size: 15px;">css属性</a> <a href="/tags/css样式/" style="font-size: 10px;">css样式</a> <a href="/tags/first-child/" style="font-size: 10px;">first-child</a> <a href="/tags/first-of-type/" style="font-size: 10px;">first-of-type</a> <a href="/tags/form表单/" style="font-size: 10px;">form表单</a> <a href="/tags/get/" style="font-size: 10px;">get</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/git错误/" style="font-size: 10px;">git错误</a> <a href="/tags/html/" style="font-size: 20px;">html</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/列表/" style="font-size: 10px;">列表</a> <a href="/tags/标记语言/" style="font-size: 10px;">标记语言</a> <a href="/tags/行内元素/" style="font-size: 10px;">行内元素</a> <a href="/tags/选择器/" style="font-size: 10px;">选择器</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/04/">四月 2016</a><span class="sidebar-module-list-count">20</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/form表单及input标签/">form表单及input标签</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/html小知识(2)/">html小知识(2)</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/CSS的几个属性(1)/">CSS的几个属性(1)</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2016 findmoon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>

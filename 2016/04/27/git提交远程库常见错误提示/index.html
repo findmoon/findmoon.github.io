@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="findmoon-白色蜗牛">
 <meta property="og:description" content="123456git 提交命令         git init         git add README.md         git commit -m &amp;quot;这次提交的改动信息&amp;quot;         git remote add  origin git@github.com:Github的用户名/仓库名         git push -u  origin master
 可能">
-<meta property="og:updated_time" content="2016-04-27T11:58:20.929Z">
+<meta property="og:updated_time" content="2016-04-27T12:17:49.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git提交远程库常见错误提示">
 <meta name="twitter:description" content="123456git 提交命令         git init         git add README.md         git commit -m &amp;quot;这次提交的改动信息&amp;quot;         git remote add  origin git@github.com:Github的用户名/仓库名         git push -u  origin master
@@ -115,17 +115,17 @@
 <li>原因：该命令是将文件加至暂存区域，表示该文件找不到，即是在目录里面不存在，创建好文件再添加。</li>
 </ul>
 </li>
-<li><p>Q2：执行第4条命令行时报错“fatal: remote origin already exists.”</p>
+<li><p>执行第4条命令行时报错“fatal: remote origin already exists.”</p>
 <ul>
 <li>解决：先输入git remote rm origin后重新输入一次即可。</li>
 </ul>
 </li>
-<li><p>Q3：执行git push -u origin master时报错信息如<br>“ ! [rejected]        master -&gt; master (fetch first)<br> error: failed to push some refs to ‘git@github.com:levyc/SpringAccessDB.git’<br> hint: Updates were rejected because the remote contains work that you do<br> hint: not have locally. This is usually caused by another repository pushing<br> hint: to the same ref. You may want to first integrate the remote changes<br> hint: (e.g., ‘git pull …’) before pushing again.<br> hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.”    </p>
+<li><p>执行git push -u origin master时报错信息如<br>“ ! [rejected]        master -&gt; master (fetch first)<br> error: failed to push some refs to ‘git@github.com:levyc/SpringAccessDB.git’<br> hint: Updates were rejected because the remote contains work that you do<br> hint: not have locally. This is usually caused by another repository pushing<br> hint: to the same ref. You may want to first integrate the remote changes<br> hint: (e.g., ‘git pull …’) before pushing again.<br> hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.”    </p>
 <ul>
 <li>原因：github远程仓库发生了变化，但是本地没有fetch（抓取）新变化下来就push到远程仓库。只要先执行git pull –rebase origin master获取最新改动即可解决。</li>
 </ul>
 </li>
-<li><p>-Q4：push成功后但是Github上没有本地项目的文件。</p>
+<li><p>-push成功后但是Github上没有本地项目的文件。</p>
 <ul>
 <li>原因：没有将项目里面的文件添加进去就commit（提交）了。用git add . 将目录内所有文件添加进暂存区域再提交即可。 </li>
 </ul>
@@ -156,12 +156,19 @@
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
   <li role="presentation">
-    <a href="/2016/04/27/行内元素的几个小特性/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/27/git操作新建库/" id="article-nav-older" class="article-nav-link-wrap">
       <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">行内元素的几个小特性</span>
+      <span class="article-nav-link-title">git操作新建库</span>
     </a>
   </li>
   
+  
+  <li role="presentation">
+    <a href="/2016/04/27/行内元素的几个小特性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">行内元素的几个小特性</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
   
 </ul>
 
@@ -185,7 +192,7 @@
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/">技术</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/git/">git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/前端/">前端</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/">技术</a><span class="sidebar-module-list-count">12</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/css/">css</a><span class="sidebar-module-list-count">5</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/git/">git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/markdown/">markdown</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/前端/">前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/语义化/">语义化</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/">随笔</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/css/">css</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/html小知识/">html小知识</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/随笔/选择器/">选择器</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
   </div>
 
 
@@ -193,7 +200,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/前端/">-前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gitbash/">gitbash</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git错误/">git错误</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/行内元素/">行内元素</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/前端/">-前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css/">css</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css属性/">css属性</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/css样式/">css样式</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/first-child/">first-child</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/first-of-type/">first-of-type</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/form表单/">form表单</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/get/">get</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gitbash/">gitbash</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git错误/">git错误</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/html/">html</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/post/">post</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/列表/">列表</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/标记语言/">标记语言</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/行内元素/">行内元素</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/选择器/">选择器</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -202,7 +209,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/前端/" style="font-size: 10px;">-前端</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/git错误/" style="font-size: 10px;">git错误</a> <a href="/tags/行内元素/" style="font-size: 10px;">行内元素</a>
+      <a href="/tags/前端/" style="font-size: 10px;">-前端</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css属性/" style="font-size: 15px;">css属性</a> <a href="/tags/css样式/" style="font-size: 10px;">css样式</a> <a href="/tags/first-child/" style="font-size: 10px;">first-child</a> <a href="/tags/first-of-type/" style="font-size: 10px;">first-of-type</a> <a href="/tags/form表单/" style="font-size: 10px;">form表单</a> <a href="/tags/get/" style="font-size: 10px;">get</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/git错误/" style="font-size: 10px;">git错误</a> <a href="/tags/html/" style="font-size: 20px;">html</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/列表/" style="font-size: 10px;">列表</a> <a href="/tags/标记语言/" style="font-size: 10px;">标记语言</a> <a href="/tags/行内元素/" style="font-size: 10px;">行内元素</a> <a href="/tags/选择器/" style="font-size: 10px;">选择器</a>
     </p>
   </div>
 
@@ -210,7 +217,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/04/">四月 2016</a><span class="sidebar-module-list-count">8</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/04/">四月 2016</a><span class="sidebar-module-list-count">20</span></li></ul>
   </div>
 
 
@@ -221,23 +228,23 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/2016/04/27/git提交远程库常见错误提示/">git提交远程库常见错误提示</a>
+          <a href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
         </li>
       
         <li>
-          <a href="/2016/04/27/行内元素的几个小特性/">行内元素的几个小特性</a>
+          <a href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
         </li>
       
         <li>
-          <a href="/2016/04/27/git操作新建库/">git操作新建库</a>
+          <a href="/2016/04/27/form表单及input标签/">form表单及input标签</a>
         </li>
       
         <li>
-          <a href="/2016/04/27/gitbash命令/">gitbash命令</a>
+          <a href="/2016/04/27/html小知识(2)/">html小知识(2)</a>
         </li>
       
         <li>
-          <a href="/2016/04/27/前端是做什么的/">前端是做什么的</a>
+          <a href="/2016/04/27/CSS的几个属性(1)/">CSS的几个属性(1)</a>
         </li>
       
     </ul>
