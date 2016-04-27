@@ -76,13 +76,13 @@
         <div class="col-sm-8 blog-main">
           
   
-    <article id="post-type=hidden隐藏域的作用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-post 和 get的区别" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
+      <a class="article-title" href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
     </h1>
   
 
@@ -91,7 +91,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2016/04/27/type=hidden隐藏域的作用/" class="article-date"><time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time></a>
+  <a href="/2016/04/27/post 和 get的区别/" class="article-date"><time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time></a>
 </div>
 
     
@@ -106,26 +106,12 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>type=hidden</code>隐藏域</p>
-<blockquote>
-<ul>
-<li><strong>基本语法：</strong><br>&lt; input type=”hidden” name=”field＿name” value=”value”&gt;</li>
-</ul>
-</blockquote>
-<p><strong>作用：</strong> </p>
-<ul>
-<li><p>1、隐藏域在页面中对于用户是不可见的，在表单中插入隐藏域的目的在于收集或发送信息，以利于被处理表单的程序所使用。浏览者单击发送按钮发送表单的时候，隐藏域的信息也被一起发送到服务器。</p>
-</li>
-<li><p>2、有些时候我们要给用户一信息，让他在提交表单时提交上来以确定用户身份，如sessionkey，等等．当然这些东西也能用cookie实现，但使用隐藏域就简单的多了．而且不会有浏览器不支持，用户禁用cookie的烦恼。 </p>
-</li>
-<li><p>3、有些时候一个form里有多个提交按钮，怎样使程序能够分清楚到底用户是按那一个按钮提交上来的呢？我们就可以写一个隐藏域，然后在每一个按钮处加上onclick=”document.form.command.value=”xx””，然后我们接到数据后先检查command的值就会知道用户是按的那个按钮提交上来的。 </p>
-</li>
-<li><p>4、有时候一个网页中有多个form，我们知道多个form是不能同时提交的，但有时这些form确实相互作用，我们就可以在form中添加隐藏域来使它们联系起来。 </p>
-</li>
-<li><p>5、javascript不支持全局变量，但有时我们必须用全局变量，我们就可以把值先存在隐藏域里，它的值就不会丢失了。 </p>
-</li>
-<li><p>6、还有个例子，比如按一个按钮弹出四个小窗口，当点击其中的一个小窗口时其他三个自动关闭．可是IE不支持小窗口相互调用，所以只有在父窗口写个隐藏域，当小窗口看到那个隐藏域的值是close时就自己关掉。</p>
-</li>
+        <h2 id="post-和-get-方式的区别"><a href="#post-和-get-方式的区别" class="headerlink" title="post 和 get 方式的区别:"></a>post 和 get 方式的区别:</h2><ul>
+<li>用get提交数据，数据会显示在url里；</li>
+<li>用post就不会在url中显示。</li>
+<li>get受浏览器的限制，最多只能提交1k数据，用于提交少量数据；</li>
+<li>post理论上没有传输上限，提交的数据大小受服务器的限制，用于提交大量数据。</li>
+<li>get的请求会被缓存，会被保留在历史记录中，可以被保存成书签，不适合处理敏感数据如密码等；而post以上都不会被保留，安全性较高。<br>浏览器默认是用get提交</li>
 </ul>
 
       
@@ -137,12 +123,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/type=hidden隐藏域的作用/" data-id="ciniym98j000u1w3h2adr284p" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/post 和 get的区别/" data-id="cinizjlm9000vus3h24g0du4n" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css属性/">css属性</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/get/">get</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/post/">post</a></li></ul>
 
 
     </footer>
@@ -222,7 +208,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/form表单及input标签/" data-id="ciniym96j000b1w3h6i1ar28g" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/form表单及input标签/" data-id="cinizjlk8000bus3h1bd264z9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -238,13 +224,13 @@
 
 
   
-    <article id="post-post 和 get的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-type=hidden隐藏域的作用" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
+      <a class="article-title" href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
     </h1>
   
 
@@ -253,7 +239,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2016/04/27/post 和 get的区别/" class="article-date"><time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time></a>
+  <a href="/2016/04/27/type=hidden隐藏域的作用/" class="article-date"><time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time></a>
 </div>
 
     
@@ -268,12 +254,26 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="post-和-get-方式的区别"><a href="#post-和-get-方式的区别" class="headerlink" title="post 和 get 方式的区别:"></a>post 和 get 方式的区别:</h2><ul>
-<li>用get提交数据，数据会显示在url里；</li>
-<li>用post就不会在url中显示。</li>
-<li>get受浏览器的限制，最多只能提交1k数据，用于提交少量数据；</li>
-<li>post理论上没有传输上限，提交的数据大小受服务器的限制，用于提交大量数据。</li>
-<li>get的请求会被缓存，会被保留在历史记录中，可以被保存成书签，不适合处理敏感数据如密码等；而post以上都不会被保留，安全性较高。<br>浏览器默认是用get提交</li>
+        <p><code>type=hidden</code>隐藏域</p>
+<blockquote>
+<ul>
+<li><strong>基本语法：</strong><br>&lt; input type=”hidden” name=”field＿name” value=”value”&gt;</li>
+</ul>
+</blockquote>
+<p><strong>作用：</strong> </p>
+<ul>
+<li><p>1、隐藏域在页面中对于用户是不可见的，在表单中插入隐藏域的目的在于收集或发送信息，以利于被处理表单的程序所使用。浏览者单击发送按钮发送表单的时候，隐藏域的信息也被一起发送到服务器。</p>
+</li>
+<li><p>2、有些时候我们要给用户一信息，让他在提交表单时提交上来以确定用户身份，如sessionkey，等等．当然这些东西也能用cookie实现，但使用隐藏域就简单的多了．而且不会有浏览器不支持，用户禁用cookie的烦恼。 </p>
+</li>
+<li><p>3、有些时候一个form里有多个提交按钮，怎样使程序能够分清楚到底用户是按那一个按钮提交上来的呢？我们就可以写一个隐藏域，然后在每一个按钮处加上onclick=”document.form.command.value=”xx””，然后我们接到数据后先检查command的值就会知道用户是按的那个按钮提交上来的。 </p>
+</li>
+<li><p>4、有时候一个网页中有多个form，我们知道多个form是不能同时提交的，但有时这些form确实相互作用，我们就可以在form中添加隐藏域来使它们联系起来。 </p>
+</li>
+<li><p>5、javascript不支持全局变量，但有时我们必须用全局变量，我们就可以把值先存在隐藏域里，它的值就不会丢失了。 </p>
+</li>
+<li><p>6、还有个例子，比如按一个按钮弹出四个小窗口，当点击其中的一个小窗口时其他三个自动关闭．可是IE不支持小窗口相互调用，所以只有在父窗口写个隐藏域，当小窗口看到那个隐藏域的值是close时就自己关掉。</p>
+</li>
 </ul>
 
       
@@ -285,12 +285,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/post 和 get的区别/" data-id="ciniym98u000w1w3hus7snewo" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/type=hidden隐藏域的作用/" data-id="cinizjlmc000xus3hhftq3z8v" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/get/">get</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/post/">post</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css属性/">css属性</a></li></ul>
 
 
     </footer>
@@ -356,7 +356,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/CSS的几个属性(1)/" data-id="ciniym95l00021w3hbhidxqc7" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/CSS的几个属性(1)/" data-id="cinizjljq0005us3hj0j8bep5" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -428,7 +428,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/html小知识(2)/" data-id="ciniym987000o1w3hr2vhmuqt" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/html小知识(2)/" data-id="cinizjlm0000pus3horezmg0s" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -492,73 +492,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/html相关小知识点(1)/" data-id="ciniym989000q1w3hgf2r13l5" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/html相关小知识点(1)/" data-id="cinizjlm2000rus3hq9k6xkzi" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-HTML CSS语义化" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/HTML CSS语义化/">HTML CSS语义化</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2016/04/27/HTML CSS语义化/" class="article-date"><time datetime="2016-04-27T11:24:24.000Z" itemprop="datePublished">2016-04-27</time></a>
-</div>
-
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a> / <a class="article-category-link" href="/categories/技术/语义化/">语义化</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如何理解 HTML CSS 语义化? 在平时写代码的过程中要注意哪些细节</p>
-<ul>
-<li>语义化是指合理使用HTML标记以及其特有的属性去格式化文档内容，也就是将标签所特有的含义和样式体现出里面包含的内容。</li>
-<li>语义化的好处：<br>省去不必要的标签，让页面的结构简洁清晰<br>更容易被搜索引擎的爬虫收录<br>在设备无法渲染CSS时可以确保这些设备能用一种有意义的方式来渲染页面<br>便于屏幕阅读器的阅读<br>有利于团队的开发和维护</li>
-</ul>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/HTML CSS语义化/" data-id="ciniym96200051w3hw11ybqw8" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
 
 
     </footer>
@@ -628,7 +567,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/css选择器知识点/" data-id="ciniym96800061w3hboommqqi" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/css选择器知识点/" data-id="cinizjlju0006us3hr4thfupk" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -707,12 +646,73 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/first-child和first-of-type的区别/" data-id="ciniym96d00081w3hg9pknkea" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/first-child和first-of-type的区别/" data-id="cinizjlk00008us3h224s6hzo" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/first-child/">first-child</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/first-of-type/">first-of-type</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-HTML CSS语义化" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/27/HTML CSS语义化/">HTML CSS语义化</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2016/04/27/HTML CSS语义化/" class="article-date"><time datetime="2016-04-27T11:24:24.000Z" itemprop="datePublished">2016-04-27</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a> / <a class="article-category-link" href="/categories/技术/语义化/">语义化</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何理解 HTML CSS 语义化? 在平时写代码的过程中要注意哪些细节</p>
+<ul>
+<li>语义化是指合理使用HTML标记以及其特有的属性去格式化文档内容，也就是将标签所特有的含义和样式体现出里面包含的内容。</li>
+<li>语义化的好处：<br>省去不必要的标签，让页面的结构简洁清晰<br>更容易被搜索引擎的爬虫收录<br>在设备无法渲染CSS时可以确保这些设备能用一种有意义的方式来渲染页面<br>便于屏幕阅读器的阅读<br>有利于团队的开发和维护</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/HTML CSS语义化/" data-id="cinizjljc0002us3h22ki6vw5" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
 
 
     </footer>
@@ -771,7 +771,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="//findmoon.github.io/index.html/2016/04/27/列表介绍/" data-id="ciniym99000101w3h23kbdka5" class="article-share-link">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/列表介绍/" data-id="cinizjlmo0011us3hh1wwvhww" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -844,7 +844,7 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
+          <a href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
         </li>
       
         <li>
@@ -852,7 +852,7 @@
         </li>
       
         <li>
-          <a href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a>
+          <a href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
         </li>
       
         <li>
