@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git操作新建库 | findmoon-白色蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="桌面右键打开gitbash，命令行输入cd /c，转到C盘操作。
+
+
+cd 切换文件夹时直接写文件夹名字即可，去掉/。如何从某以文件夹转到上一级目录？cd.. :切换到上级目录
+rm删除文件或者文件夹 rm a.txt、rm -rf demo。删除文件夹命令必须加上 -rf
+touch用于创建空文件。touch README.md 创建README.md的文件，内容为空
+mkdir用于创建文件夹，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git操作新建库">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/04/27/git操作新建库/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="桌面右键打开gitbash，命令行输入cd /c，转到C盘操作。
+
+
+cd 切换文件夹时直接写文件夹名字即可，去掉/。如何从某以文件夹转到上一级目录？cd.. :切换到上级目录
+rm删除文件或者文件夹 rm a.txt、rm -rf demo。删除文件夹命令必须加上 -rf
+touch用于创建空文件。touch README.md 创建README.md的文件，内容为空
+mkdir用于创建文件夹，">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/1460711277950_2.png">
+<meta property="og:updated_time" content="2016-04-27T11:39:30.656Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git操作新建库">
+<meta name="twitter:description" content="桌面右键打开gitbash，命令行输入cd /c，转到C盘操作。
+
+
+cd 切换文件夹时直接写文件夹名字即可，去掉/。如何从某以文件夹转到上一级目录？cd.. :切换到上级目录
+rm删除文件或者文件夹 rm a.txt、rm -rf demo。删除文件夹命令必须加上 -rf
+touch用于创建空文件。touch README.md 创建README.md的文件，内容为空
+mkdir用于创建文件夹，">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/1460711277950_2.png">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">findmoon-白色蜗牛</h1>
+  
+    <p class="lead blog-description">一个试图专注于自身的成长者</p>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-git操作新建库" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      git操作新建库
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2016/04/27/git操作新建库/" class="article-date"><time datetime="2016-04-27T10:24:52.000Z" itemprop="datePublished">2016-04-27</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a> / <a class="article-category-link" href="/categories/技术/git/">git</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>桌面右键打开gitbash，命令行输入<strong>cd /c</strong>，转到C盘操作。</p>
+<hr>
+<ul>
+<li>cd 切换文件夹时直接写文件夹名字即可，去掉/。<em>如何从某以文件夹转到上一级目录？</em>cd.. :切换到上级目录</li>
+<li>rm删除文件或者文件夹 rm a.txt、rm -rf demo。<em>删除文件夹命令必须加上 -rf</em></li>
+<li>touch用于创建空文件。touch README.md 创建README.md的文件，内容为空</li>
+<li>mkdir用于创建文件夹，mkdir demo创建名叫demo的文件夹</li>
+<li>cp复制文件或者文件夹<br>cp a.txt b.txt：把a.txt拷贝一份放到当前目录，起名叫b.txt<br>cp -R demo demo2：把demo文件夹复制一份，起名叫demo2</li>
+</ul>
+<hr>
+<h3 id="ls：查看c盘下文件-内容"><a href="#ls：查看c盘下文件-内容" class="headerlink" title="ls：查看c盘下文件/内容"></a>ls：查看c盘下文件/内容</h3><p>  <img src="/img/1460711277950_2.png" alt=""></p>
+<h3 id="mkdir-新建文件夹。（touch：新建文件）"><a href="#mkdir-新建文件夹。（touch：新建文件）" class="headerlink" title="mkdir :新建文件夹。（touch：新建文件）"></a>mkdir :新建文件夹。（touch：新建文件）</h3><h3 id="pwd-查看当前操作的文件的路径"><a href="#pwd-查看当前操作的文件的路径" class="headerlink" title="pwd :查看当前操作的文件的路径"></a>pwd :查看当前操作的文件的路径</h3><h3 id="git-clone-ssh：将git-master内容克隆到本地-yes连接"><a href="#git-clone-ssh：将git-master内容克隆到本地-yes连接" class="headerlink" title="git clone ssh：将git-master内容克隆到本地,yes连接"></a>git clone ssh：将git-master内容克隆到本地,yes连接</h3><h3 id="如果出现，permission-denied-以及fatal（错误），需要创建公私钥连接"><a href="#如果出现，permission-denied-以及fatal（错误），需要创建公私钥连接" class="headerlink" title="如果出现，permission denied  以及fatal（错误），需要创建公私钥连接"></a>如果出现，permission denied  以及fatal（错误），需要创建公私钥连接</h3><hr>
+<ul>
+<li>创建公私钥<br>ssh-keygen -t rsa -b 4096 -C “your_email@example.com”<br>（Creates a new ssh key, using the provided email as a label<br>Generating public/private rsa key pair.</li>
+<li>查看<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">sshkey相关说明</a></li>
+</ul>
+<hr>
+<p><strong>git statue，查看状态，出了什么问题</strong><br><strong>pull之后，git默认把远程库和本地做个合并，合并后就需要生成新的提交，必须输入一些文字告诉做了什么事情，默认打开vim编辑器（模拟的linux环境），输入 有两种模式，命令模式和编辑模式，编辑模式才能输入一些文字。输入i（insert）就可以编辑输入文字，ESC退出insert，进入功能模式。然后输入：w（writer）q（quit）【保存退出】，相当执行了commit</strong></p>
+<hr>
+<h3 id="clone完后，cd-到文件夹下操作"><a href="#clone完后，cd-到文件夹下操作" class="headerlink" title="clone完后，cd 到文件夹下操作"></a>clone完后，cd 到文件夹下操作</h3><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .:加入缓存区。</span><br><span class="line">git commit -am &quot;add my file&quot;:提交到本地库。</span><br><span class="line">git remote add origin （ssh地址，如果为http地址需要输入git用户名和密码）</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="git-bash中使用Ctrl-上下键借用以前的命令"><a href="#git-bash中使用Ctrl-上下键借用以前的命令" class="headerlink" title="git bash中使用Ctrl+上下键借用以前的命令"></a>git bash中使用Ctrl+上下键借用以前的命令</h2><p>（cd project/[project为文件夹]）</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="//findmoon.github.io/index.html/2016/04/27/git操作新建库/" data-id="ciniqmu3q0004gg3ht7ez932o" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2016/04/27/gitbash命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">gitbash命令</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="/2016/04/27/行内元素的几个小特性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">行内元素的几个小特性</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p> 白色蜗牛</br> <em>永远善良，永远真诚不忘</em>  </br> 欢迎来到我的个人博客，用心感悟和学习前端的神奇， 分享感悟，这里不仅有科技，也有文艺和美好.</p>
+
+</div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Categories</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/">技术</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/git/">git</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/html/">html</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/技术/前端/">前端</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/前端/">-前端</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git/">git</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/gitbash/">gitbash</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/git错误/">git错误</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/行内元素/">行内元素</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/前端/" style="font-size: 10px;">-前端</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/git错误/" style="font-size: 10px;">git错误</a> <a href="/tags/行内元素/" style="font-size: 10px;">行内元素</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2016/04/">四月 2016</a><span class="sidebar-module-list-count">8</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2016/04/27/git提交远程库常见错误提示/">git提交远程库常见错误提示</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/行内元素的几个小特性/">行内元素的几个小特性</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/git操作新建库/">git操作新建库</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/gitbash命令/">gitbash命令</a>
+        </li>
+      
+        <li>
+          <a href="/2016/04/27/前端是做什么的/">前端是做什么的</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2016 findmoon<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
