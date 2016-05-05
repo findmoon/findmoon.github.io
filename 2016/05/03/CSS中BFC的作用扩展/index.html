@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    CSS中BFC的作用扩展
+  
+</title>
+
+<meta name="description" content="之前介绍过BFC的原理和作用，记下介绍一些关于BFC的另外几种使用情况
+使用BFC来防止文字环绕
+有时候一个浮动div周围的文字环绕着它（如下图中的左图所示）但是在某些案例中这并不是可取的，我们想要的是外观跟下图中的右图一样的。为了解决这个问题，我们可能使用外边距，但是我们也可以使用一个BFC来解决。
+
+
+-当设置div浮动时，其会产生脱离文档流的效果，其他元素会当做float元素不存在一样，fl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS中BFC的作用扩展">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/03/CSS中BFC的作用扩展/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="之前介绍过BFC的原理和作用，记下介绍一些关于BFC的另外几种使用情况
+使用BFC来防止文字环绕
+有时候一个浮动div周围的文字环绕着它（如下图中的左图所示）但是在某些案例中这并不是可取的，我们想要的是外观跟下图中的右图一样的。为了解决这个问题，我们可能使用外边距，但是我们也可以使用一个BFC来解决。
+
+
+-当设置div浮动时，其会产生脱离文档流的效果，其他元素会当做float元素不存在一样，fl">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/BFC/bfc.jpg">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/BFC/60505082542.png">
+<meta property="og:updated_time" content="2016-05-05T01:01:14.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS中BFC的作用扩展">
+<meta name="twitter:description" content="之前介绍过BFC的原理和作用，记下介绍一些关于BFC的另外几种使用情况
+使用BFC来防止文字环绕
+有时候一个浮动div周围的文字环绕着它（如下图中的左图所示）但是在某些案例中这并不是可取的，我们想要的是外观跟下图中的右图一样的。为了解决这个问题，我们可能使用外边距，但是我们也可以使用一个BFC来解决。
+
+
+-当设置div浮动时，其会产生脱离文档流的效果，其他元素会当做float元素不存在一样，fl">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/BFC/bfc.jpg">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">44</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-CSS中BFC的作用扩展" class="article article-type-post">
+  
+    <h1 class="article-header">
+      CSS中BFC的作用扩展
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-03
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFC/">BFC</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>之前介绍过BFC的原理和作用，记下介绍一些关于BFC的另外几种使用情况</p>
+<h3 id="使用BFC来防止文字环绕"><a href="#使用BFC来防止文字环绕" class="headerlink" title="使用BFC来防止文字环绕"></a>使用BFC来防止文字环绕</h3><ul>
+<li>有时候一个浮动div周围的文字环绕着它（如下图中的左图所示）但是在某些案例中这并不是可取的，我们想要的是外观跟下图中的右图一样的。为了解决这个问题，我们可能使用外边距，但是我们也可以使用一个BFC来解决。</li>
+</ul>
+<p><img src="/img/BFC/bfc.jpg" alt="文字环绕"></p>
+<p>-当设置div浮动时，其会产生脱离文档流的效果，其他元素会当做float元素不存在一样，float元素与包含块元素的边框相接，p元素业余边框相接，但是文字会以float元素为界限，环绕其周围，如图所示：</p>
+<p><img src="/img/BFC/60505082542.png" alt="文字环绕"></p>
+<p>解决办法有两种：</p>
+<ul>
+<li>一是设置p元素margin-left为div的宽度，</li>
+<li>二是让平元素生成BFC；</li>
+</ul>
+<p>在解决之前，让我们再回忆一下W3C标准上是怎么描述的：</p>
+<blockquote>
+<p>In a block formatting context, each box’s left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch). This is true even in the presence of floats (although a box’s line boxes may shrink due to the floats), unless the box establishes a new block formatting context (in which case the box itself may become narrower due to the floats).<br>在BFC中，每个盒子的左外边框紧挨着左边框的包含块（从右到左的格式化时，则为右边框紧挨）。即使在浮动里也是这样的（尽管一个盒子的边框会因为浮动而萎缩），除非这个盒子的内部创建了一个新的BFC（这种情况下,由于浮动，盒子本身将会变得更窄）.</p>
+</blockquote>
+<p>根据这些，如果这个p元素创建了一个新的BFC,那么它将不会紧挨着容器块的左边缘。这个可以通过简单的给p元素添加overflow: hidden来实现。这个方法创建了一个新的BFC解决了文字环绕在浮动元素周围的问题。</p>
+<div style="margin-bottom:20px;"><iframe id="cp_embed_xGpMRP" src="https://codepen.io/SitePoint/embed/xGpMRP?height=520&amp;theme-id=6441&amp;slug-hash=xGpMRP&amp;default-tab=result&amp;user=SitePoint" scrolling="no" frameborder="0" height="520" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>多列布局中使用BFC:</p>
+<p>在多列布局中使用BFC</p>
+<p>如果我们正在创建的一个多列布局占满了整个容器的宽度，在某些浏览器中最后一列有时候将会被挤到下一行。会发生这样可能是因为浏览器舍入（取整）了列的宽度使得总和的宽度超过了容器的宽度。然而，如果我们在一个列的布局中建立了一个新的BFC，它将会在前一列填充完之后的后面占据所剩余的空间。</p>
+<p>让我们使用多列布局中的三列布局来作为例子。</p>
+<p>这是HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;column&quot;&gt;column 1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;column&quot;&gt;column 2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;column&quot;&gt;column 3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">这是CSS代码：</span><br><span class="line"></span><br><span class="line">.column &#123;</span><br><span class="line">    width: 31.33%;</span><br><span class="line">    background-color: green;</span><br><span class="line">    float: left;</span><br><span class="line">    margin: 0 1%;</span><br><span class="line">&#125;</span><br><span class="line">.column:last-child &#123;</span><br><span class="line">    float: none;</span><br><span class="line">    overflow: hidden; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在CodePen 上DEMO的运行结果</p>
+<div style="margin-bottom:20px;"><iframe id="cp_embed_gpoqgE" src="https://codepen.io/SitePoint/embed/gpoqgE?height=412&amp;theme-id=6441&amp;slug-hash=gpoqgE&amp;default-tab=result&amp;user=SitePoint" scrolling="no" frameborder="0" height="412" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe undefined" style="width: 100%; overflow: hidden;"></iframe></div>
+
+<p>现在即使容器的宽度会有轻微的变化，但是布局也不会中断。当然，这并不是多列布局的最好选择，但它是防止最后一列下滑问题的一种方法。Flexbox在这种情况下可能是一个更好的解决方案，但是这应该要说明一下在这些情况下元素是如何表现的。</p>
+<p>文章参考于下面网页，内容有删改：<a href="http://www.w3cplus.com/css/understanding-block-formatting-contexts-in-css.html" target="_blank" rel="external">http://www.w3cplus.com/css/understanding-block-formatting-contexts-in-css.html</a></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

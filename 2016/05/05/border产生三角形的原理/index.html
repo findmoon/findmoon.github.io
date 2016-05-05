@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    border产生三角形的原理
+  
+</title>
+
+<meta name="description" content="先看一个效果图
+
+代码如下1234567891011121314151617181920212223242526272829303132333435363738394041#triangle-up &amp;#123;       width: 0;       height: 0;       border-left: 50px solid transparent;       border-right">
+<meta property="og:type" content="article">
+<meta property="og:title" content="border产生三角形的原理">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/05/border产生三角形的原理/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="先看一个效果图
+
+代码如下1234567891011121314151617181920212223242526272829303132333435363738394041#triangle-up &amp;#123;       width: 0;       height: 0;       border-left: 50px solid transparent;       border-right">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/ISi7.jpg">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/25225422_QJxU.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/25225422_DTxh.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/25225422_rfK8.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/25225422_SFGf.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/border/25225422_sqLx.png">
+<meta property="og:updated_time" content="2016-05-05T03:40:10.930Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="border产生三角形的原理">
+<meta name="twitter:description" content="先看一个效果图
+
+代码如下1234567891011121314151617181920212223242526272829303132333435363738394041#triangle-up &amp;#123;       width: 0;       height: 0;       border-left: 50px solid transparent;       border-right">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/border/ISi7.jpg">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">44</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-border产生三角形的原理" class="article article-type-post">
+  
+    <h1 class="article-header">
+      border产生三角形的原理
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-05
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/border/">border</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>先看一个效果图</p>
+<p><img src="img/border/ISi7.jpg" alt=""></p>
+<p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#triangle-up &#123;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">width</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">height</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-left</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-right</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-bottom</span><br><span class="line">: </span><br><span class="line">100px </span><br><span class="line">solid </span><br><span class="line">red</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，我们需要了解HTML标记的Box Model（盒模型），这个例子中，我们将content，padding都看作content。忽略掉margin。那么一个盒模型就是下图</p>
+<p><img src="img/border/25225422_QJxU.png" alt=""></p>
+<p>中间是内容，然后是4条边。每一条边都有宽度。<br>根据上面CSS的定义，没有border-top（顶边）的情形下 ,我们的图形如下：</p>
+<p><img src="img/border/25225422_DTxh.png" alt=""></p>
+<p>width设置为0后 ，内容没有了就成为下图：</p>
+<p><img src="img/border/25225422_rfK8.png" alt=""></p>
+<p>height也设置为0，只有底边了。</p>
+<p><img src="img/border/25225422_SFGf.png" alt=""></p>
+<p>然后两条边都是设置为透明，最后我们就得到了</p>
+<p><img src="img/border/25225422_sqLx.png" alt=""></p>
+<p>这个属于奇技淫巧，但是也说明CSS的强大，没有做不到只有想不到。另外<a href="http://css-tricks.com/examples/ShapesOfCSS/" target="_blank" rel="external">http://css-tricks.com/examples/ShapesOfCSS/</a> 还能找到很多其他的形状，感兴趣的同学可以自己去看。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

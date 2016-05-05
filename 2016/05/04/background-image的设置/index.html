@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    background-image的设置
+  
+</title>
+
+<meta name="description" content="CSS背景的设置
+对于固定不变的内容，如图标等用背景图。对于可变的内容，图片是和内容相关的，需要点击跳转的用图片背景颜色
+
+padding会有背景色，而margin没有
+
+背景图片设置1、background-image: url(http://xxxx.jpg)； 服务器上一般是相对路径。在一个高清屏上展示的话，图片大小一般是显示大小的二倍
+2、background-position: 0px">
+<meta property="og:type" content="article">
+<meta property="og:title" content="background-image的设置">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/04/background-image的设置/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="CSS背景的设置
+对于固定不变的内容，如图标等用背景图。对于可变的内容，图片是和内容相关的，需要点击跳转的用图片背景颜色
+
+padding会有背景色，而margin没有
+
+背景图片设置1、background-image: url(http://xxxx.jpg)； 服务器上一般是相对路径。在一个高清屏上展示的话，图片大小一般是显示大小的二倍
+2、background-position: 0px">
+<meta property="og:updated_time" content="2016-05-04T08:22:29.599Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="background-image的设置">
+<meta name="twitter:description" content="CSS背景的设置
+对于固定不变的内容，如图标等用背景图。对于可变的内容，图片是和内容相关的，需要点击跳转的用图片背景颜色
+
+padding会有背景色，而margin没有
+
+背景图片设置1、background-image: url(http://xxxx.jpg)； 服务器上一般是相对路径。在一个高清屏上展示的话，图片大小一般是显示大小的二倍
+2、background-position: 0px">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">44</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-background-image的设置" class="article article-type-post">
+  
+    <h1 class="article-header">
+      background-image的设置
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-04
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css属性/">css属性</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/background-image/">background-image</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>CSS背景的设置</p>
+<p>对于固定不变的内容，如图标等用背景图。对于可变的内容，图片是和内容相关的，需要点击跳转的用图片<br>背景颜色</p>
+<blockquote>
+<p>padding会有背景色，而margin没有</p>
+</blockquote>
+<p>背景图片设置<br>1、background-image: url(<a href="http://xxxx.jpg)；" target="_blank" rel="external">http://xxxx.jpg)；</a> <em>服务器上一般是相对路径。在一个高清屏上展示的话，图片大小一般是显示大小的二倍</em></p>
+<p>2、background-position: 0px 0px/center;</p>
+<p>3、background-size: 30px 30px; /<em> ie9及以上能用</em>/ </p>
+<p>4、background-repeat: no-repeat; /<em>repeat, repeat-x, repeat-y</em>/</p>
+<blockquote>
+<p>css sprite(雪碧图|精灵图) <a href="http://csssprites.com/" target="_blank" rel="external">在线工具</a><em>当加载图片或者icon时，每加载一次就是一个请求，如果有多个回影响服务器响应，浪费网络资源，合成成一张大图，以后每次就可以加载缓存</em><br> 把多个背景图片合成一张，通过background-position定位图片，减少网络请求 </p>
+</blockquote>
+<ul>
+<li><p><strong>对小icon另一个减少网络请求的方法，将其转化为<a href="http://tool.css-js.com/base64.html" target="_blank" rel="external">base64</a>的字符串，不通过请求，直接放到样式里面,不能太大，对实时性要求特别高的网页</strong><br>background:url() position repeat;默认是各个数字代表的含义</p>
+</li>
+<li><p>background-size的常用值包括：</p>
+<blockquote>
+<p>1、auto，默认值，保持背景图片的原始高度和宽度；<br>2、length/percentage，设置背景图像的高度和宽度(像素或以父元素的百分比表示)。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 “auto”；<br>3、cover，保持图片的原始比例扩展至足够大，以完全覆盖背景区域。背景图像的多余部分可能会超出显示区域；<br>5、contain,保持图片的原始比例，元素容器包含进所有的图片内容。</p>
+</blockquote>
+</li>
+<li><p>背景图片中用url<br>img标签用src</p>
+</li>
+<li><p>背景色透明和整体透明区别：</p>
+</li>
+</ul>
+<p><em>背景色：背景的颜色透明</em> ；<em>整体透明：字体、颜色、图片所有都透明</em></p>
+<p>opacity作用于元素，设置全局透明度，对元素内所有内容的进行透明度设置，会继承父元素的 opacity 属性；<br>rgba()作用于元素的颜色及背景色透明度设置。<br>两种都不被IE支持(IE9开始支持)</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
