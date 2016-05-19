@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    JavaScript数组知识综合运用
+  
+</title>
+
+<meta name="description" content="问答
+数组方法里push、pop、shift、unshift、join、split分别是什么作用。（*）
+push在数组末尾添加一个元素
+pop从数组末尾删除一个元素
+shift把数组的第一个元素删除掉
+unshift在数组的头部添加一个元素
+join() 将数组里面的元素以一定的方式：()内参数，连接成字符串
+split() 是字符串方法，将一个字符串以()里面的内容为分割点分解成数组
+spli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数组知识综合运用">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/13/JavaScript数组知识综合运用/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="问答
+数组方法里push、pop、shift、unshift、join、split分别是什么作用。（*）
+push在数组末尾添加一个元素
+pop从数组末尾删除一个元素
+shift把数组的第一个元素删除掉
+unshift在数组的头部添加一个元素
+join() 将数组里面的元素以一定的方式：()内参数，连接成字符串
+split() 是字符串方法，将一个字符串以()里面的内容为分割点分解成数组
+spli">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/05f6adbf-5ebe-4658-a784-734fee86342c">
+<meta property="og:updated_time" content="2016-05-18T02:31:42.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数组知识综合运用">
+<meta name="twitter:description" content="问答
+数组方法里push、pop、shift、unshift、join、split分别是什么作用。（*）
+push在数组末尾添加一个元素
+pop从数组末尾删除一个元素
+shift把数组的第一个元素删除掉
+unshift在数组的头部添加一个元素
+join() 将数组里面的元素以一定的方式：()内参数，连接成字符串
+split() 是字符串方法，将一个字符串以()里面的内容为分割点分解成数组
+spli">
+<meta name="twitter:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/05f6adbf-5ebe-4658-a784-734fee86342c">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">94</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-JavaScript数组知识综合运用" class="article article-type-post">
+  
+    <h1 class="article-header">
+      JavaScript数组知识综合运用
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-13
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/js/">js</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><ul>
+<li>数组方法里push、pop、shift、unshift、join、split分别是什么作用。（*）<ul>
+<li>push在数组末尾添加一个元素</li>
+<li>pop从数组末尾删除一个元素</li>
+<li>shift把数组的第一个元素删除掉</li>
+<li>unshift在数组的头部添加一个元素</li>
+<li>join() 将数组里面的元素以一定的方式：()内参数，连接成字符串</li>
+<li>split() 是字符串方法，将一个字符串以()里面的内容为分割点分解成数组</li>
+<li>splice(start[, deleteCount][, values]) 以第一个参数为起点，第二个参数为位移作为一个，将第三个参数替换这个范围。第二个参数省略则为插入操作，第三个参数省略为删除操作，均改变原数组<h2 id="代码题"><a href="#代码题" class="headerlink" title="代码题"></a>代码题</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3>1、用 splice 实现 push、pop、shift、unshift方法 （<em>*</em>）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function push (arr,a) &#123;</span><br><span class="line">			arr.splice(arr.length,0,a);</span><br><span class="line">		&#125;</span><br><span class="line">		function pop (arr) &#123;</span><br><span class="line">			arr.splice(arr.length-1,1);</span><br><span class="line">		&#125;</span><br><span class="line">		function shift (arr) &#123;</span><br><span class="line">			arr.splice(0,1);</span><br><span class="line">		&#125;</span><br><span class="line">		function unshift (arr,a) &#123;</span><br><span class="line">			arr.splice(0,0,a);</span><br><span class="line">		&#125;</span><br><span class="line">		var arr=[2,5,11,7,4];</span><br><span class="line">		push(arr,10)</span><br><span class="line">		console.log(arr);</span><br><span class="line">		pop(arr)</span><br><span class="line">		console.log(arr);</span><br><span class="line">		shift(arr)</span><br><span class="line">		console.log(arr);</span><br><span class="line">		unshift(arr,10)</span><br><span class="line">		console.log(arr);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>结果：<img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/05f6adbf-5ebe-4658-a784-734fee86342c" alt="0_1463473102454_upload-78650f2b-aa59-4db5-9fb8-55c4283598d2"> </p>
+<h3 id="2-使用数组拼接出如下字符串-（-）"><a href="#2-使用数组拼接出如下字符串-（-）" class="headerlink" title="2.使用数组拼接出如下字符串 （*）"></a>2.使用数组拼接出如下字符串 （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var prod = &#123;</span><br><span class="line">		    name: &apos;女装&apos;,</span><br><span class="line">		    styles: [&apos;短款&apos;, &apos;冬季&apos;, &apos;春装&apos;]</span><br><span class="line">		&#125;;</span><br><span class="line">		function getTplStr(data)&#123;</span><br><span class="line">			var html = [];</span><br><span class="line">			html.push(&apos;&lt;dl class=&quot;product&quot;&gt;&apos;);</span><br><span class="line">			html.push(&quot;&lt;dt&gt;&quot; + data.name + &quot;&lt;/dt&gt;&quot;);</span><br><span class="line">			for (var i = 0; i &lt; data.styles.length; i++) &#123;</span><br><span class="line">				html.push(&quot;&lt;dd&gt;&quot; + data.styles[i] + &quot;&lt;/dd&gt;&quot;);</span><br><span class="line">			&#125;;</span><br><span class="line">			html.push(&quot;&lt;/dl&gt;&quot;);</span><br><span class="line">			return html.join(&quot;\n&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">		var result = getTplStr(prod);  //result为下面的字符串</span><br><span class="line">		console.log(result);</span><br></pre></td></tr></table></figure>
+<h3 id="3-写一个find函数，实现下面的功能-（-）"><a href="#3-写一个find函数，实现下面的功能-（-）" class="headerlink" title="3.写一个find函数，实现下面的功能 （*）"></a>3.写一个find函数，实现下面的功能 （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function find (arr,a) &#123;</span><br><span class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">		if(arr[i] === a)&#123;</span><br><span class="line">			return console.log(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	return console.log(-1);</span><br><span class="line">&#125;</span><br><span class="line">var arr = [ &quot;test&quot;, 2, 1.5, false ]</span><br><span class="line">find(arr, &quot;test&quot;) // 0</span><br><span class="line">find(arr, 2) // 1</span><br><span class="line">find(arr, 0) // -1</span><br></pre></td></tr></table></figure>
+<h3 id="4-写一个函数filterNumeric，实现如下功能-（-）"><a href="#4-写一个函数filterNumeric，实现如下功能-（-）" class="headerlink" title="4.写一个函数filterNumeric，实现如下功能 （**）"></a>4.写一个函数filterNumeric，实现如下功能 （<em>**</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&quot;a&quot;, 1,3,5, &quot;b&quot;, 2];</span><br><span class="line">		function filterNumeric (arr) &#123;</span><br><span class="line">			var arr0 = [];</span><br><span class="line">			for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">				if(typeof arr[i] === &quot;number&quot;)&#123;</span><br><span class="line">					arr0.push(arr[i]);</span><br><span class="line">				&#125;</span><br><span class="line">			</span><br><span class="line">			&#125;;</span><br><span class="line">			return arr0;</span><br><span class="line">		&#125;</span><br><span class="line">		var newarr = filterNumeric(arr);  //   [1,3,5,2]</span><br></pre></td></tr></table></figure>
+<h3 id="5-对象obj有个className属性，里面的值为的是空格分割的字符串-和html元素的class特性类似-，写addClass、removeClass函数，有如下功能："><a href="#5-对象obj有个className属性，里面的值为的是空格分割的字符串-和html元素的class特性类似-，写addClass、removeClass函数，有如下功能：" class="headerlink" title="5.对象obj有个className属性，里面的值为的是空格分割的字符串(和html元素的class特性类似)，写addClass、removeClass函数，有如下功能：(**)"></a>5.对象obj有个className属性，里面的值为的是空格分割的字符串(和html元素的class特性类似)，写addClass、removeClass函数，有如下功能：(<em>**</em>)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function addClass (obj,name) &#123;</span><br><span class="line">		if (obj.className) &#123;</span><br><span class="line">			var arr = obj.className.split(&quot; &quot;)</span><br><span class="line">			for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">				if(arr[i] === name)&#123;</span><br><span class="line">					return ;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;;</span><br><span class="line">			arr.push(name);</span><br><span class="line">			obj.className = arr.join(&quot; &quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function removeClass (obj,name) &#123;</span><br><span class="line">		if (obj.className) &#123;</span><br><span class="line">			var arr = obj.className.split(&quot; &quot;)</span><br><span class="line">			for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">				if(arr[i] === name)&#123;</span><br><span class="line">					arr.splice(i,1);</span><br><span class="line">					obj.className = arr.join(&quot; &quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var obj = &#123;</span><br><span class="line">	  className: &apos;open menu&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	addClass(obj, &apos;new&apos;) // obj.className=&apos;open menu new&apos;</span><br><span class="line">	addClass(obj, &apos;open&apos;)  // 因为open已经存在，此操作无任何办法</span><br><span class="line">	addClass(obj, &apos;me&apos;) // obj.className=&apos;open menu new me&apos;</span><br><span class="line">	console.log(obj.className)  // &quot;open menu new me&quot;</span><br><span class="line"></span><br><span class="line">	removeClass(obj, &apos;open&apos;) // obj.className=&apos;menu new me&apos;</span><br><span class="line">	console.log(obj.className)</span><br><span class="line">	removeClass(obj, &apos;blabla&apos;)  // 不变</span><br><span class="line">	console.log(obj.className)</span><br></pre></td></tr></table></figure>
+<h3 id="6-写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如"><a href="#6-写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如" class="headerlink" title="6.写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如 (*)"></a>6.写一个camelize函数，把my-short-string形式的字符串转化成myShortString形式的字符串，如 (<em>*</em>)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function camelize (str) &#123;</span><br><span class="line">		var arr = str.split(&quot;-&quot;);</span><br><span class="line">		for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			if(i&gt;0 &amp;&amp; typeof arr[i] === &quot;string&quot;)&#123;</span><br><span class="line">				arr[i] = arr[i].replace(arr[i][0],arr[i][0].toUpperCase());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		str = arr.join(&quot;&quot;);</span><br><span class="line">		return str;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(camelize(&quot;background-color&quot;));</span><br><span class="line">	console.log(camelize(&quot;list-style-image&quot;) === &apos;listStyleImage&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="7-如下代码输出什么？为什么"><a href="#7-如下代码输出什么？为什么" class="headerlink" title="7.如下代码输出什么？为什么? (*)"></a>7.如下代码输出什么？为什么? (<em>*</em>)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	arr = [&quot;a&quot;, &quot;b&quot;];</span><br><span class="line">	arr.push( function() &#123; alert(console.log(&apos;hello hunger valley&apos;)) &#125; );</span><br><span class="line">	arr[arr.length-1]() //弹出undefind    控制台输出字符串hello hunger valley</span><br><span class="line"></span><br><span class="line">/*arr.push()将函数function() &#123; alert(console.log(&apos;hello hunger valley&apos;)) &#125;加到arr数组的最后一位。arr.length-1是输出数组最后一位，即上面的函数，加()等于(function()&#123;&#125;)立即执行函数表达式，函数执行console.log只在控制台输出，并不返回值，所以报undefind。*/</span><br></pre></td></tr></table></figure>
+<h3 id="8-写一个函数filterNumericInPlace，过滤数组中的数字，删除非数字"><a href="#8-写一个函数filterNumericInPlace，过滤数组中的数字，删除非数字" class="headerlink" title="8.写一个函数filterNumericInPlace，过滤数组中的数字，删除非数字 (**)"></a>8.写一个函数filterNumericInPlace，过滤数组中的数字，删除非数字 (<em>**</em>)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&quot;a&quot;,1,3,4,5,&quot;b&quot;,2];</span><br><span class="line">	//对原数组进行操作，不需要返回值</span><br><span class="line">	function filterNumericInPlace (arr) &#123;</span><br><span class="line">		for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			while(typeof arr[i] !== &quot;number&quot;)&#123;</span><br><span class="line">				arr.splice(i,1);</span><br><span class="line">			&#125;//执行splice后数组指针i也移动，所以用while循环</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	filterNumericInPlace(arr);</span><br><span class="line">	console.log(arr)  // [1,3,4,5,2]</span><br></pre></td></tr></table></figure>
+<h3 id="9-写一个ageSort函数实现如下功能-（-）"><a href="#9-写一个ageSort函数实现如下功能-（-）" class="headerlink" title="9.写一个ageSort函数实现如下功能 （*）"></a>9.写一个ageSort函数实现如下功能 （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function ageSort (people) &#123;</span><br><span class="line">		people.sort(function(a,b)&#123;</span><br><span class="line">			return a.age-b.age;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	var john = &#123; name: &quot;John Smith&quot;, age: 23 &#125;;</span><br><span class="line">	var mary = &#123; name: &quot;Mary Key&quot;, age: 18 &#125;;</span><br><span class="line">	var bob = &#123; name: &quot;Bob-small&quot;, age: 6 &#125;;</span><br><span class="line">	var people = [ john, mary, bob ];</span><br><span class="line">	ageSort(people); // [ bob, mary, john ]</span><br></pre></td></tr></table></figure>
+<h3 id="10-写一个filter-arr-func-函数用于过滤数组，接受两个参数，第一个是要处理的数组，第二个参数是回调函数-回调函数遍历接受每一个数组元素，当函数返回true时保留该元素，否则删除该元素-。实现如下功能：-（-）"><a href="#10-写一个filter-arr-func-函数用于过滤数组，接受两个参数，第一个是要处理的数组，第二个参数是回调函数-回调函数遍历接受每一个数组元素，当函数返回true时保留该元素，否则删除该元素-。实现如下功能：-（-）" class="headerlink" title="10.写一个filter(arr, func) 函数用于过滤数组，接受两个参数，第一个是要处理的数组，第二个参数是回调函数(回调函数遍历接受每一个数组元素，当函数返回true时保留该元素，否则删除该元素)。实现如下功能： （**）"></a>10.写一个filter(arr, func) 函数用于过滤数组，接受两个参数，第一个是要处理的数组，第二个参数是回调函数(回调函数遍历接受每一个数组元素，当函数返回true时保留该元素，否则删除该元素)。实现如下功能： （<em>**</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function isNumeric (el)&#123;</span><br><span class="line">	    return typeof el === &apos;number&apos;; </span><br><span class="line">	&#125;</span><br><span class="line">	arr = [&quot;a&quot;,3,4,true, -1, 2, &quot;b&quot;]</span><br><span class="line">	</span><br><span class="line">	function filter (arr,funName) &#123;</span><br><span class="line">		for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			if(!funName(arr[i]))&#123;</span><br><span class="line">				arr.splice(i,1);</span><br><span class="line">				i--;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		return arr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	arr = filter(arr, isNumeric) ; // arr = [3,4,-1, 2],  过滤出数字</span><br><span class="line">	console.log(arr);</span><br><span class="line">	arr = filter(arr, function(val) &#123; return val &gt; 0 &#125;);  // arr = [2] 过滤出大于0的整数</span><br><span class="line">	console.log(arr);</span><br></pre></td></tr></table></figure>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="1-写一个-ucFirst函数，返回第一个字母为大写的字符-（-）"><a href="#1-写一个-ucFirst函数，返回第一个字母为大写的字符-（-）" class="headerlink" title="1.写一个 ucFirst函数，返回第一个字母为大写的字符 （*）"></a>1.写一个 ucFirst函数，返回第一个字母为大写的字符 （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function ucFirst (str) &#123;</span><br><span class="line">		str = str.replace(str[0],str[0].toUpperCase());</span><br><span class="line">		return str;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(ucFirst(&quot;hunger&quot;) === &quot;Hunger&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="2-写一个函数truncate-str-maxlength-如果str的长度大于maxlength，会把str截断到maxlength长，并加上…，如-（-）"><a href="#2-写一个函数truncate-str-maxlength-如果str的长度大于maxlength，会把str截断到maxlength长，并加上…，如-（-）" class="headerlink" title="2.写一个函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…，如 （**）"></a>2.写一个函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…，如 （<em>**</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function truncate (str,maxlength) &#123;</span><br><span class="line">		if (str.length&gt;maxlength) &#123;</span><br><span class="line">			var sub1 = str.substr(maxlength, str.length-maxlength)</span><br><span class="line">			str = str.replace(sub1, &quot;...&quot;);</span><br><span class="line">		&#125;;</span><br><span class="line">		return str;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(truncate(&quot;hello, this is hunger valley,&quot;, 10) === &quot;hello, thi...&quot;);</span><br><span class="line">	console.log(truncate(&quot;hello world&quot;, 20) === &quot;hello world&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><h3 id="1-写一个函数limit2，保留数字小数点后两位，四舍五入，-如-（-）"><a href="#1-写一个函数limit2，保留数字小数点后两位，四舍五入，-如-（-）" class="headerlink" title="1.写一个函数limit2，保留数字小数点后两位，四舍五入， 如: （**）"></a>1.写一个函数limit2，保留数字小数点后两位，四舍五入， 如: （**）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function limit2 (num) &#123;</span><br><span class="line">		var num1 = num*100</span><br><span class="line">		if(num1 &gt;= 0)&#123;</span><br><span class="line">			num1 = Math.round(num1)</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			num1 = -Math.round(Math.abs(num1));</span><br><span class="line">		&#125;</span><br><span class="line">		num = num1/100;</span><br><span class="line">		console.log(num);</span><br><span class="line">		return num;</span><br><span class="line">	&#125;</span><br><span class="line">	var num1 = 3.456</span><br><span class="line">	limit2( num1 );  //3.46</span><br><span class="line">	limit2( 2.42 );    //2.42</span><br></pre></td></tr></table></figure>
+<h3 id="2-写一个函数，获取从min到max之间的随机数，包括min不包括max-（-）"><a href="#2-写一个函数，获取从min到max之间的随机数，包括min不包括max-（-）" class="headerlink" title="2.写一个函数，获取从min到max之间的随机数，包括min不包括max （*）"></a>2.写一个函数，获取从min到max之间的随机数，包括min不包括max （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function ranAmong (min,max) &#123;</span><br><span class="line">		return min+Math.random()*(max-min);</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(ranAmong(4,15));</span><br><span class="line">	console.log(ranAmong(14,21));</span><br></pre></td></tr></table></figure>
+<h3 id="3-写一个函数，获取从min都max之间的随机整数，包括min包括max-（-）"><a href="#3-写一个函数，获取从min都max之间的随机整数，包括min包括max-（-）" class="headerlink" title="3.写一个函数，获取从min都max之间的随机整数，包括min包括max （*）"></a>3.写一个函数，获取从min都max之间的随机整数，包括min包括max （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function ranAmong (min,max) &#123;</span><br><span class="line">		return Math.round(min+Math.random()*(max-min));</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(ranAmong(4,15));</span><br><span class="line">	console.log(ranAmong(14,21))</span><br></pre></td></tr></table></figure>
+<h3 id="4-写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max-包括-的随机数-（-）"><a href="#4-写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max-包括-的随机数-（-）" class="headerlink" title="4.写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数 （*）"></a>4.写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数 （<em>*</em>）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function ranAmong (min,max,len) &#123;</span><br><span class="line">		var arr = [];</span><br><span class="line">		for (var i = 0; i &lt; len; i++) &#123;</span><br><span class="line">			arr.push(Math.round(min+Math.random()*(max-min)));</span><br><span class="line">		&#125;;</span><br><span class="line">		return arr;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(ranAmong(2,17,5));</span><br><span class="line">	console.log(ranAmong(12,14,3));</span><br></pre></td></tr></table></figure>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

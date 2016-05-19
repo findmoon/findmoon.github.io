@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    JavaScript初学者应注意的七个细节
+  
+</title>
+
+<meta name="description" content="JavaScript初学者应注意的七个细节、转自梦想天空的博客
+　　每种语言都有它特别的地方，对于JavaScript来说，使用var就可以声明任意类型的变量，这门脚本语言看起来很简单，然而想要写出优雅的代码却是需要不断积累经验的。本文利列举了JavaScript初学者应该注意的七个细节，与大家分享。
+（1）简化代码
+JavaScript定义对象和数组非常简单，我们想要创建一个对象，一般是这样写的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript初学者应注意的七个细节">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/17/JavaScript初学者应注意的七个细节/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="JavaScript初学者应注意的七个细节、转自梦想天空的博客
+　　每种语言都有它特别的地方，对于JavaScript来说，使用var就可以声明任意类型的变量，这门脚本语言看起来很简单，然而想要写出优雅的代码却是需要不断积累经验的。本文利列举了JavaScript初学者应该注意的七个细节，与大家分享。
+（1）简化代码
+JavaScript定义对象和数组非常简单，我们想要创建一个对象，一般是这样写的">
+<meta property="og:updated_time" content="2016-05-18T14:40:08.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript初学者应注意的七个细节">
+<meta name="twitter:description" content="JavaScript初学者应注意的七个细节、转自梦想天空的博客
+　　每种语言都有它特别的地方，对于JavaScript来说，使用var就可以声明任意类型的变量，这门脚本语言看起来很简单，然而想要写出优雅的代码却是需要不断积累经验的。本文利列举了JavaScript初学者应该注意的七个细节，与大家分享。
+（1）简化代码
+JavaScript定义对象和数组非常简单，我们想要创建一个对象，一般是这样写的">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">94</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-JavaScript初学者应注意的七个细节" class="article article-type-post">
+  
+    <h1 class="article-header">
+      JavaScript初学者应注意的七个细节
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-17
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码书写/">代码书写</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>JavaScript初学者应注意的七个细节<br>、<a href="http://www.cnblogs.com/lhb25/archive/2011/01/10/1932284.html" target="_blank" rel="external">转自梦想天空的博客</a></p>
+<p>　　每种语言都有它特别的地方，对于JavaScript来说，使用var就可以声明任意类型的变量，这门脚本语言看起来很简单，然而想要写出优雅的代码却是需要不断积累经验的。本文利列举了JavaScript初学者应该注意的七个细节，与大家分享。</p>
+<p>（1）简化代码</p>
+<p>JavaScript定义对象和数组非常简单，我们想要创建一个对象，一般是这样写的：  </p>
+<p>&gt;<br>var car = new Object();<br>car.colour = ‘red’;<br>car.wheels = 4;<br>car.hubcaps = ‘spinning’;<br>car.age = 4;<br>下面的写法可以达到同样的效果：</p>
+<p>&gt;<br>var car = {<br>    colour:’red’,<br>    wheels:4,<br>　　hubcaps:’spinning’,<br>　　age:4<br>}</p>
+<p>后面的写法要短得多，而且你不需要重复写对象名称。</p>
+<p>另外对于数组同样有简洁的写法，过去我们声明数组是这样写的：</p>
+<p>&gt;<br>var moviesThatNeedBetterWriters = new Array(<br>  ‘Transformers’,’Transformers2’,’Avatar’,’Indiana Jones 4’<br>);</p>
+<p>更简洁的写法是： </p>
+<p>&gt;<br>var moviesThatNeedBetterWriters = [<br>  ‘Transformers’,’Transformers2’,’Avatar’,’Indiana Jones 4’<br>];</p>
+<p>对于数组，还有关联数组这样一个特别的东西。 你会发现很多代码是这样定义对象的：</p>
+<p>&gt;<br>var car = new Array();<br>car[‘colour’] = ‘red’;<br>car[‘wheels’] = 4;<br>car[‘hubcaps’] = ‘spinning’;<br>car[‘age’] = 4;</p>
+<p>这太疯狂了，不要觉得困惑，“关联数组”只是对象的一个别名而已。</p>
+<p>另外一个简化代码的方法是使用三元运算符，举个例子：</p>
+<p>&gt;<br>var direction;<br>if(x &lt; 200){<br>  direction = 1;<br>} else {<br>  direction = -1;<br>}</p>
+<p>我们可以使用如下的代码替换这种写法：</p>
+<p>&gt;<br>var direction = x &lt; 200 ? 1 : -1;</p>
+<p>（2）使用JSON作为数据格式   </p>
+<p>伟大的Douglas Crockford发明了JSON数据格式来存储数据，你可以使用原生的javascript方法来存储复杂的数据而不需要进行任何额外的转换，例如：</p>
+<p>&gt;<br>var band = {<br>  “name”:”The Red Hot Chili Peppers”,<br>  “members”:[<br>    {<br>      “name”:”Anthony Kiedis”,<br>      “role”:”lead vocals”<br>    },<br>    {<br>      “name”:”Michael ‘Flea’ Balzary”,<br>      “role”:”bass guitar, trumpet, backing vocals”<br>    },<br>    {<br>      “name”:”Chad Smith”,<br>      “role”:”drums,percussion”<br>    },<br>    {<br>      “name”:”John Frusciante”,<br>      “role”:”Lead Guitar”<br>    }<br>  ],<br>  “year”:”2009”<br>}<br>你可以使用在JavaScript中直接使用JSON，甚至作为API返回的一种格式，在许多的API中被应用，例如：</p>
+<p>&gt;</p>
+<p><div id="delicious"></div><script><br>function delicious(o){<br>  var out = ‘<ul>‘;<br>  for(var i=0;i<o.length;i++){
+    out += '<li><a href="' + o[i].u + '">' +
+           o[i].d + '</a></li>';
+  }
+  out += '</ul>';
+  document.getElementById('delicious').innerHTML = out;
+}
+</script></p>
+<script src="http://feeds.delicious.com/v2/json/codepo8/javascript?count=15&callback=delicious">
+</script>
+
+<p>这里调用delicious 的Web服务获取最新书签，以JSON格式返回，然后将它们显示成无序列表的形式。</p>
+<p>从本质上讲，JSON是用于描述复杂的数据最轻量级的方式，而且直接它运行在浏览器中。 你甚至可以在PHP中调用 json_decode（）函数来使用它。</p>
+<p>（3）尽量使用JavaScript原生函数 </p>
+<p>要找一组数字中的最大数，我们可能会写一个循环，例如：</p>
+<p>&gt;<br>var numbers = [3,342,23,22,124];<br>var max = 0;<br>for(var i=0;i<numbers.length;i++){ if(numbers[i]=""> max){<br>    max = numbers[i];<br>  }<br>}<br>alert(max);<br>其实，不用循环可以实现同样的功能：</numbers.length;i++){></p>
+<p>&gt;<br>var numbers = [3,342,23,22,124];<br>numbers.sort(function(a,b){return b - a});<br>alert(numbers[0]);</p>
+<p>而最简洁的写法是：</p>
+<p>&gt;<br>Math.max(12,123,3,2,433,4); // returns 433<br>你甚至可以使用Math.max来检测浏览器支持哪个属性：</p>
+<p>&gt;<br>var scrollTop= Math.max(<br> doc.documentElement.scrollTop,<br> doc.body.scrollTop<br>);</p>
+<p>如果你想给一个元素增加class样式，可能原始的写法是这样的：</p>
+<p>&gt;<br>function addclass(elm,newclass){<br>  var c = elm.className;<br>  elm.className = (c === ‘’) ? newclass : c+’ ‘+newclass;</p>
+<p>而更优雅的写法是：</p>
+<p>&gt;<br>function addclass(elm,newclass){<br>  var classes = elm.className.split(‘ ‘);<br>  classes.push(newclass);<br>  elm.className = classes.join(‘ ‘);<br>}</p>
+<p>（4）事件委托</p>
+<p>事件是JavaScript非常重要的一部分。我们想给一个列表中的链接绑定点击事件，一般的做法是写一个循环，给每个链接对象绑定事件，HTML代码如下：</p>
+<p>&gt;</p>
+<p></p><h2>Great Web resources</h2><p></p>
+<ul id="resources"><br>  <li><a href="http://opera.com/wsc" target="_blank" rel="external">Opera Web Standards Curriculum</a></li><br>  <li><a href="http://sitepoint.com" target="_blank" rel="external">Sitepoint</a></li><br>  <li><a href="http://alistapart.com" target="_blank" rel="external">A List Apart</a></li><br>  <li><a href="http://yuiblog.com" target="_blank" rel="external">YUI Blog</a></li><br>  <li><a href="http://blameitonthevoices.com" target="_blank" rel="external">Blame it on the voices</a></li><br>  <li><a href="http://oddlyspecific.com" target="_blank" rel="external">Oddly specific</a></li><br></ul>
+
+<p>脚本如下：</p>
+<p>&gt;<br>// Classic event handling example<br>(function(){<br>  var resources = document.getElementById(‘resources’);<br>  var links = resources.getElementsByTagName(‘a’);<br>  var all = links.length;<br>  for(var i=0;i&lt;all;i++){<br>    // Attach a listener to each link<br>    links[i].addEventListener(‘click’,handler,false);<br>  };<br>  function handler(e){<br>    var x = e.target; // Get the link that was clicked<br>    alert(x);<br>    e.preventDefault();<br>  };<br>})();</p>
+<p>更合理的写法是只给列表的父对象绑定事件，代码如下：<br>&gt;<br>(function(){<br>  var resources = document.getElementById(‘resources’);<br>  resources.addEventListener(‘click’,handler,false);<br>  function handler(e){<br>    var x = e.target; // get the link tha<br>    if(x.nodeName.toLowerCase() === ‘a’){<br>      alert(‘Event delegation:’ + x);<br>      e.preventDefault();<br>    }<br>  };<br>})();</p>
+<p>（5）匿名函数</p>
+<p>关于JavaScript的最头疼的事情之一是，它的变量没有特定的作用范围。 一般情况下，任何变量，函数，数组或对象都是全局性，这意味着在同一页上的其他脚本可以访问并覆盖它们。解决方法是把变量封装在一个匿名函数中。 例如，下面的定义将产生三个全局变量和和两个全局函数：</p>
+<p>&gt;<br>var name = ‘Chris’;<br>var age = ‘34’;<br>var status = ‘single’;<br>function createMember(){<br>  // […]<br>}<br>function getMemberDetails(){<br>  // […]<br>}</p>
+<p>封装后如下：</p>
+<p>&gt;<br>var myApplication = function(){<br>  var name = ‘Chris’;<br>  var age = ‘34’;<br>  var status = ‘single’;<br>  return{<br>    createMember:function(){<br>      // […]<br>    },<br>    getMemberDetails:function(){<br>      // […]<br>    }<br>  }<br>}();<br>// myApplication.createMember() and<br>// myApplication.getMemberDetails() now works.</p>
+<p>这被称为单体模式，是JavaScript设计模式的一种，这种模式在YUI中用得非常多，改进的写法是：  </p>
+<p>&gt;<br>var myApplication = function(){<br>  var name = ‘Chris’;<br>  var age = ‘34’;<br>  var status = ‘single’;<br>  function createMember(){<br>    // […]<br>  }<br>  function getMemberDetails(){<br>    // […]<br>  }<br>  return{<br>    create:createMember,<br>    get:getMemberDetails<br>  }<br>}();<br>//myApplication.get() and myApplication.create() now work.</p>
+<p>（6）代码可配置</p>
+<p>你写的代码如果想让别人更容易进行使用或者修改，则需要可配置，解决方案是在你写的脚本中增加一个配置对象。要点如下： </p>
+<p>1、在你的脚本中新增一个叫configuration的对象。</p>
+<p>2、在配置对象中存放所有其它人可能想要去改变的东西，例如CSS的ID、class名称、语言等等。</p>
+<p>3、返回这个对象，作为公共属性以便其它人可以进行重写。 </p>
+<p>（7）代码兼容性</p>
+<p>　　兼容性是初学者容易忽略的部分，通常学习Javascript的时候都是在某个固定的浏览器中进行测试，而这个浏览器很有可能就是IE，这是非常致命的，因为目前几大主流浏览器中偏偏IE对标准的支持是最差的。最终用户看到的结果也许就是，你写的代码在某个浏览器无法正确运行。你应该把你的代码在主流的浏览器中都测试一下，这也许很费时间，但是应该这样做。  </p>
+<p>（编译来源：梦想天空  原文来自：Seven JavaScript Things I Wish I Knew Much Earlier In My Career）</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

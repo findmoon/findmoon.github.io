@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    instanceof 运算符深入剖析
+  
+</title>
+
+<meta name="description" content="JavaScript instanceof 运算符深入剖析-转载
+随着 web 的发展，越来越多的产品功能都放在前端进行实现，增强用户体验。而前端开发的主要语言则是 JavaScript。学好 JavaScript 对开发前端应用已经越来越重要。在开发复杂产品中，需要使用面向对象的机制时，往往会用到复杂的 JavaScript 继承，而 instanceof 运算符是 JavaScript 语言中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="instanceof 运算符深入剖析">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/17/instanceof运算符深入剖析/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="JavaScript instanceof 运算符深入剖析-转载
+随着 web 的发展，越来越多的产品功能都放在前端进行实现，增强用户体验。而前端开发的主要语言则是 JavaScript。学好 JavaScript 对开发前端应用已经越来越重要。在开发复杂产品中，需要使用面向对象的机制时，往往会用到复杂的 JavaScript 继承，而 instanceof 运算符是 JavaScript 语言中">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/原型连/figure1.jpg">
+<meta property="og:updated_time" content="2016-05-18T13:46:17.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="instanceof 运算符深入剖析">
+<meta name="twitter:description" content="JavaScript instanceof 运算符深入剖析-转载
+随着 web 的发展，越来越多的产品功能都放在前端进行实现，增强用户体验。而前端开发的主要语言则是 JavaScript。学好 JavaScript 对开发前端应用已经越来越重要。在开发复杂产品中，需要使用面向对象的机制时，往往会用到复杂的 JavaScript 继承，而 instanceof 运算符是 JavaScript 语言中">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/原型连/figure1.jpg">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">94</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-instanceof运算符深入剖析" class="article article-type-post">
+  
+    <h1 class="article-header">
+      instanceof 运算符深入剖析
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-17
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof/">instanceof</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p><a href="http://www.ibm.com/developerworks/cn/web/1306_jiangjj_jsinstanceof/" target="_blank" rel="external">JavaScript instanceof 运算符深入剖析-转载</a></p>
+<p>随着 web 的发展，越来越多的产品功能都放在前端进行实现，增强用户体验。而前端开发的主要语言则是 JavaScript。学好 JavaScript 对开发前端应用已经越来越重要。在开发复杂产品中，需要使用面向对象的机制时，往往会用到复杂的 JavaScript 继承，而 instanceof 运算符是 JavaScript 语言中原生的用来判断实例继承关系的操作符。深入理解 instanceof 运算符的用法，对写好复杂的 JavaScript 程序，会有很大帮助。<br>2 评论<br>姜 俊杰, 软件工程师, IBM<br>2013 年 6 月 06 日<br>expand<br>内容</p>
+<p>在 IBM Bluemix 云平台上开发并部署您的下一个应用。<br>开始您的试用<br>instanceof 运算符简介<br>在 JavaScript 中，判断一个变量的类型尝尝会用 typeof 运算符，在使用 typeof 运算符时采用引用类型存储值会出现一个问题，无论引用的是什么类型的对象，它都返回 “object”。ECMAScript 引入了另一个 Java 运算符 instanceof 来解决这个问题。instanceof 运算符与 typeof 运算符相似，用于识别正在处理的对象的类型。与 typeof 方法不同的是，instanceof 方法要求开发者明确地确认对象为某特定类型。例如：<br>清单 1. instanceof 示例<br> var oStringObject = new String(“hello world”);<br> console.log(oStringObject instanceof String);      // 输出 “true”<br>这段代码问的是“变量 oStringObject 是否为 String 对象的实例？”oStringObject 的确是 String 对象的实例，因此结果是”true”。尽管不像 typeof 方法那样灵活，但是在 typeof 方法返回 “object” 的情况下，instanceof 方法还是很有用的。<br>instanceof 运算符的常规用法<br>通常来讲，使用 instanceof 就是判断一个实例是否属于某种类型。例如：<br>清单 2. instanceof 常规用法<br> // 判断 foo 是否是 Foo 类的实例<br> function Foo(){}<br> var foo = new Foo();<br> console.log(foo instanceof Foo)//true<br>另外，更重的一点是 instanceof 可以在继承关系中用来判断一个实例是否属于它的父类型。例如：<br>清单 3. instanceof 在继承中关系中的用法<br> // 判断 foo 是否是 Foo 类的实例 , 并且是否是其父类型的实例<br> function Aoo(){}<br> function Foo(){}<br> Foo.prototype = new Aoo();//JavaScript 原型继承</p>
+<p> var foo = new Foo();<br> console.log(foo instanceof Foo)//true<br> console.log(foo instanceof Aoo)//true<br>上面的代码中是判断了一层继承关系中的父类，在多层继承关系中，instanceof 运算符同样适用。<br>你真的了解 instanceof 操作符吗？<br>看了上面的代码示例，是不是觉得 instanceof 操作符很简单，下面来看点复杂的用法。<br>清单 4. instanceof 复杂用法<br> console.log(Object instanceof Object);//true<br> console.log(Function instanceof Function);//true<br> console.log(Number instanceof Number);//false<br> console.log(String instanceof String);//false </p>
+<p> console.log(Function instanceof Object);//true </p>
+<p> console.log(Foo instanceof Function);//true<br> console.log(Foo instanceof Foo);//false<br>看了上面的代码是不是又晕头转向了？为什么 Object 和 Function instanceof 自己等于 true，而其他类 instanceof 自己却又不等于 true 呢？如何解释？要想从根本上了解 instanceof 的奥秘，需要从两个方面着手：1，语言规范中是如何定义这个运算符的。2，JavaScript 原型继承机制。<br>回页首<br>详细剖析 ECMAScript-262 edition 3 中 instanceof 运算符的定义<br>语言规范对中 instanceof 运算符的定义如下：<br>清单 5. 规范中 instanceof 运算符定义<br> 11.8.6 The instanceof operator<br> The production RelationalExpression:<br>     RelationalExpression instanceof ShiftExpression is evaluated as follows: </p>
+<ol>
+<li>Evaluate RelationalExpression. </li>
+<li>Call GetValue(Result(1)).// 调用 GetValue 方法得到 Result(1) 的值，设为 Result(2) </li>
+<li>Evaluate ShiftExpression. </li>
+<li>Call GetValue(Result(3)).// 同理，这里设为 Result(4) </li>
+<li>If Result(4) is not an object, throw a TypeError exception.// 如果 Result(4) 不是 object，<pre><code>//抛出异常
+</code></pre>/<em> 如果 Result(4) 没有 [[HasInstance]] 方法，抛出异常。规范中的所有 [[…]] 方法或者属性都是内部的，<br>在 JavaScript 中不能直接使用。并且规范中说明，只有 Function 对象实现了 [[HasInstance]] 方法。<br>所以这里可以简单的理解为：如果 Result(4) 不是 Function 对象，抛出异常 </em>/ </li>
+<li>If Result(4) does not have a [[HasInstance]] method,<br>throw a TypeError exception.<br>// 相当于这样调用：Result(4).<a href="Result(2">[HasInstance]</a>) </li>
+<li>Call the [[HasInstance]] method of Result(4) with parameter Result(2). </li>
+<li><p>Return Result(7). </p>
+<p>// 相关的 HasInstance 方法定义<br>15.3.5.3 [[HasInstance]] (V)<br>Assume F is a Function object.// 这里 F 就是上面的 Result(4)，V 是 Result(2)<br>When the [[HasInstance]] method of F is called with value V,<br> the following steps are taken: </p>
+</li>
+<li>If V is not an object, return false.// 如果 V 不是 object，直接返回 false </li>
+<li>Call the [[Get]] method of F with property name “prototype”.// 用 [[Get]] 方法取 <pre><code>// F 的 prototype 属性
+</code></pre></li>
+<li>Let O be Result(2).//O = F.<a href="&quot;prototype&quot;">[Get]</a> </li>
+<li>If O is not an object, throw a TypeError exception. </li>
+<li>Let V be the value of the [[Prototype]] property of V.//V = V.[[Prototype]] </li>
+<li>If V is null, return false.<br>// 这里是关键，如果 O 和 V 引用的是同一个对象，则返回 true；否则，到 Step 8 返回 Step 5 继续循环</li>
+<li>If O and V refer to the same object or if they refer to objects<br>joined to each other (section 13.1.2), return true. </li>
+<li><p>Go to step 5.<br>上面的规范定义很晦涩，而且看起来比较复杂，涉及到很多概念，但把这段规范翻译成 JavaScript 代码却很简单，如下：<br>清单 6. JavaScript instanceof 运算符代码<br>function instance_of(L, R) {//L 表示左表达式，R 表示右表达式<br>var O = R.prototype;// 取 R 的显示原型<br>L = L.<strong>proto</strong>;// 取 L 的隐式原型<br>while (true) {<br>if (L === null)<br>  return false;<br>if (O === L)// 这里重点：当 O 严格等于 L 时，返回 true<br>  return true;<br>L = L.<strong>proto</strong>;<br>}<br>}<br>回页首<br>JavaScript 原型继承机制<br>由于本文主要集中在剖析 JavaScript instanceof 运算符，所以对于 JavaScript 的原型继承机制不再做详细的讲解，下面参考来自 <a href="http://www.mollypages.org/misc/js.mp" target="_blank" rel="external">http://www.mollypages.org/misc/js.mp</a> 的一张图片，此图片详细的描述了 JavaScript 各种对象的显示和隐式原型链结构。<br>由其本文涉及显示原型和隐式原型，所以下面对这两个概念作一下简单说明。在 JavaScript 原型继承结构里面，规范中用 [[Prototype]] 表示对象隐式的原型，在 JavaScript 中用 <strong>proto</strong> 表示，并且在 Firefox 和 Chrome 浏览器中是可以访问得到这个属性的，但是 IE 下不行。所有 JavaScript 对象都有 <strong>proto</strong> 属性，但只有 Object.prototype.<strong>proto</strong> 为 null，前提是没有在 Firefox 或者 Chrome 下修改过这个属性。这个属性指向它的原型对象。 至于显示的原型，在 JavaScript 里用 prototype 属性表示，这个是 JavaScript 原型继承的基础知识，在这里就不在叙述了。<br><img src="/img/原型连/figure1.jpg" alt=""><br>图 1. JavaScript 原型链<br>JavaScript 原型链<br>回页首<br>讲解 instanceof 复杂用法<br>有了上面 instanceof 运算符的 JavaScript 代码和原型继承图，再来理解 instanceof 运算符将易如反掌。下面将详细讲解 Object instanceof Object，Function instanceof Function 和 Foo instanceof Foo 三个示例，其它示例读者可自行推演。<br>清单 7. Object instanceof Object<br>// 为了方便表述，首先区分左侧表达式和右侧表达式<br>ObjectL = Object, ObjectR = Object;<br>// 下面根据规范逐步推演<br>O = ObjectR.prototype = Object.prototype<br>L = ObjectL.<strong>proto</strong> = Function.prototype<br>// 第一次判断<br>O != L<br>// 循环查找 L 是否还有 <strong>proto</strong><br>L = Function.prototype.<strong>proto</strong> = Object.prototype<br>// 第二次判断<br>O == L<br>// 返回 true<br>清单 8. Function instanceof Function<br>// 为了方便表述，首先区分左侧表达式和右侧表达式<br>FunctionL = Function, FunctionR = Function;<br>// 下面根据规范逐步推演<br>O = FunctionR.prototype = Function.prototype<br>L = FunctionL.<strong>proto</strong> = Function.prototype<br>// 第一次判断<br>O == L<br>// 返回 true<br>清单 9. Foo instanceof Foo<br>// 为了方便表述，首先区分左侧表达式和右侧表达式<br>FooL = Foo, FooR = Foo;<br>// 下面根据规范逐步推演<br>O = FooR.prototype = Foo.prototype<br>L = FooL.<strong>proto</strong> = Function.prototype<br>// 第一次判断<br>O != L<br>// 循环再次查找 L 是否还有 <strong>proto</strong><br>L = Function.prototype.<strong>proto</strong> = Object.prototype<br>// 第二次判断<br>O != L<br>// 再次循环查找 L 是否还有 <strong>proto</strong><br>L = Object.prototype.<strong>proto</strong> = null<br>// 第三次判断<br>L == null<br>// 返回 false<br>回页首<br>简析 instanceof 在 Dojo 继承机制中的应用<br>在 JavaScript 中，是没有多重继承这个概念的，就像 Java 一样。但在 Dojo 中使用 declare 声明类时，是允许继承自多个类的。下面以 Dojo 1.6.1 为例。<br>清单 10. Dojo 中多重继承<br>dojo.declare(“Aoo”,null,{});<br>dojo.declare(“Boo”,null,{});<br>dojo.declare(“Foo”,[Aoo,Boo],{}); </p>
+<p>var foo = new Foo();<br>console.log(foo instanceof Aoo);//true<br>console.log(foo instanceof Boo);//false </p>
+<p>console.log(foo.isInstanceOf(Aoo));//true<br>console.log(foo.isInstanceOf(Boo));//true<br>上面的示例中，Foo 同时继承自 Aoo 和 Boo，但当使用 instanceof 运算符来检查 foo 是否是 Boo 的实例时，返回的是 false。实际上，在 Dojo 的内部，Foo 仍然只继承自 Aoo，而通过 mixin 机制把 Boo 类中的方法和属性拷贝到 Foo 中，所以当用 instanceof 运算符来检查是否是 Boo 的实例时，会返回 false。所以 Dojo 为每个类的实例添加了一个新的方法叫 isInstanceOf，用这个方法来检查多重继承。<br>结束语<br>本文详细介绍了 JavaScript 语言中 instanceof 运算符，并且结合语言规范深入剖析了此操作符的算法。对读者使用 JavaScript 编写复杂的面向对象程序会有很大的帮助。本文所有代码在 Firefox 15 下通过测试。<br>参考资料<br>学习<br>关于 Dojo，请参考 Dojo 官方网站<br>developerWorks Web development 专区：通过专门关于 Web 技术的文章和教程，扩展您在网站开发方面的技能。<br>developerWorks Ajax 资源中心：这是有关 Ajax 编程模型信息的一站式中心，包括很多文档、教程、论坛、blog、wiki 和新闻。任何 Ajax 的新信息都能在这里找到。<br>developerWorks Web 2.0 资源中心，这是有关 Web 2.0 相关信息的一站式中心，包括大量 Web 2.0 技术文章、教程、下载和相关技术资源。</p>
+</li>
+</ol>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

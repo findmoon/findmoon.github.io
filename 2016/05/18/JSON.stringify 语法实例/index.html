@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    JSON.stringify 语法实例
+  
+</title>
+
+<meta name="description" content="JSON.stringify 语法实例讲解
+
+可能有些人对系列化这个词过敏，我的理解很简单。就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。就这么简单。打个比方说，你有一个类，那么你可以通过这个方法转换成相应的json类型的
+
+*作用：这个函数的作用主要是为了系列化对象的。
+系列化就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。打个比方说，你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON.stringify 语法实例">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/18/JSON.stringify 语法实例/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="JSON.stringify 语法实例讲解
+
+可能有些人对系列化这个词过敏，我的理解很简单。就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。就这么简单。打个比方说，你有一个类，那么你可以通过这个方法转换成相应的json类型的
+
+*作用：这个函数的作用主要是为了系列化对象的。
+系列化就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。打个比方说，你">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150604999.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150604479.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150604337.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150605876.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150606776.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150606776.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150606953.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/json/20120314150606568.png">
+<meta property="og:updated_time" content="2016-05-19T05:10:35.272Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSON.stringify 语法实例">
+<meta name="twitter:description" content="JSON.stringify 语法实例讲解
+
+可能有些人对系列化这个词过敏，我的理解很简单。就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。就这么简单。打个比方说，你有一个类，那么你可以通过这个方法转换成相应的json类型的
+
+*作用：这个函数的作用主要是为了系列化对象的。
+系列化就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。打个比方说，你">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/json/20120314150604999.png">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">9</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">94</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-JSON.stringify 语法实例" class="article article-type-post">
+  
+    <h1 class="article-header">
+      JSON.stringify 语法实例
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-18
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stringify/">stringify</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>JSON.stringify 语法实例讲解</p>
+<blockquote>
+<p>可能有些人对系列化这个词过敏，我的理解很简单。就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。就这么简单。打个比方说，你有一个类，那么你可以通过这个方法转换成相应的json类型的</p>
+</blockquote>
+<p><em>*作用：这个函数的作用主要是为了系列化对象的。</em></p>
+<p>系列化就是说把原来是对象的类型转换成字符串类型（或者更确切的说是json类型的）。打个比方说，你有一个类，那么你可以通过这个方法转换成相应的json类型的。</p>
+<ul>
+<li>语法：<br>JSON.stringify(value [, replacer] [, space]) </li>
+</ul>
+<blockquote>
+<p>value：是必须要的字段。就是你输入的对象，比如数组啊，类啊等等。<br>replacer：这个是可选的。它又分为2种方式，一种是方法，第二种是数组。</p>
+</blockquote>
+<ul>
+<li>情况一：我们先说数据，通过我们后面的实验可以知道，它是和第一个有关系的。一般来说，我们系列化后的结果是通过键值对来进行表示的。 </li>
+</ul>
+<p>比如说：<br>name:”lan”,age:25<br>这种形式。</p>
+<p>所以，如果这种形式的话，如果第二个的值在第一个存在，那么的话就以第二个的值做key，第一个值为value进行表示，如果不存在，sorry，忽略。【是不是有点抽象，我也这么觉得，不过你等一下看实验 就OK了。。呼呼。】</p>
+<ul>
+<li>情况二：如果是方法，那很简单，就是说把系列化后的每一个对象（记住 是每一个）传进方法里面进行处理。 </li>
+</ul>
+<p>space：很好理解，用什么来做分隔符的。 </p>
+<blockquote>
+<p>1.如果省略的话，那么显示出来的值 就没有分隔符。直接输出来<br>2.如果是一个数字的话，那么它就定义缩进几个字符，当然 如果大于10 ，则最大值为10.<br>3.如果是一些转义字符，比如“\t”，表示回车，那么它每行一个回车。<br>4.如果仅仅是字符串，OK，就在每行输出值的时候把这些字符串附加上去就OK。当然，最大长度也是10个字符。 </p>
+</blockquote>
+<p>开始用实例说明； </p>
+<h3 id="1-只有一个参数的情况下："><a href="#1-只有一个参数的情况下：" class="headerlink" title="1.只有一个参数的情况下："></a>1.只有一个参数的情况下：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var student = new Object(); </span><br><span class="line">student.name = &quot;Lanny&quot;; </span><br><span class="line">student.age = &quot;25&quot;; </span><br><span class="line">student.location = &quot;China&quot;; </span><br><span class="line">var json = JSON.stringify(student); </span><br><span class="line">alert(student);</span><br></pre></td></tr></table></figure>
+<p>结果：<br><img src="/img/json/20120314150604999.png" alt=""></p>
+<p>有些人可能会怀疑JSON.stringify的作用，OK。那假如，我们不要这个函数。代码下面的样子： </p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var student = new Object(); </span><br><span class="line">student.name = &quot;Lanny&quot;; </span><br><span class="line">student.age = &quot;25&quot;; </span><br><span class="line">student.location = &quot;China&quot;; </span><br><span class="line"></span><br><span class="line">// var json = JSON.stringify(student); </span><br><span class="line">alert(student);</span><br></pre></td></tr></table></figure>
+<p>　恭喜你 得到的结果是：<br><img src="/img/json/20120314150604479.png" alt=""></p>
+<p>###.第二个参数存在，并且第二个参数还是function的时候 </p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var students = new Array() ; </span><br><span class="line">students[0] = &quot;Lanny&quot;; </span><br><span class="line">students[1] = &quot;dong&quot;; </span><br><span class="line">students[2] = &quot;I love you&quot;; </span><br><span class="line">var json = JSON.stringify(students,switchUpper); </span><br><span class="line">function switchUpper(key, value) &#123; </span><br><span class="line">return value.toString().toUpperCase(); </span><br><span class="line">&#125; </span><br><span class="line">alert(json); </span><br><span class="line"></span><br><span class="line">　　　　　　　　//var json = JSON.stringify(students, function (key,value) &#123; </span><br><span class="line"></span><br><span class="line">　　　　　　　　//return value.toString().toUpperCase(); </span><br><span class="line"></span><br><span class="line">　　　　　　　//&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面的方法也可以换成下面的，2个都是一样，只是写法有那么一点点的不一样而已。<br>　得到结果如下：<br><img src="/img/json/20120314150604337.png" alt=""> </li>
+</ul>
+<h3 id="第二个参数存在，并且第二个参数不是function，而是数组的时候。"><a href="#第二个参数存在，并且第二个参数不是function，而是数组的时候。" class="headerlink" title=".第二个参数存在，并且第二个参数不是function，而是数组的时候。"></a>.第二个参数存在，并且第二个参数不是function，而是数组的时候。</h3><p>####.1 【误区】如果第一个参数是数组，第二个参数也是数组的话，只显示第一个参数的值。<br>比如： </p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var students = new Array() ; </span><br><span class="line">students[0] = &quot;Lanny&quot;; </span><br><span class="line">students[1] = &quot;dong&quot;; </span><br><span class="line">students[2] = &quot;I love you&quot;; </span><br><span class="line">var stu = new Array(); </span><br><span class="line">stu[0] = &quot;1&quot;; </span><br><span class="line">stu[1] = &quot;2&quot;; </span><br><span class="line">var json = JSON.stringify(students,stu); </span><br><span class="line">alert(json);</span><br></pre></td></tr></table></figure>
+<p>　sorry 得到的结果就是：<br><img src="/img/json/20120314150605876.png" alt=""></p>
+<p>第二个被忽略了，只是第一个被系列化了。 </p>
+<h4 id="2-如果第一个是对象（这里说的对象就像在C-里面可以进行new的），第二个是数组的。"><a href="#2-如果第一个是对象（这里说的对象就像在C-里面可以进行new的），第二个是数组的。" class="headerlink" title="2 如果第一个是对象（这里说的对象就像在C#里面可以进行new的），第二个是数组的。"></a>2 如果第一个是对象（这里说的对象就像在C#里面可以进行new的），第二个是数组的。</h4><p>那么如果第二个的value在第一个存在，那么的话就以第二个的值做key，第一个值为value进行表示 </p>
+<p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var student = new Object(); </span><br><span class="line">student.qq = &quot;5485891512&quot;; </span><br><span class="line">student.name = &quot;Lanny&quot;; </span><br><span class="line">student.age = 25; </span><br><span class="line"></span><br><span class="line">var stu = new Array(); </span><br><span class="line">stu[0] = &quot;qq&quot;; </span><br><span class="line">stu[1] = &quot;age&quot;; </span><br><span class="line">stu[2] = &quot;Hi&quot;;//这个student对象里不存在。 </span><br><span class="line"></span><br><span class="line">var json = JSON.stringify(student,stu); </span><br><span class="line">alert(json);</span><br></pre></td></tr></table></figure>
+<p>　得到的结果如下：<br><img src="/img/json/20120314150606776.png" alt=""></p>
+<p>因为stu[2] = “Hi”;这个Hi 在第一个找不到，所以就不进行显示了。 </p>
+<h3 id="第三个参数"><a href="#第三个参数" class="headerlink" title=".第三个参数"></a>.第三个参数</h3><h4 id="1-如果省略的话，那么显示出来的值-就没有分隔符。直接输出来"><a href="#1-如果省略的话，那么显示出来的值-就没有分隔符。直接输出来" class="headerlink" title=".1.如果省略的话，那么显示出来的值 就没有分隔符。直接输出来"></a>.1.如果省略的话，那么显示出来的值 就没有分隔符。直接输出来</h4><p>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var student = new Object(); </span><br><span class="line">student.qq = &quot;5485891512&quot;; </span><br><span class="line">student.name = &quot;Lanny&quot;; </span><br><span class="line">student.age = 25; </span><br><span class="line"></span><br><span class="line">var stu = new Array(); </span><br><span class="line">stu[0] = &quot;qq&quot;; </span><br><span class="line">stu[1] = &quot;age&quot;; </span><br><span class="line">stu[2] = &quot;Hi&quot;; </span><br><span class="line"></span><br><span class="line">var json = JSON.stringify(student,stu); </span><br><span class="line">alert(json);</span><br></pre></td></tr></table></figure></p>
+<p>输出的就是：<br><img src="/img/json/20120314150606776.png" alt=""></p>
+<h4 id="2-如果是一个数字的话，那么它就定义缩进几个字符，当然-如果大于10-，则最大值为10"><a href="#2-如果是一个数字的话，那么它就定义缩进几个字符，当然-如果大于10-，则最大值为10" class="headerlink" title="2.如果是一个数字的话，那么它就定义缩进几个字符，当然 如果大于10 ，则最大值为10."></a>2.如果是一个数字的话，那么它就定义缩进几个字符，当然 如果大于10 ，则最大值为10.</h4><p>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var student = new Object(); </span><br><span class="line">student.qq = &quot;5485891512&quot;; </span><br><span class="line">student.name = &quot;Lanny&quot;; </span><br><span class="line">student.age = 25; </span><br><span class="line"></span><br><span class="line">var stu = new Array(); </span><br><span class="line">stu[0] = &quot;qq&quot;; </span><br><span class="line">stu[1] = &quot;age&quot;; </span><br><span class="line">stu[2] = &quot;Hi&quot;; </span><br><span class="line"></span><br><span class="line">var json = JSON.stringify(student,stu,100);//注意这里的100 </span><br><span class="line">alert(json);</span><br></pre></td></tr></table></figure>
+<p>结果<br><img src="/img/json/20120314150606953.png" alt=""></p>
+<p>空开来了10个字符。 </p>
+<h4 id="3-如果是一些转义字符，比如“-t”，表示回车，那么它每行一个回车。"><a href="#3-如果是一些转义字符，比如“-t”，表示回车，那么它每行一个回车。" class="headerlink" title="3.如果是一些转义字符，比如“\t”，表示回车，那么它每行一个回车。"></a>3.如果是一些转义字符，比如“\t”，表示回车，那么它每行一个回车。</h4><p>也是一样。 </p>
+<h4 id="4-如果仅仅是字符串，OK，就在每行输出值的时候把这些字符串附加上去就OK。当然，最大长度也是10个字符。"><a href="#4-如果仅仅是字符串，OK，就在每行输出值的时候把这些字符串附加上去就OK。当然，最大长度也是10个字符。" class="headerlink" title="4.如果仅仅是字符串，OK，就在每行输出值的时候把这些字符串附加上去就OK。当然，最大长度也是10个字符。"></a>4.如果仅仅是字符串，OK，就在每行输出值的时候把这些字符串附加上去就OK。当然，最大长度也是10个字符。</h4><p>如果是var json = JSON.stringify(student,stu,“HaiKou”);//</p>
+<p><img src="/img/json/20120314150606568.png" alt=""></p>
+<p><a href="http://www.jb51.net/article/29893.htm" target="_blank" rel="external">文章出处</a></p>
+<p>另一处 –&gt; <a href="http://www.cnblogs.com/damonlan/" target="_blank" rel="external">http://www.cnblogs.com/damonlan/</a></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
