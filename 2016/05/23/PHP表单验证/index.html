@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    PHP表单验证
+  
+</title>
+
+<meta name="description" content="PHP 表单验证
+在处理PHP表单时我们需要考虑安全性，为了防止黑客及垃圾信息我们需要对表单进行数据安全验证。
+下面的HTML表单中包含以下输入字段： 必须与可选文本字段，单选按钮，及提交按钮：
+
+
+上述表单验证规则如下：
+
+文本字段name, email, 及 website 字段为文本输入元素， comment 字段是 textarea。HTML代码如下所示:1234Name: &amp;lt;inp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP表单验证">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/23/PHP表单验证/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="PHP 表单验证
+在处理PHP表单时我们需要考虑安全性，为了防止黑客及垃圾信息我们需要对表单进行数据安全验证。
+下面的HTML表单中包含以下输入字段： 必须与可选文本字段，单选按钮，及提交按钮：
+
+
+上述表单验证规则如下：
+
+文本字段name, email, 及 website 字段为文本输入元素， comment 字段是 textarea。HTML代码如下所示:1234Name: &amp;lt;inp">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/php/435667fbvkj.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/php/60527151127.png">
+<meta property="og:updated_time" content="2016-05-27T08:24:43.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP表单验证">
+<meta name="twitter:description" content="PHP 表单验证
+在处理PHP表单时我们需要考虑安全性，为了防止黑客及垃圾信息我们需要对表单进行数据安全验证。
+下面的HTML表单中包含以下输入字段： 必须与可选文本字段，单选按钮，及提交按钮：
+
+
+上述表单验证规则如下：
+
+文本字段name, email, 及 website 字段为文本输入元素， comment 字段是 textarea。HTML代码如下所示:1234Name: &amp;lt;inp">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/php/435667fbvkj.png">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">115</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">139</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-PHP表单验证" class="article article-type-post">
+  
+    <h1 class="article-header">
+      PHP表单验证
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-23
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/php/">php</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h2 id="PHP-表单验证"><a href="#PHP-表单验证" class="headerlink" title="PHP 表单验证"></a>PHP 表单验证</h2><ul>
+<li>在处理PHP表单时我们需要考虑安全性，为了防止黑客及垃圾信息我们需要对表单进行数据安全验证。</li>
+<li>下面的HTML表单中包含以下输入字段： 必须与可选文本字段，单选按钮，及提交按钮：</li>
+</ul>
+<p><img src="/img/php/435667fbvkj.png" alt=""></p>
+<p>上述表单验证规则如下：</p>
+<p><img src="/img/php/60527151127.png" alt=""></p>
+<h3 id="文本字段"><a href="#文本字段" class="headerlink" title="文本字段"></a>文本字段</h3><p>name, email, 及 website 字段为文本输入元素， comment 字段是 textarea。HTML代码如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Name: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;</span><br><span class="line">E-mail: &lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;</span><br><span class="line">Website: &lt;input type=&quot;text&quot; name=&quot;website&quot;&gt;</span><br><span class="line">Comment: &lt;textarea name=&quot;comment&quot; rows=&quot;5&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h3><p>gender 字段是单选按钮，HTML代码如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gender:</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;Female</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;Male</span><br></pre></td></tr></table></figure></p>
+<h3 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h3><p>HTML 表单代码如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt;</span><br><span class="line">该表单使用 method=&quot;post&quot; 方法来提交数据。</span><br><span class="line">Note	什么是 $_SERVER[&quot;PHP_SELF&quot;] 变量?</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>$_SERVER[“PHP_SELF”]是超级全局变量，返回当前正在执行脚本的文件名，与 document root相关。<br>所以， $_SERVER[“PHP_SELF”] 会发送表单数据到当前页面，而不是跳转到不同的页面。</li>
+</ul>
+<blockquote>
+<p>什么是 htmlspecialchars()方法?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">htmlspecialchars() 函数把一些预定义的字符转换为 HTML 实体。</span><br><span class="line">预定义的字符是：</span><br><span class="line">&amp; （和号） 成为 &amp;amp;</span><br><span class="line">&quot; （双引号） 成为 &amp;quot;</span><br><span class="line">&apos; （单引号） 成为 &amp;#039;</span><br><span class="line">&lt; （小于） 成为 &amp;lt;</span><br><span class="line">&gt; （大于） 成为 &amp;gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="PHP表单中需引起注重的地方？"><a href="#PHP表单中需引起注重的地方？" class="headerlink" title="PHP表单中需引起注重的地方？"></a>PHP表单中需引起注重的地方？</h3><p>$_SERVER[“PHP_SELF”] 变量有可能会被黑客使用！</p>
+<p>当黑客使用跨网站脚本的HTTP链接来攻击时，$_SERVER[“PHP_SELF”]服务器变量也会被植入脚本。原因就是跨网站脚本是附在执行文件的路径后面的，因此$_SERVER[“PHP_SELF”]的字符串就会包含HTTP链接后面的JavaScript程序代码。</p>
+<blockquote>
+<p>XSS又叫 CSS (Cross-Site Script) ,跨站脚本攻击。恶意攻击者往Web页面里插入恶意html代码，当用户浏览该页之时，嵌入其中Web里面的html代码会被执行，从而达到恶意用户的特殊目的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">指定以下表单文件名为 &quot;test_form.php&quot;:</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo $_SERVER[&quot;PHP_SELF&quot;];?&gt;&quot;&gt;</span><br><span class="line">现在，我们使用URL来指定提交地址 &quot;test_form.php&quot;,以上代码修改为如下所示:</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;test_form.php&quot;&gt;</span><br><span class="line">这样做就很好了。</span><br><span class="line">但是，考虑到用户会在浏览器地址栏中输入以下地址:</span><br><span class="line">http://www.runoob.com/test_form.php/%22%3E%3Cscript%3Ealert(&apos;hacked&apos;)%3C/script%3E</span><br><span class="line">以上的 URL 中，将被解析为如下代码并执行：</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;test_form.php/&quot;&gt;&lt;script&gt;alert(&apos;hacked&apos;)&lt;/script&gt;</span><br><span class="line">代码中添加了 script 标签，并添加了alert命令。 当页面载入时会执行该Javascript代码（用户会看到弹出框）。 这仅仅只是一个简单的实例来说明PHP_SELF变量会被黑客利用。</span><br></pre></td></tr></table></figure>
+<p>请注意，<strong>任何JavaScript代码可以添加在&lt; script&gt;标签中！</strong> 黑客可以利用这点重定向页面到另外一台服务器的页面上，页面 代码文件中可以保护恶意代码，代码可以修改全局变量或者获取用户的表单数据，</p>
+<ul>
+<li>如何避免 $_SERVER[“PHP_SELF”] 被利用?<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$_SERVER[&quot;PHP_SELF&quot;] 可以通过 htmlspecialchars() 函数来避免被利用。</span><br><span class="line">form 代码如下所示：</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt;</span><br><span class="line">htmlspecialchars() 把一些预定义的字符转换为 HTML 实体。现在如果用户想利用 PHP_SELF 变量, 结果将输出如下所示：</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;test_form.php/&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert(&apos;hacked&apos;)&amp;lt;/script&amp;gt;&quot;&gt;</span><br><span class="line">尝试该漏洞失败！</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="使用-PHP-验证表单数据"><a href="#使用-PHP-验证表单数据" class="headerlink" title="使用 PHP 验证表单数据"></a>使用 PHP 验证表单数据</h3><ul>
+<li>首先我们对用户所有提交的数据都通过 PHP 的 htmlspecialchars() 函数处理。</li>
+</ul>
+<p>当我们使用 htmlspecialchars() 函数时，在用户尝试提交以下文本域:<br>&lt; script&gt;location.href(‘<a href="http://www.runoob.com" target="_blank" rel="external">http://www.runoob.com</a>‘)&lt; /script&gt;<br>该代码将不会被执行，因为它会被保存为HTML转义代码，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt;script&amp;gt;location.href(&apos;http://www.runoob.com&apos;)&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码是安全的，可以正常在页面显示或者插入邮件中。</p>
+<ul>
+<li>当用户提交表单时，我们将做以下两件事情，：</li>
+</ul>
+<p>1.使用 PHP trim() 函数去除用户输入数据中不必要的字符 (如：空格，tab，换行)。</p>
+<p>2.使用PHP stripslashes()函数去除用户输入数据中的反斜杠 ()</p>
+<p>接下来让我们将这些过滤的函数写在一个我们自己定义的函数中，这样可以大大提高代码的复用性。<br>将函数命名为 test_input()。<br>现在，我们可以通过test_input()函数来检测 $_POST 中的所有变量, 脚本代码如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 定义变量并默认设置为空值</span><br><span class="line">$name = $email = $gender = $comment = $website = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;)</span><br><span class="line">&#123;</span><br><span class="line">  $name = test_input($_POST[&quot;name&quot;]);</span><br><span class="line">  $email = test_input($_POST[&quot;email&quot;]);</span><br><span class="line">  $website = test_input($_POST[&quot;website&quot;]);</span><br><span class="line">  $comment = test_input($_POST[&quot;comment&quot;]);</span><br><span class="line">  $gender = test_input($_POST[&quot;gender&quot;]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function test_input($data)</span><br><span class="line">&#123;</span><br><span class="line">  $data = trim($data);</span><br><span class="line">  $data = stripslashes($data);</span><br><span class="line">  $data = htmlspecialchars($data);</span><br><span class="line">  return $data;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意我们在执行以上脚本时，会通过$_SERVER[“REQUEST_METHOD”]来检测表单是否被提交 。如果 REQUEST_METHOD 是 POST, 表单将被提交 数据将被验证。如果表单未提交将跳过验证并显示空白。</li>
+</ul>
+<p>在以上实例中使用输入项都是可选的，即使用户不输入任何数据也可以正常显示。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

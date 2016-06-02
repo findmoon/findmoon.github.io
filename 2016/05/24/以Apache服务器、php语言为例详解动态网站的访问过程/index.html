@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    以Apache服务器、php语言为例详解动态网站的访问过程
+  
+</title>
+
+<meta name="description" content="以Apache服务器、php语言为例详解动态网站的访问过程原文链接
+
+网站页面主要分为静态页面和动态页面，纯静态页面组成的网站现在相对比较少见，大型网站一般使用的是动态网站建站技术，还有一部分网站是静态网页与动态网页共存，本文以Apache服务器、php语言为例，详解动态网站的访问过程，下面直接切入本文主题。
+
+
+（1）用户端访问服务器端的html文件S1：通过本机配置好的DNS域名服务器地址寻找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="以Apache服务器、php语言为例详解动态网站的访问过程">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/24/以Apache服务器、php语言为例详解动态网站的访问过程/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="以Apache服务器、php语言为例详解动态网站的访问过程原文链接
+
+网站页面主要分为静态页面和动态页面，纯静态页面组成的网站现在相对比较少见，大型网站一般使用的是动态网站建站技术，还有一部分网站是静态网页与动态网页共存，本文以Apache服务器、php语言为例，详解动态网站的访问过程，下面直接切入本文主题。
+
+
+（1）用户端访问服务器端的html文件S1：通过本机配置好的DNS域名服务器地址寻找">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/php/1360998916547.jpg">
+<meta property="og:updated_time" content="2016-05-27T08:18:31.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="以Apache服务器、php语言为例详解动态网站的访问过程">
+<meta name="twitter:description" content="以Apache服务器、php语言为例详解动态网站的访问过程原文链接
+
+网站页面主要分为静态页面和动态页面，纯静态页面组成的网站现在相对比较少见，大型网站一般使用的是动态网站建站技术，还有一部分网站是静态网页与动态网页共存，本文以Apache服务器、php语言为例，详解动态网站的访问过程，下面直接切入本文主题。
+
+
+（1）用户端访问服务器端的html文件S1：通过本机配置好的DNS域名服务器地址寻找">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/php/1360998916547.jpg">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">115</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">139</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-以Apache服务器、php语言为例详解动态网站的访问过程" class="article article-type-post">
+  
+    <h1 class="article-header">
+      以Apache服务器、php语言为例详解动态网站的访问过程
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-24
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/网站/">网站</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站访问/">网站访问</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h2 id="以Apache服务器、php语言为例详解动态网站的访问过程"><a href="#以Apache服务器、php语言为例详解动态网站的访问过程" class="headerlink" title="以Apache服务器、php语言为例详解动态网站的访问过程"></a>以Apache服务器、php语言为例详解动态网站的访问过程</h2><p><a href="http://www.chinaz.com/web/2013/0216/292366.shtml" target="_blank" rel="external">原文链接</a></p>
+<ul>
+<li>网站页面主要分为静态页面和动态页面，纯静态页面组成的网站现在相对比较少见，大型网站一般使用的是动态网站建站技术，还有一部分网站是静态网页与动态网页共存，本文以Apache服务器、php语言为例，详解动态网站的访问过程，下面直接切入本文主题。</li>
+</ul>
+<p><img src="/img/php/1360998916547.jpg" alt=""></p>
+<h3 id="（1）用户端访问服务器端的html文件"><a href="#（1）用户端访问服务器端的html文件" class="headerlink" title="（1）用户端访问服务器端的html文件"></a>（1）用户端访问服务器端的html文件</h3><h4 id="S1：通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。"><a href="#S1：通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。" class="headerlink" title="S1：通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。"></a>S1：通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。</h4><h4 id="S2：通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，输入URL时一般不用输入端口）请求Apache服务器上相应目录下的html文件（如index-htm）。"><a href="#S2：通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，输入URL时一般不用输入端口）请求Apache服务器上相应目录下的html文件（如index-htm）。" class="headerlink" title="S2：通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，输入URL时一般不用输入端口）请求Apache服务器上相应目录下的html文件（如index.htm）。"></a>S2：通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，输入URL时一般不用输入端口）请求Apache服务器上相应目录下的html文件（如index.htm）。</h4><h4 id="S3：Apache服务器收到用户的访问请求后，在它管理的文档目录中找到并打开相应的html文件（如index-htm），将文件内容响应给客户端浏览器（即用户）。"><a href="#S3：Apache服务器收到用户的访问请求后，在它管理的文档目录中找到并打开相应的html文件（如index-htm），将文件内容响应给客户端浏览器（即用户）。" class="headerlink" title="S3：Apache服务器收到用户的访问请求后，在它管理的文档目录中找到并打开相应的html文件（如index.htm），将文件内容响应给客户端浏览器（即用户）。"></a>S3：Apache服务器收到用户的访问请求后，在它管理的文档目录中找到并打开相应的html文件（如index.htm），将文件内容响应给客户端浏览器（即用户）。</h4><h4 id="S4：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来（由于不同的浏览器对于代码的解读规则会不一样，所以不同浏览器对于相同的网页呈现的最终页面效果会有所差异）。"><a href="#S4：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来（由于不同的浏览器对于代码的解读规则会不一样，所以不同浏览器对于相同的网页呈现的最终页面效果会有所差异）。" class="headerlink" title="S4：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来（由于不同的浏览器对于代码的解读规则会不一样，所以不同浏览器对于相同的网页呈现的最终页面效果会有所差异）。"></a>S4：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来（由于不同的浏览器对于代码的解读规则会不一样，所以不同浏览器对于相同的网页呈现的最终页面效果会有所差异）。</h4><h3 id="（2）用户端访问服务器端的php文件"><a href="#（2）用户端访问服务器端的php文件" class="headerlink" title="（2）用户端访问服务器端的php文件"></a>（2）用户端访问服务器端的php文件</h3><h4 id="S1：该步与上面访问html静态网页是一样的，通过DNS服务器解析出相应的Web服务器的IP地址。"><a href="#S1：该步与上面访问html静态网页是一样的，通过DNS服务器解析出相应的Web服务器的IP地址。" class="headerlink" title="S1：该步与上面访问html静态网页是一样的，通过DNS服务器解析出相应的Web服务器的IP地址。"></a>S1：该步与上面访问html静态网页是一样的，通过DNS服务器解析出相应的Web服务器的IP地址。</h4><h4 id="S2：与上面访问html静态页面相似，不过最后请求的是Apache服务器上相应目录下的php文件，如index-php。"><a href="#S2：与上面访问html静态页面相似，不过最后请求的是Apache服务器上相应目录下的php文件，如index-php。" class="headerlink" title="S2：与上面访问html静态页面相似，不过最后请求的是Apache服务器上相应目录下的php文件，如index.php。"></a>S2：与上面访问html静态页面相似，不过最后请求的是Apache服务器上相应目录下的php文件，如index.php。</h4><h4 id="S3：Apache服务器本身不能处理php动态语言脚本文件，就寻找并委托PHP应用服务器来处理（服务器端事先得安装PHP应用服务器），Apache服务器将用户请求访问的php文件（如index-php）文件交给PHP应用服务器。"><a href="#S3：Apache服务器本身不能处理php动态语言脚本文件，就寻找并委托PHP应用服务器来处理（服务器端事先得安装PHP应用服务器），Apache服务器将用户请求访问的php文件（如index-php）文件交给PHP应用服务器。" class="headerlink" title="S3：Apache服务器本身不能处理php动态语言脚本文件，就寻找并委托PHP应用服务器来处理（服务器端事先得安装PHP应用服务器），Apache服务器将用户请求访问的php文件（如index.php）文件交给PHP应用服务器。"></a>S3：Apache服务器本身不能处理php动态语言脚本文件，就寻找并委托PHP应用服务器来处理（服务器端事先得安装PHP应用服务器），Apache服务器将用户请求访问的php文件（如index.php）文件交给PHP应用服务器。</h4><h4 id="S4：PHP应用服务器接收php文件（如index-php），打开并解释php文件，最终翻译成html静态代码，再将html静态代码交还给Apache服务器，Apache服务器将接收到的html静态代码输出到客户端浏览器（即用户）。"><a href="#S4：PHP应用服务器接收php文件（如index-php），打开并解释php文件，最终翻译成html静态代码，再将html静态代码交还给Apache服务器，Apache服务器将接收到的html静态代码输出到客户端浏览器（即用户）。" class="headerlink" title="S4：PHP应用服务器接收php文件（如index.php），打开并解释php文件，最终翻译成html静态代码，再将html静态代码交还给Apache服务器，Apache服务器将接收到的html静态代码输出到客户端浏览器（即用户）。"></a>S4：PHP应用服务器接收php文件（如index.php），打开并解释php文件，最终翻译成html静态代码，再将html静态代码交还给Apache服务器，Apache服务器将接收到的html静态代码输出到客户端浏览器（即用户）。</h4><h4 id="S5：与上面访问html静态页面相同，浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。"><a href="#S5：与上面访问html静态页面相同，浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。" class="headerlink" title="S5：与上面访问html静态页面相同，浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。"></a>S5：与上面访问html静态页面相同，浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。</h4><h3 id="3）用户端访问服务器端的MySQL数据库"><a href="#3）用户端访问服务器端的MySQL数据库" class="headerlink" title="(3）用户端访问服务器端的MySQL数据库"></a>(3）用户端访问服务器端的MySQL数据库</h3><h5 id="如果用户需要对MySQL数据库中的数据进行操作，那么就需要在服务器端安装数据库管理软件MySQL服务器，用来存储和管理网站数据。由于Apache服务器是无法连接和操作MySQL服务器，所以还需要安装php应用服务器，这样Apache服务器就委托php应用服务器去连接和操作数据库，在对数据库中的数据进行管理的时候，一般都需要用到结构化查询语句，即SQL语句。"><a href="#如果用户需要对MySQL数据库中的数据进行操作，那么就需要在服务器端安装数据库管理软件MySQL服务器，用来存储和管理网站数据。由于Apache服务器是无法连接和操作MySQL服务器，所以还需要安装php应用服务器，这样Apache服务器就委托php应用服务器去连接和操作数据库，在对数据库中的数据进行管理的时候，一般都需要用到结构化查询语句，即SQL语句。" class="headerlink" title="如果用户需要对MySQL数据库中的数据进行操作，那么就需要在服务器端安装数据库管理软件MySQL服务器，用来存储和管理网站数据。由于Apache服务器是无法连接和操作MySQL服务器，所以还需要安装php应用服务器，这样Apache服务器就委托php应用服务器去连接和操作数据库，在对数据库中的数据进行管理的时候，一般都需要用到结构化查询语句，即SQL语句。"></a>如果用户需要对MySQL数据库中的数据进行操作，那么就需要在服务器端安装数据库管理软件MySQL服务器，用来存储和管理网站数据。由于Apache服务器是无法连接和操作MySQL服务器，所以还需要安装php应用服务器，这样Apache服务器就委托php应用服务器去连接和操作数据库，在对数据库中的数据进行管理的时候，一般都需要用到结构化查询语句，即SQL语句。</h5><h4 id="S1：该步与上面访问php文件一样，通过DNS服务器解析出相应的Web服务器的IP地址。"><a href="#S1：该步与上面访问php文件一样，通过DNS服务器解析出相应的Web服务器的IP地址。" class="headerlink" title="S1：该步与上面访问php文件一样，通过DNS服务器解析出相应的Web服务器的IP地址。"></a>S1：该步与上面访问php文件一样，通过DNS服务器解析出相应的Web服务器的IP地址。</h4><h4 id="S2：与上面访问php文件一样，请求访问Apache服务器上相应目录下的php文件。"><a href="#S2：与上面访问php文件一样，请求访问Apache服务器上相应目录下的php文件。" class="headerlink" title="S2：与上面访问php文件一样，请求访问Apache服务器上相应目录下的php文件。"></a>S2：与上面访问php文件一样，请求访问Apache服务器上相应目录下的php文件。</h4><h4 id="S3：与上面访问php文件一样，PHP应用服务器接收Apache服务器的委托，收到相应的php文件。"><a href="#S3：与上面访问php文件一样，PHP应用服务器接收Apache服务器的委托，收到相应的php文件。" class="headerlink" title="S3：与上面访问php文件一样，PHP应用服务器接收Apache服务器的委托，收到相应的php文件。"></a>S3：与上面访问php文件一样，PHP应用服务器接收Apache服务器的委托，收到相应的php文件。</h4><h4 id="S4：PHP应用服务器打开php文件，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器将数据生成html静态代码。"><a href="#S4：PHP应用服务器打开php文件，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器将数据生成html静态代码。" class="headerlink" title="S4：PHP应用服务器打开php文件，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器将数据生成html静态代码。"></a>S4：PHP应用服务器打开php文件，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器将数据生成html静态代码。</h4><h4 id="S5：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。"><a href="#S5：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。" class="headerlink" title="S5：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。"></a>S5：浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。</h4><p>需要注意的是，文中（2）与（3）的区别是，一个访问了数据库，另一个没有访问数据库，所以在过程中有点差别。</p>
+<p>本文首发于叶德华的博客：<a href="http://www.cheaplululemon.com，转载请注明网站地址。" target="_blank" rel="external">http://www.cheaplululemon.com，转载请注明网站地址。</a></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

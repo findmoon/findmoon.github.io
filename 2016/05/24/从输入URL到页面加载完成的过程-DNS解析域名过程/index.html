@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    从输入URL到页面加载完成的过程-DNS解析域名过程
+  
+</title>
+
+<meta name="description" content="从输入URL到页面加载完成的过程-DNS解析域名过程原文链接
+当我们输入一个url，比如为：http://my.oschina.net/u/128568/blog，浏览器会解析这个url分成三部分，域名：my.oschina.net，端口：80，请求资源：/u/128568/blog。下面给出浏览器查找域名对应IP的过程，域名为my.oschina.net：
+
+1、浏览器会缓存DNS记录一段时间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从输入URL到页面加载完成的过程-DNS解析域名过程">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/24/从输入URL到页面加载完成的过程-DNS解析域名过程/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="从输入URL到页面加载完成的过程-DNS解析域名过程原文链接
+当我们输入一个url，比如为：http://my.oschina.net/u/128568/blog，浏览器会解析这个url分成三部分，域名：my.oschina.net，端口：80，请求资源：/u/128568/blog。下面给出浏览器查找域名对应IP的过程，域名为my.oschina.net：
+
+1、浏览器会缓存DNS记录一段时间。">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/php/131326_65YM_128568.png">
+<meta property="og:updated_time" content="2016-05-27T10:17:10.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从输入URL到页面加载完成的过程-DNS解析域名过程">
+<meta name="twitter:description" content="从输入URL到页面加载完成的过程-DNS解析域名过程原文链接
+当我们输入一个url，比如为：http://my.oschina.net/u/128568/blog，浏览器会解析这个url分成三部分，域名：my.oschina.net，端口：80，请求资源：/u/128568/blog。下面给出浏览器查找域名对应IP的过程，域名为my.oschina.net：
+
+1、浏览器会缓存DNS记录一段时间。">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/php/131326_65YM_128568.png">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">115</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">139</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-从输入URL到页面加载完成的过程-DNS解析域名过程" class="article article-type-post">
+  
+    <h1 class="article-header">
+      从输入URL到页面加载完成的过程-DNS解析域名过程
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-24
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/网站/">网站</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <h3 id="从输入URL到页面加载完成的过程-DNS解析域名过程"><a href="#从输入URL到页面加载完成的过程-DNS解析域名过程" class="headerlink" title="从输入URL到页面加载完成的过程-DNS解析域名过程"></a>从输入URL到页面加载完成的过程-DNS解析域名过程</h3><p><a href="http://my.oschina.net/xiaotian120/blog/268711?p=%7B%7BcurrentPage-1%7D%7D" target="_blank" rel="external">原文链接</a></p>
+<p>当我们输入一个url，比如为：<a href="http://my.oschina.net/u/128568/blog，浏览器会解析这个url分成三部分，域名：my.oschina.net，端口：80，请求资源：/u/128568/blog。下面给出浏览器查找域名对应IP的过程，域名为my.oschina.net：" target="_blank" rel="external">http://my.oschina.net/u/128568/blog，浏览器会解析这个url分成三部分，域名：my.oschina.net，端口：80，请求资源：/u/128568/blog。下面给出浏览器查找域名对应IP的过程，域名为my.oschina.net：</a></p>
+<blockquote>
+<p>1、浏览器会缓存DNS记录一段时间。 有趣的是，操作系统没有告诉浏览器储存DNS记录的时间，这样不同浏览器会储存个自固定的一个时间（2分钟到30分钟不等）</p>
+<p>2、操作系统检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</p>
+<p>3、如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析</p>
+<p>4、如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/IP参数中设置的首选DNS服务器（ISP的DNS），在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性</p>
+<p>5、如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性</p>
+<p>6、如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至 “根DNS服务器”，“根DNS服务器”收到请求后会判断这个域名(.net)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.net域的这台服务器。这台负责.net域的服务器收到请求后，如果自己无法解析，它就会找一个管理.net域的下一级DNS服务器地址(oschina.net)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找oschina.net域服务器，重复上面的动作，进行查询，直至找到my.oschina.net主机</p>
+<p>7、如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机</p>
+</blockquote>
+<p>看下解析过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">➜ /Users/zyj &gt;dig +trace my.oschina.net</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.8.3-P1 &lt;&lt;&gt;&gt; +trace my.oschina.net</span><br><span class="line">;; global options: +cmd</span><br><span class="line">.			191557	IN	NS	e.root-servers.net.</span><br><span class="line">.			191557	IN	NS	i.root-servers.net.</span><br><span class="line">.			191557	IN	NS	a.root-servers.net.</span><br><span class="line">.			191557	IN	NS	k.root-servers.net.</span><br><span class="line">.			191557	IN	NS	g.root-servers.net.</span><br><span class="line">.			191557	IN	NS	j.root-servers.net.</span><br><span class="line">.			191557	IN	NS	h.root-servers.net.</span><br><span class="line">.			191557	IN	NS	c.root-servers.net.</span><br><span class="line">.			191557	IN	NS	l.root-servers.net.</span><br><span class="line">.			191557	IN	NS	f.root-servers.net.</span><br><span class="line">.			191557	IN	NS	d.root-servers.net.</span><br><span class="line">.			191557	IN	NS	b.root-servers.net.</span><br><span class="line">.			191557	IN	NS	m.root-servers.net.</span><br><span class="line">;; Received 228 bytes from 114.114.114.114#53(114.114.114.114) in 39 ms</span><br><span class="line"></span><br><span class="line">net.			172800	IN	NS	m.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	l.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	k.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	j.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	i.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	h.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	g.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	f.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	e.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	d.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	c.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	b.gtld-servers.net.</span><br><span class="line">net.			172800	IN	NS	a.gtld-servers.net.</span><br><span class="line">;; Received 489 bytes from 198.41.0.4#53(198.41.0.4) in 136 ms</span><br><span class="line"></span><br><span class="line">oschina.net.		172800	IN	NS	ns1.dnsv2.com.</span><br><span class="line">oschina.net.		172800	IN	NS	ns2.dnsv2.com.</span><br><span class="line">;; Received 205 bytes from 192.52.178.30#53(192.52.178.30) in 558 ms</span><br><span class="line"></span><br><span class="line">my.oschina.net.		86400	IN	CNAME	www.oschina.net.</span><br><span class="line">oschina.net.		7200	IN	NS	ns1.dnsv2.com.</span><br><span class="line">oschina.net.		7200	IN	NS	ns2.dnsv2.com.</span><br><span class="line">;; Received 115 bytes from 183.60.59.230#53(183.60.59.230) in 15 ms</span><br></pre></td></tr></table></figure></p>
+<p>DNS有一点令人担忧，这就是像www.taobao.com这样的整个域名看上去只是对应一个单独的IP地址，那么三个IP肯定对于大访问量和不同地域的访问来说就会有较大的延迟。还好，有几种方法可以消除这个瓶颈：</p>
+<ul>
+<li><p><a href="http://baike.baidu.com/view/1527368.htm" target="_blank" rel="external">循环DNS</a> 是DNS查找时返回多个IP时的解决方案。举例来说，taobao.com实际上就对应了多个IP地址。</p>
+</li>
+<li><p><a href="http://baike.baidu.com/view/486970.htm" target="_blank" rel="external">负载平衡器</a> 是以一个特定IP地址进行侦听并将网络请求转发到集群服务器上的硬件设备。 一些大型的站点一般都会使用这种昂贵的高性能负载平衡器。</p>
+</li>
+<li><p>地理 DNS 根据用户所处的地理位置，通过把域名映射到多个不同的IP地址提高可扩展性。这样不同的服务器不能够更新同步状态，但映射静态内容的话非常好。</p>
+</li>
+<li><p><a href="http://baike.baidu.com/view/1398775.htm" target="_blank" rel="external">Anycast</a> 是一个IP地址映射多个物理主机的路由技术。 美中不足，Anycast与TCP协议适应的不是很好，所以很少应用在那些方案中。</p>
+</li>
+</ul>
+<p>大多数DNS服务器使用Anycast来获得高效低延迟的DNS查找。</p>
+<p>最后给出一个查询DNS过程的图：<br><img src="/img/php/131326_65YM_128568.png" alt=""></p>
+<p> 最终获取的域名对应IP为112.124.5.74，此时浏览器发起向112.124.5.74的请求，端口为80，请求资源为/u/128568/blog，发送一条HTTP GET的报文，下面看下浏览器请求的信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Remote Address:112.124.5.74:80</span><br><span class="line">Request URL:http://my.oschina.net/u/128568/blog</span><br><span class="line">Request Method:GET</span><br><span class="line">Status Code:200 OK</span><br><span class="line"></span><br><span class="line">#请求头信息</span><br><span class="line">Request Headers</span><br><span class="line">Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Encoding:gzip,deflate,sdch</span><br><span class="line">Accept-Language:zh-CN,zh;q=0.8,en;q=0.6</span><br><span class="line">Connection:keep-alive</span><br><span class="line">Cookie:</span><br><span class="line">oscid=Zka95GnBtcz%2FTWwBZdIK1f%2BrZzKNNUN0vu5av2CocDrEpbLcUPBTht%2FIFGWopqXUjIysP943EaQtn4%2FJdlcX%2FOW65EUP%2Fgo7fzPdxBwqLALbq7SVBQoTFw%3D%3D</span><br><span class="line">Host:my.oschina.net</span><br><span class="line">User-Agent:</span><br><span class="line">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.114 Safari/537.36</span><br><span class="line"></span><br><span class="line">#响应头信息</span><br><span class="line">Response Headers</span><br><span class="line">Cache-Control:must-revalidate, no-cache, private</span><br><span class="line">Connection:keep-alive</span><br><span class="line">Content-Encoding:gzip</span><br><span class="line">Content-Type:text/html;charset=UTF-8</span><br><span class="line">Date:Sun, 25 May 2014 05:23:43 GMT</span><br><span class="line">Expires:Sun, 1 Jan 2000 01:00:00 GMT</span><br><span class="line">Pragma:no-cache</span><br><span class="line">Server:Tengine/1.4.6</span><br><span class="line">Transfer-Encoding:chunked</span><br><span class="line">Vary:Accept-Encoding</span><br></pre></td></tr></table></figure>
+<p>从请求和响应可以看到很多信息，比如使用GET，响应为200，传输使用了压缩gzip等等，需要说明的是最后这个Connection:keep-alive，是为了兼容HTTP1.0设置的，用来告诉服务器使用持久连接。</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

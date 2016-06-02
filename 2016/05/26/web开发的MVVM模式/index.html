@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    web开发的MVVM模式
+  
+</title>
+
+<meta name="description" content="web开发的MVVM模式*转
+MVC VS. MVP VS. MVVM　　了解MVVM模式之前，我们先来简单了解一下从MVC到MVVM的变迁。这个变迁是耦合从紧到松的变迁，是对依赖处理的进化，是应对变化技术的成熟。 
+MVC　　MVC全名是Model View Controller， 是模型(model)－视图(view)－控制器(controller)的缩写，它用一种将业务逻辑、数据、界面显示分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web开发的MVVM模式">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/05/26/web开发的MVVM模式/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="web开发的MVVM模式*转
+MVC VS. MVP VS. MVVM　　了解MVVM模式之前，我们先来简单了解一下从MVC到MVVM的变迁。这个变迁是耦合从紧到松的变迁，是对依赖处理的进化，是应对变化技术的成熟。 
+MVC　　MVC全名是Model View Controller， 是模型(model)－视图(view)－控制器(controller)的缩写，它用一种将业务逻辑、数据、界面显示分">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/mvvm/311314546808310.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/mvvm/311315046801589.png">
+<meta property="og:image" content="//findmoon.github.io/index.html/img/mvvm/311315165713023.png">
+<meta property="og:updated_time" content="2016-06-02T09:47:21.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web开发的MVVM模式">
+<meta name="twitter:description" content="web开发的MVVM模式*转
+MVC VS. MVP VS. MVVM　　了解MVVM模式之前，我们先来简单了解一下从MVC到MVVM的变迁。这个变迁是耦合从紧到松的变迁，是对依赖处理的进化，是应对变化技术的成熟。 
+MVC　　MVC全名是Model View Controller， 是模型(model)－视图(view)－控制器(controller)的缩写，它用一种将业务逻辑、数据、界面显示分">
+<meta name="twitter:image" content="//findmoon.github.io/index.html/img/mvvm/311314546808310.png">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">115</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">139</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-web开发的MVVM模式" class="article article-type-post">
+  
+    <h1 class="article-header">
+      web开发的MVVM模式
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-26
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/web/">web</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MV模式/">MV模式</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p><a href="http://www.cnblogs.com/dxy1982/p/3793895.html" target="_blank" rel="external">web开发的MVVM模式*转</a></p>
+<h2 id="MVC-VS-MVP-VS-MVVM"><a href="#MVC-VS-MVP-VS-MVVM" class="headerlink" title="MVC VS. MVP VS. MVVM"></a>MVC VS. MVP VS. MVVM</h2><p>　　了解MVVM模式之前，我们先来简单了解一下从MVC到MVVM的变迁。这个变迁是耦合从紧到松的变迁，是对依赖处理的进化，是应对变化技术的成熟。 </p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>　　MVC全名是Model View Controller， 是模型(model)－视图(view)－控制器(controller)的缩写，它用一种将业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。将系统进行MVC分层的核心思路就是分离组件，降低组件耦合性，组件独立演化。 </p>
+<ul>
+<li>MVC模式可以使用下面这幅图来描述各个部分的作用以及与其他组件的交互过程： </li>
+</ul>
+<p><img src="/img/mvvm/311314546808310.png" alt=""></p>
+<p>MVC模式的优点很明显，那就是耦合性低，重用性高，应对每个组件的变化性好，便于开发，测试与维护。但是MVC模式也还是有缺点的，给系统带来的额外复杂性自然不必说了，此外，MVC三个组件的定义存在一定的模糊性，这样就衍生了很多的比如主动MVC，被动MVC等实施方案，每种方案中MVC三大组件的功能都不太一样，比如有的把业务逻辑放到Model部分，Controller只不过是把用户输入转换一下，直接传给Model来处理，Model是整个系统的核心部分，上面这幅图就是这样的(这种情况其实就是真正的MVC模式的定义)，还有的方案把业务逻辑直接放到了Controller中，Model只负责处理数据。而且在不同的方案中，要么View与Controller耦合过于紧密，要么View访问Model的时候比较低效，要么Model由于要与View直接打交道，导致了Model与View直接耦合在了一起，而Model发生变化的时候会牵连View一起变化，这却恰恰违背了MVC组件分层的本意。 </p>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>　　MVP的全称为Model-View-Presenter，Model提供数据，View负责显示，Presenter负责逻辑的处理。MVP与MVC有着一个重大的区别：在MVP中View并不直接使用Model，它们之间的通信是通过Presenter来进行的，所有的交互都发生在Presenter内部，而在MVC中View会直接从Model中读取数据而不是通过Controller。 </p>
+<ul>
+<li>MVP模式可以使用下面这幅图来描述各个部分的作用以及与其他组件的交互过程： </li>
+</ul>
+<p><img src="/img/mvvm/311315046801589.png" alt=""></p>
+<p>在MVC里，我们谈到它的缺点主要有两个： </p>
+<ul>
+<li><p>一个是MVC三大组件的定义比较模糊。这个在MVP中就相对明确一些了：Model只负责处理最终数据；View就是很薄的一层，只显示数据，通常认为，View只应该有简单的Set/Get的方法，View只负责用户输入和设置界面显示的内容，除此就不应该有更多的内容，绝不容许直接访问Model；所有业务逻辑都由Presenter处理，而且，Presenter与具体的View和Model是没有直接关联的，而是通过定义好的接口进行交互，从而使得在变更View或者Model具体实现的时候可以保持Presenter的不变，这样就实现了业务逻辑的重用。 </p>
+</li>
+<li><p>另一个是View与Model的紧密耦合。在MVC中，View是可以直接访问Model的！从而，View里会包含Model信息，不可避免的还要包括一些业务逻辑。 在MVC模型里，更关注的Model的不变，而同时有多个对Model的不同显示，及View。所以，在MVC模型里，Model不依赖于View，但是View是依赖于Model的。不仅如此，因为有一些业务逻辑在View里实现了，导致要更改View也是比较困难的，至少那些业务逻辑是无法重用的。 </p>
+</li>
+</ul>
+<p>在现实中，MVP的实现会根据View的充、贫血而有一些不同，一部分倾向于在View中放置简单的逻辑，在Presenter放置复杂的逻辑；另一部分倾向于在presenter中放置全部的逻辑。这两种分别被称为：Passive View和Superivising Controller。 </p>
+<p>在Passive View中，为了减少UI组件的行为，使用Controller不仅控制用户事件的响应，而且将结果更新到View上。可以集中测试Controller，减小View出问题的风险。 </p>
+<p>在Superivising Controller中的Controller既处理用户输入的响应，又操作View处理View的复杂逻辑。 </p>
+<p>　　MVP解决了MVC的一些问题，其实现在说到MVC，通常指的也就是MVP。但是MVP也是不完美的，由于Presenter可以反作用于View，这样View的渲染有可能就放在了Presenter中，所以View和Presenter的交互会过于频繁。如果Presenter过多地渲染了View，往往会使得它与特定的View的联系过于紧密。一旦View需要变更，那么Presenter也需要变更了。 </p>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>　　MVVM全称Model-View-ViewModel，Model提供数据，View负责显示，这个还和MVP一样，这个模式的重点就是ViewModel的部分，它通过双向绑定(松耦合)解决了MVP中Presenter与View联系比较紧密的问题。 </p>
+<ul>
+<li>MVVM模式可以使用下面这幅图来描述各个部分的作用以及与其他组件的交互过程： </li>
+</ul>
+<p><img src="/img/mvvm/311315165713023.png" alt=""></p>
+<p>从图中我们可以看到MVVM与MVP最大的不同就在于View与ViewModel交互的时候使用了松耦合的双向绑定，而不是像View与Presenter那样直接交互。ViewModel作为View的数据映射，通常View上有什么属性，ViewModel上也会存在相应的一个属性，这两个属性通过事件实现了双向的绑定，常见的MVVM框架都替我们完成了这样的绑定过程。<br>　　MVVM最初是微软在WPF中实现的模式，随之在Web开发中也开始了MVVM风潮，这里介绍的3个MVVM框架就是我认为比较典型的几个。 </p>
+<h3 id="微软的前端框架knockoutjs"><a href="#微软的前端框架knockoutjs" class="headerlink" title="微软的前端框架knockoutjs"></a>微软的前端框架knockoutjs</h3><p>　　这是一个独立的前端MVVM框架，也是最早的前端MVVM框架，它完成了页面的数据与界面之间的双向绑定，至于真正这些数据是通过何种手段(比如Ajax)获取到的，它并不关心。这是一个只关注前端逻辑与界面解耦的纯前端类库，理论上可以搭配任何的后台技术，来完成整个网站的建设。这是我第一个学习的MVVM框架，使用它给我的感觉是相当良好：绑定好了自动双向更新是多么酷的特性啊。 </p>
+<ul>
+<li>下面是比较火热的几个学习教程： <blockquote>
+<p><a href="http://knockoutjs.com/" target="_blank" rel="external">http://knockoutjs.com/</a><br><a href="http://www.cnblogs.com/TomXu/archive/2011/11/21/2257154.html" target="_blank" rel="external">http://www.cnblogs.com/TomXu/archive/2011/11/21/2257154.html</a><br><a href="http://www.cnblogs.com/lori/p/3552571.html" target="_blank" rel="external">http://www.cnblogs.com/lori/p/3552571.html</a> </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="谷歌的全套服务angularjs"><a href="#谷歌的全套服务angularjs" class="headerlink" title="谷歌的全套服务angularjs"></a>谷歌的全套服务angularjs</h3><p>　　这是一个比较庞大，但是也无比强大的前端MVVM类库，天生对RESTful API的良好支持，双向绑定的优良特性，专业的HTML模板扩展支持，全面的测试框架，与Bootstrap，Nodejs的完美融合，再加上Google的金字招牌，你可以拒绝么？ </p>
+<ul>
+<li>下面是比较火热的教程： <blockquote>
+<p><a href="https://angularjs.org/" target="_blank" rel="external">https://angularjs.org/</a><br><a href="http://www.ituring.com.cn/minibook/303" target="_blank" rel="external">http://www.ituring.com.cn/minibook/303</a><br><a href="http://www.iteye.com/news/28651-AngularJS-Google-resource" target="_blank" rel="external">http://www.iteye.com/news/28651-AngularJS-Google-resource</a><br><a href="http://woxx.sinaapp.com/" target="_blank" rel="external">http://woxx.sinaapp.com/</a><br><a href="http://www.angularjs.cn/tag/AngularJS" target="_blank" rel="external">http://www.angularjs.cn/tag/AngularJS</a> </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="最迷你的MVVM框架avalon"><a href="#最迷你的MVVM框架avalon" class="headerlink" title="最迷你的MVVM框架avalon"></a>最迷你的MVVM框架avalon</h3><p>　　这确实是最mini的MVVM框架，与Angularjs不一样，它侧重数据结构的设计，提倡简单的算法，它是在吸收上面两个类库的基础上发展起来的，而且符合国情，支持IE6，难道不值得期待？ </p>
+<ul>
+<li>下面是比较好的教程： <blockquote>
+<p><a href="http://rubylouvre.github.io/mvvm/" target="_blank" rel="external">http://rubylouvre.github.io/mvvm/</a><br><a href="http://limodou.github.io/avalon-learning/zh_CN/index.html" target="_blank" rel="external">http://limodou.github.io/avalon-learning/zh_CN/index.html</a><br><a href="http://www.cnblogs.com/rubylouvre/p/3181291.html" target="_blank" rel="external">http://www.cnblogs.com/rubylouvre/p/3181291.html</a><br><a href="http://www.oschina.net/p/avalon" target="_blank" rel="external">http://www.oschina.net/p/avalon</a><br><a href="http://www.iteye.com/topic/1130359" target="_blank" rel="external">http://www.iteye.com/topic/1130359</a><br><a href="http://www.tuicool.com/articles/NrMrIn" target="_blank" rel="external">http://www.tuicool.com/articles/NrMrIn</a> </p>
+</blockquote>
+</li>
+</ul>
+<p>最后附送一个有意思的网站：<a href="http://todomvc.com/，自己研究一下吧。" target="_blank" rel="external">http://todomvc.com/，自己研究一下吧。</a></p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
