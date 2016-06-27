@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    findmoon-白色蜗牛
+  
+</title>
+
+<meta name="description" content="作品作品1
+FM类型音乐播放器
+
+dome预览
+代码实现
+
+
+利用已经封装好的豆瓣音乐api制作一个功能相对完善的网页版音乐播放器。
+
+基本功能：
+
+歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+页面的展现和拖拽功能
+歌词随着时间的自动播放
+进度条的滑动、跳进
+音量的调节
+
+
+用到的技术：
+
+性能方面考虑，所有图标使用字体图标库(iconfont)
+html元素写入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="findmoon-白色蜗牛">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/06/23/mywork-dome/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="作品作品1
+FM类型音乐播放器
+
+dome预览
+代码实现
+
+
+利用已经封装好的豆瓣音乐api制作一个功能相对完善的网页版音乐播放器。
+
+基本功能：
+
+歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+页面的展现和拖拽功能
+歌词随着时间的自动播放
+进度条的滑动、跳进
+音量的调节
+
+
+用到的技术：
+
+性能方面考虑，所有图标使用字体图标库(iconfont)
+html元素写入">
+<meta property="og:updated_time" content="2016-06-27T02:02:52.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="findmoon-白色蜗牛">
+<meta name="twitter:description" content="作品作品1
+FM类型音乐播放器
+
+dome预览
+代码实现
+
+
+利用已经封装好的豆瓣音乐api制作一个功能相对完善的网页版音乐播放器。
+
+基本功能：
+
+歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲
+页面的展现和拖拽功能
+歌词随着时间的自动播放
+进度条的滑动、跳进
+音量的调节
+
+
+用到的技术：
+
+性能方面考虑，所有图标使用字体图标库(iconfont)
+html元素写入">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">132</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mocha/">Mocha</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/">TDD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate/">animate()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deferred/">deferred</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模板引擎/">js模板引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/offset/">offset()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stopImmediatePropagation/">stopImmediatePropagation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/同源跨域/">同源跨域</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字面量/">字面量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化编程/">模块化编程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/立即执行函数/">立即执行函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-mywork-dome" class="article article-type-post">
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-06-23
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><h3 id="作品1"><a href="#作品1" class="headerlink" title="作品1"></a>作品1</h3><ul>
+<li><p>FM类型音乐播放器</p>
+<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/musicproject/music/music.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/tree/master/music" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+<li><p>利用已经封装好的豆瓣音乐api制作一个功能相对完善的网页版音乐播放器。</p>
+</li>
+<li><p>基本功能：</p>
+<ul>
+<li>歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲</li>
+<li>页面的展现和拖拽功能</li>
+<li>歌词随着时间的自动播放</li>
+<li>进度条的滑动、跳进</li>
+<li>音量的调节</li>
+</ul>
+</li>
+<li><p>用到的技术：</p>
+<ol>
+<li>性能方面考虑，所有图标使用字体图标库(iconfont)</li>
+<li>html元素写入网页内容，H5媒体元素标签audio引入音乐资源，使用div、a、无序列表ul等元素实现网页基本内容</li>
+<li>css实现网页样式和布局，包括float及浮动的清除、position的绝对定位及相对定位、居中，颜色、大小、背景、display的设置，歌曲列表和歌词溢出隐藏，字体图标的引入,鼠标手势，元素选择器及伪元素选择的使用。</li>
+<li>js代码功能的实现，依照jQuery<ul>
+<li>整个播放器页面和按钮的拖放，点图标页面展现，播放页面只在第一次展现发送ajax获取歌曲，</li>
+<li>页面展现后的自动播放事件，包括进度条、歌词的滚动，收起后停止。</li>
+<li>ajax请求获取频道channel信息、歌曲song和歌词信息</li>
+<li>将频道信息拼装成dom添加到页面，歌曲信息放入audio标签并播放，歌曲名称和歌手的显示</li>
+<li>获取歌曲信息后，首先使用正则匹配出时间，并将内容转化为json格式，歌词依照时间次序拼装成dom，歌词滚动时依次向上出现</li>
+<li>歌词按钮、播放、单曲和随机播放、下一首、音量、频道列表按钮面板功能的实现。</li>
+<li>setInterval实现进度条和歌词的自动功能，播放时间的显示，进度条的点击和滑动控制播放进度，音量功能的实现也是如此。</li>
+<li>代码的封装，利用js的prototype和闭包实现封装，html的生成也放入js中。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>遇到的问题：</p>
+<ol>
+<li>页面第一次加载获取歌曲但是并不播放，点击按钮页面展现并播放。设置一个标志位，当点击按钮页面展开后打开标志位，以后每次获取歌曲后自动播放。</li>
+<li>高度和宽度的计算必须在动画完成后进行都则出现计算错误，进度条功能受限，将宽高取值和一些功能放在jQuery.animate动画执行完后的function中。</li>
+<li>页面展现按钮和拖拽功能发生重叠，将click事件分解成up和down，移动时设置一个标志位，如果移动click事件不执行。</li>
+<li>拖拽的问题，主界面和展现按钮会发生未知错乱，使用display：table形成BFC讲所有元素包含在一个容器内，并使用绝对和相对定位。</li>
+<li>歌词和进度条、歌曲转化的逻辑实现问题，歌词在第一次点开时发送请求，以后每次点击如果没换歌曲就不用请求。每次进度条变化都要自动播放，自动播放时需要判断当前歌曲和歌词是否对应，不对应重新发送请求(歌词打开)。当前歌曲播放完自动加载下一首</li>
+<li>歌词内容的解析，以及转化为json格式JSON.parse(string),string要拼装符合符合格式要求。每句歌词内容按时间设置距离歌词顶部距离，样式要在append()之前设置，否则内容错乱。</li>
+<li>利用好原型链和闭包实现封装。</li>
+</ol>
+</li>
+</ul>
+<h3 id="作品二"><a href="#作品二" class="headerlink" title="作品二"></a>作品二</h3><ul>
+<li>静态页面（一）<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task14/task14.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/tree/master/static%20pages-one" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+<p>图片</p>
+<ul>
+<li>实现：<ul>
+<li>html/body宽高100%，页面全屏使用宽高100%实现，display:table使用水平和垂直居中</li>
+<li>a标签的hover效果，class区别不同样式</li>
+<li>ul&gt;li标签使用float浮动并清除浮动，调整大小宽度使在一列平均分布</li>
+<li>background-img的引入、位置摆放和显示方式</li>
+<li>font-awesome字体图标的引入和使用</li>
+<li>css不同样式的设置，大小、居中、对齐、颜色</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品三"><a href="#作品三" class="headerlink" title="作品三"></a>作品三</h3><p>1、 静态页面（二）</p>
+<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-2.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/blob/master/static%20pages-two/static%20pages-2.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+<p>图片</p>
+<p> 2、 静态页面（三）</p>
+<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-3.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/blob/master/static%20pages-two/static%20pages-3.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+<p>图片</p>
+<ul>
+<li>实现：<ul>
+<li>导航条的固定定位的实现</li>
+<li>悬停hover效果，出现列表选项，及样式</li>
+<li>自定义字体和font-awesome字体图标的引入</li>
+<li>设置html/body宽高100%，页面全屏使用宽高100%实现</li>
+<li>ul&gt;li标签使用float浮动并清除浮动，设置大小并调整位置，实现两列三列的平均排列</li>
+<li>绝对定位、相对定位的使用，文本的对齐方式</li>
+<li>表单元素的使用和大小设置</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品四"><a href="#作品四" class="headerlink" title="作品四"></a>作品四</h3><ul>
+<li><p>轮播效果和组件的实现(jQuery)</p>
+<ul>
+<li>全屏自动轮播<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fullscree-carousel.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/blob/master/carousel/fullscree-carousel.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>淡入淡出轮播</p>
+<ul>
+<li>单个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel.html#" target="_blank" rel="external">dome预览</a><ul>
+<li>单个轮播：<a href="https://github.com/findmoon/mywork/blob/master/carousel/fade-carousel.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+<li>多个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel3.html" target="_blank" rel="external">dome预览</a><ul>
+<li>多个轮播：<a href="https://github.com/findmoon/mywork/blob/master/carousel/fade-carousel3.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现：</p>
+<ul>
+<li>首先页面全屏显示，使用宽高样式100%,图片显示使用背景图片或者img标签均可。</li>
+<li>将轮播的元素水平排列，采用向前向后移动的方式实现前后轮播，每次移动一个图片的宽度，设置运动时间有个过渡。</li>
+<li>将最后一个元素复制一份放在最前面，点击向前播放页面向后移动出现复制的最后一个图片，移动完后在赋值将真正的最后一个图片呈现，防止点击向前时突然跳转到最后一个页面。最后一个页面向后使用同样的方法。</li>
+<li>使用jQuery的animate动画实现效果，添加底部对应的小长条的的class。</li>
+<li>响应和性能考虑，使用懒加载的方式，将src或url资源存放在一个属性中，需哟啊加载时在将其赋值给src或url。</li>
+<li>setInterval实现自动，pre和next效果在最第一个和最后一个时判断。</li>
+<li>设置window的”resize”时间，每次窗口变化时都重新计算下宽度。</li>
+<li>淡入淡出的实现使用fideOut和fadeIn动画实现，每次当前淡入出现，其他图片淡出，不用添加dom元素。</li>
+<li>设置动画的标志位，防止多次点击动画执行。每次动画执行设置一次下面的对应点的class效果。</li>
+<li>多个轮播，利用轮播图序数的方式，一个个遍历，每个执行自己的轮播动画，使互不影响</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品五"><a href="#作品五" class="headerlink" title="作品五"></a>作品五</h3><ul>
+<li><p>ajax加载更多</p>
+<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task26/jQajax.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="https://github.com/findmoon/mywork/blob/master/ajaxgetmore/jQajax.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现：</p>
+<ul>
+<li>定义好接口和路由，需要传递和接受的参数是什么</li>
+<li>ajax请求的实现，设置好数据格式及传递的方式(get/post)</li>
+<li>根据所要实现的功能设置请求成功后的处理函数，本例接受一个状态参数：是否成功和一个与请求个数一样的数组[‘内容n’，’内容n+1’，…] 。功能是将他们拼装成li元素的内容添加到页面中。使用jQuery的操作。</li>
+<li>设置请求错误时的处理函数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品六"><a href="#作品六" class="headerlink" title="作品六"></a>作品六</h3><ul>
+<li>可视范围懒加载图片及回到顶部<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/lazyload/lazyLode.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="https://github.com/findmoon/mywork/blob/master/lazyLoadGotop/lazyLode.html" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实现<ul>
+<li>懒加载是在同一个页面加载多张图片时，为了节省网络资源和用户体验将图片地址放置在元素自定义的属性当中，当页面需要图片的呈现时在加载图片的一种方法。</li>
+<li>使用jQuery计算滚动距离scrollTop()和页面高度heght()的和是不是大于元素距离页面顶端的距离，当大于时说明该元素需要加载图片，执行加载操作。</li>
+<li>设置标志位，已经加载的图片无须再次加载，将图片资源赋值给img的src并加载图片显示。</li>
+<li>性能考虑，可以设置一个一个延迟判断，防止用户频繁滚动页面而频繁执行图片加载操作。</li>
+<li>goTop功能实现了封装，动态创建回到顶部的按钮，样式设置为display;none,当页面滚动超过一定距离时，按钮出现，绑定点击事件，页面滚动距离变为0，回到顶部</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品七"><a href="#作品七" class="headerlink" title="作品七"></a>作品七</h3><ul>
+<li>stickup插件(jQuery)<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task28/stickup2.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="https://github.com/findmoon/mywork/blob/master/stickup/stickup.js" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>img图片在一个区块中水平垂直居中的小插件<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/imgvercen/index.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="https://github.com/findmoon/mywork/blob/master/imgvercen/imgCenVer.js" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+<li>实现<ul>
+<li>使用jQuery插件的方法$.fn=function(){…};</li>
+<li>stickup的原理是当页面滚动时判断导航条顶端是否与页面窗口重合，重合即设置为fixed固定定位，始终位于页面顶端。页面窗口远离导航条顶端时取消fixed</li>
+<li>为防止设置fixed后，元素脱离文档流导致页面错乱。复制一份完全相同的导航条占位，透明度为0，不产生错乱。</li>
+<li>设置data-fixed属性记录导航条是否设置了fixed样式，用于取消和设置fixed的判断。</li>
+<li>图片居中的插件适用于一个div或其他元素中有一个img子元素，设置img元素以原比例的形式宽或高完全铺满，并且居中对齐.</li>
+<li>可自定义设置需要显示的宽高，一般为容器宽高，默认宽高为320x240.</li>
+<li>父容器需设置多出部分隐藏。</li>
+<li>return:this;支持jQuery链式调用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="作品八"><a href="#作品八" class="headerlink" title="作品八"></a>作品八</h3><ul>
+<li>使用canvas实现五子棋<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/five-in-low/five%20in%20row.html" target="_blank" rel="external">dome演示</a></li>
+<li><a href="https://github.com/findmoon/mywork/tree/master/five-in-low" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+<li>使用canvas实现照片模糊与显示<ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/blurpoto/tuxiang.html" target="_blank" rel="external">dome演示</a></li>
+<li><a href="https://github.com/findmoon/mywork/tree/master/blurpoto" target="_blank" rel="external">代码实现</a></li>
+</ul>
+</li>
+<li>实现<ul>
+<li>模仿慕课网教学实现的五子棋和照片模糊显示</li>
+<li>使用H5的canvas画布绘制</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

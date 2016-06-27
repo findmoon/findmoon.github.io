@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    js模板引擎介绍搜集
+  
+</title>
+
+<meta name="description" content="js模板引擎介绍搜集*转载
+s模板引擎越来越多的得到应用，如今已经出现了几十种js模板引擎，国内各大互联网公司也都开发了自己的js模板引擎（淘宝的kissy template，腾讯的artTemplate，百度的baiduTemplate等），如何从这么多纷繁的模板引擎中选择一款适合自己的呢
+从这几个指标来比较js模板引擎：1 文件大小 - 影响网络传输时间2 执行速度（性能） - 影响响应速度，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js模板引擎介绍搜集">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/06/04/js模板引擎介绍搜集/index.html">
+<meta property="og:site_name" content="findmoon-白色蜗牛">
+<meta property="og:description" content="js模板引擎介绍搜集*转载
+s模板引擎越来越多的得到应用，如今已经出现了几十种js模板引擎，国内各大互联网公司也都开发了自己的js模板引擎（淘宝的kissy template，腾讯的artTemplate，百度的baiduTemplate等），如何从这么多纷繁的模板引擎中选择一款适合自己的呢
+从这几个指标来比较js模板引擎：1 文件大小 - 影响网络传输时间2 执行速度（性能） - 影响响应速度，">
+<meta property="og:image" content="http://img.blog.csdn.net/20130515201225085">
+<meta property="og:image" content="http://img.blog.csdn.net/20130515202850554">
+<meta property="og:image" content="http://www.php100.com/uploadfile/2012/0416/20120416095203993.jpg">
+<meta property="og:image" content="http://www.php100.com/uploadfile/2012/0416/20120416095203157.png">
+<meta property="og:updated_time" content="2016-06-12T05:52:06.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js模板引擎介绍搜集">
+<meta name="twitter:description" content="js模板引擎介绍搜集*转载
+s模板引擎越来越多的得到应用，如今已经出现了几十种js模板引擎，国内各大互联网公司也都开发了自己的js模板引擎（淘宝的kissy template，腾讯的artTemplate，百度的baiduTemplate等），如何从这么多纷繁的模板引擎中选择一款适合自己的呢
+从这几个指标来比较js模板引擎：1 文件大小 - 影响网络传输时间2 执行速度（性能） - 影响响应速度，">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20130515201225085">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">findmoon-白色蜗牛</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">findmoon-白色蜗牛</a></h1>
+    
+      <p class="subtitle">
+        一个试图专注于自身的成长者
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">努力、专注、坚信</div>
+        
+        
+          <div class="author">findmoon</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">132</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/方法-实例/">方法/实例</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">10</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/">Array</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFC/">BFC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backbone/">Backbone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3动画/">CSS3动画</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS解析域名/">DNS解析域名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOCTYPE/">DOCTYPE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MV模式/">MV模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mocha/">Mocha</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP三次握手/">TCP三次握手</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/">TDD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate/">animate()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/animate动画队列/">animate动画队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/background-image/">background-image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border/">border</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/border图形/">border图形</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/box-shadow/">box-shadow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/console-log/">console.log()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css属性/">css属性</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css样式/">css样式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deferred/">deferred</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/">delete</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-child/">first-child</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first-of-type/">first-of-type</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/font-face/">font-face</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/form表单/">form表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git错误/">git错误</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hack/">hack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/haslayout/">haslayout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http状态码/">http状态码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/inline-block/">inline-block</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/input/">input</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof/">instanceof</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js严格模式/">js严格模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js加载/">js加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js模板引擎/">js模板引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list-style/">list-style</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mock/">mock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/offset/">offset()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/overflow/">overflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/placeholder/">placeholder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position/">position</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/position文档流/">position文档流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scopechain/">scopechain</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stopImmediatePropagation/">stopImmediatePropagation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stringify/">stringify</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime/">sublime</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typeof/">typeof</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/undefined/">undefined</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url加载/">url加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zoom/">zoom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码书写/">代码书写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/列表/">列表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画animation/">动画animation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/变量/">变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/同源跨域/">同源跨域</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字面量/">字面量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/库与架构/">库与架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学函数/">数学函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据包组装/">数据包组装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法/">方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/标记语言/">标记语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化编程/">模块化编程</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/立即执行函数/">立即执行函数</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站访问/">网站访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/获取路径/">获取路径</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/行内元素/">行内元素</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语法/">语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求/">跨域请求</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域请求处理方法/">跨域请求处理方法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/选择器/">选择器</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/work" title="work">work</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/about" title="about">about</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="http://findmoon.github.io/" title="findmoon" target="_blank" rel="external">findmoon</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/findmoon/findmoon.github.io" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-js模板引擎介绍搜集" class="article article-type-post">
+  
+    <h1 class="article-header">
+      js模板引擎介绍搜集
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2016-06-04
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/js/">js</a></li></ul></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js模板引擎/">js模板引擎</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p><a href="http://blog.csdn.net/lybwwp/article/details/18813737" target="_blank" rel="external">js模板引擎介绍搜集*转载</a></p>
+<p>s模板引擎越来越多的得到应用，如今已经出现了几十种js模板引擎，国内各大互联网公司也都开发了自己的js模板引擎（淘宝的kissy template，腾讯的artTemplate，百度的baiduTemplate等），如何从这么多纷繁的模板引擎中选择一款适合自己的呢</p>
+<p>从这几个指标来比较js模板引擎：<br>1 文件大小 - 影响网络传输时间<br>2 执行速度（性能） - 影响响应速度，涉及模板解析和渲染<br>3 语法简明/易用/灵活/自定义操作符 - 影响开发效率和维护难度<br>4 错误处理/调试 - 影响开发效率和维护难度<br>5 安全（XSS） - 是否防止XSS</p>
+<p>1 文件大小（压缩后）<br>Mustache：5k<br>doT：4k<br>juicer：7.65k<br>artTemplate(腾讯)：5k<br>baiduTemplate(百度)：3k<br>Underscore(Arale)：11.7k - 不只是模板，还包含很多js语言增强功能<br>Handlebars(Arale)：30.5k</p>
+<p>2 执行速度（不要迷恋速度）<br>对于执行速度，不得不提模板“编译速度”和“渲染速度”。这几个主流模板都支持将模板预编译，然后再渲染。<br>这里有一篇文章《高性能JavaScript模板引擎原理解析》，说artTemplate的速度达到理论极限，实际说的是渲染速度，它的综合速度并不快。<br>一般情况下，每页面只有一两个模板，执行时间差别不大。</p>
+<blockquote>
+<blockquote>
+<p>这里&lt;&lt;有个测试页面，根据artTemplate的测试页面《引擎渲染速度竞赛》改的，揭示了几个主流js模板引擎的性能情况，大致结果截图如下：</p>
+</blockquote>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20130515201225085" alt=""></p>
+<p>可以看出artTemplate,juicer,doT比其他模板引擎快很多。</p>
+<p>3 语法 简明/易用/灵活/自定义操作符 - 影响开发效率和维护难度</p>
+<p>语法需要一段时间的使用经验才能更深切地体会到优缺点，并且每个人喜欢的语法风格也不同，这部分可能略带个人主观色彩。<br>这几个js模板引擎的语法可以粗略分为两种，一种是类似javascript的语法（doT, artTemplate, underscore），另一种是与javascript差异较大的语法（Mustache, juicer, handlebars）。从易上手的角度来看，类javascript语法更容易被新手掌握，但是熟练掌握之后，各个模板的语法都能满足我们的需求，可以按个人喜好来选择。</p>
+<p>Mustache声称是无逻辑（logic-less）模板，没有for、if…else…语法，但实际可以实现循环和分支，还可以实现更复杂的逻辑。<br>doT模板语法灵活，阅读起来很易懂。可以方便地改造成jquery插件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">[javascript] view plaincopy </span><br><span class="line">&lt;!--Mustache 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;Mustache&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &#123;&#123;#list&#125;&#125;  </span><br><span class="line">        &lt;li&gt;&#123;&#123;&#123;index&#125;&#125;&#125;. 用户: &#123;&#123;&#123;user&#125;&#125;&#125;/ 网站：&#123;&#123;&#123;site&#125;&#125;&#125;&lt;/li&gt;  </span><br><span class="line">    &#123;&#123;/list&#125;&#125;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;!-- doT 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;doT&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &#123;&#123; for (var val, i = 0, l = it.list.length; i &lt; l; i ++) &#123; &#125;&#125;  </span><br><span class="line">        &#123;&#123; val = it.list; &#125;&#125;  </span><br><span class="line">        &lt;li&gt;&#123;&#123;=val[i].index&#125;&#125;. 用户: &#123;&#123;=val[i].user&#125;&#125;/ 网站：&#123;&#123;=val[i].site&#125;&#125;&lt;/li&gt;  </span><br><span class="line">    &#123;&#123; &#125; &#125;&#125;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;!--juicer 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;juicer&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &#123;@each list as val&#125;  </span><br><span class="line">        &lt;li&gt;</span><br><span class="line">val.index.用户:</span><br><span class="line">&#123;val.user&#125;/ 网站：$$&#123;val.site&#125;&lt;/li&gt;  </span><br><span class="line">    &#123;@/each&#125;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;!-- artTemplate 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;template&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &lt;% for (i = 0, l = list.length; i &lt; l; i ++) &#123; %&gt;  </span><br><span class="line">        &lt;li&gt;&lt;%=list[i].index%&gt;. 用户: &lt;%=list[i].user%&gt;/ 网站：&lt;%=list[i].site%&gt;&lt;/li&gt;  </span><br><span class="line">    &lt;% &#125; %&gt;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;!-- underscore 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;underscoreTemplate&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &lt;% for (var i = 0, l = list.length; i &lt; l; i ++) &#123; %&gt;  </span><br><span class="line">        &lt;li&gt;&lt;%=list[i].index%&gt;. 用户: &lt;%=list[i].user%&gt;/ 网站：&lt;%=list[i].site%&gt;&lt;/li&gt;  </span><br><span class="line">    &lt;% &#125; %&gt;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;!-- Handlebars 的模板 --&gt;  </span><br><span class="line">&lt;script id=&quot;Handlebars&quot; type=&quot;text/tmpl&quot;&gt;  </span><br><span class="line">&lt;ul&gt;  </span><br><span class="line">    &#123;&#123;#list&#125;&#125;  </span><br><span class="line">        &lt;li&gt;&#123;&#123;&#123;index&#125;&#125;&#125;. 用户: &#123;&#123;&#123;user&#125;&#125;&#125;/ 网站：&#123;&#123;&#123;site&#125;&#125;&#125;&lt;/li&gt;  </span><br><span class="line">    &#123;&#123;/list&#125;&#125;  </span><br><span class="line">&lt;/ul&gt;  </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>4 错误处理/调试 - 影响开发效率和维护难度<br>artTemplate 有详细的错误提示信息，查错方便，不影响后面代码的继续执行<br>kissy template 错误信息直接输出在页面，而不是在控制台。不影响后面代码的继续执行<br>juicer 控制台提示模板渲染出错，不影响后面代码的继续执行<br>mustache 没有任何错误信息，不影响后面代码的继续执行<br>其他控制台报脚本错误 js执行中断，不知道是哪里出错</p>
+<p>5 安全- 是否防止XSS<br>以上几个模板引擎全都支持html转义，防止XSS</p>
+<p>最终的一个对比：</p>
+<p><img src="http://img.blog.csdn.net/20130515202850554" alt=""></p>
+<hr>
+<p>介绍 X 款 JavaScript 的模板引擎。（排名不分先后顺序）</p>
+<ol>
+<li><p>Mustache<br>基于javascript 实现的模板引擎,类似于 Microsoft’s jQuery template plugin,但更简单易用!</p>
+</li>
+<li><p>EasyTemplate<br>在使用过Freemarker模板后，感觉它的 语法比较朴实，平易近人，容易上手，于是决定按它的语法风格实现一个前端的 模板引擎，这就有了下面的EasyTemplate! EasyTemplate模板的函数大小为1.34k（未压缩），暂时只实现了 list，list index，if elseif else等功能，应该可以满足大部分的使用需求了。 EasyTemplate模板 引擎的解析速度测试，渲染1000行数据，在不同的浏览器中，平均速度大约在30豪秒以内（测试机器性能较弱）。</p>
+</li>
+<li><p>jSmart<br>jSmart 是著名的 PHP 模板引擎 Smarty 的 JavaScript 移植版本。</p>
+</li>
+<li><p>Trimpath<br>Trimpath JavaScript 是个轻量级的，基于JavaScript的，跨浏览器，采用APL/GPL开放源代码协议的，可以让你轻松进行基于模板编程方式的纯JS引擎。新浪的评论系统使用的就是此模板。</p>
+</li>
+<li><p>jade<br>Jade是受Haml的影响以JavaScript实现用于node的高性能模板引擎。</p>
+</li>
+<li><p>Hogan.js<br>来自 Twitter 的 JavaScript 模板引擎。</p>
+</li>
+<li><p>Handlebars<br>Handlebars 是一个 JavaScript 的页面模板库<br><img src="http://www.php100.com/uploadfile/2012/0416/20120416095203993.jpg" alt=""></p>
+</li>
+<li><p>doT.js<br>doT.js 包含为浏览器和Node.js 准备的 JavaScript 模板引擎。</p>
+</li>
+<li><p>dom.js<br>dom.js 是一款可用在客户端和服务器端的 JavaScript 模板引擎</p>
+</li>
+<li><p>Plates.js<br>Plates.js 是一个轻量级、无逻辑、DSL 的 JavaScript 模板引擎。<br><img src="http://www.php100.com/uploadfile/2012/0416/20120416095203157.png" alt=""></p>
+</li>
+<li><p>ICanHaz.js<br>ICanHaz.js 是一个简单而且功能强大的客户端的 JavaScript 模板引擎。</p>
+</li>
+<li><p>dotpl-js<br>Dotpl-JS 是一个纯javascript模板引擎,支持IF和FOR关键字，多循环衔套及字段渲染，跨浏览器支持。是一个实用的javascipt工具,页面静态化利器!</p>
+</li>
+<li><p>EJS<br>EJS 可以将数据和模板合并然后生成 HTML 文本。</p>
+</li>
+</ol>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2016 findmoon-白色蜗牛 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>
