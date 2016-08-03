@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -170,6 +170,140 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/26/界面之下：还原真实的 MVC、MVP、MVVM 模式/" >
+  界面之下：还原真实的 MVC、MVP、MVVM 模式
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/26/界面之下：还原真实的 MVC、MVP、MVVM 模式/"><span class="article-date">
+  2016-05-26
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/web/">web</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MV模式/">MV模式</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>界面之下：还原真实的 MVC、MVP、MVVM 模式</p>
+<p>转载自： <a href="https://github.com/livoras/blog/issues/11作者：" target="_blank" rel="external">https://github.com/livoras/blog/issues/11作者：</a> 戴嘉华</p>
+<h2 id="GUI程序所面临的问题"><a href="#GUI程序所面临的问题" class="headerlink" title="GUI程序所面临的问题"></a>GUI程序所面临的问题</h2><p>图形界面的应用程序提供给用户可视化的操作界面，这个界面提供给数据和信息。用户输入行为（键盘，鼠标等）会执行一些应用逻辑，应用逻辑（application logic）可能会触发一定的业务逻辑（business logic）对应用程序数据的变更，数据的变更自然需要用户界面的同步变更以提供最准确的信息。例如用户对一个电子表格重新排序的操作，应用程序需要响应用户操作，对数据进行排序，然后需要同步到界面上。</p>
+<p>在开发应用程序的时候，以求更好的管理应用程序的复杂性，基于职责分离（Speration of Duties）的思想都会对应用程序进行分层。在开发图形界面应用程序的时候，会把管理用户界面的层次称为View，应用程序的数据为Model（注意这里的Model指的是Domain Model，这个应用程序对需要解决的问题的数据抽象，不包含应用的状态，可以简单理解为对象）。Model提供数据操作的接口，执行相应的业务逻辑。</p>
+<p><img src="/img/mvvm/687406e67.png" alt=""></p>
+<p>有了View和Model的分层，那么问题就来了：View如何同步Model的变更，View和Model之间如何粘合在一起。</p>
+<p>带着这个问题开始探索MV<em>模式，会发现这些模式之间的差异可以归纳为对这个问题处理的方式的不同。而几乎所有的MV</em>模式都是经典的Smalltalk-80 MVC的修改版。</p>
+<h2 id="Smalltalk-80-MVC"><a href="#Smalltalk-80-MVC" class="headerlink" title="Smalltalk-80 MVC"></a>Smalltalk-80 MVC</h2><h3 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h3><p>早在上个世纪70年代，美国的施乐公司（Xerox）的工程师研发了Smalltalk编程语言，并且开始用它编写图形界面的应用程序。而在Smalltalk-80这个版本的时候，一位叫Trygve Reenskaug的工程师设计了MVC图形应用程序的架构模式，极大地降低了图形应用程序的管理难度。而在四人帮（GoF）的设计模式当中并没有把MVC当做是设计模式，而仅仅是把它看成解决问题的一些类的集合。Smalltalk-80 MVC和GoF描述的MVC是最经典的MVC模式。</p>
+<h3 id="MVC的依赖关系"><a href="#MVC的依赖关系" class="headerlink" title="MVC的依赖关系"></a>MVC的依赖关系</h3><p>MVC出了把应用程序分成View、Model层，还额外的加了一个Controller层，它的职责为进行Model和View之间的协作（路由、输入预处理等）的应用逻辑（application logic）；Model进行处理业务逻辑。Model、View、Controller三个层次的依赖关系如下：</p>
+<p><img src="/img/mvvm/32d6465702e706e67.png" alt=""></p>
+<p>Controller和View都依赖Model层，Controller和View可以互相依赖。在一些网上的资料Controller和View之间的依赖关系可能不一样，有些是单向依赖，有些是双向依赖，这个其实关系不大，后面会看到它们的依赖关系都是为了把处理用户行为触发的事件处理权交给Controller。</p>
+<h3 id="MVC的调用关系"><a href="#MVC的调用关系" class="headerlink" title="MVC的调用关系"></a>MVC的调用关系</h3><p>用户的对View操作以后，View捕获到这个操作，会把处理的权利交移给Controller（Pass calls）；Controller会对来自View数据进行预处理、决定调用哪个Model的接口；然后由Model执行相关的业务逻辑；当Model变更了以后，会通过观察者模式（Observer Pattern）通知View；View通过观察者模式收到Model变更的消息以后，会向Model请求最新的数据，然后重新更新界面。如下图：</p>
+<p><img src="/img/mvvm/d76632d6361706e67.png" alt=""></p>
+<p>看似没有什么特别的地方，但是由几个需要特别关注的关键点：</p>
+<ol>
+<li>View是把控制权交移给Controller，Controller执行应用程序相关的应用逻辑（对来自View数据进行预处理、决定调用哪个Model的接口等等）。</li>
+<li>Controller操作Model，Model执行业务逻辑对数据进行处理。但不会直接操作View，可以说它是对View无知的。</li>
+<li>View和Model的同步消息是通过观察者模式进行，而同步操作是由View自己请求Model的数据然后对视图进行更新。</li>
+</ol>
+<p>需要特别注意的是MVC模式的精髓在于第三点：Model的更新是通过观察者模式告知View的，具体表现形式可以是Pub/Sub或者是触发Events。而网上很多对于MVC的描述都没有强调这一点。通过观察者模式的好处就是：不同的MVC三角关系可能会有共同的Model，一个MVC三角中的Controller操作了Model以后，两个MVC三角的View都会接受到通知，然后更新自己。保持了依赖同一块Model的不同View显示数据的实时性和准确性。我们每天都在用的观察者模式，在几十年前就已经被大神们整合到MVC的架构当中。</p>
+<p>这里有一个MVC模式的JavaScript Demo，实现了一个小的TodoList应用程序。经典的Smalltalk-80 MVC不需要任何框架支持就可以实现。目前Web前端框架当中只有一个号称是严格遵循Smalltalk-80 MVC模式的：maria.js。</p>
+<h4 id="MVC的优缺点"><a href="#MVC的优缺点" class="headerlink" title="MVC的优缺点"></a>MVC的优缺点</h4><p>优点：</p>
+<ol>
+<li>把业务逻辑和展示逻辑分离，模块化程度高。且当应用逻辑需要变更的时候，不需要变更业务逻辑和展示逻辑，只需要Controller换成另外一个Controller就行了（Swappable Controller）。</li>
+<li>观察者模式可以做到多视图同时更新。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>Controller测试困难。因为视图同步操作是由View自己执行，而View只能在有UI的环境下运行。在没有UI环境下对Controller进行单元测试的时候，应用逻辑正确性是无法验证的：Model更新的时候，无法对View的更新操作进行断言。</li>
+<li>View无法组件化。View是强依赖特定的Model的，如果需要把这个View抽出来作为一个另外一个应用程序可复用的组件就困难了。因为不同程序的的Domain Model是不一样的</li>
+</ol>
+<h3 id="MVC-Model-2"><a href="#MVC-Model-2" class="headerlink" title="MVC Model 2"></a>MVC Model 2</h3><p>在Web服务端开发的时候也会接触到MVC模式，而这种MVC模式不能严格称为MVC模式。经典的MVC模式只是解决客户端图形界面应用程序的问题，而对服务端无效。服务端的MVC模式又自己特定的名字：MVC Model 2，或者叫JSP Model 2，或者直接就是Model 2 。Model 2客户端服务端的交互模式如下：</p>
+<p><img src="/img/mvvm/64656c322e706e67.png" alt=""></p>
+<p>服务端接收到来自客户端的请求，服务端通过路由规则把这个请求交由给特定的Controller进行处理，Controller执行相应的应用逻辑，对Model进行操作，Model执行业务逻辑以后；然后用数据去渲染特定的模版，返回给客户端。</p>
+<p>因为HTTP协议是单工协议并且是无状态的，服务器无法直接给客户端推送数据。除非客户端再次发起请求，否则服务器端的Model的变更就无法告知客户端。所以可以看到经典的Smalltalk-80 MVC中Model通过观察者模式告知View更新这一环被无情地打破，不能称为严格的MVC。</p>
+<p>Model 2模式最早在1998年应用在JSP应用程序当中，JSP Model 1应用管理的混乱诱发了JSP参考了客户端MVC模式，催生了Model 2。</p>
+<p><img src="/img/mvvm/06e67.png" alt=""></p>
+<p>后来这种模式几乎被应用在所有语言的Web开发框架当中。PHP的ThinkPHP，Python的Dijango、Flask，NodeJS的Express，Ruby的RoR，基本都采纳了这种模式。平常所讲的MVC基本是这种服务端的MVC。</p>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>MVP模式有两种：</p>
+<ol>
+<li>Passive View</li>
+<li>Supervising Controller</li>
+</ol>
+<p>而大多数情况下讨论的都是Passive View模式。本文会对PV模式进行较为详细的介绍，而SC模式则简单提及。</p>
+<h3 id="历史背景-1"><a href="#历史背景-1" class="headerlink" title="历史背景"></a>历史背景</h3><p>MVP模式是MVC模式的改良。在上个世纪90年代，IBM旗下的子公司Taligent在用C/C++开发一个叫CommonPoint的图形界面应用系统的时候提出来的。</p>
+<h3 id="MVP（Passive-View）的依赖关系"><a href="#MVP（Passive-View）的依赖关系" class="headerlink" title="MVP（Passive View）的依赖关系"></a>MVP（Passive View）的依赖关系</h3><p>MVP模式把MVC模式中的Controller换成了Presenter。MVP层次之间的依赖关系如下：</p>
+<p><img src="/img/mvvm/e706e67.png" alt=""></p>
+<p>MVP打破了View原来对于Model的依赖，其余的依赖关系和MVC模式一致。</p>
+<h3 id="MVP（Passive-View）的调用关系"><a href="#MVP（Passive-View）的调用关系" class="headerlink" title="MVP（Passive View）的调用关系"></a>MVP（Passive View）的调用关系</h3><p>既然View对Model的依赖被打破了，那View如何同步Model的变更？看看MVP的调用关系：</p>
+<p><img src="/img/mvvm/c6c2e706e67.png" alt=""></p>
+<p>和MVC模式一样，用户对View的操作都会从View交移给Presenter。Presenter会执行相应的应用程序逻辑，并且对Model进行相应的操作；而这时候Model执行完业务逻辑以后，也是通过观察者模式把自己变更的消息传递出去，但是是传给Presenter而不是View。Presenter获取到Model变更的消息以后，通过View提供的接口更新界面。</p>
+<p>关键点：</p>
+<ol>
+<li>View不再负责同步的逻辑，而是由Presenter负责。Presenter中既有应用程序逻辑也有同步逻辑。</li>
+<li>View需要提供操作界面的接口给Presenter进行调用。（关键）</li>
+</ol>
+<p>对比在MVC中，Controller是不能操作View的，View也没有提供相应的接口；而在MVP当中，Presenter可以操作View，View需要提供一组对界面操作的接口给Presenter进行调用；Model仍然通过事件广播自己的变更，但由Presenter监听而不是View。</p>
+<p>MVP模式，这里也提供一个用JavaScript编写的例子。</p>
+<h3 id="MVP（Passive-View）的优缺点"><a href="#MVP（Passive-View）的优缺点" class="headerlink" title="MVP（Passive View）的优缺点"></a>MVP（Passive View）的优缺点</h3><p>优点：</p>
+<ol>
+<li>便于测试。Presenter对View是通过接口进行，在对Presenter进行不依赖UI环境的单元测试的时候。可以通过Mock一个View对象，这个对象只需要实现了View的接口即可。然后依赖注入到Presenter中，单元测试的时候就可以完整的测试Presenter应用逻辑的正确性。这里根据上面的例子给出了Presenter的单元测试样例。</li>
+<li>View可以进行组件化。在MVP当中，View不依赖Model。这样就可以让View从特定的业务场景中脱离出来，可以说View可以做到对业务完全无知。它只需要提供一系列接口提供给上层操作。这样就可以做到高度可复用的View组件。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>Presenter中除了应用逻辑以外，还有大量的View-&gt;Model，Model-&gt;View的手动同步逻辑，造成Presenter比较笨重，维护起来会比较困难。</li>
+</ol>
+<h3 id="MVP（Supervising-Controller）"><a href="#MVP（Supervising-Controller）" class="headerlink" title="MVP（Supervising Controller）"></a>MVP（Supervising Controller）</h3><p>上面讲的是MVP的Passive View模式，该模式下View非常Passive，它几乎什么都不知道，Presenter让它干什么它就干什么。而Supervising Controller模式中，Presenter会把一部分简单的同步逻辑交给View自己去做，Presenter只负责比较复杂的、高层次的UI操作，所以可以把它看成一个Supervising Controller。</p>
+<p>Supervising Controller模式下的依赖和调用关系：</p>
+<p><img src="/img/mvvm/66f72617327.png" alt=""></p>
+<p>因为Supervising Controller用得比较少，对它的讨论就到这里为止。</p>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>MVVM可以看作是一种特殊的MVP（Passive View）模式，或者说是对MVP模式的一种改良。</p>
+<h3 id="历史背景-2"><a href="#历史背景-2" class="headerlink" title="历史背景"></a>历史背景</h3><p>MVVM模式最早是微软公司提出，并且了大量使用在.NET的WPF和Sliverlight中。2005年微软工程师John Gossman在自己的博客上首次公布了MVVM模式。</p>
+<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><p>MVVM代表的是Model-View-ViewModel，这里需要解释一下什么是ViewModel。ViewModel的含义就是 “Model of View”，视图的模型。它的含义包含了领域模型（Domain Model）和视图的状态（State）。 在图形界面应用程序当中，界面所提供的信息可能不仅仅包含应用程序的领域模型。还可能包含一些领域模型不包含的视图状态，例如电子表格程序上需要显示当前排序的状态是顺序的还是逆序的，而这是Domain Model所不包含的，但也是需要显示的信息。</p>
+<p>可以简单把ViewModel理解为页面上所显示内容的数据抽象，和Domain Model不一样，ViewModel更适合用来描述View。</p>
+<h3 id="MVVM的依赖"><a href="#MVVM的依赖" class="headerlink" title="MVVM的依赖"></a>MVVM的依赖</h3><p>MVVM的依赖关系和MVP依赖，只不过是把P换成了VM。</p>
+<p><img src="/img/mvvm/e696f2f66e67.png" alt=""></p>
+<h3 id="MVVM的调用关系"><a href="#MVVM的调用关系" class="headerlink" title="MVVM的调用关系"></a>MVVM的调用关系</h3><p>MVVM的调用关系和MVP一样。但是，在ViewModel当中会有一个叫Binder，或者是Data-binding engine的东西。以前全部由Presenter负责的View和Model之间数据同步操作交由给Binder处理。你只需要在View的模版语法当中，指令式地声明View上的显示的内容是和Model的哪一块数据绑定的。当ViewModel对进行Model更新的时候，Binder会自动把数据更新到View上去，当用户对View进行操作（例如表单输入），Binder也会自动把数据更新到Model上去。这种方式称为：Two-way data-binding，双向数据绑定。可以简单而不恰当地理解为一个模版引擎，但是会根据数据变更实时渲染。</p>
+<p><img src="/img/mvvm/632f6d76766.png" alt=""></p>
+<p>也就是说，MVVM把View和Model的同步逻辑自动化了。以前Presenter负责的View和Model同步不再手动地进行操作，而是交由框架所提供的Binder进行负责。只需要告诉Binder，View显示的数据对应的是Model哪一部分即可。</p>
+<p>这里有一个JavaScript MVVM的例子，因为MVVM需要Binder引擎。所以例子中使用了一个MVVM的库：<a href="https://github.com/livoras/MVW-demos/blob/master/src/scripts/mvvm.js" target="_blank" rel="external">Vue.js</a>。</p>
+<h3 id="MVVM的优缺点"><a href="#MVVM的优缺点" class="headerlink" title="MVVM的优缺点"></a>MVVM的优缺点</h3><p>优点：</p>
+<ol>
+<li>提高可维护性。解决了MVP大量的手动View和Model同步的问题，提供双向绑定机制。提高了代码的可维护性。</li>
+<li>简化测试。因为同步逻辑是交由Binder做的，View跟着Model同时变更，所以只需要保证Model的正确性，View就正确。大大减少了对View同步更新的测试。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>过于简单的图形界面不适用，或说牛刀杀鸡。</li>
+<li>对于大型的图形应用程序，视图状态较多，ViewModel的构建和维护的成本都会比较高。</li>
+<li>数据绑定的声明是指令式地写在View的模版当中的，这些内容是没办法去打断点debug的。</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>可以看到，从MVC-&gt;MVP-&gt;MVVM，就像一个打怪升级的过程。后者解决了前者遗留的问题，把前者的缺点优化成了优点。同样的Demo功能，代码从最开始的一堆文件，优化成了最后只需要20几行代码就完成。MV*模式之间的区分还是蛮清晰的，希望可以给对这些模式理解比较模糊的同学带来一些参考和思路。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -513,6 +647,71 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/05/24/js跨域总结与解决办法/" >
+  js跨域总结与解决办法
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/24/js跨域总结与解决办法/"><span class="article-date">
+  2016-05-24
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/网络/">网络</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域请求/">跨域请求</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html" target="_blank" rel="external">原文链接</a><br>什么是跨域<br>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p>
+<p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：<br><img src="/img/php/QQ截图20160529204200.png" alt=""></p>
+<p>特别注意两点：<br>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，<br>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。<br>接下来简单地总结一下在“前台”一般处理跨域的办法，后台proxy这种方案牵涉到后台配置，这里就不阐述了，有兴趣的可以看看yahoo的这篇文章：<a href="http://developer.yahoo.com/javascript/howto-proxy.html" target="_blank" rel="external">《JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls》</a></p>
+<p>1、document.domain+iframe的设置<br>对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决。具体的做法是可以在<a href="http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain" target="_blank" rel="external">http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain</a> = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：</p>
+<p>www.a.com上的a.html</p>
+<p>document.domain = ‘a.com’;<br>var ifr = document.createElement(‘iframe’);<br>ifr.src = ‘<a href="http://script.a.com/b.html" target="_blank" rel="external">http://script.a.com/b.html</a>‘;<br>ifr.style.display = ‘none’;<br>document.body.appendChild(ifr);<br>ifr.onload = function(){<br>    var doc = ifr.contentDocument || ifr.contentWindow.document;<br>    // 在这里操纵b.html<br>    alert(doc.getElementsByTagName(“h1”)[0].childNodes[0].nodeValue);<br>};<br>script.a.com上的b.html</p>
+<p>document.domain = ‘a.com’;<br>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。</p>
+<p>备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。 domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。</p>
+<p>问题：<br>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。<br>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。<br>2、动态创建script<br>虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。具体的做法可以参考YUI的Get Utility</p>
+<p>这里判断script节点加载完毕还是蛮有意思的：ie只能通过script的readystatechange属性，其它浏览器是script的load事件。以下是部分判断script加载完毕的方法。</p>
+<p>js.onload = js.onreadystatechange = function() {<br>    if (!this.readyState || this.readyState === ‘loaded’ || this.readyState === ‘complete’) {<br>        // callback在此处执行<br>        js.onload = js.onreadystatechange = null;<br>    }<br>};<br>3、利用iframe和location.hash<br>这个办法比较绕，但是可以解决完全跨域情况下的脚步置换问题。原理是利用location.hash来进行传值。在url： <a href="http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：" target="_blank" rel="external">http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：</a></p>
+<p>先是a.com下的文件cs1.html文件：</p>
+<p>function startRequest(){<br>    var ifr = document.createElement(‘iframe’);<br>    ifr.style.display = ‘none’;<br>    ifr.src = ‘<a href="http://www.cnblogs.com/lab/cscript/cs2.html#paramdo" target="_blank" rel="external">http://www.cnblogs.com/lab/cscript/cs2.html#paramdo</a>‘;<br>    document.body.appendChild(ifr);<br>}</p>
+<p>function checkHash() {<br>    try {<br>        var data = location.hash ? location.hash.substring(1) : ‘’;<br>        if (console.log) {<br>            console.log(‘Now the data is ‘+data);<br>        }<br>    } catch(e) {};<br>}<br>setInterval(checkHash, 2000);<br>cnblogs.com域名下的cs2.html:</p>
+<p>//模拟一个简单的参数处理操作<br>switch(location.hash){<br>    case ‘#paramdo’:<br>        callBack();<br>        break;<br>    case ‘#paramset’:<br>        //do something……<br>        break;<br>}</p>
+<p>function callBack(){<br>    try {<br>        parent.location.hash = ‘somedata’;<br>    } catch (e) {<br>        // ie、chrome的安全机制无法修改parent.location.hash，<br>        // 所以要利用一个中间的cnblogs域下的代理iframe<br>        var ifrproxy = document.createElement(‘iframe’);<br>        ifrproxy.style.display = ‘none’;<br>        ifrproxy.src = ‘<a href="http://a.com/test/cscript/cs3.html#somedata" target="_blank" rel="external">http://a.com/test/cscript/cs3.html#somedata</a>‘;    // 注意该文件在”a.com”域下<br>        document.body.appendChild(ifrproxy);<br>    }<br>}<br>a.com下的域名cs3.html</p>
+<p>//因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值<br>parent.parent.location.hash = self.location.hash.substring(1);<br>当然这样做也存在很多缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等……</p>
+<p>4、window.name实现的跨域数据传输<br>文章较长列在此处不便于阅读，详细请看 window.name实现的跨域数据传输。</p>
+<p>5、使用HTML5 postMessage<br>HTML5中最酷的新功能之一就是 跨文档消息传输Cross Document Messaging。下一代浏览器都将支持这个功能：Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+ 。 Facebook已经使用了这个功能，用postMessage支持基于web的实时消息传递。</p>
+<p>otherWindow.postMessage(message, targetOrigin);<br>otherWindow: 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；window.open的返回值；通过name或下标从window.frames取到的值。<br>message: 所要发送的数据，string类型。<br>targetOrigin: 用于限制otherWindow，“*”表示不作限制<br>a.com/index.html中的代码：</p>
+<p><iframe id="ifr" src="b.com/index.html"></iframe></p>
+<p><script type="text/javascript"><br>window.onload = function() {<br>    var ifr = document.getElementById(‘ifr’);<br>    var targetOrigin = ‘<a href="http://b.com">http://b.com</a>‘;  // 若写成’<a href="http://b.com/c/proxy.html&#39;效果一样">http://b.com/c/proxy.html&#39;效果一样</a><br>                                        // 若写成’<a href="http://c.com&#39;就不会执行postMessage了">http://c.com&#39;就不会执行postMessage了</a><br>    ifr.contentWindow.postMessage(‘I was there!’, targetOrigin);<br>};<br></script><br>b.com/index.html中的代码：</p>
+<p><script type="text/javascript"><br>    window.addEventListener(‘message’, function(event){<br>        // 通过origin属性判断消息来源地址<br>        if (event.origin == ‘<a href="http://a.com">http://a.com</a>‘) {<br>            alert(event.data);    // 弹出”I was there!”<br>            alert(event.source);  // 对a.com、index.html中window对象的引用<br>                                  // 但由于同源策略，这里event.source不可以访问window对象<br>        }<br>    }, false);<br></script><br>参考文章：《精通HTML5编程》第五章——跨文档消息机制、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blank" rel="external">https://developer.mozilla.org/en/dom/window.postmessage</a></p>
+<p>6、利用flash<br>这是从YUI3的IO组件中看到的办法，具体可见<a href="http://developer.yahoo.com/yui/3/io/。" target="_blank" rel="external">http://developer.yahoo.com/yui/3/io/。</a><br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：ross-Domain Policy File Specifications、HTTP Headers Blacklist。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/05/24/js跨域请求/" >
   js跨域请求
 </a>
@@ -589,71 +788,6 @@ location ~ \.php$ {
 前面的jQuery17103600438670255244_1331202380099就是jQuery动态生成的回调函数名，然后在这个回调函数内容调用后面定义的匿名函数，并将得到的JSON数据传进去。jQuery可以优化JSONP请求，如果向同一个源发出请求，jQuery 就将其转化为普通 Ajax 请求。
 </code></pre></li>
 </ol>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/24/js跨域总结与解决办法/" >
-  js跨域总结与解决办法
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/24/js跨域总结与解决办法/"><span class="article-date">
-  2016-05-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/网络/">网络</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域请求/">跨域请求</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html" target="_blank" rel="external">原文链接</a><br>什么是跨域<br>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p>
-<p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：<br><img src="/img/php/QQ截图20160529204200.png" alt=""></p>
-<p>特别注意两点：<br>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，<br>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。<br>接下来简单地总结一下在“前台”一般处理跨域的办法，后台proxy这种方案牵涉到后台配置，这里就不阐述了，有兴趣的可以看看yahoo的这篇文章：<a href="http://developer.yahoo.com/javascript/howto-proxy.html" target="_blank" rel="external">《JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls》</a></p>
-<p>1、document.domain+iframe的设置<br>对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决。具体的做法是可以在<a href="http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain" target="_blank" rel="external">http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain</a> = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：</p>
-<p>www.a.com上的a.html</p>
-<p>document.domain = ‘a.com’;<br>var ifr = document.createElement(‘iframe’);<br>ifr.src = ‘<a href="http://script.a.com/b.html" target="_blank" rel="external">http://script.a.com/b.html</a>‘;<br>ifr.style.display = ‘none’;<br>document.body.appendChild(ifr);<br>ifr.onload = function(){<br>    var doc = ifr.contentDocument || ifr.contentWindow.document;<br>    // 在这里操纵b.html<br>    alert(doc.getElementsByTagName(“h1”)[0].childNodes[0].nodeValue);<br>};<br>script.a.com上的b.html</p>
-<p>document.domain = ‘a.com’;<br>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。</p>
-<p>备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。 domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。</p>
-<p>问题：<br>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。<br>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。<br>2、动态创建script<br>虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。具体的做法可以参考YUI的Get Utility</p>
-<p>这里判断script节点加载完毕还是蛮有意思的：ie只能通过script的readystatechange属性，其它浏览器是script的load事件。以下是部分判断script加载完毕的方法。</p>
-<p>js.onload = js.onreadystatechange = function() {<br>    if (!this.readyState || this.readyState === ‘loaded’ || this.readyState === ‘complete’) {<br>        // callback在此处执行<br>        js.onload = js.onreadystatechange = null;<br>    }<br>};<br>3、利用iframe和location.hash<br>这个办法比较绕，但是可以解决完全跨域情况下的脚步置换问题。原理是利用location.hash来进行传值。在url： <a href="http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：" target="_blank" rel="external">http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：</a></p>
-<p>先是a.com下的文件cs1.html文件：</p>
-<p>function startRequest(){<br>    var ifr = document.createElement(‘iframe’);<br>    ifr.style.display = ‘none’;<br>    ifr.src = ‘<a href="http://www.cnblogs.com/lab/cscript/cs2.html#paramdo" target="_blank" rel="external">http://www.cnblogs.com/lab/cscript/cs2.html#paramdo</a>‘;<br>    document.body.appendChild(ifr);<br>}</p>
-<p>function checkHash() {<br>    try {<br>        var data = location.hash ? location.hash.substring(1) : ‘’;<br>        if (console.log) {<br>            console.log(‘Now the data is ‘+data);<br>        }<br>    } catch(e) {};<br>}<br>setInterval(checkHash, 2000);<br>cnblogs.com域名下的cs2.html:</p>
-<p>//模拟一个简单的参数处理操作<br>switch(location.hash){<br>    case ‘#paramdo’:<br>        callBack();<br>        break;<br>    case ‘#paramset’:<br>        //do something……<br>        break;<br>}</p>
-<p>function callBack(){<br>    try {<br>        parent.location.hash = ‘somedata’;<br>    } catch (e) {<br>        // ie、chrome的安全机制无法修改parent.location.hash，<br>        // 所以要利用一个中间的cnblogs域下的代理iframe<br>        var ifrproxy = document.createElement(‘iframe’);<br>        ifrproxy.style.display = ‘none’;<br>        ifrproxy.src = ‘<a href="http://a.com/test/cscript/cs3.html#somedata" target="_blank" rel="external">http://a.com/test/cscript/cs3.html#somedata</a>‘;    // 注意该文件在”a.com”域下<br>        document.body.appendChild(ifrproxy);<br>    }<br>}<br>a.com下的域名cs3.html</p>
-<p>//因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值<br>parent.parent.location.hash = self.location.hash.substring(1);<br>当然这样做也存在很多缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等……</p>
-<p>4、window.name实现的跨域数据传输<br>文章较长列在此处不便于阅读，详细请看 window.name实现的跨域数据传输。</p>
-<p>5、使用HTML5 postMessage<br>HTML5中最酷的新功能之一就是 跨文档消息传输Cross Document Messaging。下一代浏览器都将支持这个功能：Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+ 。 Facebook已经使用了这个功能，用postMessage支持基于web的实时消息传递。</p>
-<p>otherWindow.postMessage(message, targetOrigin);<br>otherWindow: 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；window.open的返回值；通过name或下标从window.frames取到的值。<br>message: 所要发送的数据，string类型。<br>targetOrigin: 用于限制otherWindow，“*”表示不作限制<br>a.com/index.html中的代码：</p>
-<p><iframe id="ifr" src="b.com/index.html"></iframe></p>
-<p><script type="text/javascript"><br>window.onload = function() {<br>    var ifr = document.getElementById(‘ifr’);<br>    var targetOrigin = ‘<a href="http://b.com">http://b.com</a>‘;  // 若写成’<a href="http://b.com/c/proxy.html&#39;效果一样">http://b.com/c/proxy.html&#39;效果一样</a><br>                                        // 若写成’<a href="http://c.com&#39;就不会执行postMessage了">http://c.com&#39;就不会执行postMessage了</a><br>    ifr.contentWindow.postMessage(‘I was there!’, targetOrigin);<br>};<br></script><br>b.com/index.html中的代码：</p>
-<p><script type="text/javascript"><br>    window.addEventListener(‘message’, function(event){<br>        // 通过origin属性判断消息来源地址<br>        if (event.origin == ‘<a href="http://a.com">http://a.com</a>‘) {<br>            alert(event.data);    // 弹出”I was there!”<br>            alert(event.source);  // 对a.com、index.html中window对象的引用<br>                                  // 但由于同源策略，这里event.source不可以访问window对象<br>        }<br>    }, false);<br></script><br>参考文章：《精通HTML5编程》第五章——跨文档消息机制、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blank" rel="external">https://developer.mozilla.org/en/dom/window.postmessage</a></p>
-<p>6、利用flash<br>这是从YUI3的IO组件中看到的办法，具体可见<a href="http://developer.yahoo.com/yui/3/io/。" target="_blank" rel="external">http://developer.yahoo.com/yui/3/io/。</a><br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：ross-Domain Policy File Specifications、HTTP Headers Blacklist。</p>
 
         
       </div>
@@ -784,146 +918,6 @@ Socket可以看成在两个程序进行通讯连接中的一个端点，一个�
 
 关于监听套接字和accept返回的新的套接字的区别，借用以下情景说明。好比你去吃饭，饭馆门迎小姐（监听SOCKET）看到你来后和你打招呼，然后（ACCEPT）找来一个服务员小姐（NEW SOCKET）伺候你，然后守在门口继续欢迎（监听）下一个。当然门迎小姐会记录是哪一位服务员小姐招待了你；如再有新客人来，门迎小姐（同一监听SOCKET）又会安排另一位服务员小姐（NEW SOCKET）伺候。门迎小姐走了，伺候每一位客人的服务员小姐不受影响。从以上情景可知连接建立后，客户端用发出连接的那个SOCKET向服务器发数据，是发给服务器新创建的SOCKET，而不是服务器的监听SOCKET。服务器的监听SOCKET永远只是用来接受连接请求。
 </code></pre>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/24/TCP协议与UDP协议的区别/" >
-  TCP协议与UDP协议的区别
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/24/TCP协议与UDP协议的区别/"><span class="article-date">
-  2016-05-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/网络/">网络</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP-UDP/">TCP/UDP</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>TCP协议与UDP协议的区别<a href="http://www.cnblogs.com/bizhu/archive/2012/05/12/2497493.html" target="_blank" rel="external">转载地址</a></p>
-<p>首先咱们弄清楚，TCP协议和UCP协议与TCP/IP协议的联系，很多人犯糊涂了，一直都是说TCP/IP协议与UDP协议的区别，我觉得这是没有从本质上弄清楚网络通信！</p>
-<h3 id="TCP-IP协议是一个协议簇。里面包括很多协议的。UDP只是其中的一个。之所以命名为TCP-IP协议，因为TCP-IP协议是两个很重要的协议，就用他两命名了。"><a href="#TCP-IP协议是一个协议簇。里面包括很多协议的。UDP只是其中的一个。之所以命名为TCP-IP协议，因为TCP-IP协议是两个很重要的协议，就用他两命名了。" class="headerlink" title="TCP/IP协议是一个协议簇。里面包括很多协议的。UDP只是其中的一个。之所以命名为TCP/IP协议，因为TCP,IP协议是两个很重要的协议，就用他两命名了。"></a>TCP/IP协议是一个协议簇。里面包括很多协议的。UDP只是其中的一个。之所以命名为TCP/IP协议，因为TCP,IP协议是两个很重要的协议，就用他两命名了。</h3><ul>
-<li><p>TCP/IP协议集包括应用层,传输层，网络层，网络访问层。</p>
-</li>
-<li><p>其中应用层包括:</p>
-<blockquote>
-<p>超文本传输协议(HTTP):万维网的基本协议.<br>文件传输(TFTP简单文件传输协议):<br>远程登录(Telnet),提供远程访问其它主机功能,它允许用户登录<br>internet主机,并在这台主机上执行命令.<br>网络管理(SNMP简单网络管理协议),该协议提供了监控网络设备的方法,以及配置管理,统计信息收集,性能管理及安全管理等.<br>域名系统(DNS),该系统用于在internet中将域名及其公共广播的网络节点转换成IP地址. </p>
-</blockquote>
-</li>
-<li><p>其次网络层包括:    </p>
-<blockquote>
-<p>Internet协议(IP)<br>Internet控制信息协议(ICMP)<br>地址解析协议(ARP)<br>反向地址解析协议(RARP)<br>最后说网络访问层:网络访问层又称作主机到网络层(host-to-network).网络访问层的功能包括IP地址与物理地址硬件的映射,以及将IP封装成帧.基于不同硬件类型的网络接口,网络访问层定义了和物理介质的连接.</p>
-</blockquote>
-</li>
-</ul>
-<p>当然我这里说得不够完善，TCP/IP协议本来就是一门学问，每一个分支都是一个很复杂的流程，但我相信每位学习软件开发的同学都有必要去仔细了解一番。</p>
-<ul>
-<li>下面我着重讲解一下TCP协议和UDP协议的区别。</li>
-</ul>
-<p>TCP（Transmission Control Protocol，传输控制协议）是面向连接的协议，也就是说，在收发数据前，必须和对方建立可靠的连接。</p>
-<p>一个TCP连接必须要经过三次“对话”才能建立起来，其中的过程非常复杂，只简单的描述下这三次对话的简单过程：主机A向主机B发出连接请求数据包：“我想给你发数据，可以吗？”，这是第一次对话；主机B向主机A发送同意连接和要求同步（同步就是两台主机一个在发送，一个在接收，协调工作）的数据包：“可以，你什么时候发？”，这是第二次对话；主机A再发出一个数据包确认主机B的要求同步：“我现在就发，你接着吧！”，这是第三次对话。三次“对话”的目的是使数据包的发送和接收同步，经过三次“对话”之后，主机A才向主机B正式发送数据。<br>详细点说就是：（文章部分转载<a href="http://zhangjiangxing-gmail-com.iteye.com，主要是这个人讲解得很到位，的确很容易使人理解！）" target="_blank" rel="external">http://zhangjiangxing-gmail-com.iteye.com，主要是这个人讲解得很到位，的确很容易使人理解！）</a></p>
-<ul>
-<li><p>TCP三次握手过程</p>
-<blockquote>
-<p>1 主机A通过向主机B 发送一个含有同步序列号的标志位的数据段给主机B ,向主机B 请求建立连接,通过这个数据段,<br>主机A告诉主机B 两件事:我想要和你通信;你可以用哪个序列号作为起始数据段来回应我.<br>2 主机B 收到主机A的请求后,用一个带有确认应答(ACK)和同步序列号(SYN)标志位的数据段响应主机A,也告诉主机A两件事:<br>我已经收到你的请求了,你可以传输数据了;你要用哪佧序列号作为起始数据段来回应我<br>3 主机A收到这个数据段后,再发送一个确认应答,确认已收到主机B 的数据段:”我已收到回复,我现在要开始传输实际数据了<br>这样3次握手就完成了,主机A和主机B 就可以传输数据了.</p>
-</blockquote>
-</li>
-<li><p>3次握手的特点</p>
-<blockquote>
-<p>没有应用层的数据<br>SYN这个标志位只有在TCP建产连接时才会被置1<br>握手完成后SYN标志位被置0</p>
-</blockquote>
-</li>
-<li><p>TCP建立连接要进行3次握手,而断开连接要进行4次</p>
-</li>
-</ul>
-<blockquote>
-<p>1 当主机A完成数据传输后,将控制位FIN置1,提出停止TCP连接的请求<br>2  主机B收到FIN后对其作出响应,确认这一方向上的TCP连接将关闭,将ACK置1<br>3 由B 端再提出反方向的关闭请求,将FIN置1<br>4 主机A对主机B的请求进行确认,将ACK置1,双方向的关闭结束.<br>由TCP的三次握手和四次断开可以看出,TCP使用面向连接的通信方式,大大提高了数据通信的可靠性,使发送数据端<br>和接收端在数据正式传输前就有了交互,为数据正式传输打下了可靠的基础</p>
-</blockquote>
-<ul>
-<li><strong>名词解释</strong></li>
-</ul>
-<ol>
-<li><p>ACK  TCP报头的控制位之一,对数据进行确认.确认由目的端发出,用它来告诉发送端这个序列号之前的数据段都收到了.比如,确认号为X,则表示前X-1个数据段都收到了,只有当ACK=1时,确认号才有效,当ACK=0时,确认号无效,这时会要求重传数据,保证数据的完整性.</p>
-</li>
-<li><p>SYN  同步序列号,TCP建立连接时将这个位置1</p>
-</li>
-<li><p>FIN  发送端完成发送任务位,当TCP完成数据传输需要断开时,提出断开连接的一方将这位置1</p>
-</li>
-</ol>
-<ul>
-<li>TCP的包头结构：<blockquote>
-<p>源端口 16位<br>目标端口 16位<br>序列号 32位<br>回应序号 32位<br>TCP头长度 4位<br>reserved 6位<br>控制代码 6位<br>窗口大小 16位<br>偏移量 16位<br>校验和 16位<br>选项  32位(可选)</p>
-</blockquote>
-</li>
-</ul>
-<p>这样我们得出了TCP包头的最小长度，为20字节。</p>
-<h3 id="UDP（User-Data-Protocol，用户数据报协议）"><a href="#UDP（User-Data-Protocol，用户数据报协议）" class="headerlink" title="UDP（User Data Protocol，用户数据报协议）"></a>UDP（User Data Protocol，用户数据报协议）</h3><blockquote>
-<p>（1） UDP是一个非连接的协议，传输数据之前源端和终端不建立连接，当它想传送时就简单地去抓取来自应用程序的数据，并尽可能快地把它扔到网络上。在发送端，UDP传送数据的速度仅仅是受应用程序生成数据的速度、计算机的能力和传输带宽的限制；在接收端，UDP把每个消息段放在队列中，应用程序每次从队列中读一个消息段。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>（2） 由于传输数据不建立连接，因此也就不需要维护连接状态，包括收发状态等，因此一台服务机可同时向多个客户机传输相同的消息。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>（3） UDP信息包的标题很短，只有8个字节，相对于TCP的20个字节信息包的额外开销很小。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>（4） 吞吐量不受拥挤控制算法的调节，只受应用软件生成数据的速率、传输带宽、源端和终端主机性能的限制。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>（5）UDP使用尽最大努力交付，即不保证可靠交付，因此主机不需要维持复杂的链接状态表（这里面有许多参数）。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>（6）UDP是面向报文的。发送方的UDP对应用程序交下来的报文，在添加首部后就向下交付给IP层。既不拆分，也不合并，而是保留这些报文的边界，因此，应用程序需要选择合适的报文大小。</p>
-</blockquote>
-<p><em>我们经常使用“ping”命令来测试两台主机之间TCP/IP通信是否正常，其实“ping”命令的原理就是向对方主机发送UDP数据包，然后对方主机确认收到数据包，如果数据包是否到达的消息及时反馈回来，那么网络就是通的。</em></p>
-<ul>
-<li>UDP的包头结构：<blockquote>
-<p>源端口 16位<br>目的端口 16位<br>长度 16位<br>校验和 16位</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="小结TCP与UDP的区别："><a href="#小结TCP与UDP的区别：" class="headerlink" title="小结TCP与UDP的区别："></a>小结TCP与UDP的区别：</h3><ol>
-<li><p>基于连接与无连接；</p>
-</li>
-<li><p>对系统资源的要求（TCP较多，UDP少）；</p>
-</li>
-<li><p>UDP程序结构较简单；</p>
-</li>
-<li><p>流模式与数据报模式 ；</p>
-</li>
-<li><p>TCP保证数据正确性，UDP可能丢包，TCP保证数据顺序，UDP不保证。</p>
-</li>
-</ol>
-
         
       </div>
     </div>

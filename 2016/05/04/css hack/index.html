@@ -22,7 +22,7 @@ hack的书写有以下三">
 <meta property="og:description" content="由于不同厂商的浏览器或浏览器的不同版本（如IE6-IE11,Firefox/Safari/Opera/Chrome等）对CSS的支持、解析不一样，导致在不同浏览器的环境中呈现出不一致的页面展现效果。这时，我们为了获得统一的页面效果，就需要针对不同的浏览器或不同版本写特定的CSS样式，我们把这个针对不同的浏览器/不同版本写相应的CSS code的过程，叫做CSS hack；
 
 hack的书写有以下三">
-<meta property="og:updated_time" content="2016-05-04T08:18:38.359Z">
+<meta property="og:updated_time" content="2016-07-06T13:32:21.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css hack">
 <meta name="twitter:description" content="由于不同厂商的浏览器或浏览器的不同版本（如IE6-IE11,Firefox/Safari/Opera/Chrome等）对CSS的支持、解析不一样，导致在不同浏览器的环境中呈现出不一致的页面展现效果。这时，我们为了获得统一的页面效果，就需要针对不同的浏览器或不同版本写特定的CSS样式，我们把这个针对不同的浏览器/不同版本写相应的CSS code的过程，叫做CSS hack；
@@ -107,7 +107,7 @@ hack的书写有以下三">
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -196,7 +196,14 @@ hack的书写有以下三">
 <ul>
 <li>hack的书写有以下三种方式： </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1、属性前缀法(即类内部Hack)，例如 IE6能识别下划线”_“和星号”*”，IE7能识别星号”*”，但不能识别下划线”“;</span><br><span class="line">2、选择器前缀法(即选择器Hack)，例如 IE6能识别* .class&#123;&#125;，IE7能识别*+ .class&#123;&#125;； </span><br><span class="line">3、IE条件注释法（即HTML头部引用if IE）例如：</span><br><span class="line"> &lt;!--[if IE 6]&gt;</span><br><span class="line">     &lt;p&gt;You are using Internet Explorer 6.&lt;/p&gt;</span><br><span class="line">     &lt;![endif]--&gt;</span><br><span class="line">     &lt;!--[if !IE]&gt;&lt;!--&gt;</span><br><span class="line">     &lt;script&gt;alert(1);&lt;/script&gt;</span><br><span class="line">     &lt;!--&lt;![endif]--&gt;</span><br><span class="line">     &lt;!--[if IE 8]&gt;</span><br><span class="line">     &lt;link href=&quot;ie8only.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">     &lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+<p>1、属性前缀法(即类内部Hack)，例如 IE6能识别下划线”_“和星号”<em>”，IE7能识别星号”</em>”，但不能识别下划线”“;</p>
+<p>2、选择器前缀法(即选择器Hack)，例如 IE6能识别<em> .class{}，IE7能识别</em>+ .class{}； </p>
+<p>3、IE条件注释法（即HTML头部引用if IE）例如：<br> <!--[if IE 6]>
+     <p>You are using Internet Explorer 6.</p>
+     <![endif]--><br>     <!--[if !IE]><!--><br>     <script>alert(1);</script><br>     <!--<![endif]--><br>     <!--[if IE 8]>
+     <link href="ie8only.css" rel="stylesheet">
+     <![endif]--><br>```</p>
+
   </div>
   <footer class="article-footer">
     

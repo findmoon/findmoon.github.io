@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -170,6 +170,55 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/05/js变量提升/" >
+  js变量提升
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/05/js变量提升/"><span class="article-date">
+  2016-05-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/js/">js</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量/">变量</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>JavaScript引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做变量提升</p>
+<p>我们写了一个赋值语句</p>
+<p>var a = 2;</p>
+<p>实际上执行过程是解释器在未执行的时候先解析出变量声明，然后给他初始值undefined，然后才逐句执行程序</p>
+<p>var a;<br>a = 2;</p>
+<p>这样看起来没什么区别，但是在多语句的情况下会有差别，我们知道一个变量如果不存在我们就使用会报错</p>
+<p>console.log(xxx); // Uncaught ReferenceError: xxx is not defined<br>我们在使用一个变量之前必须声明变量，但是由于变量提升，我们如果声明了变量，即使在声明语句前使用也是可以的，只不过其值是初始值undefined</p>
+<p>console.log(xxx); // undefined<br>var xxx = 2;</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -640,61 +689,6 @@ category:
       <div class="article-entry">
         
           
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/05/使用border产生三角形的原理/" >
-  使用border产生三角形的原理
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/05/使用border产生三角形的原理/"><span class="article-date">
-  2016-05-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/border/">border</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>先看一个效果图</p>
-<p><img src="/img/border/abc.jpg" alt=""></p>
-<p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#triangle-up &#123;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">width</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">height</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-left</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-right</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-bottom</span><br><span class="line">: </span><br><span class="line">100px </span><br><span class="line">solid </span><br><span class="line">red</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>首先，我们需要了解HTML标记的Box Model（盒模型），这个例子中，我们将content，padding都看作content。忽略掉margin。那么一个盒模型就是下图</p>
-<p><img src="/img/border/a.jpg" alt=""></p>
-<p>中间是内容，然后是4条边。每一条边都有宽度。<br>根据上面CSS的定义，没有border-top（顶边）的情形下 ,我们的图形如下：</p>
-<p><img src="/img/border/b.jpg" alt=""></p>
-<p>width设置为0后 ，内容没有了就成为下图：</p>
-<p><img src="/img/border/c.png" alt=""></p>
-<p>height也设置为0，只有底边了。</p>
-<p><img src="/img/border/25225422.png" alt=""></p>
-<p>然后两条边都是设置为透明，最后我们就得到了</p>
-<p><img src="/img/border/25225422_sqLx.png" alt=""></p>
-<p>这个属于奇技淫巧，但是也说明CSS的强大，没有做不到只有想不到。另外<a href="http://css-tricks.com/examples/ShapesOfCSS/" target="_blank" rel="external">http://css-tricks.com/examples/ShapesOfCSS/</a> 还能找到很多其他的形状，感兴趣的同学可以自己去看。</p>
-
         
       </div>
     </div>

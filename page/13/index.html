@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -159,6 +159,63 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/05/使用border产生三角形的原理/" >
+  使用border产生三角形的原理
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/05/使用border产生三角形的原理/"><span class="article-date">
+  2016-05-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/border/">border</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>先看一个效果图</p>
+<p><img src="/img/border/abc.jpg" alt=""></p>
+<p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#triangle-up &#123;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">width</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">height</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-left</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-right</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-bottom</span><br><span class="line">: </span><br><span class="line">100px </span><br><span class="line">solid </span><br><span class="line">red</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，我们需要了解HTML标记的Box Model（盒模型），这个例子中，我们将content，padding都看作content。忽略掉margin。那么一个盒模型就是下图</p>
+<p><img src="/img/border/a.jpg" alt=""></p>
+<p>中间是内容，然后是4条边。每一条边都有宽度。<br>根据上面CSS的定义，没有border-top（顶边）的情形下 ,我们的图形如下：</p>
+<p><img src="/img/border/b.jpg" alt=""></p>
+<p>width设置为0后 ，内容没有了就成为下图：</p>
+<p><img src="/img/border/c.png" alt=""></p>
+<p>height也设置为0，只有底边了。</p>
+<p><img src="/img/border/25225422.png" alt=""></p>
+<p>然后两条边都是设置为透明，最后我们就得到了</p>
+<p><img src="/img/border/25225422_sqLx.png" alt=""></p>
+<p>这个属于奇技淫巧，但是也说明CSS的强大，没有做不到只有想不到。另外<a href="http://css-tricks.com/examples/ShapesOfCSS/" target="_blank" rel="external">http://css-tricks.com/examples/ShapesOfCSS/</a> 还能找到很多其他的形状，感兴趣的同学可以自己去看。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -598,6 +655,63 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/05/04/清除浮动float/" >
+  清除浮动float
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/04/清除浮动float/"><span class="article-date">
+  2016-05-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/float/">float</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>有浮动引起的三个问题</p>
+<blockquote>
+<ul>
+<li>父容器无法包裹浮动元素，高度无法被撑开，认为此元素不在父元素内（脱离文档流），影响与父元素同级的元素(文字产生环绕、元素内容影响等)<em>（给父元素添加clearfix样式）</em></li>
+<li>与浮动元素同级的非浮动元素会跟随其后*（clear清除）8</li>
+<li>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构<em>（clear清除）</em></li>
+</ul>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> clear : none | left | right | both；取值只对本元素有效</span><br><span class="line">取值：</span><br><span class="line">   none  :  默认值.，允许两边都可以有浮动对象</span><br><span class="line">   left   :  不允许本元素左边有浮动对象</span><br><span class="line">   right  :  不允许本元素右边有浮动对象</span><br><span class="line">   both  :  不允许有浮动对象</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加.clearfix样式，在父级元素中添加一个class=“clearfix”的样式</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:before, .clearfix:after&#123; </span><br><span class="line">    content: ""; </span><br><span class="line">    display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after&#123; </span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">     *zoom: 1; /* for ie 6,7触发hasLayout，使元素闭合内部浮动*/</span><br><span class="line">&#125;</span><br><span class="line">或者：</span><br><span class="line">.clearfix&#123; </span><br><span class="line">      overflow:hidden; </span><br><span class="line">      _zoom:1; /* _zoom是CSS hack中专对IE6起作用的部分*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>zoom:1表示对象的缩放比例，overflow:hidden和 _zoom:1; 这两个属性连起来起作用清除内部浮动<br>clearfix 主要是用在浮动层的父层，而 clear 主要是用在浮动层与浮动层之间，和浮动层同一级，如果想要撑开父层的高度，clear 就要放在最后。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/05/04/IE的haslayout布局/" >
   IE的haslayout布局
 </a>
@@ -673,110 +787,6 @@
 <li>对 IE7 来说，最好的方法是设置元素的最小高度为 0 (min-height:0;)。<br>haslayout 问题引起的常见 bug<br>IE6 及更低版本的双空白边浮动 bug<br>bug 修复: display:inline;<br>IE5-6/win 的 3 像素偏移 bug<br>bug 修复: _height:1%;<br>IE6 的躲躲猫(peek-a-boo) bug<br>bug 修复: _height:1%;<br>IE6/7负margin隐藏Bug：<br>bug 修复:去掉父元素的hasLayout；或者赋hasLayout给子元素,并添加position:relative;<br>需要注意的是，hasLayout属性是微软特有的过时属性，在IE8、IE9中，hasLayout属性已经被废弃。上文中的InternetExplorer都是指IE7、IE6及以下版本。</li>
 </ul>
 
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/04/清除浮动float/" >
-  清除浮动float
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/04/清除浮动float/"><span class="article-date">
-  2016-05-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/css/">css</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/float/">float</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>有浮动引起的三个问题</p>
-<blockquote>
-<ul>
-<li>父容器无法包裹浮动元素，高度无法被撑开，认为此元素不在父元素内（脱离文档流），影响与父元素同级的元素(文字产生环绕、元素内容影响等)<em>（给父元素添加clearfix样式）</em></li>
-<li>与浮动元素同级的非浮动元素会跟随其后*（clear清除）8</li>
-<li>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构<em>（clear清除）</em></li>
-</ul>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> clear : none | left | right | both；取值只对本元素有效</span><br><span class="line">取值：</span><br><span class="line">   none  :  默认值.，允许两边都可以有浮动对象</span><br><span class="line">   left   :  不允许本元素左边有浮动对象</span><br><span class="line">   right  :  不允许本元素右边有浮动对象</span><br><span class="line">   both  :  不允许有浮动对象</span><br></pre></td></tr></table></figure>
-<ul>
-<li>添加.clearfix样式，在父级元素中添加一个class=“clearfix”的样式</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:before, .clearfix:after&#123; </span><br><span class="line">    content: ""; </span><br><span class="line">    display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix:after&#123; </span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">     *zoom: 1; /* for ie 6,7触发hasLayout，使元素闭合内部浮动*/</span><br><span class="line">&#125;</span><br><span class="line">或者：</span><br><span class="line">.clearfix&#123; </span><br><span class="line">      overflow:hidden; </span><br><span class="line">      _zoom:1; /* _zoom是CSS hack中专对IE6起作用的部分*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>zoom:1表示对象的缩放比例，overflow:hidden和 _zoom:1; 这两个属性连起来起作用清除内部浮动<br>clearfix 主要是用在浮动层的父层，而 clear 主要是用在浮动层与浮动层之间，和浮动层同一级，如果想要撑开父层的高度，clear 就要放在最后。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/04/css hack/" >
-  css hack
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/04/css hack/"><span class="article-date">
-  2016-05-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/随笔/">随笔</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/随笔/hack/">hack</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hack/">hack</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>由于不同厂商的浏览器或浏览器的不同版本（如IE6-IE11,Firefox/Safari/Opera/Chrome等）对CSS的支持、解析不一样，导致在不同浏览器的环境中呈现出不一致的页面展现效果。这时，我们为了获得统一的页面效果，就需要针对不同的浏览器或不同版本写特定的CSS样式，我们把这个针对不同的浏览器/不同版本写相应的CSS code的过程，叫做CSS hack；</p>
-<ul>
-<li>hack的书写有以下三种方式： </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1、属性前缀法(即类内部Hack)，例如 IE6能识别下划线”_“和星号”*”，IE7能识别星号”*”，但不能识别下划线”“;</span><br><span class="line">2、选择器前缀法(即选择器Hack)，例如 IE6能识别* .class&#123;&#125;，IE7能识别*+ .class&#123;&#125;； </span><br><span class="line">3、IE条件注释法（即HTML头部引用if IE）例如：</span><br><span class="line"> &lt;!--[if IE 6]&gt;</span><br><span class="line">     &lt;p&gt;You are using Internet Explorer 6.&lt;/p&gt;</span><br><span class="line">     &lt;![endif]--&gt;</span><br><span class="line">     &lt;!--[if !IE]&gt;&lt;!--&gt;</span><br><span class="line">     &lt;script&gt;alert(1);&lt;/script&gt;</span><br><span class="line">     &lt;!--&lt;![endif]--&gt;</span><br><span class="line">     &lt;!--[if IE 8]&gt;</span><br><span class="line">     &lt;link href=&quot;ie8only.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">     &lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
         
       </div>
     </div>

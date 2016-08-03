@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -175,6 +175,231 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/08/03/domes/domAdd-carousel/" >
+  
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/08/03/domes/domAdd-carousel/"><span class="article-date">
+  2016-08-03
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carousel</title>
+</head>
+<body>
+		<title>carousel</title>
+		<style type="text/css">
+			html,body,ul,li,p{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			
+			
+			.carousel{
+				position: relative;
+				left:460px;
+				top: 220px;
+				width: 310px;
+				height: 206px;
+				overflow: hidden;
+			}
+			.carousel .img-ct{
+				position: absolute;
+			}
+			.carousel .img-ct img{
+				width: 310px;
+				height: 206px;
+			}
+			.carousel .img-ct:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.carousel .img-ct li{
+				float: left;
+			}
+
+			.arrow{
+				position: absolute;
+			    top: 50%;
+			    margin-top: -15px;
+			    width: 30px;
+			    height: 30px;
+			    line-height: 30px;
+			    text-align: center;
+			    background: #4E443C;
+			    color: #fff;
+			    border-radius: 30px;
+			    box-shadow: 0 0 2px #999;
+			    opacity: 0.8;
+			}
+			.arrow:hover {
+			    opacity: 1;
+			}
+			.pre{
+				left: 10px;
+			}
+			.next{
+				right: 10px;
+			}
+			ul.bullet {
+				position: absolute;
+			    bottom: 10px;
+			    left: 50%;
+			    transform: translateX(-50%);
+			}
+			ul.bullet li {
+			    width: 16px;
+			    height: 4px;
+			    border-radius: 2px;
+			    background: #fff;
+			    display: inline-block;
+			    cursor: pointer;
+			}
+
+			ul.bullet li.active {
+			    background: #666;
+			}
+
+
+			</style>
+	
+	<body>
+		
+		<div class="carousel">
+			<ul class="img-ct">
+				<li><a href="#"><img src="img/0.jpg"></a></li>
+				<li><a href="#"><img src="img/1.jpg"></a></li>
+				<li><a href="#"><img src="img/2.jpg"></a></li>
+				<li><a href="#"><img src="img/3.jpg"></a></li>
+			</ul>
+			<a class="pre arrow" href="#"><</a>
+			<a class="next arrow" href="#">></a>
+			<ul class="bullet">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="../public/js/jquery-3.0.0.min.js"></script>
+
+		<script type="text/javascript">
+			var $ct = $('.img-ct'),
+				$items = $ct.children(),
+				$pre = $('.pre'),
+				$next = $('.next'),
+				$bullet = $('.bullet'),
+				imgCount = $ct.children().size(),
+				imgWidth = $items.width();
+
+			$ct.prepend($items.last().clone());
+			$ct.append($items.first().clone());
+			imgRealCount = $ct.children().length;
+			$ct.css({'width':imgRealCount*imgWidth,'left':0-imgWidth});
+
+			$next.on('click',function(){
+				playNext();
+			});
+
+			$pre.on('click',function(){
+				playPre();
+			});
+
+			$bullet.find('li').on('click',function(){
+				var idx = $(this).index();
+
+				if(idx>curIdx){
+					playNext(idx-curIdx);
+				}else if(idx<curIdx){
+					playPre(curIdx-idx);
+				};
+			});
+
+
+			var curIdx = 0;
+		    var isAnimate = false;
+			
+
+			function playNext(idx) {
+				var idx = idx||1;
+				if (isAnimate) {
+					return ;
+				};
+				isAnimate = true;
+
+					$ct.animate({left:'-='+(imgWidth*idx)},function(){
+						curIdx = (curIdx+idx)%imgCount;
+						setBullet(curIdx);
+
+						if(curIdx===0){
+							$ct.css('left',0-imgWidth);
+						};
+						isAnimate=false;
+					});				
+			};
+
+			function playPre(idx) {
+				var idx = idx||1;
+				if (isAnimate) {
+					return ;
+				};
+				isAnimate = true;
+
+				$ct.animate({left:'+='+(imgWidth*idx)},function(){
+					curIdx = (imgCount+curIdx-idx)%imgCount;
+					setBullet(curIdx);
+
+					if(curIdx===(imgCount-1)){
+							$ct.css('left',0-imgWidth*imgCount);
+						};
+						isAnimate=false;
+					});				
+			}
+
+			function setBullet(idx){
+				$bullet.find('li').removeClass('active')
+								  .eq(idx).addClass('active');
+			}
+
+		</script>
+
+</body>
+</body></html>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/06/25/mywork-dome/" >
   个人求职简历
 </a>
@@ -202,7 +427,7 @@
       </div>
       <div class="article-entry">
         
-          <h1 id="刘建阳"><a href="#刘建阳" class="headerlink" title="刘建阳"></a>刘建阳</h1><h4 id="应聘职位-web前端开发工程师"><a href="#应聘职位-web前端开发工程师" class="headerlink" title="应聘职位:web前端开发工程师"></a>应聘职位:web前端开发工程师</h4><h4 id="性别-男"><a href="#性别-男" class="headerlink" title="性别:男"></a>性别:男</h4><h4 id="年龄-24"><a href="#年龄-24" class="headerlink" title="年龄:24"></a>年龄:24</h4><h4 id="邮箱-1286637198-qq-com"><a href="#邮箱-1286637198-qq-com" class="headerlink" title="邮箱:1286637198@qq.com"></a>邮箱:1286637198@qq.com</h4><h4 id="手机-15210438591"><a href="#手机-15210438591" class="headerlink" title="手机:15210438591"></a>手机:15210438591</h4><h4 id="github-https-github-com-findmoon-mywork"><a href="#github-https-github-com-findmoon-mywork" class="headerlink" title="github:https://github.com/findmoon/mywork"></a>github:<a href="https://github.com/findmoon/mywork" target="_blank" rel="external">https://github.com/findmoon/mywork</a></h4><h4 id="个人博客-http-findmoon-github-io"><a href="#个人博客-http-findmoon-github-io" class="headerlink" title="个人博客:http://findmoon.github.io/"></a>个人博客:<a href="http://findmoon.github.io/" target="_blank" rel="external">http://findmoon.github.io/</a></h4><h4 id="工作地点-北京"><a href="#工作地点-北京" class="headerlink" title="工作地点:北京"></a>工作地点:北京</h4><h4 id="意向薪酬-8k—15k"><a href="#意向薪酬-8k—15k" class="headerlink" title="意向薪酬:8k—15k"></a>意向薪酬:8k—15k</h4><h2 id="教育背景及兴趣"><a href="#教育背景及兴趣" class="headerlink" title="教育背景及兴趣"></a>教育背景及兴趣</h2><ul>
+          <h1 id="刘建阳"><a href="#刘建阳" class="headerlink" title="刘建阳"></a>刘建阳</h1><h4 id="应聘职位-web前端开发工程师"><a href="#应聘职位-web前端开发工程师" class="headerlink" title="应聘职位:web前端开发工程师"></a>应聘职位:web前端开发工程师</h4><h4 id="性别-男"><a href="#性别-男" class="headerlink" title="性别:男"></a>性别:男</h4><h4 id="年龄-24"><a href="#年龄-24" class="headerlink" title="年龄:24"></a>年龄:24</h4><h4 id="邮箱-1286637198-qq-com"><a href="#邮箱-1286637198-qq-com" class="headerlink" title="邮箱:1286637198@qq.com"></a>邮箱:1286637198@qq.com</h4><h4 id="手机-15210438591"><a href="#手机-15210438591" class="headerlink" title="手机:15210438591"></a>手机:15210438591</h4><h4 id="个人简历网页：https-findmoon-applinzi-com-slider-html"><a href="#个人简历网页：https-findmoon-applinzi-com-slider-html" class="headerlink" title="个人简历网页：https://findmoon.applinzi.com/slider.html"></a><a href="https://findmoon.applinzi.com/slider.html" target="_blank" rel="external">个人简历网页：https://findmoon.applinzi.com/slider.html</a></h4><h4 id="github-https-github-com-findmoon-mywork"><a href="#github-https-github-com-findmoon-mywork" class="headerlink" title="github:https://github.com/findmoon/mywork"></a><a href="https://github.com/findmoon/mywork" target="_blank" rel="external">github:https://github.com/findmoon/mywork</a></h4><h4 id="个人博客-http-findmoon-github-io"><a href="#个人博客-http-findmoon-github-io" class="headerlink" title="个人博客:http://findmoon.github.io/"></a><a href="http://findmoon.github.io/" target="_blank" rel="external">个人博客:http://findmoon.github.io/</a></h4><h4 id="工作地点-北京"><a href="#工作地点-北京" class="headerlink" title="工作地点:北京"></a>工作地点:北京</h4><h4 id="意向薪酬-8k—15k"><a href="#意向薪酬-8k—15k" class="headerlink" title="意向薪酬:8k—15k"></a>意向薪酬:8k—15k</h4><h2 id="教育背景及兴趣"><a href="#教育背景及兴趣" class="headerlink" title="教育背景及兴趣"></a>教育背景及兴趣</h2><ul>
 <li>2013年毕业于河北工业大学，计算机应用技术，专科，后专接本，本科学历，对教育方面也有着浓厚兴趣</li>
 <li>为人开朗，乐观积极，对前端有着浓厚兴趣，善于学习总结，有很强的责任心和自信心。</li>
 </ul>
@@ -221,7 +446,7 @@
 <h2 id="项目作品"><a href="#项目作品" class="headerlink" title="项目作品"></a>项目作品</h2><h3 id="作品1"><a href="#作品1" class="headerlink" title="作品1"></a>作品1</h3><ul>
 <li><p>FM类型音乐播放器</p>
 <ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/musicproject/music/music.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/musicproject/music/music.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/tree/master/music" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -268,7 +493,7 @@
 </ul>
 <h3 id="作品二"><a href="#作品二" class="headerlink" title="作品二"></a>作品二</h3><ul>
 <li>静态页面（一）<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task14/task14.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task14/task14.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/tree/master/static%20pages-one" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -287,13 +512,13 @@
 </ul>
 <h3 id="作品三"><a href="#作品三" class="headerlink" title="作品三"></a>作品三</h3><p>1、 静态页面（二）</p>
 <ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-2.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-2.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/blob/master/static%20pages-two/static%20pages-2.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 <p>图片</p>
 <p> 2、 静态页面（三）</p>
 <ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-3.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task15/task15-3.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/blob/master/static%20pages-two/static%20pages-3.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 <p>图片</p>
@@ -313,7 +538,7 @@
 <li><p>轮播效果和组件的实现(jQuery)</p>
 <ul>
 <li>全屏自动轮播<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fullscree-carousel.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fullscree-carousel.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/blob/master/carousel/fullscree-carousel.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -321,11 +546,11 @@
 <ul>
 <li><p>淡入淡出轮播</p>
 <ul>
-<li>单个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel.html#" target="_blank" rel="external">dome预览</a><ul>
+<li>单个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel.html#" target="_blank" rel="external">作品预览</a><ul>
 <li>单个轮播：<a href="https://github.com/findmoon/mywork/blob/master/carousel/fade-carousel.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
-<li>多个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel3.html" target="_blank" rel="external">dome预览</a><ul>
+<li>多个轮播：<a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task27/fade-carousel3.html" target="_blank" rel="external">作品预览</a><ul>
 <li>多个轮播：<a href="https://github.com/findmoon/mywork/blob/master/carousel/fade-carousel3.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -351,7 +576,7 @@
 <h3 id="作品五"><a href="#作品五" class="headerlink" title="作品五"></a>作品五</h3><ul>
 <li><p>ajax加载更多</p>
 <ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task26/jQajax.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task26/jQajax.html" target="_blank" rel="external">作品预览</a><ul>
 <li><a href="https://github.com/findmoon/mywork/blob/master/ajaxgetmore/jQajax.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -368,7 +593,7 @@
 </ul>
 <h3 id="作品六"><a href="#作品六" class="headerlink" title="作品六"></a>作品六</h3><ul>
 <li>可视范围懒加载图片及回到顶部<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/lazyload/lazyLode.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/lazyload/lazyLode.html" target="_blank" rel="external">作品预览</a><ul>
 <li><a href="https://github.com/findmoon/mywork/blob/master/lazyLoadGotop/lazyLode.html" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -385,14 +610,14 @@
 </ul>
 <h3 id="作品七"><a href="#作品七" class="headerlink" title="作品七"></a>作品七</h3><ul>
 <li>stickup插件(jQuery)<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task28/stickup2.html" target="_blank" rel="external">dome预览</a><ul>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/task28/stickup2.html" target="_blank" rel="external">作品预览</a><ul>
 <li><a href="https://github.com/findmoon/mywork/blob/master/stickup/stickup.js" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>img图片在一个区块中水平垂直居中的小插件<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/imgvercen/index.html" target="_blank" rel="external">dome预览</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/imgvercen/index.html" target="_blank" rel="external">作品预览</a></li>
 <li><a href="https://github.com/findmoon/mywork/blob/master/imgvercen/imgCenVer.js" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -410,7 +635,7 @@
 </ul>
 <h3 id="作品八"><a href="#作品八" class="headerlink" title="作品八"></a>作品八</h3><ul>
 <li>瀑布流效果<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/warterfall/warterfall.html" target="_blank" rel="external">dome演示</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/warterfall/warterfall.html" target="_blank" rel="external">作品演示</a></li>
 <li><a href="https://github.com/findmoon/mywork/tree/master/warterfall" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -426,7 +651,7 @@
 </ul>
 <h3 id="作品九"><a href="#作品九" class="headerlink" title="作品九"></a>作品九</h3><ul>
 <li>使用canvas实现五子棋<ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/five-in-low/five%20in%20row.html" target="_blank" rel="external">dome演示</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/five-in-low/five%20in%20row.html" target="_blank" rel="external">作品演示</a></li>
 <li><a href="https://github.com/findmoon/mywork/tree/master/five-in-low" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -441,7 +666,7 @@
 </li>
 <li><p>使用canvas实现照片模糊与显示</p>
 <ul>
-<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/blurpoto/tuxiang.html" target="_blank" rel="external">dome演示</a></li>
+<li><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/blurpoto/tuxiang.html" target="_blank" rel="external">作品演示</a></li>
 <li><a href="https://github.com/findmoon/mywork/tree/master/blurpoto" target="_blank" rel="external">代码实现</a></li>
 </ul>
 </li>
@@ -1091,68 +1316,6 @@ fn0();
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.addEventListener(&apos;message&apos;, function(event)&#123;</span><br><span class="line">        // 通过origin属性判断消息来源地址</span><br><span class="line">        if (event.origin == &apos;http://a.com&apos;) &#123;</span><br><span class="line">            alert(event.data);    // 弹出&quot;I was there!&quot;</span><br><span class="line">            alert(event.source);  // 对a.com、index.html中window对象的引用</span><br><span class="line">                                  // 但由于同源策略，这里event.source不可以访问window对象</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, false);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>参考文章：《精通HTML5编程》第五章——跨文档消息机制、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blank" rel="external">https://developer.mozilla.org/en/dom/window.postmessage</a></p>
 <h2 id="6、利用flash"><a href="#6、利用flash" class="headerlink" title="6、利用flash"></a>6、利用flash</h2><p>这是从YUI3的IO组件中看到的办法，具体可见<a href="http://developer.yahoo.com/yui/3/io/。" target="_blank" rel="external">http://developer.yahoo.com/yui/3/io/。</a><br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：ross-Domain Policy File Specifications、HTTP Headers Blacklist。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/06/10/stopImmediatePropagation介绍/" >
-  stopImmediatePropagation介绍*转
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/06/10/stopImmediatePropagation介绍/"><span class="article-date">
-  2016-06-10
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/js/">js</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stopImmediatePropagation/">stopImmediatePropagation</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>stopImmediatePropagation介绍</p>
-<p><a href="http://www.cnblogs.com/zzbo/p/3366264.html" target="_blank" rel="external">原文地址</a></p>
-<p>在众多的方法里面，event.stopImmediatePropagation 算是比较少用的一个方法，拼写上感觉一半像 event.stopPropagation。</p>
-<p>对于stopPropagation 的用法大家是众所周知的，他是W3C标准事件方法，用于阻止事件冒泡（非标准情况下，用window.event.stopBubble来阻止冒泡）</p>
-<p>而stopImmediatePropagation 的功能比stopPropagation 多一些，除了可以阻止事件冒泡之外，还可以把这个元素绑定的同类型事件也阻止了。</p>
-<p>先把下面的代码片断（摘自MDN）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            p &#123; height: 30px; width: 150px; background-color: #ccf; &#125;</span><br><span class="line">            div &#123;height: 30px; width: 150px; background-color: #cfc; &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;p&gt;paragraph&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第一个监听函数&quot;);</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第二个监听函数&quot;);</span><br><span class="line">                event.stopImmediatePropagation();</span><br><span class="line">                //执行stopImmediatePropagation方法,阻止click事件冒泡,并且阻止p元素上绑定的其他click事件的事件监听函数的执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第三个监听函数&quot;);</span><br><span class="line">                //该监听函数排在上个函数后面,该函数不会被执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;div&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是div元素,我是p元素的上层元素&quot;);</span><br><span class="line">                //p元素的click事件没有向上冒泡,该函数不会被执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>p标签绑定了三个click事件，div绑定了一个click事件。</p>
-<ul>
-<li>其中p第二个click事件中使用了event.stopImmediatePropagation();</li>
-</ul>
-<blockquote>
-<p>当点击时P标签时，第一和第二个alert会正常出现，<br>第三个alert被event.stopImmediatePropagation();的特性取消了以后的同类型(click)事件<br>第四个alert不出来同被阻止了事件冒泡，所以也不会出现。<br>相当于做了event.stopPropagation()后，再return false;  jQuery对事件代理做了类似的封装。</p>
-</blockquote>
-<p>我们了解特性之后，看一个简单应用场景:</p>
-<p>假设点击一个按钮后，需要检测两个input控件的值，值为空时打印’error’，并停止检测下一个input，同时也需停止提单提交。<br>我们通常可能会这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; id=&quot;txt1&quot;&gt;</span><br><span class="line">　　　　 &lt;input type=&quot;text&quot; id=&quot;txt2&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;button&quot; id=&quot;btn&quot;&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            var txt1 = document.querySelector(&quot;#txt1&quot;);</span><br><span class="line">　　　　　　　var txt2 = document.querySelector(&quot;#txt2&quot;);</span><br><span class="line">            var btn = document.querySelector(&quot;#btn&quot;);</span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function(event) &#123;</span><br><span class="line">                if (txt1.value == &apos;&apos;) &#123;</span><br><span class="line">                    alert(&apos;error1&apos;);</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">　　　　　　　　　 if (txt2.value == &apos;&apos;) &#123; </span><br><span class="line">                    alert(&apos;error2&apos;);</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;, false);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>但用了event.stopImmediatePropagation时，可以对代码进行更好的抽象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; id=&quot;txt1&quot;&gt;</span><br><span class="line">　　　　 &lt;input type=&quot;text&quot; id=&quot;txt2&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;button&quot; id=&quot;btn&quot;&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            var txt1 = document.querySelector(&quot;#txt1&quot;);</span><br><span class="line">　　　　　　var txt2 = document.querySelector(&quot;#txt2&quot;);</span><br><span class="line">            var btn = document.querySelector(&quot;#btn&quot;);</span><br><span class="line"></span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function(event) &#123;</span><br><span class="line">                if (txt1.value == &apos;&apos;) &#123;</span><br><span class="line">                    alert(&apos;error1&apos;);</span><br><span class="line">                    event.stopImmediatePropagation();</span><br><span class="line">                &#125;</span><br><span class="line">　　　　　　　　if (txt2.value == &apos;&apos;) &#123; </span><br><span class="line">                    alert(&apos;error2&apos;);</span><br><span class="line">                    event.stopImmediatePropagation();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                </span><br><span class="line">            &#125;, false);</span><br><span class="line">　　　　　　</span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                 alert(&apos;Done&apos;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>题外：<br>event.isImmediatePropagationStopped 可以用来确定该元素是否有调用过event.stopImmediatePropagation。</p>
-<p>浏览器支持情况：<br>Firefox &gt;=10Chrome<br>IE &gt;= 9<br>Opera<br>Safari</p>
 
         
       </div>

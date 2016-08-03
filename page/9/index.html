@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -159,6 +159,80 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/16/instanceof和typeof的区别/" >
+  instanceof和typeof的区别
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/16/instanceof和typeof的区别/"><span class="article-date">
+  2016-05-16
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>javascript instanceof,typeof的<a href="http://www.jb51.net/article/22717.htm" target="_blank" rel="external">区别</a></p>
+<blockquote>
+<p>区分string 与 String的[区别</p>
+</blockquote>
+<p>为什么结果会是false呢？<br> 代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">var aColors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]; </span><br><span class="line">alert(typeof aColors[0]); //output &quot;string&quot; </span><br><span class="line">alert(aColors[0] instanceof String); //output &quot;false&quot;; </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>你要区分string 与 String的区别<br>aColors[0] 是 string值类型， 当然不是String的实例啦。参考下面代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var aColors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]; </span><br><span class="line">aColors[0]= new String(&quot;1&quot;) </span><br><span class="line">alert(typeof aColors[0]); //output &quot;Object&quot; </span><br><span class="line">alert(aColors[0] instanceof String); //output &quot;true&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>更多可以参考下面的文章:</p>
+<p>instanceof 运算符<br>返回一个 Boolean 值，指出对象是否是特定类的一个实例。 </p>
+<blockquote>
+<p>result = object instanceof class </p>
+</blockquote>
+<p>参数<br>result<br>必选项。任意变量。<br>object<br>必选项。任意对象表达式。<br>class<br>必选项。任意已定义的对象类。 </p>
+<ul>
+<li><p>说明:<br>如果 object 是 class 的一个实例，则 instanceof 运算符返回 true。如果 object 不是指定类的一个实例，或者 object 是 null，则返回 false。<br>示例<br>下面的例子举例说明了 instanceof 运算符的用法。<br>代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function objTest(obj)&#123; </span><br><span class="line">var i, t, s = &quot;&quot;; // 创建变量。 </span><br><span class="line">t = new Array(); // 创建一个数组。 </span><br><span class="line">t[&quot;Date&quot;] = Date; // 填充数组。 </span><br><span class="line">t[&quot;Object&quot;] = Object; </span><br><span class="line">t[&quot;Array&quot;] = Array; </span><br><span class="line">for (i in t) </span><br><span class="line">&#123; </span><br><span class="line">if (obj instanceof t[i]) // 检查 obj 的类。 </span><br><span class="line">&#123; </span><br><span class="line">s += &quot;obj is an instance of &quot; + i + &quot;\n&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else </span><br><span class="line">&#123; </span><br><span class="line">s += &quot;obj is not an instance of &quot; + i + &quot;\n&quot;; </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line">return(s); // 返回字符串。 </span><br><span class="line">&#125; </span><br><span class="line">var obj = new Date(); </span><br><span class="line">document.write(objTest(obj));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>instanceof和typeof都能用来判断一个变量是否为空或是什么类型的变量。 </p>
+</li>
+<li><p>typeof用以获取一个变量的类型，typeof一般只能返回如下几个结果：number,boolean,string,function,object,undefined。我们可以使用typeof来获取一个变量是否存在，如if(typeof a!=”undefined”){}，而不要去使用if(a)因为如果a不存在（未声明）则会出错，对于Array,Null等特殊对象使用typeof 一律返回object，这正是typeof的局限性。 </p>
+</li>
+<li><p>如果我们希望获取一个对象是否是数组，或判断某个变量是否是某个对象的实例则要选择使用instanceof。instanceof用于判断一个变量是否某个对象的实例，如var a=new Array();alert(a instanceof Array);会返回true，同时alert(a instanceof Object)也会返回true;这是因为Array是object的子类。再如：function test(){};var a=new test();alert(a instanceof test)会返回true。 </p>
+</li>
+<li><p>谈到instanceof我们要多插入一个问题，就是function的arguments，我们大家也许都认为arguments是一个Array，但如果使用instaceof去测试会发现arguments不是一个Array对象，尽管看起来很像。 </p>
+</li>
+</ul>
+<blockquote>
+<p>另外：<br>测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’Y’<br>但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’N’</p>
+</blockquote>
+<p>所以，这里的instanceof测试的object是指js语法中的object，不是指dom模型对象。<br>使用typeof会有些区别<br>alert(typeof(window) 会得 object </p>
+<p>年轻的时候，先少废话，多做事。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -462,6 +536,65 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/" >
+  css3、定位实现元素的绝对居中
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/"><span class="article-date">
+  2016-05-15
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/">方法/实例</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><a href="http://www.cnblogs.com/lxin/p/3518716.html" target="_blank" rel="external">css中实现元素的绝对居中</a></p>
+<p>方法比较简单，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.node&#123;</span><br><span class="line">    width : 300px;</span><br><span class="line">    height : 400px;</span><br><span class="line">    position : absolute;</span><br><span class="line">    left : 50%;</span><br><span class="line">    top : 50%;</span><br><span class="line">    margin-left : -150px; /*一半的高度*/</span><br><span class="line">    margin-top : -200px;  /*一半的宽度*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的用法网上很多，我那时候也是只知其然不知其所以然，margin负值是一方面，这里要说的是left和top的百分比。</p>
+<p>先看下w3c里面对这个概念的介绍：</p>
+<p><img src="/img/others/141122307834.png" alt=""></p>
+<p>其实这里也没有清楚，这里left和top的百分比，我觉得应该标尺应该是父元素，也就是分别是 left的50% 其实是父元素宽度的50%,top值为50%,也是父元素高度的50%,</p>
+<p>并且这个值是可以实时计算的，改变浏览器窗口的大小时，会发现元素始终居中，就是实时计算的结果。</p>
+<p>了解了这一点就简单了。</p>
+<p>画个图说明一下：</p>
+<p><img src="/img/others/141137147360.png" alt=""></p>
+<p>通过postion的定位，现在子元素被定到了黄色区域，这个时候，通过margin的负值，就可以移到绝对居中的位置了</p>
+<p>除了这种常用的居中方法外，<strong>还有一种css3的方法</strong>，也比较好理解，是当前方法的一个改进，不需要知道元素的宽和高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px; height: 400px;</span><br><span class="line">    position: absolute; left: 50%; top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%); </span><br><span class="line">   /* 50%为自身尺寸的一半 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个用法主要是用到css3中的transform,这里就不多介绍了，但是在网上，看到了还有一种方式，用的是margin:auto;我觉得比较好玩。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0; </span><br><span class="line">    top: 0; </span><br><span class="line">    right: 0; </span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;    /* 有了这个就自动居中了 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有点神奇</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/05/15/使用border图形效果的综合运用/" >
   使用border图形效果的综合运用
 </a>
@@ -508,65 +641,6 @@
 <p>为了预防这种抖动，可以对hover前的标签加白色边框，这样在hover的时候，只需要改变边框的颜色，而不会改变边框的大小，这样就不会产生抖动的现象了。</p>
 </blockquote>
 <p><a href="http://www.cnblogs.com/lxin/archive/2013/02/17/2914434.html" target="_blank" rel="external">转载的地址</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/" >
-  css3、定位实现元素的绝对居中
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/"><span class="article-date">
-  2016-05-15
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/">方法/实例</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/javascript/">javascript</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><a href="http://www.cnblogs.com/lxin/p/3518716.html" target="_blank" rel="external">css中实现元素的绝对居中</a></p>
-<p>方法比较简单，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.node&#123;</span><br><span class="line">    width : 300px;</span><br><span class="line">    height : 400px;</span><br><span class="line">    position : absolute;</span><br><span class="line">    left : 50%;</span><br><span class="line">    top : 50%;</span><br><span class="line">    margin-left : -150px; /*一半的高度*/</span><br><span class="line">    margin-top : -200px;  /*一半的宽度*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样的用法网上很多，我那时候也是只知其然不知其所以然，margin负值是一方面，这里要说的是left和top的百分比。</p>
-<p>先看下w3c里面对这个概念的介绍：</p>
-<p><img src="/img/others/141122307834.png" alt=""></p>
-<p>其实这里也没有清楚，这里left和top的百分比，我觉得应该标尺应该是父元素，也就是分别是 left的50% 其实是父元素宽度的50%,top值为50%,也是父元素高度的50%,</p>
-<p>并且这个值是可以实时计算的，改变浏览器窗口的大小时，会发现元素始终居中，就是实时计算的结果。</p>
-<p>了解了这一点就简单了。</p>
-<p>画个图说明一下：</p>
-<p><img src="/img/others/141137147360.png" alt=""></p>
-<p>通过postion的定位，现在子元素被定到了黄色区域，这个时候，通过margin的负值，就可以移到绝对居中的位置了</p>
-<p>除了这种常用的居中方法外，<strong>还有一种css3的方法</strong>，也比较好理解，是当前方法的一个改进，不需要知道元素的宽和高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px; height: 400px;</span><br><span class="line">    position: absolute; left: 50%; top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%); </span><br><span class="line">   /* 50%为自身尺寸的一半 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个用法主要是用到css3中的transform,这里就不多介绍了，但是在网上，看到了还有一种方式，用的是margin:auto;我觉得比较好玩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0; </span><br><span class="line">    top: 0; </span><br><span class="line">    right: 0; </span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;    /* 有了这个就自动居中了 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有点神奇</p>
 
         
       </div>
@@ -748,53 +822,6 @@
 <p>7.protocol 协议 返回: http: </p>
 <p>8.search 从?开始的url部门(查询部分)</p>
 
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/13/JS取得绝对路径的实现代码t/" >
-  JS取得绝对路径的实现代码
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/13/JS取得绝对路径的实现代码t/"><span class="article-date">
-  2016-05-13
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/js/">js</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/获取路径/">获取路径</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>JS取得绝对路径的实现代码</p>
-<blockquote>
-<p>在项目中，我们经常要得到项目的绝对路径，方便我们上传下载文件，JS为我们提供了方法，虽说要迂回一下。代码如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getRealPath()&#123;</span><br><span class="line">  //获取当前网址，如： http://localhost:8083/myproj/view/my.jsp</span><br><span class="line">   var curWwwPath=window.document.location.href;</span><br><span class="line">   //获取主机地址之后的目录，如： myproj/view/my.jsp</span><br><span class="line">  var pathName=window.document.location.pathname;</span><br><span class="line">  var pos=curWwwPath.indexOf(pathName);</span><br><span class="line">  //获取主机地址，如： http://localhost:8083</span><br><span class="line">  var localhostPaht=curWwwPath.substring(0,pos);</span><br><span class="line">  //获取带&quot;/&quot;的项目名，如：/myproj</span><br><span class="line">  var projectName=pathName.substring(0,pathName.substr(1).indexOf(&apos;/&apos;)+1);</span><br><span class="line"> </span><br><span class="line"> //得到了 http://localhost:8083/myproj</span><br><span class="line">  var realPath=localhostPaht+projectName;</span><br><span class="line">  alert(realPath);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
       </div>
     </div>

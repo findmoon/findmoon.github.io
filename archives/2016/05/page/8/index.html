@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -699,15 +699,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/05/06/splice实现数组添加、删除和替换/" >
-  splice实现数组添加、删除和替换
+        <a href="/2016/05/06/delete方法删除数组/" >
+  delete方法删除数组
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/05/06/splice实现数组添加、删除和替换/"><span class="article-date">
+        <a href="/2016/05/06/delete方法删除数组/"><span class="article-date">
   2016-05-06
 </span>
 </a>
@@ -726,28 +726,20 @@
       </div>
       <div class="article-entry">
         
-          <p>JavaScript提供了一个splice方法用于一次性解决数组添加、删除（这两种方法一结合就可以达到替换效果），方法有三个参数</p>
-<blockquote>
-<p>1.开始索引<br>2.删除元素的位移<br>3.插入的新元素，当然也可以写多个</p>
-</blockquote>
-<p>splice方法返回一个由删除元素组成的新数组，没有删除则返回空数组</p>
+          <p>delete用来删除一个对象的属性，比如</p>
+<p>var people={“name”:”liming”}<br>undefiend<br>delete people.name<br>ture</p>
+<p>则将对象people的属性name删除，不存在了</p>
+<p>数组也是对象，索引只是特殊的属性，所以我们可以使用删除对象属性的方法,使用delete 删除数组元素</p>
+<p>var arr=[2,4,3,9];<br>delete arr[0]<br>true</p>
+<p>查看arr数则怎会变成arr=[undefined*1,4,3,9]，说明已将arr[0]删除。</p>
+<p><strong>这里可以看一下全局变量声明与未声明的区别</strong></p>
+<p>下面例子<br>var a=1;<br>b=2；</p>
+<p>console中：</p>
 <ul>
-<li><p>var a = new Array(1,2,3,4,5);</p>
-</li>
-<li><p>删除</p>
-</li>
+<li>delete b回车返回true，查看b则返回错误。</li>
+<li>delete a回车返回false，查看a依然存在。</li>
 </ul>
-<p>指定前两个参数，可以使用splice删除数组元素，同样会带来索引调整及length调整</p>
-<p>var a = new Array(1,2,3,4,5);<br>console.log(a.splice(1,3));//[2, 3, 4]<br>console.log(a.length);//2<br>console.log(a);//[1,5]</p>
-<p>如果数组索引不是从0开始的，那么结果会很有意思，有一这样数组</p>
-<p>var a = new Array();<br>a[2]=2;<br>a[3]=3;<br>a[7]=4;<br>a[8]=5;</p>
-<p>console.log(a.splice(3,4)); //[3]<br>console.log(a.length); //5<br>console.log(a); //[2: 2, 3: 4, 4: 5]</p>
-<p>上面例子可以看到，splice的第一个参数是绝对索引值，而不是相对于数组索引，第二个参数并不是删除元素的个数，而是删除动作执行多少次,或者说向后删除的绝对索引个数，并不是按数组实际索引移动，而是连续移动。同时调整后面元素索引，前面索引不理会</p>
-<ul>
-<li>插入与替换</li>
-</ul>
-<p>只要方法第二个参数，也就是删除动作执行的次数设为0，第三个参数及以后填写要插入内容就splice就能执行插入操作，而如果第二个参数不为0则变成了先在该位置删除再插入，也就是替换效果</p>
-<p>var a = new Array(1,2,3,4,5);<br>a.splice(1,0,9,99,999);<br>console.log(a.length); //8<br>console.log(a);//[1, 9, 99, 999, 2, 3, 4, 5]<br>a.splice(1,3,8,88,888);<br>console.log(a.length);//8<br>console.log(a);//[1, 8, 88, 888, 2, 3, 4, 5]</p>
+<p>说明在未声明的情况下，b是作为window对象的一个属性存在的，即window.b可以访问b<br>var声明后才是一个全局的数值或其他类型数据。</p>
 
         
       </div>

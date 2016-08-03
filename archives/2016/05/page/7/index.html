@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -462,6 +462,63 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/" >
+  css3、定位实现元素的绝对居中
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/"><span class="article-date">
+  2016-05-15
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/">方法/实例</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/javascript/">javascript</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><a href="http://www.cnblogs.com/lxin/p/3518716.html" target="_blank" rel="external">css中实现元素的绝对居中</a></p>
+<p>方法比较简单，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.node&#123;</span><br><span class="line">    width : 300px;</span><br><span class="line">    height : 400px;</span><br><span class="line">    position : absolute;</span><br><span class="line">    left : 50%;</span><br><span class="line">    top : 50%;</span><br><span class="line">    margin-left : -150px; /*一半的高度*/</span><br><span class="line">    margin-top : -200px;  /*一半的宽度*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的用法网上很多，我那时候也是只知其然不知其所以然，margin负值是一方面，这里要说的是left和top的百分比。</p>
+<p>先看下w3c里面对这个概念的介绍：</p>
+<p><img src="/img/others/141122307834.png" alt=""></p>
+<p>其实这里也没有清楚，这里left和top的百分比，我觉得应该标尺应该是父元素，也就是分别是 left的50% 其实是父元素宽度的50%,top值为50%,也是父元素高度的50%,</p>
+<p>并且这个值是可以实时计算的，改变浏览器窗口的大小时，会发现元素始终居中，就是实时计算的结果。</p>
+<p>了解了这一点就简单了。</p>
+<p>画个图说明一下：</p>
+<p><img src="/img/others/141137147360.png" alt=""></p>
+<p>通过postion的定位，现在子元素被定到了黄色区域，这个时候，通过margin的负值，就可以移到绝对居中的位置了</p>
+<p>除了这种常用的居中方法外，<strong>还有一种css3的方法</strong>，也比较好理解，是当前方法的一个改进，不需要知道元素的宽和高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px; height: 400px;</span><br><span class="line">    position: absolute; left: 50%; top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%); </span><br><span class="line">   /* 50%为自身尺寸的一半 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个用法主要是用到css3中的transform,这里就不多介绍了，但是在网上，看到了还有一种方式，用的是margin:auto;我觉得比较好玩。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0; </span><br><span class="line">    top: 0; </span><br><span class="line">    right: 0; </span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;    /* 有了这个就自动居中了 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有点神奇</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/05/15/使用border图形效果的综合运用/" >
   使用border图形效果的综合运用
 </a>
@@ -508,63 +565,6 @@
 <p>为了预防这种抖动，可以对hover前的标签加白色边框，这样在hover的时候，只需要改变边框的颜色，而不会改变边框的大小，这样就不会产生抖动的现象了。</p>
 </blockquote>
 <p><a href="http://www.cnblogs.com/lxin/archive/2013/02/17/2914434.html" target="_blank" rel="external">转载的地址</a></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/" >
-  css3、定位实现元素的绝对居中
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/15/css3和传统方法实现元素的绝对居中/"><span class="article-date">
-  2016-05-15
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/">方法/实例</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/方法-实例/javascript/">javascript</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><a href="http://www.cnblogs.com/lxin/p/3518716.html" target="_blank" rel="external">css中实现元素的绝对居中</a></p>
-<p>方法比较简单，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.node&#123;</span><br><span class="line">    width : 300px;</span><br><span class="line">    height : 400px;</span><br><span class="line">    position : absolute;</span><br><span class="line">    left : 50%;</span><br><span class="line">    top : 50%;</span><br><span class="line">    margin-left : -150px; /*一半的高度*/</span><br><span class="line">    margin-top : -200px;  /*一半的宽度*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样的用法网上很多，我那时候也是只知其然不知其所以然，margin负值是一方面，这里要说的是left和top的百分比。</p>
-<p>先看下w3c里面对这个概念的介绍：</p>
-<p><img src="/img/others/141122307834.png" alt=""></p>
-<p>其实这里也没有清楚，这里left和top的百分比，我觉得应该标尺应该是父元素，也就是分别是 left的50% 其实是父元素宽度的50%,top值为50%,也是父元素高度的50%,</p>
-<p>并且这个值是可以实时计算的，改变浏览器窗口的大小时，会发现元素始终居中，就是实时计算的结果。</p>
-<p>了解了这一点就简单了。</p>
-<p>画个图说明一下：</p>
-<p><img src="/img/others/141137147360.png" alt=""></p>
-<p>通过postion的定位，现在子元素被定到了黄色区域，这个时候，通过margin的负值，就可以移到绝对居中的位置了</p>
-<p>除了这种常用的居中方法外，<strong>还有一种css3的方法</strong>，也比较好理解，是当前方法的一个改进，不需要知道元素的宽和高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px; height: 400px;</span><br><span class="line">    position: absolute; left: 50%; top: 50%;</span><br><span class="line">    transform: translate(-50%, -50%); </span><br><span class="line">   /* 50%为自身尺寸的一半 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个用法主要是用到css3中的transform,这里就不多介绍了，但是在网上，看到了还有一种方式，用的是margin:auto;我觉得比较好玩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.node &#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 400px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 0; </span><br><span class="line">    top: 0; </span><br><span class="line">    right: 0; </span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;    /* 有了这个就自动居中了 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有点神奇</p>
 
         
       </div>

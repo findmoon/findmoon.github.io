@@ -100,7 +100,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">161</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">162</span></li></ul>
               </li>
             
           
@@ -159,6 +159,68 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/18/UNICODE与ASCII的区别t/" >
+  UNICODE与ASCII的区别
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/18/UNICODE与ASCII的区别t/"><span class="article-date">
+  2016-05-18
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/">html</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/编码/">编码</a></li></ul></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>UNICODE与ASCII的区别:<a href="http://blog.csdn.net/lx697/article/details/5914417" target="_blank" rel="external">http://blog.csdn.net/lx697/article/details/5914417</a></p>
+<h3 id="1-ASCII的特点"><a href="#1-ASCII的特点" class="headerlink" title="1.ASCII的特点"></a>1.ASCII的特点</h3><blockquote>
+<p>ASCII 是用来表示英文字符的一种编码规范。每个ASCII字符占用1 个字节，因此，ASCII 编码可以表示的最大字符数是255（00H—FFH）。这对于英文而言，是没有问题的，一般只什么用到前128个(00H–7FH,最高位为0)。而最高位为1 的另128 个字符（80H—FFH）被称为“扩展ASCII”，一般用来存放英文的制表符、部分音标字符等等的一些其它符号。</p>
+</blockquote>
+<ul>
+<li><p>但是对于中文等比较复杂的语言，255个字符显然不够用。于是，各个国家纷纷制定了自己的文字编码规范，其中中文的文字编码规范叫做“GB2312—80”， 它是和ASCII 兼容的一种编码规范， 其实就是利用扩展ASCII没有真正标准化这一点，把一个中文字符用两个扩展ASCII 字符来表示，以区分ASCII 码部分。</p>
+</li>
+<li><p>但是这个方法有问题，最大的问题就是中文的文字编码和扩展ASCII 码有重叠。而很多软件利用扩展ASCII 码的英文制表符来画表格，这样的软件用到中文系统中，这些表格就会被误认作中文字符，出现乱码。另外，由于各国和各地区都有自己的文字编码规则，它们互相冲突，这给各国和各地区交换信息带来了很大的麻烦。</p>
+</li>
+</ul>
+<h3 id="2-UNICODE的产生"><a href="#2-UNICODE的产生" class="headerlink" title="2.UNICODE的产生"></a>2.UNICODE的产生</h3><ul>
+<li>要真正解决这个问题，不能从扩展ASCII 的角度入手，UNICODE作为一个全新的编码系统应运而生，它可以将中文、法文、德文……等等所有的文字统一起来考虑，为每一个文字都分配一个单独的编码。</li>
+</ul>
+<h3 id="3-什么是UNICODE"><a href="#3-什么是UNICODE" class="headerlink" title="3.什么是UNICODE"></a>3.什么是UNICODE</h3><blockquote>
+<p>Unicode与ASCII一样也是一种字符编码方法，它占用两个字节（0000H—FFFFH）,容纳65536 个字符，这完全可以容纳全世界所有语言文字的编码。在Unicode 里，所有的字符都按一个字符来处理， 它们都有一个唯一的Unicode 码。</p>
+</blockquote>
+<h3 id="4-使用UNICODE的好处"><a href="#4-使用UNICODE的好处" class="headerlink" title="4.使用UNICODE的好处"></a>4.使用UNICODE的好处</h3><blockquote>
+<p>使用Unicode 编码可以使您的工程同时支持多种语言， 使您的工程国际化。即在不同语言的系统下不至于产生乱码。</p>
+</blockquote>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -706,80 +768,6 @@
         
           <p>判断js函数是不是存在typeof 【转载】</p>
 <p>判断js函数是否存在typeof<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line">//*==============================================================================*/</span><br><span class="line">//*   Ajax加载                                                                                                                                                             */</span><br><span class="line">//* 语法：var objLoad=new AjaxLoad()                                                                                                                */</span><br><span class="line">//*       objLoad.Loading(doAction,dataNode[,dataType[,callback[,fullShow]]]);                                               */</span><br><span class="line">//*                                                                                                                                                                              */</span><br><span class="line">//* 参 数：                                                                                                                                                                 */</span><br><span class="line">//*      -doAction[必需的]  执行 URL                                                                                                                        */</span><br><span class="line">//*      -dataNode[必需的]  显示获取内容的容器 ID                                                                                              */</span><br><span class="line">//*      -dataType[可选的]  数据类别[text|xml|body]，缺省值 text                                                                         */ </span><br><span class="line">//*      -callback[可选的]  输出函数[函数对 像]                                                                                                       */</span><br><span class="line">//*      -fullShow[可选的]  显示模式: 缺省值false-单块模式,true-全屏模式                                                         */</span><br><span class="line">//*                                                                                                                                                                              */</span><br><span class="line">//*                                                                                                                                                                              */</span><br><span class="line">//* 输出函数 [callback]：                                                                                                                                         */</span><br><span class="line">//*      可自定义输出函数来格式化所获取的数据，其格式请参加页尾objPrint()函数                                    */</span><br><span class="line">//*                                                                                                                                                                              */</span><br><span class="line">//*==============================================================================*/   </span><br><span class="line">/*此处调用Charset.vbs来解决当dataType=&apos;body&apos;时,xmlHttp.responseBody产生的乱码问题                        */</span><br><span class="line">/*请保证Charset.vbs文件与本文件存放在同一路径当中                                                                                    */</span><br><span class="line">var charsetPath=document.getElementsByTagName(&quot;script&quot;)[document.getElementsByTagName(&quot;script&quot;).length-1].src.split(&quot;?&quot;)[0];</span><br><span class="line">charsetPath=charsetPath.replace(&quot;Ajax_Load.js&quot;,&quot;Charset.vbs&quot;);</span><br><span class="line">document.write(&quot;&lt;script type=\&quot;text/vbscript\&quot; src=\&quot;&quot;+charsetPath+&quot;\&quot;&gt;&lt;/scr&quot;+&quot;ipt&gt;&quot;);</span><br><span class="line">//*==============================================================================*/  </span><br><span class="line">//*                           AjaxLoad begin                                                                                                                         */</span><br><span class="line">//*==============================================================================*/   </span><br><span class="line">function AjaxLoad()&#123;</span><br><span class="line">    /*初始化Ajax                                             */</span><br><span class="line"> function InitAjax()&#123;</span><br><span class="line">  var Ajax=false;</span><br><span class="line">  /*Microsoft*/</span><br><span class="line">  try &#123;</span><br><span class="line">     Ajax = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);</span><br><span class="line">  &#125; catch (e) &#123;</span><br><span class="line">     try &#123;</span><br><span class="line">     Ajax = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">     &#125; catch (E) &#123;</span><br><span class="line">     Ajax = false;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;/*Mozilla*/</span><br><span class="line">  if (!Ajax &amp;&amp; typeof Ajax!=&apos;undefined&apos;) &#123;</span><br><span class="line">     Ajax = new XMLHttpRequest();</span><br><span class="line">  &#125;</span><br><span class="line">   return Ajax;</span><br><span class="line"> &#125;</span><br><span class="line"> /*---------------------------------------*/    </span><br><span class="line"> /*   判断函数或对像是否存在  一定要添加try catch块，否则不起作用             */</span><br><span class="line"> /*---------------------------------------*/    </span><br><span class="line"> function objExists(objName)&#123; </span><br><span class="line">  try&#123;  </span><br><span class="line">   if(typeof eval(objName)==&quot;undefined&quot;)&#123;return false;&#125;</span><br><span class="line">   if(typeof eval(objName)==&quot;object&quot;)&#123;return true;&#125;</span><br><span class="line">  &#125;catch(e)&#123;</span><br><span class="line">   return false;</span><br><span class="line">  &#125; </span><br><span class="line"> &#125;</span><br><span class="line"> function funExists(funName)&#123; </span><br><span class="line">  try&#123;  </span><br><span class="line">   if(typeof eval(funName)==&quot;undefined&quot;)&#123;return false;&#125; </span><br><span class="line">   if(typeof eval(funName)==&quot;function&quot;)&#123;return true;&#125;</span><br><span class="line">  &#125;catch(e)&#123;</span><br><span class="line">   return false;</span><br><span class="line">  &#125; </span><br><span class="line"> &#125; </span><br><span class="line"> /*-----------------------------------*/ </span><br><span class="line"> var fullShow=false;</span><br><span class="line"> var doAction=&quot;&quot;;</span><br><span class="line"> var dataType=&quot;text&quot;;</span><br><span class="line"> var callback=null;</span><br><span class="line"> var dataNode=null;</span><br><span class="line">    var objAjax = new InitAjax();</span><br><span class="line"> this.Loading=function(_doAction,_dataNode,_dataType,_callback,_fullShow)&#123;</span><br><span class="line">  try&#123;</span><br><span class="line">   doAction=_doAction;</span><br><span class="line">   dataType=_dataType;</span><br><span class="line">   callback=_callback;</span><br><span class="line">   dataNode=document.getElementById(_dataNode); </span><br><span class="line">   /**/</span><br><span class="line">   if(!dataNode)&#123;alert(&quot;参数错误，请输入正确的ID&quot;);return false;&#125;</span><br><span class="line">   if(!_fullShow)&#123;fullShow=false;&#125;else&#123;fullShow=true; &#125;</span><br><span class="line">   objAjax.open(&quot;GET&quot;,doAction, true); </span><br><span class="line">   objAjax.onreadystatechange = function()&#123;handleStateChange();&#125;;   </span><br><span class="line">   objAjax.setRequestHeader(&quot;Accept-charset&quot;,&quot;gb2312&quot;); </span><br><span class="line">   objAjax.setRequestHeader(&quot;If-Modified-Since&quot;,&quot;0&quot;);  //禁止缓存</span><br><span class="line">   objAjax.send(null); </span><br><span class="line">  &#125;catch(e)&#123;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125; </span><br><span class="line"> function handleStateChange()&#123;</span><br><span class="line">  if (objAjax.readyState == 4 &amp;&amp; objAjax.status == 200) &#123; </span><br><span class="line">   try&#123;</span><br><span class="line">       var data=getData(dataType,objAjax);</span><br><span class="line">        if(objExists(callback))&#123; </span><br><span class="line">        data=eval(callback+&quot;(&quot;+data+&quot;);&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    dataNode.innerHTML = data; </span><br><span class="line">   &#125;catch(e)&#123;</span><br><span class="line">      alert(e)</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">   var outString=&quot;&quot;;</span><br><span class="line">   if(!fullShow)&#123;</span><br><span class="line">    /*Loading, please wait……|在此处设置显示样式*/</span><br><span class="line">    outString+=&quot;&lt;div style=&apos;color: #FF0000;font-size: 10pt;&apos;&gt;正在加载，请稍候……&lt;/div&gt;&quot;;</span><br><span class="line">    dataNode.innerHTML = outString;</span><br><span class="line">   &#125;else&#123;</span><br><span class="line">    outString+=&quot;&lt;!-- load start --&gt;&quot;;</span><br><span class="line">    outString+=&quot;&lt;div id=&apos;load&apos; style=&apos;position:absolute;z-index:10;top:expression(body.clientHeight/2-60);left:expression(body.clientWidth/2-110); height:120px;width:220px;margin-right: auto;margin-left: auto;text-align: center;color: #FF0000;font-size: 10pt;padding: 5px;line-height: 20px;background-color: #FFFFFF;border-top-width: 1px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 1px;border-top-style: inset;border-right-style: outset; border-bottom-style: outset;border-left-style: inset;border-top-color: #ECE9D8; border-right-color: #ECE9D8;border-bottom-color: #ECE9D8;border-left-color: #ECE9D8;&apos;&gt;&quot;;</span><br><span class="line">    outString+=&quot;  &lt;div id=&apos;loadLogo&apos; style=&apos;margin-top: 30px;margin-right: auto;margin-bottom: 20px;margin-left: auto;&apos;&gt;&lt;img src=&apos;Images/Wait.gif&apos; width=&apos;32&apos; height=&apos;32&apos; /&gt;&lt;/div&gt;&quot;;</span><br><span class="line">    outString+=&quot;  &lt;div id=&apos;loadTitle&apos; style=&apos;&apos;&gt;Loading, please wait……&lt;/div&gt; &quot;;</span><br><span class="line">    outString+=&quot;&lt;/div&gt;&quot;;</span><br><span class="line">    outString+=&quot;&lt;div id=&apos;loadMask&apos; style=&apos;position:absolute;z-index:1; top:0;left:0; width:expression(body.clientWidth); height:expression(body.clientHeight);background:#999999;filter:Alpha(opacity=60);&apos;&gt;&lt;/div&gt;&quot;;</span><br><span class="line">    outString+=&quot;&lt;!-- load end  --&gt;&quot;;</span><br><span class="line">    dataNode.innerHTML = outString;    </span><br><span class="line">   &#125; </span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> function getData(dataType,xmlHttp)&#123;</span><br><span class="line">     if(dataType==&quot;xml&quot;)&#123;</span><br><span class="line">    return xmlHttp.responseXML;</span><br><span class="line">  &#125;else if(dataType==&quot;body&quot;)&#123;</span><br><span class="line">    /*Bytes2Bstr在Charset.vbs中*/</span><br><span class="line">    return Bytes2Bstr(xmlHttp.responseBody);   </span><br><span class="line">  &#125;else if(dataType==&quot;stream&quot;)&#123;</span><br><span class="line">    return xmlHttp.responseStream;   </span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    return xmlHttp.responseText;   </span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> /*-----------------------------------*/ </span><br><span class="line">&#125;</span><br><span class="line">/*===========================================================================*/</span><br><span class="line">/*                                AjaxLoad end                               */ </span><br><span class="line">/*===========================================================================*/</span><br><span class="line">/*Charset.vbs文件内容：</span><br><span class="line">&apos;编码处理函数：解决XMLHTTP返回的中文乱码处理</span><br><span class="line">Function Bytes2Bstr(bodyStr) </span><br><span class="line"> strReturn = &quot;&quot; </span><br><span class="line"> For i = 1 To LenB(bodyStr) </span><br><span class="line">  ThisCharCode = AscB(MidB(bodyStr,i,1)) </span><br><span class="line">  If ThisCharCode &lt; &amp;H80 Then </span><br><span class="line">     strReturn = strReturn &amp; Chr(ThisCharCode) </span><br><span class="line">  Else </span><br><span class="line">     NextCharCode = AscB(MidB(bodyStr,i+1,1)) </span><br><span class="line">     strReturn = strReturn &amp; Chr(CLng(ThisCharCode) * &amp;H100 + CInt(NextCharCode)) </span><br><span class="line">     i = i + 1 </span><br><span class="line">  End If </span><br><span class="line"> Next </span><br><span class="line"> Bytes2Bstr = strReturn </span><br><span class="line">End Function</span><br><span class="line">*/</span><br><span class="line">/*---------------------------------------*/ </span><br><span class="line">/*             输出函数格式如下                                                        */</span><br><span class="line">/*---------------------------------------*/ </span><br><span class="line">function objPrint()&#123;</span><br><span class="line">  /*在此处格式化数据后，再返回格式化了的数据*/</span><br><span class="line">  //alert(&quot;执行了格式化哟&quot;)</span><br><span class="line">  return data;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">判断父页面函数是否存在</span><br><span class="line">if(typeof(opener.showLicenceList)==&apos;object&apos;)&#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/16/instanceof和typeof的区别/" >
-  instanceof和typeof的区别
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/16/instanceof和typeof的区别/"><span class="article-date">
-  2016-05-16
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/javascript/">javascript</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>javascript instanceof,typeof的<a href="http://www.jb51.net/article/22717.htm" target="_blank" rel="external">区别</a></p>
-<blockquote>
-<p>区分string 与 String的[区别</p>
-</blockquote>
-<p>为什么结果会是false呢？<br> 代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">var aColors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]; </span><br><span class="line">alert(typeof aColors[0]); //output &quot;string&quot; </span><br><span class="line">alert(aColors[0] instanceof String); //output &quot;false&quot;; </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>你要区分string 与 String的区别<br>aColors[0] 是 string值类型， 当然不是String的实例啦。参考下面代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var aColors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]; </span><br><span class="line">aColors[0]= new String(&quot;1&quot;) </span><br><span class="line">alert(typeof aColors[0]); //output &quot;Object&quot; </span><br><span class="line">alert(aColors[0] instanceof String); //output &quot;true&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>更多可以参考下面的文章:</p>
-<p>instanceof 运算符<br>返回一个 Boolean 值，指出对象是否是特定类的一个实例。 </p>
-<blockquote>
-<p>result = object instanceof class </p>
-</blockquote>
-<p>参数<br>result<br>必选项。任意变量。<br>object<br>必选项。任意对象表达式。<br>class<br>必选项。任意已定义的对象类。 </p>
-<ul>
-<li><p>说明:<br>如果 object 是 class 的一个实例，则 instanceof 运算符返回 true。如果 object 不是指定类的一个实例，或者 object 是 null，则返回 false。<br>示例<br>下面的例子举例说明了 instanceof 运算符的用法。<br>代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function objTest(obj)&#123; </span><br><span class="line">var i, t, s = &quot;&quot;; // 创建变量。 </span><br><span class="line">t = new Array(); // 创建一个数组。 </span><br><span class="line">t[&quot;Date&quot;] = Date; // 填充数组。 </span><br><span class="line">t[&quot;Object&quot;] = Object; </span><br><span class="line">t[&quot;Array&quot;] = Array; </span><br><span class="line">for (i in t) </span><br><span class="line">&#123; </span><br><span class="line">if (obj instanceof t[i]) // 检查 obj 的类。 </span><br><span class="line">&#123; </span><br><span class="line">s += &quot;obj is an instance of &quot; + i + &quot;\n&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else </span><br><span class="line">&#123; </span><br><span class="line">s += &quot;obj is not an instance of &quot; + i + &quot;\n&quot;; </span><br><span class="line">&#125; </span><br><span class="line">&#125; </span><br><span class="line">return(s); // 返回字符串。 </span><br><span class="line">&#125; </span><br><span class="line">var obj = new Date(); </span><br><span class="line">document.write(objTest(obj));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>instanceof和typeof都能用来判断一个变量是否为空或是什么类型的变量。 </p>
-</li>
-<li><p>typeof用以获取一个变量的类型，typeof一般只能返回如下几个结果：number,boolean,string,function,object,undefined。我们可以使用typeof来获取一个变量是否存在，如if(typeof a!=”undefined”){}，而不要去使用if(a)因为如果a不存在（未声明）则会出错，对于Array,Null等特殊对象使用typeof 一律返回object，这正是typeof的局限性。 </p>
-</li>
-<li><p>如果我们希望获取一个对象是否是数组，或判断某个变量是否是某个对象的实例则要选择使用instanceof。instanceof用于判断一个变量是否某个对象的实例，如var a=new Array();alert(a instanceof Array);会返回true，同时alert(a instanceof Object)也会返回true;这是因为Array是object的子类。再如：function test(){};var a=new test();alert(a instanceof test)会返回true。 </p>
-</li>
-<li><p>谈到instanceof我们要多插入一个问题，就是function的arguments，我们大家也许都认为arguments是一个Array，但如果使用instaceof去测试会发现arguments不是一个Array对象，尽管看起来很像。 </p>
-</li>
-</ul>
-<blockquote>
-<p>另外：<br>测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’Y’<br>但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’N’</p>
-</blockquote>
-<p>所以，这里的instanceof测试的object是指js语法中的object，不是指dom模型对象。<br>使用typeof会有些区别<br>alert(typeof(window) 会得 object </p>
-<p>年轻的时候，先少废话，多做事。</p>
 
         
       </div>
