@@ -72,7 +72,7 @@
       
         <div class="avatar">
           
-            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+            <a href="/about"><img src="http://i1.piimg.com/567571/ef24dee191051cd4.jpg"></a>
           
         </div>
       
@@ -170,60 +170,6 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/06/09/jQuery动画animate()方法小介绍介绍/" >
-  jQuery动画animate()方法小介绍介绍
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/06/09/jQuery动画animate()方法小介绍介绍/"><span class="article-date">
-  2016-06-09
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/jQuery/">jQuery</a></li></ul></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animate/">animate()</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>.animate()是jQuery实现动画的一种方法，它接受一个必选参数(properties,动画所要改变的属性)，和三个可选参数[, duration ] [, easing ] [, complete ] 。</p>
-<ul>
-<li>[, duration ] 字符串或者数字决定动画将运行多久,默认: 400。</li>
-<li>[, easing ]一个字符串，表示过渡使用哪种缓动函数,jQuery自身提供”linear” 和 “swing”,默认: swing</li>
-<li>[, complete ]  Function()在动画完成时执行的函数。</li>
-</ul>
-<p>Function()函数是一个很重要的参数方法<br>看如下jQuery操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;div&apos;).animate(&#123;height: 0&#125;,500).hide();</span><br></pre></td></tr></table></figure>
-<p>div原来宽高是300px和400px，想要实现的功能是让div的高度变为0，然后再隐藏，这里采用jQuery的链式写法。但实际效果是div元素直接消失，也就是直接hide().原因是height的变化有一个持续500毫秒的时间，在这个动画执行时就已经执行.hide()隐藏。所以看不到效果。</p>
-<p>要想看到效果就必须把hide()放到动画完成后，所以可以这样改写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;div&apos;).animate(&#123;height: 0&#125;,500,function()&#123;</span><br><span class="line">		$(&apos;div&apos;).hide();</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样隐藏操作就会在动画完成后执行。<br><strong>这个操作在需要动画完成后进行一些列方法调用的时候用很大的用处</strong></p>
-<p>更具体的使用可以参看这个中文文档：<a href="http://www.css88.com/jqapi-1.9/animate/" target="_blank" rel="external">http://www.css88.com/jqapi-1.9/animate/</a></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
     
   
 

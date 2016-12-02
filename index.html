@@ -72,7 +72,7 @@
       
         <div class="avatar">
           
-            <a href="/about"><img src="http://i2.piimg.com/81760750547ee122.jpg"></a>
+            <a href="/about"><img src="http://i1.piimg.com/567571/ef24dee191051cd4.jpg"></a>
           
         </div>
       
@@ -167,234 +167,7 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/08/03/domes/domAdd-carousel/" >
-  
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/08/03/domes/domAdd-carousel/"><span class="article-date">
-  2016-08-03
-</span>
-</a>
-        
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>carousel</title>
-</head>
-<body>
-		<title>carousel</title>
-		<style type="text/css">
-			html,body,ul,li,p{
-				margin: 0;
-				padding: 0;
-			}
-			li{
-				list-style: none;
-			}
-			a{
-				text-decoration: none;
-			}
-			
-			
-			.carousel{
-				position: relative;
-				left:460px;
-				top: 220px;
-				width: 310px;
-				height: 206px;
-				overflow: hidden;
-			}
-			.carousel .img-ct{
-				position: absolute;
-			}
-			.carousel .img-ct img{
-				width: 310px;
-				height: 206px;
-			}
-			.carousel .img-ct:after{
-				content: '';
-				display: block;
-				clear: both;
-			}
-			.carousel .img-ct li{
-				float: left;
-			}
-
-			.arrow{
-				position: absolute;
-			    top: 50%;
-			    margin-top: -15px;
-			    width: 30px;
-			    height: 30px;
-			    line-height: 30px;
-			    text-align: center;
-			    background: #4E443C;
-			    color: #fff;
-			    border-radius: 30px;
-			    box-shadow: 0 0 2px #999;
-			    opacity: 0.8;
-			}
-			.arrow:hover {
-			    opacity: 1;
-			}
-			.pre{
-				left: 10px;
-			}
-			.next{
-				right: 10px;
-			}
-			ul.bullet {
-				position: absolute;
-			    bottom: 10px;
-			    left: 50%;
-			    transform: translateX(-50%);
-			}
-			ul.bullet li {
-			    width: 16px;
-			    height: 4px;
-			    border-radius: 2px;
-			    background: #fff;
-			    display: inline-block;
-			    cursor: pointer;
-			}
-
-			ul.bullet li.active {
-			    background: #666;
-			}
-
-
-			</style>
-	
-	<body>
-		
-		<div class="carousel">
-			<ul class="img-ct">
-				<li><a href="#"><img src="img/0.jpg"></a></li>
-				<li><a href="#"><img src="img/1.jpg"></a></li>
-				<li><a href="#"><img src="img/2.jpg"></a></li>
-				<li><a href="#"><img src="img/3.jpg"></a></li>
-			</ul>
-			<a class="pre arrow" href="#"><</a>
-			<a class="next arrow" href="#">></a>
-			<ul class="bullet">
-				<li class="active"></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
-
-		<script type="text/javascript" src="../public/js/jquery-3.0.0.min.js"></script>
-
-		<script type="text/javascript">
-			var $ct = $('.img-ct'),
-				$items = $ct.children(),
-				$pre = $('.pre'),
-				$next = $('.next'),
-				$bullet = $('.bullet'),
-				imgCount = $ct.children().size(),
-				imgWidth = $items.width();
-
-			$ct.prepend($items.last().clone());
-			$ct.append($items.first().clone());
-			imgRealCount = $ct.children().length;
-			$ct.css({'width':imgRealCount*imgWidth,'left':0-imgWidth});
-
-			$next.on('click',function(){
-				playNext();
-			});
-
-			$pre.on('click',function(){
-				playPre();
-			});
-
-			$bullet.find('li').on('click',function(){
-				var idx = $(this).index();
-
-				if(idx>curIdx){
-					playNext(idx-curIdx);
-				}else if(idx<curIdx){
-					playPre(curIdx-idx);
-				};
-			});
-
-
-			var curIdx = 0;
-		    var isAnimate = false;
-			
-
-			function playNext(idx) {
-				var idx = idx||1;
-				if (isAnimate) {
-					return ;
-				};
-				isAnimate = true;
-
-					$ct.animate({left:'-='+(imgWidth*idx)},function(){
-						curIdx = (curIdx+idx)%imgCount;
-						setBullet(curIdx);
-
-						if(curIdx===0){
-							$ct.css('left',0-imgWidth);
-						};
-						isAnimate=false;
-					});				
-			};
-
-			function playPre(idx) {
-				var idx = idx||1;
-				if (isAnimate) {
-					return ;
-				};
-				isAnimate = true;
-
-				$ct.animate({left:'+='+(imgWidth*idx)},function(){
-					curIdx = (imgCount+curIdx-idx)%imgCount;
-					setBullet(curIdx);
-
-					if(curIdx===(imgCount-1)){
-							$ct.css('left',0-imgWidth*imgCount);
-						};
-						isAnimate=false;
-					});				
-			}
-
-			function setBullet(idx){
-				$bullet.find('li').removeClass('active')
-								  .eq(idx).addClass('active');
-			}
-
-		</script>
-
-</body>
-</body></html>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/06/25/mywork-dome/" >
+        <a href="/2016/11/25/mywork-dome/" >
   个人求职简历
 </a>
 
@@ -402,8 +175,8 @@
       
 
       <div class="article-info">
-        <a href="/2016/06/25/mywork-dome/"><span class="article-date">
-  2016-06-25
+        <a href="/2016/11/25/mywork-dome/"><span class="article-date">
+  2016-11-25
 </span>
 </a>
         
@@ -421,7 +194,7 @@
       </div>
       <div class="article-entry">
         
-          <h1 id="刘建阳"><a href="#刘建阳" class="headerlink" title="刘建阳"></a>刘建阳</h1><h4 id="应聘职位-web前端开发工程师"><a href="#应聘职位-web前端开发工程师" class="headerlink" title="应聘职位:web前端开发工程师"></a>应聘职位:web前端开发工程师</h4><h4 id="性别-男"><a href="#性别-男" class="headerlink" title="性别:男"></a>性别:男</h4><h4 id="年龄-24"><a href="#年龄-24" class="headerlink" title="年龄:24"></a>年龄:24</h4><h4 id="邮箱-1286637198-qq-com"><a href="#邮箱-1286637198-qq-com" class="headerlink" title="邮箱:1286637198@qq.com"></a>邮箱:1286637198@qq.com</h4><h4 id="手机-15210438591"><a href="#手机-15210438591" class="headerlink" title="手机:15210438591"></a>手机:15210438591</h4><h4 id="个人简历网页：https-findmoon-applinzi-com-slider-html"><a href="#个人简历网页：https-findmoon-applinzi-com-slider-html" class="headerlink" title="个人简历网页：https://findmoon.applinzi.com/slider.html"></a><a href="https://findmoon.applinzi.com/slider.html" target="_blank" rel="external">个人简历网页：https://findmoon.applinzi.com/slider.html</a></h4><h4 id="github-https-github-com-findmoon-mywork"><a href="#github-https-github-com-findmoon-mywork" class="headerlink" title="github:https://github.com/findmoon/mywork"></a><a href="https://github.com/findmoon/mywork" target="_blank" rel="external">github:https://github.com/findmoon/mywork</a></h4><h4 id="个人博客-http-findmoon-github-io"><a href="#个人博客-http-findmoon-github-io" class="headerlink" title="个人博客:http://findmoon.github.io/"></a><a href="http://findmoon.github.io/" target="_blank" rel="external">个人博客:http://findmoon.github.io/</a></h4><h4 id="工作地点-北京"><a href="#工作地点-北京" class="headerlink" title="工作地点:北京"></a>工作地点:北京</h4><h4 id="意向薪酬-8k—15k"><a href="#意向薪酬-8k—15k" class="headerlink" title="意向薪酬:8k—15k"></a>意向薪酬:8k—15k</h4><h2 id="教育背景及兴趣"><a href="#教育背景及兴趣" class="headerlink" title="教育背景及兴趣"></a>教育背景及兴趣</h2><ul>
+          <h1 id="刘建阳"><a href="#刘建阳" class="headerlink" title="刘建阳"></a>刘建阳</h1><h4 id="应聘职位-web前端开发工程师"><a href="#应聘职位-web前端开发工程师" class="headerlink" title="应聘职位:web前端开发工程师"></a>应聘职位:web前端开发工程师</h4><h4 id="性别-男"><a href="#性别-男" class="headerlink" title="性别:男"></a>性别:男</h4><h4 id="年龄-24"><a href="#年龄-24" class="headerlink" title="年龄:24"></a>年龄:24</h4><h4 id="邮箱-1286637198-qq-com"><a href="#邮箱-1286637198-qq-com" class="headerlink" title="邮箱:1286637198@qq.com"></a>邮箱:1286637198@qq.com</h4><h4 id="手机-15210438591"><a href="#手机-15210438591" class="headerlink" title="手机:15210438591"></a>手机:15210438591</h4><h4 id="个人简历网页"><a href="#个人简历网页" class="headerlink" title="个人简历网页"></a><a href="http://book.jirengu.com/jirengu-inc/jrg-renwu3/homework/%E5%88%98%E5%BB%BA%E9%98%B3/dome/slider.html" target="_blank" rel="external">个人简历网页</a></h4><h4 id="github-findmoon"><a href="#github-findmoon" class="headerlink" title="github: findmoon"></a><a href="https://github.com/findmoon/mywork" target="_blank" rel="external">github: findmoon</a></h4><h4 id="个人博客-findmoon-白色蜗牛"><a href="#个人博客-findmoon-白色蜗牛" class="headerlink" title="个人博客: findmoon-白色蜗牛"></a><a href="http://findmoon.github.io/" target="_blank" rel="external">个人博客: findmoon-白色蜗牛</a></h4><h4 id="工作地点-北京"><a href="#工作地点-北京" class="headerlink" title="工作地点:北京"></a>工作地点:北京</h4><h4 id="意向薪酬-8k—15k"><a href="#意向薪酬-8k—15k" class="headerlink" title="意向薪酬:8k—15k"></a>意向薪酬:8k—15k</h4><h2 id="教育背景及兴趣"><a href="#教育背景及兴趣" class="headerlink" title="教育背景及兴趣"></a>教育背景及兴趣</h2><ul>
 <li>2013年毕业于河北工业大学，计算机应用技术，专科，后专接本，本科学历，对教育方面也有着浓厚兴趣</li>
 <li>为人开朗，乐观积极，对前端有着浓厚兴趣，善于学习总结，有很强的责任心和自信心。</li>
 </ul>
@@ -448,6 +221,7 @@
 </li>
 <li><p>基本功能：</p>
 <ul>
+<li>增加换肤功能，使用两套css样式，点击按钮加载不同样式，cookie判断用户上次选择的皮肤，有效期10天</li>
 <li>歌曲、歌词和频道列表的获取和展示，自动播放，单曲循环、随机播放，获取频道歌曲</li>
 <li>页面的展现和拖拽功能</li>
 <li>歌词随着时间的自动播放</li>
@@ -674,6 +448,233 @@
 </li>
 </ul>
 
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/08/03/domes/domAdd-carousel/" >
+  
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/08/03/domes/domAdd-carousel/"><span class="article-date">
+  2016-08-03
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carousel</title>
+</head>
+<body>
+		<title>carousel</title>
+		<style type="text/css">
+			html,body,ul,li,p{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			
+			
+			.carousel{
+				position: relative;
+				left:460px;
+				top: 220px;
+				width: 310px;
+				height: 206px;
+				overflow: hidden;
+			}
+			.carousel .img-ct{
+				position: absolute;
+			}
+			.carousel .img-ct img{
+				width: 310px;
+				height: 206px;
+			}
+			.carousel .img-ct:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.carousel .img-ct li{
+				float: left;
+			}
+
+			.arrow{
+				position: absolute;
+			    top: 50%;
+			    margin-top: -15px;
+			    width: 30px;
+			    height: 30px;
+			    line-height: 30px;
+			    text-align: center;
+			    background: #4E443C;
+			    color: #fff;
+			    border-radius: 30px;
+			    box-shadow: 0 0 2px #999;
+			    opacity: 0.8;
+			}
+			.arrow:hover {
+			    opacity: 1;
+			}
+			.pre{
+				left: 10px;
+			}
+			.next{
+				right: 10px;
+			}
+			ul.bullet {
+				position: absolute;
+			    bottom: 10px;
+			    left: 50%;
+			    transform: translateX(-50%);
+			}
+			ul.bullet li {
+			    width: 16px;
+			    height: 4px;
+			    border-radius: 2px;
+			    background: #fff;
+			    display: inline-block;
+			    cursor: pointer;
+			}
+
+			ul.bullet li.active {
+			    background: #666;
+			}
+
+
+			</style>
+	
+	<body>
+		
+		<div class="carousel">
+			<ul class="img-ct">
+				<li><a href="#"><img src="img/0.jpg"></a></li>
+				<li><a href="#"><img src="img/1.jpg"></a></li>
+				<li><a href="#"><img src="img/2.jpg"></a></li>
+				<li><a href="#"><img src="img/3.jpg"></a></li>
+			</ul>
+			<a class="pre arrow" href="#"><</a>
+			<a class="next arrow" href="#">></a>
+			<ul class="bullet">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="../public/js/jquery-3.0.0.min.js"></script>
+
+		<script type="text/javascript">
+			var $ct = $('.img-ct'),
+				$items = $ct.children(),
+				$pre = $('.pre'),
+				$next = $('.next'),
+				$bullet = $('.bullet'),
+				imgCount = $ct.children().size(),
+				imgWidth = $items.width();
+
+			$ct.prepend($items.last().clone());
+			$ct.append($items.first().clone());
+			imgRealCount = $ct.children().length;
+			$ct.css({'width':imgRealCount*imgWidth,'left':0-imgWidth});
+
+			$next.on('click',function(){
+				playNext();
+			});
+
+			$pre.on('click',function(){
+				playPre();
+			});
+
+			$bullet.find('li').on('click',function(){
+				var idx = $(this).index();
+
+				if(idx>curIdx){
+					playNext(idx-curIdx);
+				}else if(idx<curIdx){
+					playPre(curIdx-idx);
+				};
+			});
+
+
+			var curIdx = 0;
+		    var isAnimate = false;
+			
+
+			function playNext(idx) {
+				var idx = idx||1;
+				if (isAnimate) {
+					return ;
+				};
+				isAnimate = true;
+
+					$ct.animate({left:'-='+(imgWidth*idx)},function(){
+						curIdx = (curIdx+idx)%imgCount;
+						setBullet(curIdx);
+
+						if(curIdx===0){
+							$ct.css('left',0-imgWidth);
+						};
+						isAnimate=false;
+					});				
+			};
+
+			function playPre(idx) {
+				var idx = idx||1;
+				if (isAnimate) {
+					return ;
+				};
+				isAnimate = true;
+
+				$ct.animate({left:'+='+(imgWidth*idx)},function(){
+					curIdx = (imgCount+curIdx-idx)%imgCount;
+					setBullet(curIdx);
+
+					if(curIdx===(imgCount-1)){
+							$ct.css('left',0-imgWidth*imgCount);
+						};
+						isAnimate=false;
+					});				
+			}
+
+			function setBullet(idx){
+				$bullet.find('li').removeClass('active')
+								  .eq(idx).addClass('active');
+			}
+
+		</script>
+
+</body>
+</body></html>
         
       </div>
     </div>
