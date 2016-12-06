@@ -118,9 +118,13 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/Home">博客首页</a></li>
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/Home">个人简历</a></li>
                         
                             <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
                         
                             <li><a href="/about">关于我</a></li>
                         
@@ -133,7 +137,7 @@
                             
                                 <a class="fl github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                             
-                                <a class="fl QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -191,9 +195,13 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/Home">博客首页</a></li>
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/Home">个人简历</a></li>
                 
                     <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
                 
                     <li><a href="/about">关于我</a></li>
                 
@@ -207,7 +215,7 @@
                     
                         <a class="github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                     
-                        <a class="QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -215,88 +223,6 @@
     </div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-stopImmediatePropagation介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/10/stopImmediatePropagation介绍/" class="article-date">
-      <time datetime="2016-06-10T11:17:56.000Z" itemprop="datePublished">2016-06-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/10/stopImmediatePropagation介绍/">stopImmediatePropagation介绍*转</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>stopImmediatePropagation介绍</p>
-<p><a href="http://www.cnblogs.com/zzbo/p/3366264.html" target="_blank" rel="external">原文地址</a></p>
-<p>在众多的方法里面，event.stopImmediatePropagation 算是比较少用的一个方法，拼写上感觉一半像 event.stopPropagation。</p>
-<p>对于stopPropagation 的用法大家是众所周知的，他是W3C标准事件方法，用于阻止事件冒泡（非标准情况下，用window.event.stopBubble来阻止冒泡）</p>
-<p>而stopImmediatePropagation 的功能比stopPropagation 多一些，除了可以阻止事件冒泡之外，还可以把这个元素绑定的同类型事件也阻止了。</p>
-<p>先把下面的代码片断（摘自MDN）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            p &#123; height: 30px; width: 150px; background-color: #ccf; &#125;</span><br><span class="line">            div &#123;height: 30px; width: 150px; background-color: #cfc; &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;p&gt;paragraph&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第一个监听函数&quot;);</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第二个监听函数&quot;);</span><br><span class="line">                event.stopImmediatePropagation();</span><br><span class="line">                //执行stopImmediatePropagation方法,阻止click事件冒泡,并且阻止p元素上绑定的其他click事件的事件监听函数的执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;p&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是p元素上被绑定的第三个监听函数&quot;);</span><br><span class="line">                //该监听函数排在上个函数后面,该函数不会被执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">            document.querySelector(&quot;div&quot;).addEventListener(&quot;click&quot;, function(event)</span><br><span class="line">            &#123;</span><br><span class="line">                alert(&quot;我是div元素,我是p元素的上层元素&quot;);</span><br><span class="line">                //p元素的click事件没有向上冒泡,该函数不会被执行.</span><br><span class="line">            &#125;, false);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>p标签绑定了三个click事件，div绑定了一个click事件。</p>
-<ul>
-<li>其中p第二个click事件中使用了event.stopImmediatePropagation();</li>
-</ul>
-<blockquote>
-<p>当点击时P标签时，第一和第二个alert会正常出现，<br>第三个alert被event.stopImmediatePropagation();的特性取消了以后的同类型(click)事件<br>第四个alert不出来同被阻止了事件冒泡，所以也不会出现。<br>相当于做了event.stopPropagation()后，再return false;  jQuery对事件代理做了类似的封装。</p>
-</blockquote>
-<p>我们了解特性之后，看一个简单应用场景:</p>
-<p>假设点击一个按钮后，需要检测两个input控件的值，值为空时打印’error’，并停止检测下一个input，同时也需停止提单提交。<br>我们通常可能会这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; id=&quot;txt1&quot;&gt;</span><br><span class="line">　　　　 &lt;input type=&quot;text&quot; id=&quot;txt2&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;button&quot; id=&quot;btn&quot;&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            var txt1 = document.querySelector(&quot;#txt1&quot;);</span><br><span class="line">　　　　　　　var txt2 = document.querySelector(&quot;#txt2&quot;);</span><br><span class="line">            var btn = document.querySelector(&quot;#btn&quot;);</span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function(event) &#123;</span><br><span class="line">                if (txt1.value == &apos;&apos;) &#123;</span><br><span class="line">                    alert(&apos;error1&apos;);</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">　　　　　　　　　 if (txt2.value == &apos;&apos;) &#123; </span><br><span class="line">                    alert(&apos;error2&apos;);</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">                return true;</span><br><span class="line">            &#125;, false);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>但用了event.stopImmediatePropagation时，可以对代码进行更好的抽象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; id=&quot;txt1&quot;&gt;</span><br><span class="line">　　　　 &lt;input type=&quot;text&quot; id=&quot;txt2&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; value=&quot;button&quot; id=&quot;btn&quot;&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            var txt1 = document.querySelector(&quot;#txt1&quot;);</span><br><span class="line">　　　　　　var txt2 = document.querySelector(&quot;#txt2&quot;);</span><br><span class="line">            var btn = document.querySelector(&quot;#btn&quot;);</span><br><span class="line"></span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function(event) &#123;</span><br><span class="line">                if (txt1.value == &apos;&apos;) &#123;</span><br><span class="line">                    alert(&apos;error1&apos;);</span><br><span class="line">                    event.stopImmediatePropagation();</span><br><span class="line">                &#125;</span><br><span class="line">　　　　　　　　if (txt2.value == &apos;&apos;) &#123; </span><br><span class="line">                    alert(&apos;error2&apos;);</span><br><span class="line">                    event.stopImmediatePropagation();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                </span><br><span class="line">            &#125;, false);</span><br><span class="line">　　　　　　</span><br><span class="line">            btn.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                 alert(&apos;Done&apos;);</span><br><span class="line">            &#125;);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>题外：<br>event.isImmediatePropagationStopped 可以用来确定该元素是否有调用过event.stopImmediatePropagation。</p>
-<p>浏览器支持情况：<br>Firefox &gt;=10Chrome<br>IE &gt;= 9<br>Opera<br>Safari</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/js/">js</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stopImmediatePropagation/">stopImmediatePropagation</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-jQuery动画animate()方法小介绍介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -928,91 +854,6 @@ TDD给了我们自信，让我们今天的问题今天解决，明天的问题�
 
 
   
-    <article id="post-jQuery offset()方法介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/04/jQuery offset()方法介绍/" class="article-date">
-      <time datetime="2016-06-04T11:17:56.000Z" itemprop="datePublished">2016-06-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/04/jQuery offset()方法介绍/">jQuery.offset()方法介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>jQuery.offset()方法介绍</p>
-<p>jQuery.offset()方法获取或设置元素的坐标，坐标相对于文档。</p>
-<p>.offset()获取一个元素相对于文档（document）的当前位置，相对于文档（document）的当前位置。</p>
-<ul>
-<li>当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。</li>
-<li>当把一个新元素放在同一个容器里面另一个元素附近时，用.position()更合适。（和offset()使用一样，有一个left和top属性，<strong>.position().left/.position().top或者设置.position({left: 30,top: 30})</strong>）</li>
-</ul>
-<blockquote>
-<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
-</blockquote>
-<ul>
-<li>.offset( coordinates )</li>
-</ul>
-<blockquote>
-<p>coordinates<br>类型: PlainObject<br>一个包含top 和 left属性的对象，用整数指明元素的新顶部和左边坐标。</p>
-</blockquote>
-<p>.offset({left: xx,top: xx})使用键值对方式赋值</p>
-<ul>
-<li>.offset( function(index, coords) )<blockquote>
-<p>function(index, coords)<br>类型: Function()<br>返回用于设置坐标的一个函数。接收元素在匹配的元素集合中的索引位置作为第一个参数，和当前坐标作为第二个参数。这个函数应该返回一个包含top 和 left属性的对象。</p>
-</blockquote>
-</li>
-</ul>
-<p>.offset()方法允许我们重新设置元素的位置，这个元素的位置是相对于document对象的。如果对象原先的.position()样式属性是static的话，会被改成relative来实现重定位。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/jQuery/">jQuery</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/offset/">offset()</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-jQuery的deferred对象详解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1118,6 +959,91 @@ TDD给了我们自信，让我们今天的问题今天解决，明天的问题�
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deferred/">deferred</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery offset()方法介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/04/jQuery offset()方法介绍/" class="article-date">
+      <time datetime="2016-06-04T11:17:56.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/jQuery offset()方法介绍/">jQuery.offset()方法介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>jQuery.offset()方法介绍</p>
+<p>jQuery.offset()方法获取或设置元素的坐标，坐标相对于文档。</p>
+<p>.offset()获取一个元素相对于文档（document）的当前位置，相对于文档（document）的当前位置。</p>
+<ul>
+<li>当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。</li>
+<li>当把一个新元素放在同一个容器里面另一个元素附近时，用.position()更合适。（和offset()使用一样，有一个left和top属性，<strong>.position().left/.position().top或者设置.position({left: 30,top: 30})</strong>）</li>
+</ul>
+<blockquote>
+<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
+</blockquote>
+<ul>
+<li>.offset( coordinates )</li>
+</ul>
+<blockquote>
+<p>coordinates<br>类型: PlainObject<br>一个包含top 和 left属性的对象，用整数指明元素的新顶部和左边坐标。</p>
+</blockquote>
+<p>.offset({left: xx,top: xx})使用键值对方式赋值</p>
+<ul>
+<li>.offset( function(index, coords) )<blockquote>
+<p>function(index, coords)<br>类型: Function()<br>返回用于设置坐标的一个函数。接收元素在匹配的元素集合中的索引位置作为第一个参数，和当前坐标作为第二个参数。这个函数应该返回一个包含top 和 left属性的对象。</p>
+</blockquote>
+</li>
+</ul>
+<p>.offset()方法允许我们重新设置元素的位置，这个元素的位置是相对于document对象的。如果对象原先的.position()样式属性是static的话，会被改成relative来实现重定位。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/jQuery/">jQuery</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/offset/">offset()</a></li></ul>
     </div>
 
       
@@ -1307,6 +1233,50 @@ TDD给了我们自信，让我们今天的问题今天解决，明天的问题�
       
           
         <p>jQuery.blur()事件：当时区焦点时触发该事件</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Ajax POST头部设置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/01/Ajax POST头部设置/" class="article-date">
+      <time datetime="2016-06-01T14:34:30.764Z" itemprop="datePublished">2016-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>未指定Content-Type: application/x-www-form-urlencoded将会导致服务端获取Ajax POST数据失败<br>默认情况下Ajax以 Content-Type: text/plain 提交数据，此时服务器将忽略POST实体部分的数据，所以服务端程序无法获取POST数据。</p>
+<p>解决方法：<br>指定Content-Type: application/x-www-form-urlencoded 。</p>
 
       
     </div>

@@ -669,8 +669,8 @@
             var sliderWidth = numSlides * 100;
             var slideWidth = 100 / numSlides;
 
-            slides.wrapAll('<div class="' + SLIDES_CONTAINER + '">');
-            slides.parent().wrap('<div class="' + SLIDES_WRAPPER + '">');
+            slides.wrapAll('<div class="' + SLIDES_CONTAINER + '" />');
+            slides.parent().wrap('<div class="' + SLIDES_WRAPPER + '" />');
 
             section.find(SLIDES_CONTAINER_SEL).css('width', sliderWidth + '%');
 
@@ -902,9 +902,101 @@
                     var section = sections[i];
 
                     // Pick the the last section which passes the middle line of the screen.
-                    if (section.offsetTop <= screen_mid)="" {="" visiblesectionindex="i;" }="" if(iscompletelyinviewport(scrolldirection)){="" if(!$(section_active_sel).hasclass(completely)){="" $(section_active_sel).addclass(completely).siblings().removeclass(completely);="" geting="" the="" last="" one,="" current="" one="" on="" screen="" currentsection="$(sections).eq(visibleSectionIndex);" setting="" visible="" section="" as="" active="" when="" manually="" scrolling="" executing="" only="" once="" first="" time="" we="" reach="" if(!currentsection.hasclass(active)){="" isscrolling="true;" var="" leavingsection="$(SECTION_ACTIVE_SEL);" leavingsectionindex="leavingSection.index(SECTION_SEL)" +="" 1;="" ymovement="getYmovement(currentSection);" anchorlink="currentSection.data('anchor');" sectionindex="currentSection.index(SECTION_SEL)" activeslide="currentSection.find(SLIDE_ACTIVE_SEL);" if(activeslide.length){="" slideanchorlink="activeSlide.data('anchor');" slideindex="activeSlide.index();" if(canscroll){="" currentsection.addclass(active).siblings().removeclass(active);="" $.isfunction(="" options.onleave="" )="" &&="" options.onleave.call(="" leavingsection,="" leavingsectionindex,="" sectionindex,="" ymovement);="" options.afterload="" options.afterload.call(="" currentsection,="" anchorlink,="" sectionindex);="" lazyload(currentsection);="" activatemenuandnav(anchorlink,="" -="" 1);="" if(options.anchors.length){="" needed="" to="" enter="" in="" hashchange="" event="" using="" menu="" with="" anchor="" links="" lastscrolleddestiny="anchorLink;" setstate(slideindex,="" slideanchorlink,="" small="" timeout="" order="" avoid="" entering="" is="" not="" finished="" yet="" cleartimeout(scrollid);="" scrollid="setTimeout(function(){" },="" 100);="" if(options.fittosection){="" for="" auto="" adjust="" of="" viewport="" fit="" a="" whole="" cleartimeout(scrollid2);="" scrollid2="setTimeout(function(){" checking="" fittosection="" again="" case="" it="" was="" set="" false="" before="" delay="" if(canscroll="" options.fittosection){="" allows="" scroll="" an="" and="" if="" already="" active,="" prevent="" firing="" callbacks="" if($(section_active_sel).is(currentsection)){="" isresizing="true;" scrollpage($(section_active_sel));="" options.fittosectiondelay);="" **="" *="" determines="" whether="" has="" seen="" its="" or="" not.="" function="" iscompletelyinviewport(movement){="" top="$(SECTION_ACTIVE_SEL).position().top;" bottom="top" $window.height();="" if(movement="=" 'up'){="" return="">= ($window.scrollTop() + $window.height());
+                    if (section.offsetTop <= screen_mid)
+                    {
+                        visibleSectionIndex = i;
+                    }
+                }
+
+                if(isCompletelyInViewPort(scrollDirection)){
+                    if(!$(SECTION_ACTIVE_SEL).hasClass(COMPLETELY)){
+                        $(SECTION_ACTIVE_SEL).addClass(COMPLETELY).siblings().removeClass(COMPLETELY);
+                    }
+                }
+
+                //geting the last one, the current one on the screen
+                currentSection = $(sections).eq(visibleSectionIndex);
+
+                //setting the visible section as active when manually scrolling
+                //executing only once the first time we reach the section
+                if(!currentSection.hasClass(ACTIVE)){
+                    isScrolling = true;
+                    var leavingSection = $(SECTION_ACTIVE_SEL);
+                    var leavingSectionIndex = leavingSection.index(SECTION_SEL) + 1;
+                    var yMovement = getYmovement(currentSection);
+                    var anchorLink  = currentSection.data('anchor');
+                    var sectionIndex = currentSection.index(SECTION_SEL) + 1;
+                    var activeSlide = currentSection.find(SLIDE_ACTIVE_SEL);
+
+                    if(activeSlide.length){
+                        var slideAnchorLink = activeSlide.data('anchor');
+                        var slideIndex = activeSlide.index();
+                    }
+
+                    if(canScroll){
+                        currentSection.addClass(ACTIVE).siblings().removeClass(ACTIVE);
+
+                        $.isFunction( options.onLeave ) && options.onLeave.call( leavingSection, leavingSectionIndex, sectionIndex, yMovement);
+
+                        $.isFunction( options.afterLoad ) && options.afterLoad.call( currentSection, anchorLink, sectionIndex);
+                        lazyLoad(currentSection);
+
+                        activateMenuAndNav(anchorLink, sectionIndex - 1);
+
+                        if(options.anchors.length){
+                            //needed to enter in hashChange event when using the menu with anchor links
+                            lastScrolledDestiny = anchorLink;
+
+                            setState(slideIndex, slideAnchorLink, anchorLink, sectionIndex);
+                        }
+                    }
+
+                    //small timeout in order to avoid entering in hashChange event when scrolling is not finished yet
+                    clearTimeout(scrollId);
+                    scrollId = setTimeout(function(){
+                        isScrolling = false;
+                    }, 100);
+                }
+
+                if(options.fitToSection){
+                    //for the auto adjust of the viewport to fit a whole section
+                    clearTimeout(scrollId2);
+
+                    scrollId2 = setTimeout(function(){
+                        //checking fitToSection again in case it was set to false before the timeout delay
+                        if(canScroll && options.fitToSection){
+                            //allows to scroll to an active section and
+                            //if the section is already active, we prevent firing callbacks
+                            if($(SECTION_ACTIVE_SEL).is(currentSection)){
+                                isResizing = true;
+                            }
+                            scrollPage($(SECTION_ACTIVE_SEL));
+
+                            isResizing = false;
+                        }
+                    }, options.fitToSectionDelay);
+                }
             }
-            return top <= $window.scrolltop();="" }="" **="" *="" gets="" the="" directon="" of="" scrolling="" fired="" by="" scroll="" event.="" function="" getscrolldirection(currentscroll){="" var="" direction="currentScroll"> lastScroll ? 'down' : 'up';
+        }
+
+        /**
+        * Determines whether the active section has seen in its whole or not.
+        */
+        function isCompletelyInViewPort(movement){
+            var top = $(SECTION_ACTIVE_SEL).position().top;
+            var bottom = top + $window.height();
+
+            if(movement == 'up'){
+                return bottom >= ($window.scrollTop() + $window.height());
+            }
+            return top <= $window.scrollTop();
+        }
+
+        /**
+        * Gets the directon of the the scrolling fired by the scroll event.
+        */
+        function getScrollDirection(currentScroll){
+            var direction = currentScroll > lastScroll ? 'down' : 'up';
 
             lastScroll = currentScroll;
 
@@ -2014,7 +2106,7 @@
         }
 
         function addTableClass(element){
-            element.addClass(TABLE).wrapInner('<div class="' + TABLE_CELL + '" style="height:' + getTableHeight(element) + 'px;">');
+            element.addClass(TABLE).wrapInner('<div class="' + TABLE_CELL + '" style="height:' + getTableHeight(element) + 'px;" />');
         }
 
         function getTableHeight(element){
@@ -2355,7 +2447,7 @@
         }
 
         /*
-        * Returns and object with Microsoft pointers (for IE<11 and="" for="" ie="">= 11)
+        * Returns and object with Microsoft pointers (for IE<11 and for IE >= 11)
         * http://msdn.microsoft.com/en-us/library/ie/dn304886(v=vs.85).aspx
         */
         function getMSPointer(){
@@ -2812,4 +2904,3 @@
     };
 
 });
-</11></div></=></=></div></div>

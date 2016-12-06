@@ -118,9 +118,13 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/Home">博客首页</a></li>
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/Home">个人简历</a></li>
                         
                             <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
                         
                             <li><a href="/about">关于我</a></li>
                         
@@ -133,7 +137,7 @@
                             
                                 <a class="fl github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                             
-                                <a class="fl QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -191,9 +195,13 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/Home">博客首页</a></li>
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/Home">个人简历</a></li>
                 
                     <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
                 
                     <li><a href="/about">关于我</a></li>
                 
@@ -207,7 +215,7 @@
                     
                         <a class="github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                     
-                        <a class="QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -215,71 +223,6 @@
     </div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-JS取得绝对路径的实现代码t" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/JS取得绝对路径的实现代码t/" class="article-date">
-      <time datetime="2016-05-13T12:42:32.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/JS取得绝对路径的实现代码t/">JS取得绝对路径的实现代码</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>JS取得绝对路径的实现代码</p>
-<blockquote>
-<p>在项目中，我们经常要得到项目的绝对路径，方便我们上传下载文件，JS为我们提供了方法，虽说要迂回一下。代码如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getRealPath()&#123;</span><br><span class="line">  //获取当前网址，如： http://localhost:8083/myproj/view/my.jsp</span><br><span class="line">   var curWwwPath=window.document.location.href;</span><br><span class="line">   //获取主机地址之后的目录，如： myproj/view/my.jsp</span><br><span class="line">  var pathName=window.document.location.pathname;</span><br><span class="line">  var pos=curWwwPath.indexOf(pathName);</span><br><span class="line">  //获取主机地址，如： http://localhost:8083</span><br><span class="line">  var localhostPaht=curWwwPath.substring(0,pos);</span><br><span class="line">  //获取带&quot;/&quot;的项目名，如：/myproj</span><br><span class="line">  var projectName=pathName.substring(0,pathName.substr(1).indexOf(&apos;/&apos;)+1);</span><br><span class="line"> </span><br><span class="line"> //得到了 http://localhost:8083/myproj</span><br><span class="line">  var realPath=localhostPaht+projectName;</span><br><span class="line">  alert(realPath);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/js/">js</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/获取路径/">获取路径</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-js获取当前路径的简单示例代码" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -966,6 +909,89 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-splice实现数组添加、删除和替换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/06/splice实现数组添加、删除和替换/" class="article-date">
+      <time datetime="2016-05-06T08:59:32.000Z" itemprop="datePublished">2016-05-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/06/splice实现数组添加、删除和替换/">splice实现数组添加、删除和替换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JavaScript提供了一个splice方法用于一次性解决数组添加、删除（这两种方法一结合就可以达到替换效果），方法有三个参数</p>
+<blockquote>
+<p>1.开始索引<br>2.删除元素的位移<br>3.插入的新元素，当然也可以写多个</p>
+</blockquote>
+<p>splice方法返回一个由删除元素组成的新数组，没有删除则返回空数组</p>
+<ul>
+<li><p>var a = new Array(1,2,3,4,5);</p>
+</li>
+<li><p>删除</p>
+</li>
+</ul>
+<p>指定前两个参数，可以使用splice删除数组元素，同样会带来索引调整及length调整</p>
+<p>var a = new Array(1,2,3,4,5);<br>console.log(a.splice(1,3));//[2, 3, 4]<br>console.log(a.length);//2<br>console.log(a);//[1,5]</p>
+<p>如果数组索引不是从0开始的，那么结果会很有意思，有一这样数组</p>
+<p>var a = new Array();<br>a[2]=2;<br>a[3]=3;<br>a[7]=4;<br>a[8]=5;</p>
+<p>console.log(a.splice(3,4)); //[3]<br>console.log(a.length); //5<br>console.log(a); //[2: 2, 3: 4, 4: 5]</p>
+<p>上面例子可以看到，splice的第一个参数是绝对索引值，而不是相对于数组索引，第二个参数并不是删除元素的个数，而是删除动作执行多少次,或者说向后删除的绝对索引个数，并不是按数组实际索引移动，而是连续移动。同时调整后面元素索引，前面索引不理会</p>
+<ul>
+<li>插入与替换</li>
+</ul>
+<p>只要方法第二个参数，也就是删除动作执行的次数设为0，第三个参数及以后填写要插入内容就splice就能执行插入操作，而如果第二个参数不为0则变成了先在该位置删除再插入，也就是替换效果</p>
+<p>var a = new Array(1,2,3,4,5);<br>a.splice(1,0,9,99,999);<br>console.log(a.length); //8<br>console.log(a);//[1, 9, 99, 999, 2, 3, 4, 5]<br>a.splice(1,3,8,88,888);<br>console.log(a.length);//8<br>console.log(a);//[1, 8, 88, 888, 2, 3, 4, 5]</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/js/">js</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/delete/">delete</a></li></ul>
     </div>
 
       

@@ -118,9 +118,13 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/Home">博客首页</a></li>
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/Home">个人简历</a></li>
                         
                             <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
                         
                             <li><a href="/about">关于我</a></li>
                         
@@ -133,7 +137,7 @@
                             
                                 <a class="fl github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                             
-                                <a class="fl QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -191,9 +195,13 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/Home">博客首页</a></li>
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/Home">个人简历</a></li>
                 
                     <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
                 
                     <li><a href="/about">关于我</a></li>
                 
@@ -207,7 +215,7 @@
                     
                         <a class="github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                     
-                        <a class="QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -215,86 +223,6 @@
     </div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-UNICODE与ASCII的区别t" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/UNICODE与ASCII的区别t/" class="article-date">
-      <time datetime="2016-05-18T13:49:32.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/UNICODE与ASCII的区别t/">UNICODE与ASCII的区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>UNICODE与ASCII的区别:<a href="http://blog.csdn.net/lx697/article/details/5914417" target="_blank" rel="external">http://blog.csdn.net/lx697/article/details/5914417</a></p>
-<h3 id="1-ASCII的特点"><a href="#1-ASCII的特点" class="headerlink" title="1.ASCII的特点"></a>1.ASCII的特点</h3><blockquote>
-<p>ASCII 是用来表示英文字符的一种编码规范。每个ASCII字符占用1 个字节，因此，ASCII 编码可以表示的最大字符数是255（00H—FFH）。这对于英文而言，是没有问题的，一般只什么用到前128个(00H–7FH,最高位为0)。而最高位为1 的另128 个字符（80H—FFH）被称为“扩展ASCII”，一般用来存放英文的制表符、部分音标字符等等的一些其它符号。</p>
-</blockquote>
-<ul>
-<li><p>但是对于中文等比较复杂的语言，255个字符显然不够用。于是，各个国家纷纷制定了自己的文字编码规范，其中中文的文字编码规范叫做“GB2312—80”， 它是和ASCII 兼容的一种编码规范， 其实就是利用扩展ASCII没有真正标准化这一点，把一个中文字符用两个扩展ASCII 字符来表示，以区分ASCII 码部分。</p>
-</li>
-<li><p>但是这个方法有问题，最大的问题就是中文的文字编码和扩展ASCII 码有重叠。而很多软件利用扩展ASCII 码的英文制表符来画表格，这样的软件用到中文系统中，这些表格就会被误认作中文字符，出现乱码。另外，由于各国和各地区都有自己的文字编码规则，它们互相冲突，这给各国和各地区交换信息带来了很大的麻烦。</p>
-</li>
-</ul>
-<h3 id="2-UNICODE的产生"><a href="#2-UNICODE的产生" class="headerlink" title="2.UNICODE的产生"></a>2.UNICODE的产生</h3><ul>
-<li>要真正解决这个问题，不能从扩展ASCII 的角度入手，UNICODE作为一个全新的编码系统应运而生，它可以将中文、法文、德文……等等所有的文字统一起来考虑，为每一个文字都分配一个单独的编码。</li>
-</ul>
-<h3 id="3-什么是UNICODE"><a href="#3-什么是UNICODE" class="headerlink" title="3.什么是UNICODE"></a>3.什么是UNICODE</h3><blockquote>
-<p>Unicode与ASCII一样也是一种字符编码方法，它占用两个字节（0000H—FFFFH）,容纳65536 个字符，这完全可以容纳全世界所有语言文字的编码。在Unicode 里，所有的字符都按一个字符来处理， 它们都有一个唯一的Unicode 码。</p>
-</blockquote>
-<h3 id="4-使用UNICODE的好处"><a href="#4-使用UNICODE的好处" class="headerlink" title="4.使用UNICODE的好处"></a>4.使用UNICODE的好处</h3><blockquote>
-<p>使用Unicode 编码可以使您的工程同时支持多种语言， 使您的工程国际化。即在不同语言的系统下不至于产生乱码。</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/html/">html</a><a class="article-category-link" href="/categories/html/编码/">编码</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UNICODE-ASCII/">UNICODE/ASCII</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-JSON.stringify 语法实例" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -415,6 +343,69 @@
 
 
   
+    <article id="post-将json字符串转化为数组" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/将json字符串转化为数组/" class="article-date">
+      <time datetime="2016-05-18T07:49:32.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/将json字符串转化为数组/">将json字符串转化为数组</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JS解析json数据（如何将json字符串转化为数组）</p>
+<p>装载自<a href="http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01" target="_blank" rel="external">http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;HTML&gt;</span><br><span class="line">&lt;HEAD&gt;</span><br><span class="line">&lt;TITLE&gt; New Document &lt;/TITLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t=&quot;&#123;&apos;firstName&apos;: &apos;cyra&apos;, &apos;lastName&apos;: &apos;richardson&apos;, &apos;address&apos;: &#123; &apos;streetAddress&apos;: &apos;1 Microsoft way&apos;, &apos;city&apos;: &apos;Redmond&apos;, &apos;state&apos;: &apos;WA&apos;, &apos;postalCode&apos;: 98052 &#125;,&apos;phoneNumbers&apos;: [ &apos;425-777-7777&apos;,&apos;206-777-7777&apos; ] &#125;&quot;;</span><br><span class="line">var jsonobj=eval(&apos;(&apos;+t+&apos;)&apos;);</span><br><span class="line">alert(jsonobj.firstName); </span><br><span class="line">alert(jsonobj.lastName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t2=&quot;[&#123;name:&apos;zhangsan&apos;,age:&apos;24&apos;&#125;,&#123;name:&apos;lisi&apos;,age:&apos;30&apos;&#125;,&#123;name:&apos;wangwu&apos;,age:&apos;16&apos;&#125;,&#123;name:&apos;tianqi&apos;,age:&apos;7&apos;&#125;] &quot;;</span><br><span class="line">var myobj=eval(t2);</span><br><span class="line">for(var i=0;i&lt;myobj.length;i++)&#123;</span><br><span class="line">alert(myobj[i].name);</span><br><span class="line">alert(myobj[i].age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var t3=&quot;[[&apos;&lt;a href=# onclick=openLink(14113295100,社旗县国税局桥头税务所,14113295100,d6d223892dc94f5bb501d4408a68333d,swjg_dm);&gt;14113295100&lt;/a&gt;&apos;,&apos;社旗县国税局桥头税务所&apos;,&apos;社旗县城郊乡长江路西段&apos;]]&quot;;</span><br><span class="line">//通过eval() 函数可以将JSON字符串转化为对象</span><br><span class="line">var obj = eval(t3);</span><br><span class="line">for(var i=0;i&lt;obj.length;i++)&#123;</span><br><span class="line">for(var j=0;j&lt;obj[i].length;j++)&#123;</span><br><span class="line">alert(obj[i][j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var jsonText = JSON.stringify(obj); </span><br><span class="line">alert(jsonText);</span><br><span class="line"></span><br><span class="line">//如果基于安全的考虑的话，最好是使用一个 JSON 解析器。 一个 JSON 解析器将只接受 JSON 文本。所以是更安全的。</span><br><span class="line">var myObject = JSON.parse(myJSONtext, filter); </span><br><span class="line">//可选的 filter 参数将遍历每一个value key 值对， 并进行相关的处理。如：</span><br><span class="line">//如</span><br><span class="line">myData = JSON.parse(text, function (key, value) &#123;</span><br><span class="line"></span><br><span class="line">return key.indexOf(&apos;date&apos;) &gt;= 0 ? new Date(value) : value; &#125;);</span><br><span class="line"></span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var myJSONText = JSON.stringifier(myObject); </span><br><span class="line">*/</span><br><span class="line">&lt;/SCRIPT&gt;</span><br><span class="line">&lt;/HEAD&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY&gt;</span><br><span class="line"></span><br><span class="line">&lt;/BODY&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-S区分中英文字符的两种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -461,69 +452,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-将json字符串转化为数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/将json字符串转化为数组/" class="article-date">
-      <time datetime="2016-05-18T07:49:32.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/将json字符串转化为数组/">将json字符串转化为数组</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>JS解析json数据（如何将json字符串转化为数组）</p>
-<p>装载自<a href="http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01" target="_blank" rel="external">http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;HTML&gt;</span><br><span class="line">&lt;HEAD&gt;</span><br><span class="line">&lt;TITLE&gt; New Document &lt;/TITLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t=&quot;&#123;&apos;firstName&apos;: &apos;cyra&apos;, &apos;lastName&apos;: &apos;richardson&apos;, &apos;address&apos;: &#123; &apos;streetAddress&apos;: &apos;1 Microsoft way&apos;, &apos;city&apos;: &apos;Redmond&apos;, &apos;state&apos;: &apos;WA&apos;, &apos;postalCode&apos;: 98052 &#125;,&apos;phoneNumbers&apos;: [ &apos;425-777-7777&apos;,&apos;206-777-7777&apos; ] &#125;&quot;;</span><br><span class="line">var jsonobj=eval(&apos;(&apos;+t+&apos;)&apos;);</span><br><span class="line">alert(jsonobj.firstName); </span><br><span class="line">alert(jsonobj.lastName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t2=&quot;[&#123;name:&apos;zhangsan&apos;,age:&apos;24&apos;&#125;,&#123;name:&apos;lisi&apos;,age:&apos;30&apos;&#125;,&#123;name:&apos;wangwu&apos;,age:&apos;16&apos;&#125;,&#123;name:&apos;tianqi&apos;,age:&apos;7&apos;&#125;] &quot;;</span><br><span class="line">var myobj=eval(t2);</span><br><span class="line">for(var i=0;i&lt;myobj.length;i++)&#123;</span><br><span class="line">alert(myobj[i].name);</span><br><span class="line">alert(myobj[i].age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var t3=&quot;[[&apos;&lt;a href=# onclick=openLink(14113295100,社旗县国税局桥头税务所,14113295100,d6d223892dc94f5bb501d4408a68333d,swjg_dm);&gt;14113295100&lt;/a&gt;&apos;,&apos;社旗县国税局桥头税务所&apos;,&apos;社旗县城郊乡长江路西段&apos;]]&quot;;</span><br><span class="line">//通过eval() 函数可以将JSON字符串转化为对象</span><br><span class="line">var obj = eval(t3);</span><br><span class="line">for(var i=0;i&lt;obj.length;i++)&#123;</span><br><span class="line">for(var j=0;j&lt;obj[i].length;j++)&#123;</span><br><span class="line">alert(obj[i][j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var jsonText = JSON.stringify(obj); </span><br><span class="line">alert(jsonText);</span><br><span class="line"></span><br><span class="line">//如果基于安全的考虑的话，最好是使用一个 JSON 解析器。 一个 JSON 解析器将只接受 JSON 文本。所以是更安全的。</span><br><span class="line">var myObject = JSON.parse(myJSONtext, filter); </span><br><span class="line">//可选的 filter 参数将遍历每一个value key 值对， 并进行相关的处理。如：</span><br><span class="line">//如</span><br><span class="line">myData = JSON.parse(text, function (key, value) &#123;</span><br><span class="line"></span><br><span class="line">return key.indexOf(&apos;date&apos;) &gt;= 0 ? new Date(value) : value; &#125;);</span><br><span class="line"></span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var myJSONText = JSON.stringifier(myObject); </span><br><span class="line">*/</span><br><span class="line">&lt;/SCRIPT&gt;</span><br><span class="line">&lt;/HEAD&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY&gt;</span><br><span class="line"></span><br><span class="line">&lt;/BODY&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/javascript/">javascript</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li></ul>
     </div>
 
       
@@ -1042,6 +970,71 @@
 </blockquote>
 <p>所以，这里的instanceof测试的object是指js语法中的object，不是指dom模型对象。<br>使用typeof会有些区别<br>alert(typeof(window) 会得 object </p>
 <p>年轻的时候，先少废话，多做事。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof-typeof/">instanceof/typeof</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-instanceof与typeof" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/16/instanceof与typeof/" class="article-date">
+      <time datetime="2016-05-16T12:49:32.000Z" itemprop="datePublished">2016-05-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/16/instanceof与typeof/">instanceof与typeof</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JS中typeof与instanceof的区别 <a href="http://blog.sina.com.cn/s/blog_532751d90100iv1r.html" target="_blank" rel="external">查看原网页转载▼</a></p>
+<p>JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：<br>typeof<br>typeof 是一个一元运算，放在一个运算数之前，运算数可以是任意类型。<br>它返回值是一个字符串，该字符串说明运算数的类型。typeof 一般只能返回如下几个结果：<br>number,boolean,string,function,object,undefined。我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。<br>网上的一个小例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;</span><br><span class="line">document.write (&quot;typeof(1): &quot;+typeof(1)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(NaN): &quot;+typeof(NaN)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(Number.MIN_VALUE): &quot;+typeof(Number.MIN_VALUE)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(Infinity): &quot;+typeof(Infinity)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(\&quot;123\&quot;): &quot;+typeof(&quot;123&quot;)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(true): &quot;+typeof(true)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(window): &quot;+typeof(window)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(Array()): &quot;+typeof(new Array())+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(function()&#123;&#125;): &quot;+typeof(function()&#123;&#125;)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(document): &quot;+typeof(document)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(null): &quot;+typeof(null)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(eval): &quot;+typeof(eval)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(Date): &quot;+typeof(Date)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(sss): &quot;+typeof(sss)+&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write (&quot;typeof(undefined): &quot;+typeof(undefined)+&quot;&lt;br&gt;&quot;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;title&gt;javascript类型测试&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 查看效果</p>
+<p>instanceof<br>instance：实例,例子<br>a instanceof b?alert(“true”):alert(“false”); //a是b的实例？真:假<br>instanceof 用于判断一个变量是否某个对象的实例，如 var a=new Array();alert(a instanceof Array); 会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。再如：function test(){};var a=new test();alert(a instanceof test) 会返回<br>谈到 instanceof 我们要多插入一个问题，就是 function 的 arguments，我们大家也许都认为 arguments 是一个 Array，但如果使用 instaceof 去测试会发现 arguments 不是一个 Array 对象，尽管看起来很像。<br>另外：<br>测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’Y’<br>但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);<br>得’N’<br>所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。<br>使用 typeof 会有些区别<br>alert(typeof(window)) 会得 object</p>
 
       
     </div>

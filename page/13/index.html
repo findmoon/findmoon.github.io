@@ -118,9 +118,13 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/Home">博客首页</a></li>
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/Home">个人简历</a></li>
                         
                             <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
                         
                             <li><a href="/about">关于我</a></li>
                         
@@ -133,7 +137,7 @@
                             
                                 <a class="fl github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                             
-                                <a class="fl QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
@@ -191,9 +195,13 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/Home">博客首页</a></li>
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/Home">个人简历</a></li>
                 
                     <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
                 
                     <li><a href="/about">关于我</a></li>
                 
@@ -207,7 +215,7 @@
                     
                         <a class="github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
                     
-                        <a class="QQ" target="_blank" href="/1286637198" title="QQ">QQ</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
                     
                 </div>
             </nav>
@@ -215,81 +223,6 @@
     </div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-使用border产生三角形的原理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/使用border产生三角形的原理/" class="article-date">
-      <time datetime="2016-05-05T01:19:32.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/使用border产生三角形的原理/">使用border产生三角形的原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>先看一个效果图</p>
-<p><img src="/img/border/abc.jpg" alt=""></p>
-<p>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#triangle-up &#123;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">width</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">height</span><br><span class="line">: </span><br><span class="line">0</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-left</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-right</span><br><span class="line">: </span><br><span class="line">50px </span><br><span class="line">solid </span><br><span class="line">transparent</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">border-bottom</span><br><span class="line">: </span><br><span class="line">100px </span><br><span class="line">solid </span><br><span class="line">red</span><br><span class="line">;</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>首先，我们需要了解HTML标记的Box Model（盒模型），这个例子中，我们将content，padding都看作content。忽略掉margin。那么一个盒模型就是下图</p>
-<p><img src="/img/border/a.jpg" alt=""></p>
-<p>中间是内容，然后是4条边。每一条边都有宽度。<br>根据上面CSS的定义，没有border-top（顶边）的情形下 ,我们的图形如下：</p>
-<p><img src="/img/border/b.jpg" alt=""></p>
-<p>width设置为0后 ，内容没有了就成为下图：</p>
-<p><img src="/img/border/c.png" alt=""></p>
-<p>height也设置为0，只有底边了。</p>
-<p><img src="/img/border/25225422.png" alt=""></p>
-<p>然后两条边都是设置为透明，最后我们就得到了</p>
-<p><img src="/img/border/25225422_sqLx.png" alt=""></p>
-<p>这个属于奇技淫巧，但是也说明CSS的强大，没有做不到只有想不到。另外<a href="http://css-tricks.com/examples/ShapesOfCSS/" target="_blank" rel="external">http://css-tricks.com/examples/ShapesOfCSS/</a> 还能找到很多其他的形状，感兴趣的同学可以自己去看。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/css/">css</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/border/">border</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-使用border制作各种图形(二)" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -551,72 +484,6 @@
 
 
   
-    <article id="post-文档流" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/文档流/" class="article-date">
-      <time datetime="2016-05-05T01:05:32.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/文档流/">文档流</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>文档流的概念指什么？有哪种方式可以让元素脱离文档流?</p>
-<ul>
-<li>文档流是指可显示对象在文档中排列时所占用的位置，html的文档流指的是位于页面中的元素依照原始的书写位置从上到下、从左到右依次显示出来的位置</li>
-<li>position定位中的absolute、fixed，浮动float属性</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/随笔/">随笔</a><a class="article-category-link" href="/categories/随笔/文档流/">文档流</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-定位方式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -679,6 +546,72 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/position/">position</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-文档流" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/文档流/" class="article-date">
+      <time datetime="2016-05-05T01:05:32.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/文档流/">文档流</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>文档流的概念指什么？有哪种方式可以让元素脱离文档流?</p>
+<ul>
+<li>文档流是指可显示对象在文档中排列时所占用的位置，html的文档流指的是位于页面中的元素依照原始的书写位置从上到下、从左到右依次显示出来的位置</li>
+<li>position定位中的absolute、fixed，浮动float属性</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/随笔/">随笔</a><a class="article-category-link" href="/categories/随笔/文档流/">文档流</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
     </div>
 
       
@@ -1012,6 +945,78 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/float/">float</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-css hack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/css hack/" class="article-date">
+      <time datetime="2016-05-04T07:17:38.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/css hack/">css hack</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>由于不同厂商的浏览器或浏览器的不同版本（如IE6-IE11,Firefox/Safari/Opera/Chrome等）对CSS的支持、解析不一样，导致在不同浏览器的环境中呈现出不一致的页面展现效果。这时，我们为了获得统一的页面效果，就需要针对不同的浏览器或不同版本写特定的CSS样式，我们把这个针对不同的浏览器/不同版本写相应的CSS code的过程，叫做CSS hack；</p>
+<ul>
+<li>hack的书写有以下三种方式： </li>
+</ul>
+<p>1、属性前缀法(即类内部Hack)，例如 IE6能识别下划线”_“和星号”<em>”，IE7能识别星号”</em>”，但不能识别下划线”“;</p>
+<p>2、选择器前缀法(即选择器Hack)，例如 IE6能识别<em> .class{}，IE7能识别</em>+ .class{}； </p>
+<p>3、IE条件注释法（即HTML头部引用if IE）例如：<br> <!--[if IE 6]>
+     <p>You are using Internet Explorer 6.</p>
+     <![endif]--><br>     <!--[if !IE]><!--><br>     <script>alert(1);</script><br>     <!--<![endif]--><br>     <!--[if IE 8]>
+     <link href="ie8only.css" rel="stylesheet">
+     <![endif]--><br>```</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/随笔/">随笔</a><a class="article-category-link" href="/categories/随笔/hack/">hack</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hack/">hack</a></li></ul>
     </div>
 
       
