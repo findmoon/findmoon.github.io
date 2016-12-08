@@ -579,6 +579,69 @@
 
 
   
+    <article id="post-将json字符串转化为数组" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/将json字符串转化为数组/" class="article-date">
+      <time datetime="2016-05-18T07:49:32.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/将json字符串转化为数组/">将json字符串转化为数组</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JS解析json数据（如何将json字符串转化为数组）</p>
+<p>装载自<a href="http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01" target="_blank" rel="external">http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;HTML&gt;</span><br><span class="line">&lt;HEAD&gt;</span><br><span class="line">&lt;TITLE&gt; New Document &lt;/TITLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t=&quot;&#123;&apos;firstName&apos;: &apos;cyra&apos;, &apos;lastName&apos;: &apos;richardson&apos;, &apos;address&apos;: &#123; &apos;streetAddress&apos;: &apos;1 Microsoft way&apos;, &apos;city&apos;: &apos;Redmond&apos;, &apos;state&apos;: &apos;WA&apos;, &apos;postalCode&apos;: 98052 &#125;,&apos;phoneNumbers&apos;: [ &apos;425-777-7777&apos;,&apos;206-777-7777&apos; ] &#125;&quot;;</span><br><span class="line">var jsonobj=eval(&apos;(&apos;+t+&apos;)&apos;);</span><br><span class="line">alert(jsonobj.firstName); </span><br><span class="line">alert(jsonobj.lastName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t2=&quot;[&#123;name:&apos;zhangsan&apos;,age:&apos;24&apos;&#125;,&#123;name:&apos;lisi&apos;,age:&apos;30&apos;&#125;,&#123;name:&apos;wangwu&apos;,age:&apos;16&apos;&#125;,&#123;name:&apos;tianqi&apos;,age:&apos;7&apos;&#125;] &quot;;</span><br><span class="line">var myobj=eval(t2);</span><br><span class="line">for(var i=0;i&lt;myobj.length;i++)&#123;</span><br><span class="line">alert(myobj[i].name);</span><br><span class="line">alert(myobj[i].age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var t3=&quot;[[&apos;&lt;a href=# onclick=openLink(14113295100,社旗县国税局桥头税务所,14113295100,d6d223892dc94f5bb501d4408a68333d,swjg_dm);&gt;14113295100&lt;/a&gt;&apos;,&apos;社旗县国税局桥头税务所&apos;,&apos;社旗县城郊乡长江路西段&apos;]]&quot;;</span><br><span class="line">//通过eval() 函数可以将JSON字符串转化为对象</span><br><span class="line">var obj = eval(t3);</span><br><span class="line">for(var i=0;i&lt;obj.length;i++)&#123;</span><br><span class="line">for(var j=0;j&lt;obj[i].length;j++)&#123;</span><br><span class="line">alert(obj[i][j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var jsonText = JSON.stringify(obj); </span><br><span class="line">alert(jsonText);</span><br><span class="line"></span><br><span class="line">//如果基于安全的考虑的话，最好是使用一个 JSON 解析器。 一个 JSON 解析器将只接受 JSON 文本。所以是更安全的。</span><br><span class="line">var myObject = JSON.parse(myJSONtext, filter); </span><br><span class="line">//可选的 filter 参数将遍历每一个value key 值对， 并进行相关的处理。如：</span><br><span class="line">//如</span><br><span class="line">myData = JSON.parse(text, function (key, value) &#123;</span><br><span class="line"></span><br><span class="line">return key.indexOf(&apos;date&apos;) &gt;= 0 ? new Date(value) : value; &#125;);</span><br><span class="line"></span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var myJSONText = JSON.stringifier(myObject); </span><br><span class="line">*/</span><br><span class="line">&lt;/SCRIPT&gt;</span><br><span class="line">&lt;/HEAD&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY&gt;</span><br><span class="line"></span><br><span class="line">&lt;/BODY&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/javascript/">javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-S区分中英文字符的两种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -625,69 +688,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-将json字符串转化为数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/18/将json字符串转化为数组/" class="article-date">
-      <time datetime="2016-05-18T07:49:32.000Z" itemprop="datePublished">2016-05-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/将json字符串转化为数组/">将json字符串转化为数组</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>JS解析json数据（如何将json字符串转化为数组）</p>
-<p>装载自<a href="http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01" target="_blank" rel="external">http://hi.baidu.com/jiangzhong8715/item/b60dad33937e35109cc65e01</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;HTML&gt;</span><br><span class="line">&lt;HEAD&gt;</span><br><span class="line">&lt;TITLE&gt; New Document &lt;/TITLE&gt;</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t=&quot;&#123;&apos;firstName&apos;: &apos;cyra&apos;, &apos;lastName&apos;: &apos;richardson&apos;, &apos;address&apos;: &#123; &apos;streetAddress&apos;: &apos;1 Microsoft way&apos;, &apos;city&apos;: &apos;Redmond&apos;, &apos;state&apos;: &apos;WA&apos;, &apos;postalCode&apos;: 98052 &#125;,&apos;phoneNumbers&apos;: [ &apos;425-777-7777&apos;,&apos;206-777-7777&apos; ] &#125;&quot;;</span><br><span class="line">var jsonobj=eval(&apos;(&apos;+t+&apos;)&apos;);</span><br><span class="line">alert(jsonobj.firstName); </span><br><span class="line">alert(jsonobj.lastName);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var t2=&quot;[&#123;name:&apos;zhangsan&apos;,age:&apos;24&apos;&#125;,&#123;name:&apos;lisi&apos;,age:&apos;30&apos;&#125;,&#123;name:&apos;wangwu&apos;,age:&apos;16&apos;&#125;,&#123;name:&apos;tianqi&apos;,age:&apos;7&apos;&#125;] &quot;;</span><br><span class="line">var myobj=eval(t2);</span><br><span class="line">for(var i=0;i&lt;myobj.length;i++)&#123;</span><br><span class="line">alert(myobj[i].name);</span><br><span class="line">alert(myobj[i].age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var t3=&quot;[[&apos;&lt;a href=# onclick=openLink(14113295100,社旗县国税局桥头税务所,14113295100,d6d223892dc94f5bb501d4408a68333d,swjg_dm);&gt;14113295100&lt;/a&gt;&apos;,&apos;社旗县国税局桥头税务所&apos;,&apos;社旗县城郊乡长江路西段&apos;]]&quot;;</span><br><span class="line">//通过eval() 函数可以将JSON字符串转化为对象</span><br><span class="line">var obj = eval(t3);</span><br><span class="line">for(var i=0;i&lt;obj.length;i++)&#123;</span><br><span class="line">for(var j=0;j&lt;obj[i].length;j++)&#123;</span><br><span class="line">alert(obj[i][j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var jsonText = JSON.stringify(obj); </span><br><span class="line">alert(jsonText);</span><br><span class="line"></span><br><span class="line">//如果基于安全的考虑的话，最好是使用一个 JSON 解析器。 一个 JSON 解析器将只接受 JSON 文本。所以是更安全的。</span><br><span class="line">var myObject = JSON.parse(myJSONtext, filter); </span><br><span class="line">//可选的 filter 参数将遍历每一个value key 值对， 并进行相关的处理。如：</span><br><span class="line">//如</span><br><span class="line">myData = JSON.parse(text, function (key, value) &#123;</span><br><span class="line"></span><br><span class="line">return key.indexOf(&apos;date&apos;) &gt;= 0 ? new Date(value) : value; &#125;);</span><br><span class="line"></span><br><span class="line">//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。</span><br><span class="line">var myJSONText = JSON.stringifier(myObject); </span><br><span class="line">*/</span><br><span class="line">&lt;/SCRIPT&gt;</span><br><span class="line">&lt;/HEAD&gt;</span><br><span class="line"></span><br><span class="line">&lt;BODY&gt;</span><br><span class="line"></span><br><span class="line">&lt;/BODY&gt;</span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/javascript/">javascript</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li></ul>
     </div>
 
       

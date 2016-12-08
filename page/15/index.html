@@ -294,6 +294,88 @@
 
 
   
+    <article id="post-js变量及对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/js变量及对象/" class="article-date">
+      <time datetime="2016-05-05T12:55:32.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/js变量及对象/">js变量及对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JavaScript是弱类型语言，但不是没有数据类型，ECMAScript规定了5种简单的数据类型</p>
+<blockquote>
+<p>Null<br>Undefined<br>Boolean<br>Number<br>String</p>
+</blockquote>
+<p>还有一种复杂的数据类型——Object，Object本质是一组无序的名值对组合，ECMAScript不支持自定义数据类型，所以任何值最终都是上述六种类型之</p>
+<ul>
+<li><p>对象（object）是JavaScript的核心概念，也是最重要的数据类型。JavaScript的所有数据都可以被视为对象，这也是我们常说的一切皆为对象。</p>
+</li>
+<li><p>简单说，所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成。key我们称为对象的属性，value可以是任何JavaScript类型，甚至可以是对象</p>
+</li>
+</ul>
+<p>var o = new Object();<br>o.name = ‘Byron’;<br>o.age = 24;</p>
+<ul>
+<li>我们也可以通过字面量的方式定义对象，实际上这种方法更常用</li>
+</ul>
+<p>var o = {<br>    name: ‘Byron’,<br>    age:24<br>}</p>
+<ul>
+<li>key可以使用引号包裹，也可以直接写，对象有一个默认的方法toString，用来返回对象的字符串表示</li>
+</ul>
+<p>console.log(o); // Object {name: “Byron”, age: 24}<br>console.log(o.toString()); // [object Object]<br>object的属性读取有两种方式</p>
+<p>o.name;<br>o[‘name’];</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/js/">js</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量/">变量</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js变量提升" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -363,11 +445,11 @@
 
 
   
-    <article id="post-js变量及对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CSS设置placeholder文本的样式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/05/js变量及对象/" class="article-date">
-      <time datetime="2016-05-05T12:55:32.000Z" itemprop="datePublished">2016-05-05</time>
+      <a href="/2016/05/05/CSS设置placeholder文本的样式/" class="article-date">
+      <time datetime="2016-05-05T12:45:32.000Z" itemprop="datePublished">2016-05-05</time>
 </a>
     </div>
   
@@ -380,7 +462,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/js变量及对象/">js变量及对象</a>
+      <a class="article-title" href="/2016/05/05/CSS设置placeholder文本的样式/">设置placeholder文本的样式</a>
     </h1>
   
 
@@ -390,27 +472,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JavaScript是弱类型语言，但不是没有数据类型，ECMAScript规定了5种简单的数据类型</p>
-<blockquote>
-<p>Null<br>Undefined<br>Boolean<br>Number<br>String</p>
-</blockquote>
-<p>还有一种复杂的数据类型——Object，Object本质是一组无序的名值对组合，ECMAScript不支持自定义数据类型，所以任何值最终都是上述六种类型之</p>
-<ul>
-<li><p>对象（object）是JavaScript的核心概念，也是最重要的数据类型。JavaScript的所有数据都可以被视为对象，这也是我们常说的一切皆为对象。</p>
-</li>
-<li><p>简单说，所谓对象，就是一种无序的数据集合，由若干个“键值对”（key-value）构成。key我们称为对象的属性，value可以是任何JavaScript类型，甚至可以是对象</p>
-</li>
-</ul>
-<p>var o = new Object();<br>o.name = ‘Byron’;<br>o.age = 24;</p>
-<ul>
-<li>我们也可以通过字面量的方式定义对象，实际上这种方法更常用</li>
-</ul>
-<p>var o = {<br>    name: ‘Byron’,<br>    age:24<br>}</p>
-<ul>
-<li>key可以使用引号包裹，也可以直接写，对象有一个默认的方法toString，用来返回对象的字符串表示</li>
-</ul>
-<p>console.log(o); // Object {name: “Byron”, age: 24}<br>console.log(o.toString()); // [object Object]<br>object的属性读取有两种方式</p>
-<p>o.name;<br>o[‘name’];</p>
+        <p>CSS设置placeholder文本的样式 </p>
+<p>placeholder是HTML5  input的新属性，英文意思是占位符，它一般表示input输入框的默认提示值。</p>
+<p>当然我们今天讨论的不是placeholder这个属性，而是设置placeholder的文本样式的选择器。</p>
+<p>火狐和webkit核心浏览器的属性名字不一样，谁叫不是一个娘生的呢。</p>
+<p>/<em> webkit 浏览器</em>/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#field1::-webkit-input-placeholder &#123; color:#00f; &#125;</span><br><span class="line">#field2::-webkit-input-placeholder &#123;</span><br><span class="line">    color:#090;</span><br><span class="line">    background:lightgreen;</span><br><span class="line">    text-transform:uppercase;</span><br><span class="line">&#125;</span><br><span class="line">#field3::-webkit-input-placeholder &#123;</span><br><span class="line">    font-style:italic;</span><br><span class="line">    text-decoration:overline;</span><br><span class="line">    letter-spacing:3px;</span><br><span class="line">    color:#999;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>/<em> 火狐浏览器 </em>/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#field1::-moz-placeholder &#123; color:#00f; &#125;</span><br><span class="line">#field2::-moz-placeholder &#123;</span><br><span class="line">    color:#090;</span><br><span class="line">    background:lightgreen;</span><br><span class="line">    text-transform:uppercase;</span><br><span class="line">&#125;</span><br><span class="line">#field3::-moz-placeholder &#123;</span><br><span class="line">    font-style:italic;</span><br><span class="line">    text-decoration:overline;</span><br><span class="line">    letter-spacing:3px;</span><br><span class="line">    color:#999;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，和CSS设置::selection选中文本样式一样，你只能设置几个和文本有关系的CSS样式：Color, font-style, font-variant, background, text-decoration<br>实例demo</p>
+<p>PS：IE从IE 10才开始支持placeholder属性，伪选择器名字还不得而知，估计是加前缀-ms-了</p>
 
       
     </div>
@@ -419,13 +488,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/js/">js</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/css/">css</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量/">变量</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/placeholder/">placeholder</a></li></ul>
     </div>
 
       
@@ -512,75 +581,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语法/">语法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CSS设置placeholder文本的样式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/CSS设置placeholder文本的样式/" class="article-date">
-      <time datetime="2016-05-05T12:45:32.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/CSS设置placeholder文本的样式/">设置placeholder文本的样式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>CSS设置placeholder文本的样式 </p>
-<p>placeholder是HTML5  input的新属性，英文意思是占位符，它一般表示input输入框的默认提示值。</p>
-<p>当然我们今天讨论的不是placeholder这个属性，而是设置placeholder的文本样式的选择器。</p>
-<p>火狐和webkit核心浏览器的属性名字不一样，谁叫不是一个娘生的呢。</p>
-<p>/<em> webkit 浏览器</em>/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#field1::-webkit-input-placeholder &#123; color:#00f; &#125;</span><br><span class="line">#field2::-webkit-input-placeholder &#123;</span><br><span class="line">    color:#090;</span><br><span class="line">    background:lightgreen;</span><br><span class="line">    text-transform:uppercase;</span><br><span class="line">&#125;</span><br><span class="line">#field3::-webkit-input-placeholder &#123;</span><br><span class="line">    font-style:italic;</span><br><span class="line">    text-decoration:overline;</span><br><span class="line">    letter-spacing:3px;</span><br><span class="line">    color:#999;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>/<em> 火狐浏览器 </em>/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#field1::-moz-placeholder &#123; color:#00f; &#125;</span><br><span class="line">#field2::-moz-placeholder &#123;</span><br><span class="line">    color:#090;</span><br><span class="line">    background:lightgreen;</span><br><span class="line">    text-transform:uppercase;</span><br><span class="line">&#125;</span><br><span class="line">#field3::-moz-placeholder &#123;</span><br><span class="line">    font-style:italic;</span><br><span class="line">    text-decoration:overline;</span><br><span class="line">    letter-spacing:3px;</span><br><span class="line">    color:#999;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当然，和CSS设置::selection选中文本样式一样，你只能设置几个和文本有关系的CSS样式：Color, font-style, font-variant, background, text-decoration<br>实例demo</p>
-<p>PS：IE从IE 10才开始支持placeholder属性，伪选择器名字还不得而知，估计是加前缀-ms-了</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/css/">css</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/placeholder/">placeholder</a></li></ul>
     </div>
 
       
