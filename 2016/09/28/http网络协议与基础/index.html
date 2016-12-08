@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>http网络协议与基础 | findmoon白色蜗牛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. OSI 七层模型指什么 (难度*)OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ
+1，物理层：将信息编码成电流脉冲或其他信号用于网上传输（原始比特流的传输）——对应网络中的：中继器，集线器、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http网络协议与基础">
+<meta property="og:url" content="//findmoon.github.io/index.html/2016/09/28/http网络协议与基础/index.html">
+<meta property="og:site_name" content="findmoon白色蜗牛">
+<meta property="og:description" content="1. OSI 七层模型指什么 (难度*)OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ
+1，物理层：将信息编码成电流脉冲或其他信号用于网上传输（原始比特流的传输）——对应网络中的：中继器，集线器、">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/0ea600c1-e863-4314-89ca-2270068750fd">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/ed4ff240-e948-4e76-89a0-6017bb90b338">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/1a0421b2-762d-49ab-bf09-3e8e77e39dd1">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/a7eebda0-986f-447f-8781-8dee51c635d8">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/e877060d-03e3-42db-b66b-b1d78f475e66">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/29507c40-e677-435e-ae25-0715d496392f">
+<meta property="og:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/257149f7-1e11-4262-9b15-159389db83c6">
+<meta property="og:updated_time" content="2016-12-08T03:49:43.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http网络协议与基础">
+<meta name="twitter:description" content="1. OSI 七层模型指什么 (难度*)OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ
+1，物理层：将信息编码成电流脉冲或其他信号用于网上传输（原始比特流的传输）——对应网络中的：中继器，集线器、">
+<meta name="twitter:image" content="http://7xpvnv.com2.z0.glb.qiniucdn.com/0ea600c1-e863-4314-89ca-2270068750fd">
+  
+    <link rel="alternative" href="/atom.xml" title="findmoon白色蜗牛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">findmoon</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一个试图专注于自身的成长者</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/Home">个人简历</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/about">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=hre0vrCwtbG3v77G9-eo5enr" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Array/" style="font-size: 11.43px;">Array</a> <a href="/tags/Arry-string-math/" style="font-size: 10px;">Arry/string/math</a> <a href="/tags/BFC/" style="font-size: 11.43px;">BFC</a> <a href="/tags/Backbone/" style="font-size: 10px;">Backbone</a> <a href="/tags/CSS3动画/" style="font-size: 10px;">CSS3动画</a> <a href="/tags/DNS解析域名/" style="font-size: 10px;">DNS解析域名</a> <a href="/tags/DOCTYPE/" style="font-size: 10px;">DOCTYPE</a> <a href="/tags/DOM事件/" style="font-size: 10px;">DOM事件</a> <a href="/tags/Data/" style="font-size: 10px;">Data</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/MV模式/" style="font-size: 12.86px;">MV模式</a> <a href="/tags/Mocha/" style="font-size: 10px;">Mocha</a> <a href="/tags/OO/" style="font-size: 10px;">OO</a> <a href="/tags/TCP-UDP/" style="font-size: 11.43px;">TCP/UDP</a> <a href="/tags/TCP三次握手/" style="font-size: 10px;">TCP三次握手</a> <a href="/tags/TDD/" style="font-size: 10px;">TDD</a> <a href="/tags/UNICODE-ASCII/" style="font-size: 10px;">UNICODE/ASCII</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/animate/" style="font-size: 10px;">animate()</a> <a href="/tags/animate动画队列/" style="font-size: 10px;">animate动画队列</a> <a href="/tags/background-image/" style="font-size: 10px;">background-image</a> <a href="/tags/border/" style="font-size: 12.86px;">border</a> <a href="/tags/border图形/" style="font-size: 10px;">border图形</a> <a href="/tags/box-shadow/" style="font-size: 10px;">box-shadow</a> <a href="/tags/console-log/" style="font-size: 10px;">console.log()</a> <a href="/tags/css/" style="font-size: 12.86px;">css</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/css属性/" style="font-size: 11.43px;">css属性</a> <a href="/tags/css样式/" style="font-size: 10px;">css样式</a> <a href="/tags/deferred/" style="font-size: 11.43px;">deferred</a> <a href="/tags/delete/" style="font-size: 11.43px;">delete</a> <a href="/tags/first-child/" style="font-size: 10px;">first-child</a> <a href="/tags/first-of-type/" style="font-size: 10px;">first-of-type</a> <a href="/tags/float/" style="font-size: 11.43px;">float</a> <a href="/tags/font-face/" style="font-size: 10px;">font-face</a> <a href="/tags/form表单/" style="font-size: 10px;">form表单</a> <a href="/tags/get/" style="font-size: 10px;">get</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/git错误/" style="font-size: 10px;">git错误</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/haslayout/" style="font-size: 10px;">haslayout</a> <a href="/tags/html/" style="font-size: 17.14px;">html</a> <a href="/tags/html-css/" style="font-size: 11.43px;">html/css</a> <a href="/tags/http/" style="font-size: 12.86px;">http</a> <a href="/tags/http状态码/" style="font-size: 10px;">http状态码</a> <a href="/tags/inline-block/" style="font-size: 10px;">inline-block</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/instanceof-typeof/" style="font-size: 11.43px;">instanceof/typeof</a> <a href="/tags/jQuery/" style="font-size: 11.43px;">jQuery</a> <a href="/tags/js/" style="font-size: 18.57px;">js</a> <a href="/tags/json/" style="font-size: 12.86px;">json</a> <a href="/tags/js严格模式/" style="font-size: 10px;">js严格模式</a> <a href="/tags/js加载/" style="font-size: 10px;">js加载</a> <a href="/tags/js模板引擎/" style="font-size: 10px;">js模板引擎</a> <a href="/tags/js鼠标位置/" style="font-size: 10px;">js鼠标位置</a> <a href="/tags/list-style/" style="font-size: 10px;">list-style</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/offset/" style="font-size: 10px;">offset()</a> <a href="/tags/overflow/" style="font-size: 10px;">overflow</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/placeholder/" style="font-size: 10px;">placeholder</a> <a href="/tags/position/" style="font-size: 10px;">position</a> <a href="/tags/position文档流/" style="font-size: 10px;">position文档流</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/scopechain/" style="font-size: 10px;">scopechain</a> <a href="/tags/stopImmediatePropagation/" style="font-size: 10px;">stopImmediatePropagation</a> <a href="/tags/stringify/" style="font-size: 10px;">stringify</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/this/" style="font-size: 12.86px;">this</a> <a href="/tags/typeof/" style="font-size: 11.43px;">typeof</a> <a href="/tags/undefined/" style="font-size: 10px;">undefined</a> <a href="/tags/url加载/" style="font-size: 10px;">url加载</a> <a href="/tags/warterfall/" style="font-size: 10px;">warterfall</a> <a href="/tags/zoom/" style="font-size: 10px;">zoom</a> <a href="/tags/代码书写/" style="font-size: 10px;">代码书写</a> <a href="/tags/函数/" style="font-size: 14.29px;">函数</a> <a href="/tags/列表/" style="font-size: 10px;">列表</a> <a href="/tags/前端/" style="font-size: 14.29px;">前端</a> <a href="/tags/前端css/" style="font-size: 12.86px;">前端css</a> <a href="/tags/前端html/" style="font-size: 10px;">前端html</a> <a href="/tags/动画animation/" style="font-size: 10px;">动画animation</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/变量/" style="font-size: 11.43px;">变量</a> <a href="/tags/同源策略/" style="font-size: 10px;">同源策略</a> <a href="/tags/同源跨域/" style="font-size: 15.71px;">同源跨域</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/tags/字面量/" style="font-size: 10px;">字面量</a> <a href="/tags/库与架构/" style="font-size: 10px;">库与架构</a> <a href="/tags/懒加载/" style="font-size: 10px;">懒加载</a> <a href="/tags/数学函数/" style="font-size: 10px;">数学函数</a> <a href="/tags/数据包组装/" style="font-size: 10px;">数据包组装</a> <a href="/tags/数组/" style="font-size: 11.43px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/标记语言/" style="font-size: 10px;">标记语言</a> <a href="/tags/模块化/" style="font-size: 10px;">模块化</a> <a href="/tags/模块化编程/" style="font-size: 12.86px;">模块化编程</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/盒模型/" style="font-size: 10px;">盒模型</a> <a href="/tags/立即执行函数/" style="font-size: 10px;">立即执行函数</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a> <a href="/tags/继承/" style="font-size: 10px;">继承</a> <a href="/tags/网站访问/" style="font-size: 10px;">网站访问</a> <a href="/tags/获取路径/" style="font-size: 14.29px;">获取路径</a> <a href="/tags/行内元素/" style="font-size: 10px;">行内元素</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/跨域请求/" style="font-size: 11.43px;">跨域请求</a> <a href="/tags/跨域请求处理方法/" style="font-size: 10px;">跨域请求处理方法</a> <a href="/tags/选择器/" style="font-size: 10px;">选择器</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">人生是一场不断的转换，我们总是不断地试着所向披靡</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">findmoon</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">findmoon</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一个试图专注于自身的成长者</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/Home">个人简历</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/about">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=hre0vrCwtbG3v77G9-eo5enr" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/findmoon/mywork" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/2637672265?is_all=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-http网络协议与基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/28/http网络协议与基础/" class="article-date">
+      <time datetime="2016-09-28T12:17:56.000Z" itemprop="datePublished">2016-09-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      http网络协议与基础
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/前端学习/">前端学习</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-OSI-七层模型指什么-难度"><a href="#1-OSI-七层模型指什么-难度" class="headerlink" title="1. OSI 七层模型指什么 (难度*)"></a>1. OSI 七层模型指什么 (难度<em>*</em>)</h2><h4 id="OSI参考模型（OSI-RM）的全称是开放系统互连参考模型（Open-System-Interconnection-Reference-Model，OSI-RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ"><a href="#OSI参考模型（OSI-RM）的全称是开放系统互连参考模型（Open-System-Interconnection-Reference-Model，OSI-RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ" class="headerlink" title="OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ"></a>OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ</h4><ul>
+<li>1，物理层：将信息编码成电流脉冲或其他信号用于网上传输（原始比特流的传输）——对应网络中的：中继器，集线器、网线、HUB</li>
+<li>2，数据链路层：通过物理网络链路供数据传输（将数据分帧，并处理流控制。本层指定拓扑结构并提供硬件寻址）——对应网络中的：网卡，网桥，交换机</li>
+<li>3，网络层：把网络地址翻译成物理地址，决定数据的路径选择和转寄，IPv4，IPv6（本层通过寻址来建立两个节点之间的连接，它包括通过互连网络来路由和中继数据）——对应于网络中的：网络：路由器，防火墙、多层交换机</li>
+<li>4，传输层：向高层提供可靠的端与端的网络数据流服务（常规数据递送，面向连接或无连接。包括全双工或半双工、流控制和错误恢复服务 ）——对应于计算机：进程和端口</li>
+<li>5，会话层：实现不同机器上的用户建立对话关系（在两个节点之间建立端连接。此服务包括建立连接是以全双工还是以半双工的方式进行设置，尽管可以在层4中处理双工方式）——对应于计算机：建立会话，SESSION认证、断点续传</li>
+<li>6，表示层：用于应用数据编码和转化，以确保一个系统应用层发送的信息可以被另一个系统应用层识别。（格式化数据，以便为应用程序提供通用接口。这可以包括加密服务。解决不同系统之间的通信）——对应于计算机：编码方式，图像编解码、URL字段传输编码</li>
+<li>7，应用层：规定数据的传输协议（直接对应用程序提供服务，应用程序可以变化，但要包括电子消息传输）——对应于计算机：应用程序，如FTP，SMTP，HTTP</li>
+</ul>
+<a id="more"></a>
+<p><em>部分参考：<a href="http://www.2cto.com/net/201307/232200.html" target="_blank" rel="external">http://www.2cto.com/net/201307/232200.html</a></em></p>
+<h2 id="2-HTTP-的工作原理是什么？-难度"><a href="#2-HTTP-的工作原理是什么？-难度" class="headerlink" title="2. HTTP 的工作原理是什么？ (难度*)"></a>2. HTTP 的工作原理是什么？ (难度<em>*</em>)</h2><ul>
+<li>HTTP通信机制是一次Web浏览器与Web服务器之间完整的HTTP通信过程<blockquote>
+<p>1 . 建立TCP连接,与ip协议构成tcp/ip协议族，建立网络连接<br>2 .Web浏览器向Web服务器发送请求命令<br>3 . 请求命令发送后， Web浏览器发送请求头信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。<br>4 .Web服务器应答，应答的第一部分是协议的版本号和应答状态码<br>5 .Web服务器发送应答头信息，服务器随同应答向用户发送关于它自己的数据及被请求的文档<br>6 .Web服务器向浏览器发送数据，应答头信息发送完后，服务器以Content-Type应答头信息所描述的格式发送用户所请求的实际数据<br>7 .关闭TCP连接，Web服务器向浏览器发送了请求数据后就要关闭TCP连接，如果浏览器或者服务器在其头信息加入了这行代码：Connection:keep-alive.TCP连接在发送后将仍然保持打开状态</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-URI-的格式是什么？常见的协议有哪些-难度"><a href="#3-URI-的格式是什么？常见的协议有哪些-难度" class="headerlink" title="3.URI 的格式是什么？常见的协议有哪些 (难度*)"></a>3.URI 的格式是什么？常见的协议有哪些 (难度<em>*</em>)</h2><ul>
+<li>URI：统一资源标识符，是更通用的资源标识符，URL是他的一个子集。<br>URI由两个子集构成<ul>
+<li>URL：通过描述资源的位置来描述资源</li>
+<li>URN：通过名字来识别资源和位置无关</li>
+</ul>
+</li>
+<li><p>格式：<scheme>://<user>:<password>@<host>:<port>/<path></path><params>?<query>#<hash>    </hash></query></params></port></host></password></user></scheme></p>
+<blockquote>
+<p>scheme:指的是协议<br>user和password现在不常见了，不会在URL明文书写用户名和密码了，都是通过登录的方式<br>host是主机的域名<br>port是端口号，http默认是80<br>path是资源的路径<br>params，在一些协议中需要参数来访问资源，例如ftp是二进制还是文本传输，参数是名值对，用;隔开<br>query：这个是get请求最常用的传递参数方式了 ?a=1&amp;b=2&amp;=3<br>hash也成为片段，设计为标识文档的一部分，很多MVVM框架用作了路由功能</p>
+</blockquote>
+</li>
+<li><p>常见的协议有：http: 超文本传输协议</p>
+<ul>
+<li>https: 安全套接字层超文本传输协议</li>
+<li>ftb: 文件传输协议</li>
+<li>mailto: 电子邮件协议</li>
+<li>file: 本地文件传输协议</li>
+</ul>
+</li>
+</ul>
+<h2 id="４-HTTP-协议有几种和服务器交互的方法-难度"><a href="#４-HTTP-协议有几种和服务器交互的方法-难度" class="headerlink" title="４. HTTP 协议有几种和服务器交互的方法 (难度*)"></a>４. HTTP 协议有几种和服务器交互的方法 (难度<em>*</em>)</h2><blockquote>
+<p>1、get ：GET是最常用的方法，通常用于请求服务器发送某个资源<br>2、post  ：POST用于向服务器发送数据，通常用来支持HTML的表单（input、select、textarea），表单中的数据会被发送到服务器<br>3、head ：HEAD方法和GET类似，但是在服务器的响应中没有资源的内容，只有资源的一些基本信息，主要用于<br>》1  在不获取资源的情况下获取资源信息（类型、大小等）<br>》2, 通过状态码产看资源是否存在<br>》3, 通过查看首部，测试资源是否被修改了<br>4、put：和GET从服务器获取资源相反，PUT用于向服务器写入资源。PUT的语义就是让服务器用请求的主体部分创建一个请求URL命名的文档，如果存在就替换<br>5、trace：客户端发送一个请求的时候，这个请求可能会穿过防火墙、代理、网关和一些其它应用程序，每个中间节点都可能修改HTTP请求，TRACE方法允许客户端在最终请求发往服务器的时候，看看它变成了什么样子。TRACE请求会在目的服务器端发送一个“闭环”诊断，行程最后一站服务器会弹回一条TRACE响应，并在响应主题中携带它收到的原始请求报文<br>6、delete：DELETE方法用于要求服务器删除请求的URL，和PUT一样，服务器可能会不支持<br>7、options：OPTIONS方法用于请求 web服务器告知其支持的各种功能</p>
+<h2 id="5-状态码200，301，-304，403-404-500，503分别代表什么意思-难度"><a href="#5-状态码200，301，-304，403-404-500，503分别代表什么意思-难度" class="headerlink" title="5. 状态码200，301， 304，403,404,500，503分别代表什么意思 (难度**)"></a>5. 状态码200，301， 304，403,404,500，503分别代表什么意思 (难度<em>**</em>)</h2><ul>
+<li>200 ok ，表示请求被服务器处理成功</li>
+<li>301 Moved Permanently ，表示永久性重定向，浏览器会自动跳转到Location头中给出的URl</li>
+<li>304 Not Modified，表示页面使用本地缓存，不向服务器发送请求</li>
+<li>403 Forbidden，资源存在，但用户没有权限访问（服务器接受请求，但拒绝访问）</li>
+<li>404 Not Found，无法找到指定位置的资源</li>
+<li>500 Internal Server Erro， 服务器执行请求发生错误</li>
+<li>503 Service Unavailabl ，服务器超负载或停机维护<h2 id="6-报文有哪几部分组成？-可选-难度"><a href="#6-报文有哪几部分组成？-可选-难度" class="headerlink" title="6. 报文有哪几部分组成？ (可选 难度**)"></a>6. 报文有哪几部分组成？ (可选 难度<em>**</em>)</h2><h3 id="报文分为请求报文和响应报文"><a href="#报文分为请求报文和响应报文" class="headerlink" title="报文分为请求报文和响应报文"></a>报文分为请求报文和响应报文</h3></li>
+<li>HTTP 请求报文由请求行、请求头部、空行 和 请求包体 4 个部分组成<br><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/0ea600c1-e863-4314-89ca-2270068750fd" alt="0_1476101482164_upload-eddc8904-182f-4ba4-b971-9282ec17dcda"> </li>
+<li>HTTP 响应报文由状态行、响应头部、空行 和 响应包体 4 个部分组成<br><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/ed4ff240-e948-4e76-89a0-6017bb90b338" alt="0_1476101540714_upload-66e9ac9b-b31c-4b6b-bb99-3639bd1627ec"><br><a href="http://network.51cto.com/art/201501/464513.htm" target="_blank" rel="external">HTTP响应报文与工作原理详解(1)</a></li>
+</ul>
+</blockquote>
+<h2 id="7-请求头的格式和作用是什么？给个范例截图说明-可选-难度"><a href="#7-请求头的格式和作用是什么？给个范例截图说明-可选-难度" class="headerlink" title="7.请求头的格式和作用是什么？给个范例截图说明 (可选 难度**)"></a>7.请求头的格式和作用是什么？给个范例截图说明 (可选 难度<em>**</em>)</h2><p><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/1a0421b2-762d-49ab-bf09-3e8e77e39dd1" alt="0_1476101901569_upload-e0ec6c6f-2ae1-4d4e-a68c-9a7eb2aa2d0e"> </p>
+<ul>
+<li>请求头部由关键字/值对组成，每行一对，关键字和值用英文冒号“:”分隔。</li>
+<li>Accept：告诉服务器浏览器能接收的数据类型</li>
+<li>Accept-Enocoding：能接受的压缩格式类型</li>
+<li>Accept-Language：告诉服务器能发送的语言</li>
+<li>Cache-Control：缓存指示(是否缓存，缓存多长时间)</li>
+<li>Connection ：是否保持连接 </li>
+<li>Cookie：客户端信息</li>
+<li>Referer 告诉服务器链接是从哪个页面链接过来的，服务器籍此处理一些信息</li>
+<li>Host：请求的域名,允许多个域名同处一个IP 地址，即虚拟主机等</li>
+<li>User-Agent ：发起请求的客户端程序<h2 id="8-首部的格式和作用是什么？给个范例截图说明-可选-难度"><a href="#8-首部的格式和作用是什么？给个范例截图说明-可选-难度" class="headerlink" title="8 .首部的格式和作用是什么？给个范例截图说明 (可选 难度**)"></a>8 .首部的格式和作用是什么？给个范例截图说明 (可选 难度<em>**</em>)</h2><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/a7eebda0-986f-447f-8781-8dee51c635d8" alt="0_1476102571265_upload-a7659a44-ed37-4e30-a2e5-3cac7251c890"> </li>
+<li>Request URL：请求的URL</li>
+<li>Request Method：请求的方法</li>
+<li>Status Code：请求的状态</li>
+<li>Remote Address：服务器ip和端口<h2 id="9-主体的作用是什么？给个范例-可选-截图说明难度"><a href="#9-主体的作用是什么？给个范例-可选-截图说明难度" class="headerlink" title="9 .主体的作用是什么？给个范例(可选 截图说明难度**)"></a>9 .主体的作用是什么？给个范例(可选 截图说明难度<em>**</em>)</h2><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/e877060d-03e3-42db-b66b-b1d78f475e66" alt="0_1476103000513_upload-0c1ffad2-e115-4f04-bd5e-628e7f9f9ab5"><br>主体就是客户端和服务器所传输的主要内容<h2 id="10-简述浏览器缓存是如何控制的-可选-难度"><a href="#10-简述浏览器缓存是如何控制的-可选-难度" class="headerlink" title="10 .简述浏览器缓存是如何控制的(可选 难度*)"></a>10 .简述浏览器缓存是如何控制的(可选 难度<strong>*</strong>)</h2><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/29507c40-e677-435e-ae25-0715d496392f" alt="0_1476103356778_upload-a764b0bf-2fc0-4506-b630-71f8adae302f"> </li>
+<li><p>Expires 绝对时间 ：</p>
+<blockquote>
+<p>1，浏览器第一次向服务器请求资源，服务器返回信息，在response header中会加上Expires（有效时间）。<br>2，浏览器把资源和response header一起缓存<br>3， 当再次请求这一资源时，浏览器从缓存中找到资源查看Expires。如果当前时间没超出Expires的时间，就从缓存中拿资源。否则重新从服务器请求资源，Expires在从新请求时更新。<br><em>由于其为绝对时间，当服务器时间与客户端时间相差较大时，缓存管理容易出现问题，比如随意修改下客户端时间，就能影响缓存命中的结果</em></p>
+</blockquote>
+</li>
+<li><p>Cache-Control 相对时间：</p>
+<blockquote>
+<p>和Expires一样，不过是相对于本次请求之后的秒数（即上次请求时间+Cache-Control时间）</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="11-下图各个参数是什么意思-可选-难度"><a href="#11-下图各个参数是什么意思-可选-难度" class="headerlink" title="11 .下图各个参数是什么意思(可选 难度*)"></a>11 .下图各个参数是什么意思(可选 难度<strong>*</strong>)</h2><p><img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/257149f7-1e11-4262-9b15-159389db83c6" alt=""></p>
+<blockquote>
+<p>general: 通用首部，客户端和服务器都可以使用，提供了与报文相关的最基本的信息。<br>Request URL：请求URL。<br>Request Method：请求方法。<br>Status Code：状态码。<br>Remote Address：远程地址。</p>
+<p>Response Headers：响应首部：为客户端提供了一些额外信息，比如谁在发送响应、响应者的功能、其它一些特殊指令等。<br>Connerction：允许客户端和服务器指定与请求/响应连接相关的选项<br>Content-Lenght: 响应的报文长度。<br>Content-Type：响应的数据格式类型。<br>Data:响应的时间日期<br>Server:响应服务器的名称及型号。<br>X-Powered-By:表明当前站点（或资源）是用什么技术开发。<br>Request Headers:请求首部，客户端告诉服务器自身的一些信息。<br>Accept：客户端可识别的内容类型列表。<br>Accept-Encoding：客户端可接受的编码压缩格式。<br>Accept-Language：客户端可接受的自然语言。<br>Connection：连接方式。<br>Content-Lenght: 请求报文长度。<br>Content-Type：表示可以接受的数据格式类型<br>Cookie:浏览器向服务器发送请求时发送cookie，或者服务器向浏览器附加cookie。<br>Host: 域名和端口号。<br>Origin:请求的源。<br>Referer:指当前请求的URL是在什么地址引用的。<br>User-Agent:发请求浏览器的相关信息，名称和版本。<br>X-Requested-With:表示发送请求报文的应用程序是以XMLHTTPRequest的形式发送的数据（主要用于识别ajax请求）</p>
+<p>From Data:上传的文件信息<br>article:文章信息</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/28/http网络协议与基础/">http网络协议与基础</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 findmoon 的个人博客">findmoon</a></p>
+        <p><span>发布时间:</span>2016年09月28日 - 20时17分</p>
+        <p><span>最后更新:</span>2016年12月08日 - 11时49分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/28/http网络协议与基础/" title="http网络协议与基础">//findmoon.github.io/index.html/2016/09/28/http网络协议与基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: //findmoon.github.io/index.html/2016/09/28/http网络协议与基础/　　作者: findmoon" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/09/30/js对象与原型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          js对象与原型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/25/this基础：简单使用与applycall/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this基础:简单使用与apply、call</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-OSI-七层模型指什么-难度"><span class="toc-number">1.</span> <span class="toc-text">1. OSI 七层模型指什么 (难度*)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OSI参考模型（OSI-RM）的全称是开放系统互连参考模型（Open-System-Interconnection-Reference-Model，OSI-RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ"><span class="toc-number">1.0.1.</span> <span class="toc-text">OSI参考模型（OSI/RM）的全称是开放系统互连参考模型（Open System Interconnection Reference Model，OSI/RM），它是由国际标准化组织ISO提出的一个网络系统互连模型，实现不同计算机及网络之间的通讯ヮ</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTP-的工作原理是什么？-难度"><span class="toc-number">2.</span> <span class="toc-text">2. HTTP 的工作原理是什么？ (难度*)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-URI-的格式是什么？常见的协议有哪些-难度"><span class="toc-number">3.</span> <span class="toc-text">3.URI 的格式是什么？常见的协议有哪些 (难度*)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#４-HTTP-协议有几种和服务器交互的方法-难度"><span class="toc-number">4.</span> <span class="toc-text">４. HTTP 协议有几种和服务器交互的方法 (难度*)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-状态码200，301，-304，403-404-500，503分别代表什么意思-难度"><span class="toc-number">5.</span> <span class="toc-text">5. 状态码200，301， 304，403,404,500，503分别代表什么意思 (难度**)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-报文有哪几部分组成？-可选-难度"><span class="toc-number">6.</span> <span class="toc-text">6. 报文有哪几部分组成？ (可选 难度**)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#报文分为请求报文和响应报文"><span class="toc-number">6.1.</span> <span class="toc-text">报文分为请求报文和响应报文</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-请求头的格式和作用是什么？给个范例截图说明-可选-难度"><span class="toc-number">7.</span> <span class="toc-text">7.请求头的格式和作用是什么？给个范例截图说明 (可选 难度**)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-首部的格式和作用是什么？给个范例截图说明-可选-难度"><span class="toc-number">8.</span> <span class="toc-text">8 .首部的格式和作用是什么？给个范例截图说明 (可选 难度**)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-主体的作用是什么？给个范例-可选-截图说明难度"><span class="toc-number">9.</span> <span class="toc-text">9 .主体的作用是什么？给个范例(可选 截图说明难度**)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-简述浏览器缓存是如何控制的-可选-难度"><span class="toc-number">10.</span> <span class="toc-text">10 .简述浏览器缓存是如何控制的(可选 难度*)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-下图各个参数是什么意思-可选-难度"><span class="toc-number">11.</span> <span class="toc-text">11 .下图各个参数是什么意思(可选 难度*)</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/09/28/http网络协议与基础/" data-title="http网络协议与基础" data-url="//findmoon.github.io/index.html/2016/09/28/http网络协议与基础/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"findmoon"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/09/30/js对象与原型/" title="上一篇: js对象与原型">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/09/25/this基础：简单使用与applycall/" title="下一篇: this基础:简单使用与apply、call">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/25/mywork-dome/">个人求职简历</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/js中的this/">js当中this含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/offset client event的区别/">FF,IE下鼠标坐标 offset client event的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/requirejs使用/">requirejs使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/js模块化/">js模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/13/js继承的实现/">js继承的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/10/js原型链/">js原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/js对象与原型/">js对象与原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/http网络协议与基础/">http网络协议与基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/25/this基础：简单使用与applycall/">this基础:简单使用与apply、call</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/同源策略、跨域请求及简单使用/">同源策略、跨域请求及简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/19/瀑布流布局的原理及实现/">瀑布流布局的原理及实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/页面懒加载的原理及实现(jQuery)/">页面懒加载的原理及实现(jQuery)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/jQuery常用方法及其对ajax的实现/">jQuery常用方法及其对ajax的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/jQuery介绍及其DOM操作、事件/">jQuery介绍及其DOM操作、事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/前端工程师需要了解的后端语言/">前端工程师需要了解的后端语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/ajax介绍与使用/">ajax介绍与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/js操作DOM事件/">js操作DOM事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/js中的闭包与定时器/">js中的闭包与定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/js事件对象与引用类型/">js时间对象与引用类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/js中的数组、字符创和数学函数 /">js中的数组、字符创和数学函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/js函数及基本使用/">js函数及基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/js数据类型和基本语法/">js数据类型和基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/js与同步、异步/">js与同步、异步</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/CSShack、盒模型及样式的重置和标准化/">CSShack、盒模型及样式的重置和标准化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/05/常见布局原理及实现/">常见布局原理及实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/03/前端基础问题(8)BFC与margin/">前端基础问题(8)BFC与margin</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/01/前端基础问题(7)浮动定位/">前端基础问题(7)浮动定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/31/前端基础问题(6)CSS背景及样式/">前端基础问题(6)CSS背景及样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/30/前端基础问题(5)CSS选择器/">前端基础问题(5)CSS选择器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/29/前端基础问题(4)html/">前端基础问题(4)html</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/前端基础问题(3)样式/">前端基础问题(3)样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/前端基础问题(2)样式/">前端基础问题(2)样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/前端基础问题（一）/">前端基础问题（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/前端是做什么的/">前端是做什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/14/跨域资源共享 CORS 详解/">阮一峰的网络日志*跨域资源共享 CORS 详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/14/同源策略和跨域资源请求(二)/">同源策略和跨域资源请求(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/同源策略和跨域/">同源策略和跨域资源请求(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/关于js中(function(){…})()立即执行函数/">关于js中(function(){…})()立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/跨域资源共享cors/">跨域资源共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/JavaScript跨域总结与解决办法/">JavaScript跨域总结与解决办法*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/stopImmediatePropagation介绍/">stopImmediatePropagation介绍*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/09/jQuery动画animate()方法小介绍介绍/">jQuery动画animate()方法小介绍介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/06/字面量简介/">字面量简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/JavaSript模块规范-AMD规范与CMD规范介绍/">JavaSript模块规范-AMD规范与CMD规范介绍*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/测试驱动开发/">TDD测试驱动开发*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/js模板引擎介绍搜集/">js模板引擎介绍搜集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/jQuery offset()方法介绍/">jQuery.offset()方法介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/jQuery的deferred对象详解/">jQuery的deferred对象详解*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/03/测试框架 Mocha 实例教程/">测试框架 Mocha 实例教程*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/02/blur()/">blur()</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/01/Ajax POST头部设置/">Ajax POST头部设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/[阮一峰的网络日志]Javascript模块化编程（三）：require.js的用法/">阮一峰的网络日志*Javascript模块化编程（三）require.js的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/[阮一峰的网络日志]Javascript模块化编程（二）：AMD规范/">阮一峰的网络日志*Javascript模块化编程（二）AMD规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/31/[阮一峰的网络日志]Javascript模块化编程（一）：模块的写法/">阮一峰的网络日志*Javascript模块化编程（一）模块的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/jQuery对象/">jQuery对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/jQuery中animate动画队列的停止和清除/">jQuery中animate动画队列的停止和清除</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/Javascript的this用法/">Javascript的this用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/单元测试框架与mock介绍/">单元测试框架与mock介绍*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/12种不宜使用的Javascript语法/">12种不宜使用的Javascript语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/MVC，MVP 和 MVVM 的图示/">MVC，MVP 和 MVVM 的图示</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/界面之下：还原真实的 MVC、MVP、MVVM 模式/">界面之下：还原真实的 MVC、MVP、MVVM 模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/web开发的MVVM模式/">web开发的MVVM模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/font-face/">CSS3 @font-face</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/库与架构/">库和框架区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/php连接数据库（转载二）t/">php连接数据库（转载二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/php连接数据库（转载一）/">php连接数据库（转载一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/js跨域请求/">js跨域请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/js跨域总结与解决办法/">js跨域总结与解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/浏览器拦截跨域请求处理方法/">浏览器拦截跨域请求处理方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/套接字/">套接字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/TCP协议与UDP协议的区别/">TCP协议与UDP协议的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/sublime text 2 编辑markdown/">用sublime text 编辑markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/http信息含义/">http信息含义</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/http请求状态码/">http请求状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/从输入URL到页面加载完成的过程-数据包组装过程/">从输入URL到页面加载完成的过程-数据包组装过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/从输入URL到页面加载完成的过程/">从输入URL到页面加载完成的过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/从输入URL到页面加载完成的过程-TCP三次握手/">从输入URL到页面加载完成的过程-TCP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/从输入URL到页面加载完成的过程-DNS解析域名过程/">从输入URL到页面加载完成的过程-DNS解析域名过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/24/以Apache服务器、php语言为例详解动态网站的访问过程/">以Apache服务器、php语言为例详解动态网站的访问过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP完整表单实例/">PHP完整表单实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php中json_decode()和json_encode()的使用方法/">php中json_decode()和json_encode()的使用方法*转</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP$_GET 变量/">PHP$_GET 变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP$_POST 变量/">PHP$_POST 变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP表单验证邮件和URL/">PHP表单验证邮件和URL</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP表单验证/">PHP表单验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP表单之必需字段/">PHP表单之必需字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php表单和用户输入/">php表单和用户输入</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP常量/">PHP常量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php函数/">php函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php超级全局变量/">php超级全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php数组/">php数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/php运算符/">php运算符详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP字符串变量/">PHP字符串变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP变量/">PHP变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP基本语法/">PHP基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP echo 和 print 语句/">PHP echo 和 print 语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/PHP的数据类型/">PHP的数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/正则表达式的作用/">正则表达式的作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/CSS3打造带阴影的旋转3D图像/">CSS3打造带阴影的旋转3D图像</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/CSS动画和javascript动画/">CSS动画和javascript动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/UNICODE与ASCII的区别t/">UNICODE与ASCII的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/JSON.stringify 语法实例/">JSON.stringify 语法实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/S区分中英文字符的两种方法/">JS区分中英文字符 正则和charCodeAt</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/将json字符串转化为数组/">将json字符串转化为数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/18/setInterval函数/">setInterval函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/JavaScript初学者应注意的七个细节/">JavaScript初学者应注意的七个细节</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/理解 JavaScript 作用域和作用域链/">理解 JavaScript 作用域和作用域链</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/instanceof运算符深入剖析/">instanceof 运算符深入剖析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/判断js函数是不是存在typeof/">判断js函数是不是存在typeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/instanceof与typeof/">instanceof与typeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/instanceof和typeof的区别/">instanceof和typeof的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/回调函数的概念及其使用/">回调函数的概念及其使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/js中typeof介绍/">js中typeof介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/16/js产生undefined的情况/">js产生undefined的情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/alert与console.log区别/">alert与console.log区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/使用border图形效果的综合运用/">使用border图形效果的综合运用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/css3和传统方法实现元素的绝对居中/">css3、定位实现元素的绝对居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/HTTP1.1与HTTP1.0的区别/">HTTP/1.1与HTTP/1.0的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/Backbone入门/">Backbone入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js获取系统的根路径实现/">js获取系统的根路径实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/JS取得绝对路径的实现代码t/">JS取得绝对路径的实现代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js获取当前路径的简单示例代码/">js获取当前路径的简单示例代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js获取当前页面路径示例讲解/">js获取当前页面路径示例讲解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/JavaScript数学函数知识综合运用/">JavaScript数学函数知识综合运用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/JavaScript字符串知识综合运用/">JavaScript字符串知识综合运用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/JavaScript数组知识综合运用/">JavaScript数组知识综合运用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js判断是否为JSON对象/">js判断是否为JSON对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/JS对象之JSON详解/">JS对象之JSON详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/DOCTYPE 严格模式与混杂模式/">DOCTYPE 严格模式与混杂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/JavaScript函数声明与函数表达式/">JavaScript函数声明与函数表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/delete方法删除数组/">delete方法删除数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/splice实现数组添加、删除和替换/">splice实现数组添加、删除和替换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/js创建数组/">js创建数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/js立即执行函数/">js立即执行函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/数组对象的3个属性/">数组对象的3个属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/数组的创建和操作/">数组的创建和操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/06/Javascript 严格模式详解/">Javascript 严格模式详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js的函数声明/">js声明函数的方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/JS CSS 渲染机制/">JS CSS 渲染机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js变量提升/">js变量提升</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js变量及对象/">js变量及对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js语法/">js语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/CSS设置placeholder文本的样式/">设置placeholder文本的样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js的异步加载/">js的异步加载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js和css放置顺序产生的问题/">js和css放置顺序产生的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js基础/">js基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/js的引入/">js的引入</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/border 图形dome/">border 图形dome</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/tupian1/">tupian1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/tupian/">tupian</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/使用border产生三角形的原理/">使用border产生三角形的原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/使用border制作各种图形(二)/">使用border制作各种图形(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/使用border制作各种图形(一)/">使用border制作各种图形(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/浮动元素/">浮动元素</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/定位方式/">定位方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/文档流/">文档流</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/overflow 属性和取值/">overflow 属性和取值</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/clearfix清除浮动/">clearfix清除浮动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/清除浮动float/">清除浮动float</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/IE的haslayout布局/">IE的haslayout布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/css hack/">css hack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/inline-block产生的缝隙问题/">inline-block产生的缝隙问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/文档流中的position定位问题/">文档流中的position定位问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/html中列表样式的设置/">html中列表样式的设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/meta标签及浏览器内核/">meta标签及浏览器内核</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/color的写法/">color的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/background-image的设置/">background-image的设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/input表单/">input表单</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/box-shadow阴影取值/">box-shadow阴影取值</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/CSS中BFC的作用扩展/">CSS中BFC的作用扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/03/CSS中BFC的含义和作用/">CSS中BFC的含义和作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/css中的zoom的用法和作用/">css中的zoom的用法和作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/form表单及input标签/">form表单及input标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/post 和 get的区别/">post 和 get的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/CSS的几个属性(1)/">CSS的几个属性(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/html小知识(2)/">html小知识(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/html相关小知识点(1)/">html相关小知识点(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/first-child和first-of-type的区别/">first-child和first-of-type的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/css选择器知识点/">css选择器知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/HTML CSS语义化/">HTML CSS语义化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/列表介绍/">列表介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/CSS样式的引入方法/">CSS样式的引入方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/标记语言介绍/">标记语言介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/git提交远程库常见错误提示/">git提交远程库常见错误提示</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/行内元素的几个小特性/">行内元素的几个小特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/git操作新建库/">git操作新建库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/gitbash命令/">gitbash命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/27/github上面的博客/">github上面的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/26/我的第一篇hexo文章/">我的第一篇hexo文章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/26/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 findmoon
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >外地到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
