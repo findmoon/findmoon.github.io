@@ -697,6 +697,84 @@
 
 
   
+    <article id="post-行内元素的几个小特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/27/行内元素的几个小特性/" class="article-date">
+      <time datetime="2016-04-27T11:14:24.000Z" itemprop="datePublished">2016-04-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/27/行内元素的几个小特性/">行内元素的几个小特性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。"><a href="#块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。" class="headerlink" title="块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。"></a>块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。</h3><ul>
+<li>对行内元素有几个特性：<blockquote>
+<p>设置宽度width   无效。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>设置高度height  无效，可以通过line-height来设置。</p>
+<p>设置margin 只有左右margin有效，上下无效。</p>
+<p>设置padding 只有左右padding有效，上下则无效。注意元素范围是增大了，但是对元素周围的内容是没影响的。</p>
+</blockquote>
+<ul>
+<li>IE6/7及IE8混杂模式中，text- align:center可以使块级元素也居中对齐。其他浏览器中，text-align:center仅作用于行内内容上。</li>
+</ul>
+<blockquote>
+<p>解决方法：为所有需要相对父容器居中对齐的块级元素设置“margin：0 auto”。但这个方式 IE6/IE7/IE8的混杂模式中不支持，所以还要设置父容器的 “text-align:center;”。若居中对齐的子元素内的行内内容不需要居中对齐，则还需要为其设置“text-align:left”：</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/html/">html</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/行内元素/">行内元素</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git提交远程库常见错误提示" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -762,84 +840,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git错误/">git错误</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-行内元素的几个小特性" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/27/行内元素的几个小特性/" class="article-date">
-      <time datetime="2016-04-27T11:14:24.000Z" itemprop="datePublished">2016-04-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/行内元素的几个小特性/">行内元素的几个小特性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。"><a href="#块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。" class="headerlink" title="块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。"></a>块级元素和行内元素的区别是，块级元素会占一行显示，而行内元素可以在一行并排显示。</h3><ul>
-<li>对行内元素有几个特性：<blockquote>
-<p>设置宽度width   无效。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>设置高度height  无效，可以通过line-height来设置。</p>
-<p>设置margin 只有左右margin有效，上下无效。</p>
-<p>设置padding 只有左右padding有效，上下则无效。注意元素范围是增大了，但是对元素周围的内容是没影响的。</p>
-</blockquote>
-<ul>
-<li>IE6/7及IE8混杂模式中，text- align:center可以使块级元素也居中对齐。其他浏览器中，text-align:center仅作用于行内内容上。</li>
-</ul>
-<blockquote>
-<p>解决方法：为所有需要相对父容器居中对齐的块级元素设置“margin：0 auto”。但这个方式 IE6/IE7/IE8的混杂模式中不支持，所以还要设置父容器的 “text-align:center;”。若居中对齐的子元素内的行内内容不需要居中对齐，则还需要为其设置“text-align:left”：</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/html/">html</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/行内元素/">行内元素</a></li></ul>
     </div>
 
       

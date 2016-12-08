@@ -1124,91 +1124,6 @@ TDD给了我们自信，让我们今天的问题今天解决，明天的问题�
 
 
   
-    <article id="post-jQuery offset()方法介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/04/jQuery offset()方法介绍/" class="article-date">
-      <time datetime="2016-06-04T11:17:56.000Z" itemprop="datePublished">2016-06-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/04/jQuery offset()方法介绍/">jQuery.offset()方法介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>jQuery.offset()方法介绍</p>
-<p>jQuery.offset()方法获取或设置元素的坐标，坐标相对于文档。</p>
-<p>.offset()获取一个元素相对于文档（document）的当前位置，相对于文档（document）的当前位置。</p>
-<ul>
-<li>当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。</li>
-<li>当把一个新元素放在同一个容器里面另一个元素附近时，用.position()更合适。（和offset()使用一样，有一个left和top属性，<strong>.position().left/.position().top或者设置.position({left: 30,top: 30})</strong>）</li>
-</ul>
-<blockquote>
-<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
-</blockquote>
-<ul>
-<li>.offset( coordinates )</li>
-</ul>
-<blockquote>
-<p>coordinates<br>类型: PlainObject<br>一个包含top 和 left属性的对象，用整数指明元素的新顶部和左边坐标。</p>
-</blockquote>
-<p>.offset({left: xx,top: xx})使用键值对方式赋值</p>
-<ul>
-<li>.offset( function(index, coords) )<blockquote>
-<p>function(index, coords)<br>类型: Function()<br>返回用于设置坐标的一个函数。接收元素在匹配的元素集合中的索引位置作为第一个参数，和当前坐标作为第二个参数。这个函数应该返回一个包含top 和 left属性的对象。</p>
-</blockquote>
-</li>
-</ul>
-<p>.offset()方法允许我们重新设置元素的位置，这个元素的位置是相对于document对象的。如果对象原先的.position()样式属性是static的话，会被改成relative来实现重定位。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/jQuery/">jQuery</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/offset/">offset()</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-jQuery的deferred对象详解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1314,6 +1229,91 @@ TDD给了我们自信，让我们今天的问题今天解决，明天的问题�
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deferred/">deferred</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jQuery offset()方法介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/04/jQuery offset()方法介绍/" class="article-date">
+      <time datetime="2016-06-04T11:17:56.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/jQuery offset()方法介绍/">jQuery.offset()方法介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>jQuery.offset()方法介绍</p>
+<p>jQuery.offset()方法获取或设置元素的坐标，坐标相对于文档。</p>
+<p>.offset()获取一个元素相对于文档（document）的当前位置，相对于文档（document）的当前位置。</p>
+<ul>
+<li>当通过全局操作（特别是通过拖拽操作）将一个新的元素放置到另一个已经存在的元素的上面时，若要取得这个新的元素的位置，那么使用 .offset() 更合适。</li>
+<li>当把一个新元素放在同一个容器里面另一个元素附近时，用.position()更合适。（和offset()使用一样，有一个left和top属性，<strong>.position().left/.position().top或者设置.position({left: 30,top: 30})</strong>）</li>
+</ul>
+<blockquote>
+<p>注意：jQuery不支持获取隐藏元素的偏移坐标。同样的，也无法取得隐藏元素的 border, margin, 或 padding 信息。<br>若元素的属性设置的是 visibility:hidden，那么我们依然可以取得它的坐标。但是若设置的属性是 display:none，由于在绘制 DOM 树时根本就不绘制该元素，所以它的位置属性值是 undefined。</p>
+</blockquote>
+<ul>
+<li>.offset( coordinates )</li>
+</ul>
+<blockquote>
+<p>coordinates<br>类型: PlainObject<br>一个包含top 和 left属性的对象，用整数指明元素的新顶部和左边坐标。</p>
+</blockquote>
+<p>.offset({left: xx,top: xx})使用键值对方式赋值</p>
+<ul>
+<li>.offset( function(index, coords) )<blockquote>
+<p>function(index, coords)<br>类型: Function()<br>返回用于设置坐标的一个函数。接收元素在匹配的元素集合中的索引位置作为第一个参数，和当前坐标作为第二个参数。这个函数应该返回一个包含top 和 left属性的对象。</p>
+</blockquote>
+</li>
+</ul>
+<p>.offset()方法允许我们重新设置元素的位置，这个元素的位置是相对于document对象的。如果对象原先的.position()样式属性是static的话，会被改成relative来实现重定位。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/jQuery/">jQuery</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/offset/">offset()</a></li></ul>
     </div>
 
       

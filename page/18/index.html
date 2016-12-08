@@ -224,10 +224,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-box-shadow阴影取值" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-input表单" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/04/box-shadow阴影取值/" class="article-date">
+      <a href="/2016/05/04/input表单/" class="article-date">
       <time datetime="2016-05-04T07:17:10.000Z" itemprop="datePublished">2016-05-04</time>
 </a>
     </div>
@@ -241,7 +241,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/04/box-shadow阴影取值/">box-shadow阴影取值</a>
+      <a class="article-title" href="/2016/05/04/input表单/">input表单</a>
     </h1>
   
 
@@ -251,9 +251,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>box-shadow可以设置一个盒模型的阴影效果，其取值和对应的含义为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:inset x-offset y-offset blur-radius spread-radius color</span><br><span class="line"></span><br><span class="line">inset(投影方式)</span><br><span class="line">x-offset(X轴偏移量)</span><br><span class="line">y-offset(Y轴偏移量)</span><br><span class="line">blur-radius(阴影模糊半径)</span><br><span class="line">spread-radius(阴影扩展半径)</span><br><span class="line">color(阴影颜色)</span><br></pre></td></tr></table></figure>
-<p>inset———默认的情况下是外阴影，如果取其唯一值“inset”,就是将外阴影变成内阴影，也就是说设置阴影类型为“inset”时，其投影就是内阴影</p>
+        <p> input表单承载着需要提交到后台的数据，一本为用户输入的信息。</p>
+<h2 id="类型主要有："><a href="#类型主要有：" class="headerlink" title="类型主要有："></a>类型主要有：</h2><ul>
+<li>type=”text”: 用于输入文本。placeholder属性（可选）展示的是输入框里的提示，maxlength（可选）限制最大输入长度；<br>value：用户输入的内容（值）<br>placeholder：占位符，输入框中作提示</li>
+<li>type=”password”: 用于输入密码，输入的内容显示为星号。</li>
+<li>type=”radio”: 单选圆圈按钮。注意：name要相同才能实现单选，value要有值<blockquote>
+<p><input type="radio" name="sex" value="male"> 男<input type="radio" name="sex" value="female"> 女</p>
+</blockquote>
+</li>
+<li>type=”checkbox”: 复选框。加checked属性会默认选上。提交时，如果选中（如bike），则bike=on<blockquote>
+<p><input type="checkbox" name="bike" checked>自行车<input type="checkbox" name="car">汽车</p>
+</blockquote>
+</li>
+<li>type=”textarea”: 文本域，用于输入多行文本</li>
+<li>type=”hidden”: 隐藏域，用户看不到，用于暂存数据。或者安全性校验<blockquote>
+<p><input name="url_delete" type="hidden" value="/delete.php"><input name="csrf_token" type="hidden" value="a23dafd23444"></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><strong>所有的input可以添加属性 disabled来禁用输入<br>input都要有name属性</strong></li>
+</ul>
 
       
     </div>
@@ -268,7 +286,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/box-shadow/">box-shadow</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li></ul>
     </div>
 
       
@@ -588,10 +606,10 @@
 
 
   
-    <article id="post-form表单及input标签" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-type=hidden隐藏域的作用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/27/form表单及input标签/" class="article-date">
+      <a href="/2016/04/27/type=hidden隐藏域的作用/" class="article-date">
       <time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time>
 </a>
     </div>
@@ -605,7 +623,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/form表单及input标签/">form表单及input标签</a>
+      <a class="article-title" href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
     </h1>
   
 
@@ -615,34 +633,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ul>
-<li>form表单，用来将用户输入的数据和内容传输到后台服务器，服务器处理完成后将结果传送到客户端</li>
-</ul>
-<ul>
-<li>常用的input标签<blockquote>
-<p>type=”text”用来输入文本，默认宽度为20个字符<br>type=”password”用来输入密码，字段中的字符会显示为星号或者点<br>type=”radio”定义单选按钮（name相同并且定义value值才能实现单选）<br>type=”checkbox”定义复选框，加checked属性默认被选上。<br>type=”textarea”文本域，用来输入多行文本<br>type=”hidden”隐藏域，用户看不到，用于暂存数据或者安全性校验，以便之后被JS提取，比如一个非常重要的信息需要被提交到下一页，但又不能或者无法明示的时候。<br>type=”submit”定义提交按钮，提交按按钮会把表单数据发送到服务器<br>type=”reset”定义重置按钮，重置按钮会清除表单中的所有数据</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>在input里，name属性是用来区分表单元素的，浏览器将数据以[name]=[用户输入内容]形式传送给服务器，也就是name用来记录和传送用户数据。</p>
-</li>
-<li><p><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;提交&lt;/a&gt;</code>、<code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code> </p>
-</li>
-<li><code>&lt;button&gt;提交&lt;/button&gt;</code>是一个按钮控件，一般执行js代码实现一定的功能或效果。元素内可以放置图像、文本或者多媒体内容。</li>
-</ul>
+        <p><code>type=hidden</code>隐藏域</p>
 <blockquote>
-<p>W3C：如果在 HTML 表单中使用 button 元素，不同的浏览器会提交不同的值。Internet Explorer 将提交<code>&lt;button&gt;</code> 与 <code>&lt;button/&gt;</code> 之间的文本，而其他浏览器将提交 value 属性的内容。（但一般提交数据还是用from表单）</p>
-</blockquote>
 <ul>
-<li><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;</code>提交<code>&lt;/a&gt;:</code>是一个带有跳转功能的a连接，一般用于链接到另一个网页，“#”表示跳转至本页。</li>
-<li><p><code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;：</code>是一个具有提交功能的表单元素，实现将用户输入的数据或信息传递给服务器。</p>
-</li>
-<li><p>radio 通过具有相同值的name属性进行分组，name的值一定要一致，才能有单选效果</p>
-</li>
+<li><strong>基本语法：</strong><br>&lt; input type=”hidden” name=”field＿name” value=”value”&gt;</li>
 </ul>
+</blockquote>
+<p><strong>作用：</strong> </p>
 <ul>
-<li>placeholder 属性,* 占位符，placeholder一般用在文本框或文本域，最为用户输入信息的提示，并不是实际占有文本内容，获取焦点后消失。</li>
+<li><p>1、隐藏域在页面中对于用户是不可见的，在表单中插入隐藏域的目的在于收集或发送信息，以利于被处理表单的程序所使用。浏览者单击发送按钮发送表单的时候，隐藏域的信息也被一起发送到服务器。</p>
+</li>
+<li><p>2、有些时候我们要给用户一信息，让他在提交表单时提交上来以确定用户身份，如sessionkey，等等．当然这些东西也能用cookie实现，但使用隐藏域就简单的多了．而且不会有浏览器不支持，用户禁用cookie的烦恼。 </p>
+</li>
+<li><p>3、有些时候一个form里有多个提交按钮，怎样使程序能够分清楚到底用户是按那一个按钮提交上来的呢？我们就可以写一个隐藏域，然后在每一个按钮处加上onclick=”document.form.command.value=”xx””，然后我们接到数据后先检查command的值就会知道用户是按的那个按钮提交上来的。 </p>
+</li>
+<li><p>4、有时候一个网页中有多个form，我们知道多个form是不能同时提交的，但有时这些form确实相互作用，我们就可以在form中添加隐藏域来使它们联系起来。 </p>
+</li>
+<li><p>5、javascript不支持全局变量，但有时我们必须用全局变量，我们就可以把值先存在隐藏域里，它的值就不会丢失了。 </p>
+</li>
+<li><p>6、还有个例子，比如按一个按钮弹出四个小窗口，当点击其中的一个小窗口时其他三个自动关闭．可是IE不支持小窗口相互调用，所以只有在父窗口写个隐藏域，当小窗口看到那个隐藏域的值是close时就自己关掉。</p>
+</li>
 </ul>
 
       
@@ -652,13 +662,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/随笔/">随笔</a><a class="article-category-link" href="/categories/随笔/css/">css</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/css/">css</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/form表单/">form表单</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css属性/">css属性</a></li></ul>
     </div>
 
       
@@ -746,10 +756,10 @@
 
 
   
-    <article id="post-type=hidden隐藏域的作用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-form表单及input标签" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/27/type=hidden隐藏域的作用/" class="article-date">
+      <a href="/2016/04/27/form表单及input标签/" class="article-date">
       <time datetime="2016-04-27T11:34:24.000Z" itemprop="datePublished">2016-04-27</time>
 </a>
     </div>
@@ -763,7 +773,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/type=hidden隐藏域的作用/">type=hidden隐藏域的作用</a>
+      <a class="article-title" href="/2016/04/27/form表单及input标签/">form表单及input标签</a>
     </h1>
   
 
@@ -773,26 +783,34 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><code>type=hidden</code>隐藏域</p>
-<blockquote>
-<ul>
-<li><strong>基本语法：</strong><br>&lt; input type=”hidden” name=”field＿name” value=”value”&gt;</li>
+        <ul>
+<li>form表单，用来将用户输入的数据和内容传输到后台服务器，服务器处理完成后将结果传送到客户端</li>
 </ul>
-</blockquote>
-<p><strong>作用：</strong> </p>
 <ul>
-<li><p>1、隐藏域在页面中对于用户是不可见的，在表单中插入隐藏域的目的在于收集或发送信息，以利于被处理表单的程序所使用。浏览者单击发送按钮发送表单的时候，隐藏域的信息也被一起发送到服务器。</p>
+<li>常用的input标签<blockquote>
+<p>type=”text”用来输入文本，默认宽度为20个字符<br>type=”password”用来输入密码，字段中的字符会显示为星号或者点<br>type=”radio”定义单选按钮（name相同并且定义value值才能实现单选）<br>type=”checkbox”定义复选框，加checked属性默认被选上。<br>type=”textarea”文本域，用来输入多行文本<br>type=”hidden”隐藏域，用户看不到，用于暂存数据或者安全性校验，以便之后被JS提取，比如一个非常重要的信息需要被提交到下一页，但又不能或者无法明示的时候。<br>type=”submit”定义提交按钮，提交按按钮会把表单数据发送到服务器<br>type=”reset”定义重置按钮，重置按钮会清除表单中的所有数据</p>
+</blockquote>
 </li>
-<li><p>2、有些时候我们要给用户一信息，让他在提交表单时提交上来以确定用户身份，如sessionkey，等等．当然这些东西也能用cookie实现，但使用隐藏域就简单的多了．而且不会有浏览器不支持，用户禁用cookie的烦恼。 </p>
+</ul>
+<ul>
+<li><p>在input里，name属性是用来区分表单元素的，浏览器将数据以[name]=[用户输入内容]形式传送给服务器，也就是name用来记录和传送用户数据。</p>
 </li>
-<li><p>3、有些时候一个form里有多个提交按钮，怎样使程序能够分清楚到底用户是按那一个按钮提交上来的呢？我们就可以写一个隐藏域，然后在每一个按钮处加上onclick=”document.form.command.value=”xx””，然后我们接到数据后先检查command的值就会知道用户是按的那个按钮提交上来的。 </p>
+<li><p><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;提交&lt;/a&gt;</code>、<code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code> </p>
 </li>
-<li><p>4、有时候一个网页中有多个form，我们知道多个form是不能同时提交的，但有时这些form确实相互作用，我们就可以在form中添加隐藏域来使它们联系起来。 </p>
+<li><code>&lt;button&gt;提交&lt;/button&gt;</code>是一个按钮控件，一般执行js代码实现一定的功能或效果。元素内可以放置图像、文本或者多媒体内容。</li>
+</ul>
+<blockquote>
+<p>W3C：如果在 HTML 表单中使用 button 元素，不同的浏览器会提交不同的值。Internet Explorer 将提交<code>&lt;button&gt;</code> 与 <code>&lt;button/&gt;</code> 之间的文本，而其他浏览器将提交 value 属性的内容。（但一般提交数据还是用from表单）</p>
+</blockquote>
+<ul>
+<li><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;</code>提交<code>&lt;/a&gt;:</code>是一个带有跳转功能的a连接，一般用于链接到另一个网页，“#”表示跳转至本页。</li>
+<li><p><code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;：</code>是一个具有提交功能的表单元素，实现将用户输入的数据或信息传递给服务器。</p>
 </li>
-<li><p>5、javascript不支持全局变量，但有时我们必须用全局变量，我们就可以把值先存在隐藏域里，它的值就不会丢失了。 </p>
+<li><p>radio 通过具有相同值的name属性进行分组，name的值一定要一致，才能有单选效果</p>
 </li>
-<li><p>6、还有个例子，比如按一个按钮弹出四个小窗口，当点击其中的一个小窗口时其他三个自动关闭．可是IE不支持小窗口相互调用，所以只有在父窗口写个隐藏域，当小窗口看到那个隐藏域的值是close时就自己关掉。</p>
-</li>
+</ul>
+<ul>
+<li>placeholder 属性,* 占位符，placeholder一般用在文本框或文本域，最为用户输入信息的提示，并不是实际占有文本内容，获取焦点后消失。</li>
 </ul>
 
       
@@ -802,13 +820,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/css/">css</a>
+    <a class="article-category-link" href="/categories/随笔/">随笔</a><a class="article-category-link" href="/categories/随笔/css/">css</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css属性/">css属性</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/form表单/">form表单</a></li></ul>
     </div>
 
       

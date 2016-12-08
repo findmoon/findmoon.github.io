@@ -855,6 +855,101 @@ Socket可以看成在两个程序进行通讯连接中的一个端点，一个�
 
 
   
+    <article id="post-从输入URL到页面加载完成的过程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/24/从输入URL到页面加载完成的过程/" class="article-date">
+      <time datetime="2016-05-24T03:19:32.000Z" itemprop="datePublished">2016-05-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/24/从输入URL到页面加载完成的过程/">从输入URL到页面加载完成的过程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="从输入URL到页面加载完成的过程"><a href="#从输入URL到页面加载完成的过程" class="headerlink" title="从输入URL到页面加载完成的过程"></a>从输入URL到页面加载完成的过程</h2><p><a href="http://my.oschina.net/xiaotian120/blog/268501" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>当你输入一个网址的时候，实际会发生什么，作为一个开发者，一定会对这整个工作过程感兴趣，下面分多篇文章介绍这整个过程，期间涉及DNS，TCP三次握手，数据包路由过程，服务器大致的响应处理过程，以及长连接的保持和TCP连接的关闭。</p>
+</blockquote>
+<p>-下面简单列出请求过程中比较重要的步骤：</p>
+<pre><code>1、在浏览器里输入网址，Enter，浏览器向DNS发送请求，查找域名对应IP
+
+2、浏览器根据返回的请求域名IP，加上请求端口（默认80），和请求资源（资源位置为/或者index.html之类的），组装请求后浏览器发送请求
+
+[从输入URL到页面加载完成的过程-DNS解析域名过程]
+
+3、传输层发现没有和目标IP建立连接，因此发起请求建立连接，发生3次握手建立TCP连接的过程
+
+ 从输入URL到页面加载完成的过程-TCP三次握手
+
+4、建立连接后，发送请求资源的数据包，请求类型假设是GET（只请求获取资源内容），系统经过传输层、网络层、数据链路层的层层封装，最终发出数据包
+
+ 从输入URL到页面加载完成的过程-数据包组装过程
+
+5、数据包在NAT设备和多个路由器上流转，经过漫长的跳转到达服务器的NAT设备，NAT根据请求端口把请求转发给内网服务器
+
+6、服务器接受请求后，可能直接使用缓存，也可能会把请求发到web server进行解析，最终经过服务器解析后，组装响应内容，向客户端发送响应数据。响应数据包经过网络返回到客户端NAT，并经过NAT转发后到达客户端
+
+7、客户端网络各层把数据包层层解包，并在应用层把数据包（数据包可能有多个，当都到达后，才会把完整的数据包给浏览器）返回给浏览器解析
+
+8、浏览器根据响应的HTTP头和实体内容，解析数据包。并继续请求页面中需要加载的一些其他资源，如果此时请求的资源在CDN（内容分发网络，就是在你家附近的服务器存放有请求的这些静态资源；减少网络延迟的办法一个是使用更好的传输介质-比如光纤，一个是缩短传输距离-CDN就是利用这个），则从CDN获取资源（过程和请求服务器资源一致，需要经过三次握手建立连接）；如果是继续获取原来服务器（敲入域名对应的IP），则继续重用原来的TCP连接（前提是使用HTTP1.1，而HTTP1.0有keep-alive头部可以达到保持连接的效果）。
+
+9、请求资源后，空闲一段时间没有和服务器进行交互（空闲时间是设置的，有的应用为了不断开TCP连接，会每隔一段时间发送一次请求到服务器，从而保持连接，这样用户在发起真实的资源请求时，就可以省略TCP连接建立的过程，但是这样的连接过多会消耗服务器的资源），就会发生TCP连接关闭过程，关闭过程会发生四次交互。
+
+10、TCP传输数据过程中的慢启动、拥塞预防和控制
+
+11、从请求交互过程总结的优化方法
+
+ 以上这些每一点都会单独写篇文章配图分析，敬请期待。文章内容参考网络资源、《HTTP权威指南》、《WEB性能权威指南》。最后说下最近的看书感受，Know hardware to design better software，了解底层能让自己看的更全面些。
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/网站/">网站</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url加载/">url加载</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-从输入URL到页面加载完成的过程-数据包组装过程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -947,101 +1042,6 @@ Socket可以看成在两个程序进行通讯连接中的一个端点，一个�
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据包组装/">数据包组装</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-从输入URL到页面加载完成的过程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/24/从输入URL到页面加载完成的过程/" class="article-date">
-      <time datetime="2016-05-24T03:19:32.000Z" itemprop="datePublished">2016-05-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/24/从输入URL到页面加载完成的过程/">从输入URL到页面加载完成的过程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="从输入URL到页面加载完成的过程"><a href="#从输入URL到页面加载完成的过程" class="headerlink" title="从输入URL到页面加载完成的过程"></a>从输入URL到页面加载完成的过程</h2><p><a href="http://my.oschina.net/xiaotian120/blog/268501" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>当你输入一个网址的时候，实际会发生什么，作为一个开发者，一定会对这整个工作过程感兴趣，下面分多篇文章介绍这整个过程，期间涉及DNS，TCP三次握手，数据包路由过程，服务器大致的响应处理过程，以及长连接的保持和TCP连接的关闭。</p>
-</blockquote>
-<p>-下面简单列出请求过程中比较重要的步骤：</p>
-<pre><code>1、在浏览器里输入网址，Enter，浏览器向DNS发送请求，查找域名对应IP
-
-2、浏览器根据返回的请求域名IP，加上请求端口（默认80），和请求资源（资源位置为/或者index.html之类的），组装请求后浏览器发送请求
-
-[从输入URL到页面加载完成的过程-DNS解析域名过程]
-
-3、传输层发现没有和目标IP建立连接，因此发起请求建立连接，发生3次握手建立TCP连接的过程
-
- 从输入URL到页面加载完成的过程-TCP三次握手
-
-4、建立连接后，发送请求资源的数据包，请求类型假设是GET（只请求获取资源内容），系统经过传输层、网络层、数据链路层的层层封装，最终发出数据包
-
- 从输入URL到页面加载完成的过程-数据包组装过程
-
-5、数据包在NAT设备和多个路由器上流转，经过漫长的跳转到达服务器的NAT设备，NAT根据请求端口把请求转发给内网服务器
-
-6、服务器接受请求后，可能直接使用缓存，也可能会把请求发到web server进行解析，最终经过服务器解析后，组装响应内容，向客户端发送响应数据。响应数据包经过网络返回到客户端NAT，并经过NAT转发后到达客户端
-
-7、客户端网络各层把数据包层层解包，并在应用层把数据包（数据包可能有多个，当都到达后，才会把完整的数据包给浏览器）返回给浏览器解析
-
-8、浏览器根据响应的HTTP头和实体内容，解析数据包。并继续请求页面中需要加载的一些其他资源，如果此时请求的资源在CDN（内容分发网络，就是在你家附近的服务器存放有请求的这些静态资源；减少网络延迟的办法一个是使用更好的传输介质-比如光纤，一个是缩短传输距离-CDN就是利用这个），则从CDN获取资源（过程和请求服务器资源一致，需要经过三次握手建立连接）；如果是继续获取原来服务器（敲入域名对应的IP），则继续重用原来的TCP连接（前提是使用HTTP1.1，而HTTP1.0有keep-alive头部可以达到保持连接的效果）。
-
-9、请求资源后，空闲一段时间没有和服务器进行交互（空闲时间是设置的，有的应用为了不断开TCP连接，会每隔一段时间发送一次请求到服务器，从而保持连接，这样用户在发起真实的资源请求时，就可以省略TCP连接建立的过程，但是这样的连接过多会消耗服务器的资源），就会发生TCP连接关闭过程，关闭过程会发生四次交互。
-
-10、TCP传输数据过程中的慢启动、拥塞预防和控制
-
-11、从请求交互过程总结的优化方法
-
- 以上这些每一点都会单独写篇文章配图分析，敬请期待。文章内容参考网络资源、《HTTP权威指南》、《WEB性能权威指南》。最后说下最近的看书感受，Know hardware to design better software，了解底层能让自己看的更全面些。
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术/">技术</a><a class="article-category-link" href="/categories/技术/网站/">网站</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url加载/">url加载</a></li></ul>
     </div>
 
       
