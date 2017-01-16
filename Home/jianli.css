@@ -12,6 +12,9 @@
 			width: 100%;
 			height: 100%;
 		}
+		body{
+			background: linear-gradient(rgba(56, 111, 84, 0.5), rgba(242, 202, 118, 0.5) 25%, rgba(56, 150, 118, 0.5) 25%, rgba(179, 149, 121, 0.5) 40%, rgba(179, 149, 121, 0.5) 40%, rgba(143, 178, 200, 0.5) 75%, rgba(143, 178, 200, 0.5) 75%, rgba(75, 103, 140, 0.5));
+		}
 		/*.index{
 			padding-bottom: 18%;
 		}*/
@@ -20,6 +23,9 @@
 		    /*padding: 18% 0 18% 0;*/
 		    /*padding-bottom: 18%; */
 		}
+/*		.works-items{
+			display: none;
+		}初次加载页面时总是第二屏幕占据很大一部分，bug并且影响体验*/
 		.work-wrap2{
 			display: table;
 			text-align: center;
@@ -155,7 +161,7 @@
 		}
 		
 		.index{
-			background: linear-gradient(rgba(56, 111, 84, 0.5), rgba(242, 202, 118, 0.5) 25%, rgba(56, 150, 118, 0.5) 25%, rgba(179, 149, 121, 0.5) 40%, rgba(179, 149, 121, 0.5) 40%, rgba(143, 178, 200, 0.5) 75%, rgba(143, 178, 200, 0.5) 75%, rgba(75, 103, 140, 0.5));
+			/*background: linear-gradient(rgba(56, 111, 84, 0.5), rgba(242, 202, 118, 0.5) 25%, rgba(56, 150, 118, 0.5) 25%, rgba(179, 149, 121, 0.5) 40%, rgba(179, 149, 121, 0.5) 40%, rgba(143, 178, 200, 0.5) 75%, rgba(143, 178, 200, 0.5) 75%, rgba(75, 103, 140, 0.5));*/
 			text-align: center;
 		}
 		.index h1{
@@ -330,4 +336,7 @@
 			    word-wrap: break-word;
 			    text-align: left;
     			color: #29EAB3;
+		}
+		.work-wrap2, .skills, .introduce{
+			display: none;
 		}

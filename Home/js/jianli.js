@@ -1,4 +1,10 @@
 $(function(){
+			$(".work-wrap2, .skills").css({
+				display: "table"
+			});
+			$(".introduce").css({
+				display: "block"
+			});
 			$('#fullpage').fullpage({
 				continuousVertical: true,
 				anchors:['page1','page2','page3','page4','page5'],

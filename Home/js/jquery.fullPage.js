@@ -5,7 +5,7 @@
  *
  * Copyright (C) 2015 alvarotrigo.com - A project by Alvaro Trigo
  */
-(function(global, factory) {
+$((function(global, factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
         define(['jquery'], function($) {
@@ -2903,4 +2903,4 @@
         }
     };
 
-});
+}));
