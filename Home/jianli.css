@@ -12,10 +12,13 @@
 			width: 100%;
 			height: 100%;
 		}
+		/*.index{
+			padding-bottom: 18%;
+		}*/
 		.inner-wrap{
 			height: 100%;
-		    padding-top: 18%;
-		    padding-bottom: 18%; 
+		    /*padding: 18% 0 18% 0;*/
+		    /*padding-bottom: 18%; */
 		}
 		.work-wrap2{
 			display: table;
