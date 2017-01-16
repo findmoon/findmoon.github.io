@@ -8,9 +8,14 @@
 		a{
 			text-decoration: none;
 		}
-		html body{
+		html body #fullpage .section{
 			width: 100%;
 			height: 100%;
+		}
+		.inner-wrap{
+			height: 100%;
+		    padding-top: 18%;
+		    padding-bottom: 18%; 
 		}
 		.work-wrap2{
 			display: table;
@@ -190,6 +195,7 @@
 			to {width:50%;}
 		}
 		.index .bar .connect{
+			height: 160px;
 			position: absolute;
 			top: -100%;
 			left: 30%;
